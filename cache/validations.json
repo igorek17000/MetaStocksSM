@@ -1877,9 +1877,9 @@
       "MetaStocks": {
         "src": "contracts/MetaStocks.sol:6",
         "version": {
-          "withMetadata": "199266515768a03f95d9b82da9e685d06b8e19fa6cb84563a92e7f853a89e500",
-          "withoutMetadata": "2ddd32e6536b21b51d852d2d787df87b3d6dbd682ada83d220cf43c4c54347e4",
-          "linkedWithoutMetadata": "2ddd32e6536b21b51d852d2d787df87b3d6dbd682ada83d220cf43c4c54347e4"
+          "withMetadata": "3d02b12fd2954872f75cffc063cdb76af16d9112b31db1d862c7e65cb84f63a1",
+          "withoutMetadata": "f0f562c44d8ca6ff20a8565bab589dad0204645b94614314fc4a9bc20cd9c961",
+          "linkedWithoutMetadata": "f0f562c44d8ca6ff20a8565bab589dad0204645b94614314fc4a9bc20cd9c961"
         },
         "inherit": [
           "MetaStocksERC20Upgradeable",
@@ -2031,7 +2031,7 @@
               "label": "feesManager",
               "offset": 1,
               "slot": "107",
-              "type": "t_contract(FeesManager)7426",
+              "type": "t_contract(FeesManager)7401",
               "contract": "MetaStocksERC20UpgradeableCore",
               "src": "contracts/metaStocks/MetaStocksERC20UpgradeableCore.sol:23"
             },
@@ -2039,7 +2039,7 @@
               "label": "dexRouterManager",
               "offset": 0,
               "slot": "108",
-              "type": "t_contract(DexRouterManager)7068",
+              "type": "t_contract(DexRouterManager)7043",
               "contract": "MetaStocksERC20UpgradeableCore",
               "src": "contracts/metaStocks/MetaStocksERC20UpgradeableCore.sol:25"
             },
@@ -2069,11 +2069,11 @@
               "label": "bool",
               "numberOfBytes": "1"
             },
-            "t_contract(DexRouterManager)7068": {
+            "t_contract(DexRouterManager)7043": {
               "label": "contract DexRouterManager",
               "numberOfBytes": "20"
             },
-            "t_contract(FeesManager)7426": {
+            "t_contract(FeesManager)7401": {
               "label": "contract FeesManager",
               "numberOfBytes": "20"
             },
@@ -2307,14 +2307,14 @@
       "DexRouterManager": {
         "src": "contracts/managers/DexRouterManager.sol:8",
         "version": {
-          "withMetadata": "68a30b1b1f9d1c65cc577deaa52fe2cefe4f09f6a556dc62c9743b08aaa33591",
-          "withoutMetadata": "701cb9609dffc0617268f7a52d2ba6b0567931f54d3ca5ef37384936b173b59c",
-          "linkedWithoutMetadata": "701cb9609dffc0617268f7a52d2ba6b0567931f54d3ca5ef37384936b173b59c"
+          "withMetadata": "ab4924eeba66529b999b4110c489d515d0c0bf27f84323c98a8515923a43b039",
+          "withoutMetadata": "c68d1d98f4124a19100919feb472e996e01546dd46486a2e262aa97d456d1ed7",
+          "linkedWithoutMetadata": "c68d1d98f4124a19100919feb472e996e01546dd46486a2e262aa97d456d1ed7"
         },
         "inherit": [],
         "libraries": [],
         "methods": [
-          "(address)",
+          "(address,address,uint256)",
           "getDexRouter()",
           "isInSwap()",
           "getNativeTokenAddress(uint256)",
@@ -2462,7 +2462,7 @@
               "label": "txFees",
               "offset": 0,
               "slot": "0",
-              "type": "t_struct(TransactionFees)8617_storage",
+              "type": "t_struct(TransactionFees)8607_storage",
               "contract": "FeesManager",
               "src": "contracts/managers/feesManagers/FeesManager.sol:11"
             },
@@ -2496,7 +2496,7 @@
               "label": "mapping(address => bool)",
               "numberOfBytes": "32"
             },
-            "t_struct(TransactionFees)8617_storage": {
+            "t_struct(TransactionFees)8607_storage": {
               "label": "struct TransactionFees",
               "members": [
                 {
@@ -3464,9 +3464,9 @@
       "MetaStocksERC20Upgradeable": {
         "src": "contracts/metaStocks/MetaStocksERC20Upgradeable.sol:14",
         "version": {
-          "withMetadata": "b8330b0d03d2dd44b9a625b90b2bd1e66639a730165016863b05995de03d9d49",
-          "withoutMetadata": "37cccff5ea973e5d8476424837accb1e4582c4aa467c21464695925df6876987",
-          "linkedWithoutMetadata": "37cccff5ea973e5d8476424837accb1e4582c4aa467c21464695925df6876987"
+          "withMetadata": "99ba33d68c4f18929d549397ab3d7c54bd491da18ff88122ef13d20747ca3bf5",
+          "withoutMetadata": "e9a2963c90d506190f7c897bf62114488a7a063f99ae94cd5b51e84369678d0f",
+          "linkedWithoutMetadata": "e9a2963c90d506190f7c897bf62114488a7a063f99ae94cd5b51e84369678d0f"
         },
         "inherit": [
           "MetaStocksERC20UpgradeableCore",
@@ -3619,7 +3619,7 @@
               "label": "feesManager",
               "offset": 1,
               "slot": "107",
-              "type": "t_contract(FeesManager)7426",
+              "type": "t_contract(FeesManager)7401",
               "contract": "MetaStocksERC20UpgradeableCore",
               "src": "contracts/metaStocks/MetaStocksERC20UpgradeableCore.sol:23"
             },
@@ -3627,7 +3627,7 @@
               "label": "dexRouterManager",
               "offset": 0,
               "slot": "108",
-              "type": "t_contract(DexRouterManager)7068",
+              "type": "t_contract(DexRouterManager)7043",
               "contract": "MetaStocksERC20UpgradeableCore",
               "src": "contracts/metaStocks/MetaStocksERC20UpgradeableCore.sol:25"
             },
@@ -3657,11 +3657,11 @@
               "label": "bool",
               "numberOfBytes": "1"
             },
-            "t_contract(DexRouterManager)7068": {
+            "t_contract(DexRouterManager)7043": {
               "label": "contract DexRouterManager",
               "numberOfBytes": "20"
             },
-            "t_contract(FeesManager)7426": {
+            "t_contract(FeesManager)7401": {
               "label": "contract FeesManager",
               "numberOfBytes": "20"
             },
@@ -3779,7 +3779,7 @@
               "label": "feesManager",
               "offset": 1,
               "slot": "6",
-              "type": "t_contract(FeesManager)7426",
+              "type": "t_contract(FeesManager)7401",
               "contract": "MetaStocksERC20UpgradeableCore",
               "src": "contracts/metaStocks/MetaStocksERC20UpgradeableCore.sol:23"
             },
@@ -3787,7 +3787,7 @@
               "label": "dexRouterManager",
               "offset": 0,
               "slot": "7",
-              "type": "t_contract(DexRouterManager)7068",
+              "type": "t_contract(DexRouterManager)7043",
               "contract": "MetaStocksERC20UpgradeableCore",
               "src": "contracts/metaStocks/MetaStocksERC20UpgradeableCore.sol:25"
             },
@@ -3809,11 +3809,11 @@
               "label": "bool",
               "numberOfBytes": "1"
             },
-            "t_contract(DexRouterManager)7068": {
+            "t_contract(DexRouterManager)7043": {
               "label": "contract DexRouterManager",
               "numberOfBytes": "20"
             },
-            "t_contract(FeesManager)7426": {
+            "t_contract(FeesManager)7401": {
               "label": "contract FeesManager",
               "numberOfBytes": "20"
             },
@@ -3832,8 +3832,8 @@
       }
     },
     {
-      "IMetaStockFranchiseShare": {
-        "src": "contracts/interfaces/metaStockInterfaces/IMetaStockFranchiseShare.sol:4",
+      "IMetaStockCompanyInfo": {
+        "src": "contracts/interfaces/metaStockInterfaces/IMetaStockCompanyInfo.sol:4",
         "inherit": [],
         "libraries": [],
         "methods": [
@@ -4130,24 +4130,6 @@
         "inherit": [],
         "libraries": [],
         "methods": [],
-        "linkReferences": [],
-        "errors": [],
-        "layout": {
-          "storage": [],
-          "types": {},
-          "layoutVersion": "1.1",
-          "flat": false
-        }
-      }
-    },
-    {
-      "IMetaStockCompanyInfo": {
-        "src": "contracts/interfaces/metaStockInterfaces/IMetaStockCompanyInfo.sol:4",
-        "inherit": [],
-        "libraries": [],
-        "methods": [
-          "createFranchise()"
-        ],
         "linkReferences": [],
         "errors": [],
         "layout": {
@@ -4925,6 +4907,24 @@
         "inherit": [],
         "libraries": [],
         "methods": [],
+        "linkReferences": [],
+        "errors": [],
+        "layout": {
+          "storage": [],
+          "types": {},
+          "layoutVersion": "1.1",
+          "flat": false
+        }
+      }
+    },
+    {
+      "IMetaStockFranchiseShare": {
+        "src": "contracts/interfaces/metaStockInterfaces/IMetaStockFranchiseShare.sol:4",
+        "inherit": [],
+        "libraries": [],
+        "methods": [
+          "createFranchise()"
+        ],
         "linkReferences": [],
         "errors": [],
         "layout": {

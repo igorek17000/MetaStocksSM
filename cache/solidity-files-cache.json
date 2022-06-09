@@ -734,8 +734,8 @@
       ]
     },
     "/home/nkt/Desktop/metaStoksContracts/contracts/metaStocks/MetaStocksERC20UpgradeableCore.sol": {
-      "lastModificationDate": 1654775611643,
-      "contentHash": "198d406cf25e874862258f1dd9b12aba",
+      "lastModificationDate": 1654777588802,
+      "contentHash": "2a89d77458c54c4cd47f86dcbbaea86b",
       "sourceName": "contracts/metaStocks/MetaStocksERC20UpgradeableCore.sol",
       "solcConfig": {
         "version": "0.8.14",
@@ -850,8 +850,8 @@
       ]
     },
     "/home/nkt/Desktop/metaStoksContracts/contracts/managers/DexRouterManager.sol": {
-      "lastModificationDate": 1654771669295,
-      "contentHash": "1ca217ec8e6e63b0f3c87f999b6db0ef",
+      "lastModificationDate": 1654777586170,
+      "contentHash": "af22695e96832ec268d653df4328b80b",
       "sourceName": "contracts/managers/DexRouterManager.sol",
       "solcConfig": {
         "version": "0.8.14",
@@ -1003,8 +1003,8 @@
       ]
     },
     "/home/nkt/Desktop/metaStoksContracts/contracts/metaStocks/MetaStocksERC20Upgradeable.sol": {
-      "lastModificationDate": 1654775625139,
-      "contentHash": "d5c54d8dde62592b3f50aca5c25497ef",
+      "lastModificationDate": 1654777319344,
+      "contentHash": "6888a9583be4318da88f4b1e2b71c29c",
       "sourceName": "contracts/metaStocks/MetaStocksERC20Upgradeable.sol",
       "solcConfig": {
         "version": "0.8.14",
@@ -2289,7 +2289,7 @@
       ]
     },
     "/home/nkt/Desktop/metaStoksContracts/contracts/MetaStocks.sol": {
-      "lastModificationDate": 1654774465102,
+      "lastModificationDate": 1654777609515,
       "contentHash": "b998649ea5c345f179203bb57fe003b5",
       "sourceName": "contracts/MetaStocks.sol",
       "solcConfig": {
