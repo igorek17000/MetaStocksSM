@@ -1,5 +1,5 @@
 // SPDX-License-Identifier: MIT
-pragma solidity ^0.8.13;
+pragma solidity ^0.8.14;
 
 interface IJoeRouter01 {
     function factory() external pure returns (address);
@@ -16,12 +16,12 @@ interface IJoeRouter01 {
         address to,
         uint256 deadline
     )
-    external
-    returns (
-        uint256 amountA,
-        uint256 amountB,
-        uint256 liquidity
-    );
+        external
+        returns (
+            uint256 amountA,
+            uint256 amountB,
+            uint256 liquidity
+        );
 
     function addLiquidityAVAX(
         address token,
@@ -31,13 +31,13 @@ interface IJoeRouter01 {
         address to,
         uint256 deadline
     )
-    external
-    payable
-    returns (
-        uint256 amountToken,
-        uint256 amountAVAX,
-        uint256 liquidity
-    );
+        external
+        payable
+        returns (
+            uint256 amountToken,
+            uint256 amountAVAX,
+            uint256 liquidity
+        );
 
     function removeLiquidity(
         address tokenA,
@@ -150,12 +150,12 @@ interface IJoeRouter01 {
     ) external pure returns (uint256 amountIn);
 
     function getAmountsOut(uint256 amountIn, address[] calldata path)
-    external
-    view
-    returns (uint256[] memory amounts);
+        external
+        view
+        returns (uint256[] memory amounts);
 
     function getAmountsIn(uint256 amountOut, address[] calldata path)
-    external
-    view
-    returns (uint256[] memory amounts);
+        external
+        view
+        returns (uint256[] memory amounts);
 }

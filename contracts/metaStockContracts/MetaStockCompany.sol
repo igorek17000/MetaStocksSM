@@ -11,7 +11,7 @@ import "@openzeppelin/contracts/token/ERC1155/utils/ERC1155Holder.sol";
 import "@openzeppelin/contracts/token/ERC1155/IERC1155Receiver.sol";
 import "@openzeppelin/contracts/token/ERC20/ERC20.sol";
 
-import "./../interfaces/IMetaStockFranchise.sol";
+import "./../interfaces/metaStockInterfaces/IMetaStockFranchise.sol";
 
 contract MetaStockCompany is
     Initializable,
@@ -61,26 +61,6 @@ contract MetaStockCompany is
 
     function _burn(uint256 tokenId) internal override(ERC721Upgradeable) {
         super._burn(tokenId);
-    }
-
-    function onERC1155Received(
-        address,
-        address,
-        uint256,
-        uint256,
-        bytes calldata
-    ) public pure override(ERC1155Holder, IERC1155Receiver) returns (bytes4) {
-        return this.onERC1155Received.selector;
-    }
-
-    function onERC1155BatchReceived(
-        address,
-        address,
-        uint256[] calldata,
-        uint256[] calldata,
-        bytes calldata
-    ) public pure override(ERC1155Holder, IERC1155Receiver) returns (bytes4) {
-        return this.onERC1155BatchReceived.selector;
     }
 
     function supportsInterface(bytes4 interfaceId)

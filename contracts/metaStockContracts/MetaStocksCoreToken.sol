@@ -5,8 +5,8 @@ import "@openzeppelin/contracts/token/ERC20/IERC20.sol";
 import "@uniswap/v2-periphery/contracts/interfaces/IUniswapV2Router02.sol";
 import "@uniswap/v2-core/contracts/interfaces/IUniswapV2Factory.sol";
 import "@openzeppelin/contracts-upgradeable/token/ERC20/ERC20Upgradeable.sol";
-import "./../managers/FeesManager.sol";
-import "./../managers/FeesSplitManager.sol";
+import "./../managers/feesManagers/FeesManager.sol";
+import "./../managers/feesManagers/FeesSplitManager.sol";
 import "./../managers/DexRouterManager.sol";
 
 contract MetaStocksCoreToken is ERC20Upgradeable {
