@@ -6,10 +6,11 @@ import "@uniswap/v2-periphery/contracts/interfaces/IUniswapV2Router02.sol";
 import "@uniswap/v2-core/contracts/interfaces/IUniswapV2Factory.sol";
 import "@openzeppelin/contracts-upgradeable/token/ERC20/ERC20Upgradeable.sol";
 import "./../managers/feesManagers/FeesManager.sol";
+import "./../interfaces/dexRouterInterfaces/IAutoLiquidityInjecter.sol";
 import "./../managers/feesManagers/FeesSplitManager.sol";
 import "./../managers/DexRouterManager.sol";
 
-contract MetaStocksCoreToken is ERC20Upgradeable {
+contract MetaStocksCoreToken is ERC20Upgradeable, IAutoLiquidityInjecter {
     // ADDRESSESS -------------------------------------------------------------------------------------------
     address private owner; // contract owner
     address private DEAD_ADDRESS; // DEAD Address for burn tokens
@@ -17,7 +18,6 @@ contract MetaStocksCoreToken is ERC20Upgradeable {
     uint256 private swapThreshold; // swap tokens limit
     uint256 private maxWalletAmount; // max balance amount (Anti-whale)
     uint256 private maxTransactionAmount; // max balance amount (Anti-whale)
-    bool private inSwap; // used for dont take fee on swaps
     bool private tradingEnabled;
 
     FeesManager private feesManager;
@@ -140,7 +140,7 @@ contract MetaStocksCoreToken is ERC20Upgradeable {
 
         // if transaction are internal transfer when contract is swapping
         // transfer no fee
-        if (inSwap) {
+        if (dexRouterManager.isInSwap()) {
             super._transfer(from, to, amount);
             return;
         }
@@ -158,7 +158,7 @@ contract MetaStocksCoreToken is ERC20Upgradeable {
             );
 
             // inject liquidity
-            autoLiquidity((numTokensToSwap * 123) / 10000);
+            autoInjectLiquidity((numTokensToSwap * 123) / 10000);
 
             //burn((numTokensToSwap * autoLiquidityPercent) / masterTaxDivisor);
 
@@ -168,7 +168,7 @@ contract MetaStocksCoreToken is ERC20Upgradeable {
         _finalizeTransfer(from, to, amount);
     }
 
-    function autoLiquidity(uint256 tokenAmount) public {
+    function autoInjectLiquidity(uint256 tokenAmount) public {
         // split the contract balance into halves
         uint256 half = tokenAmount / 2;
 
@@ -179,13 +179,13 @@ contract MetaStocksCoreToken is ERC20Upgradeable {
         uint256 initialBalance = address(this).balance;
 
         // swap tokens for ETH
-        //swapTokensForBNB(half); // <- this breaks the ETH -> HATE swap when swap+liquify is triggered
+        dexRouterManager.swapTokensForBNB(self(), self(), half); // <- this breaks the ETH -> HATE swap when swap+liquify is triggered
 
         // how much ETH did we just swap into?
         uint256 newBalance = address(this).balance - initialBalance;
 
         // add liquidity to uniswap
-        //addLiquidity(half, newBalance);
+        //dexRouterManager.addLiquidity(self(), owner, half, newBalance);
     }
 
     function contractMustSwap(address from, address to)
@@ -197,7 +197,7 @@ contract MetaStocksCoreToken is ERC20Upgradeable {
         uint256 contractTokenBalance = balanceOf(self());
         return
             contractTokenBalance >= swapThreshold &&
-            !inSwap &&
+            !dexRouterManager.isInSwap() &&
             from != lpPair &&
             balanceOf(lpPair) > 0 &&
             !_isExcludedFromFee[to] &&
@@ -259,7 +259,7 @@ contract MetaStocksCoreToken is ERC20Upgradeable {
             to != owner &&
             to != address(0) &&
             to != address(0xdead) &&
-            !inSwap
+            !dexRouterManager.isInSwap()
         ) {
             require(tradingEnabled, "Trading not active");
 

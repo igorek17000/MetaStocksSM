@@ -21,16 +21,16 @@ contract DexRouterManager {
         stableCoin = _stableCoin;
     }
 
-    function getDexRouter() public view returns (IMetaStocksMultiDexRouter) {
+    function getDexRouter() external view returns (IMetaStocksMultiDexRouter) {
         return dexRouter;
     }
 
-    function isInSwap() public view returns (bool) {
+    function isInSwap() external view returns (bool) {
         return inSwap;
     }
 
     function getNativeNetworkCurrencyAddress(uint256 networkId)
-        public
+        external
         pure
         returns (uint256)
     {
@@ -49,7 +49,7 @@ contract DexRouterManager {
         return address(dexRouter);
     }
 
-    function swapTokensForStableCoin(address to, uint256 amount) public {
+    function swapTokensForStableCoin(address to, uint256 amount) external {
         address[] memory path = new address[](3);
         path[0] = address(this);
         path[1] = dexRouter.WETH();
@@ -72,7 +72,7 @@ contract DexRouterManager {
         address token,
         address to,
         uint256 amount
-    ) public {
+    ) external {
         // generate the uniswap pair path of token -> weth
         address[] memory path = new address[](2);
         path[0] = token;
@@ -106,7 +106,7 @@ contract DexRouterManager {
         address to,
         uint256 tokenAmount,
         uint256 ethAmount
-    ) private {
+    ) public {
         // approve token transfer to cover all possible scenarios
         IERC20(token).approve(address(dexRouter), type(uint256).max);
 
