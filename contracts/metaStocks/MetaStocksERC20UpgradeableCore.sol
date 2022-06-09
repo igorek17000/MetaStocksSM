@@ -143,7 +143,11 @@ abstract contract MetaStocksERC20UpgradeableCore {
             .createPair(tokenA, tokenB);
     }
 
-    function setRouter(address routerAddress) internal virtual onlyOwner {
-        dexRouterManager = new DexRouterManager(routerAddress);
+    function setRouter(address _routerAddress) internal virtual onlyOwner {
+        dexRouterManager = new DexRouterManager(
+            _routerAddress,
+            0x000000000000000000000000000000000000dEaD,
+            97
+        );
     }
 }

@@ -143,7 +143,12 @@ contract MetaStocksERC20Upgradeable is
         uint256 newBalance = address(this).balance - initialBalance;
 
         // add liquidity to uniswap
-        //dexRouterManager.addLiquidity(self(), owner, half, newBalance);
+        super.getDexRouterManager().addLiquidity(
+            self(),
+            getOwner(),
+            half,
+            newBalance
+        );
     }
 
     function _beforeTransferCheck(
