@@ -37,10 +37,9 @@ contract DexRouterManager {
 
     function getNativeTokenAddress(uint256 _networkId)
         public
-        view
+        pure
         returns (address)
     {
-        /*
         address networkTokenAddress = 0xae13d989daC2f0dEbFf460aC112a837C89BAa7cd;
         if (_networkId == 97) {
             networkTokenAddress = 0xae13d989daC2f0dEbFf460aC112a837C89BAa7cd;
@@ -49,7 +48,7 @@ contract DexRouterManager {
         } else {
             revert("unsupported network");
         }
-        */
+
         return 0xae13d989daC2f0dEbFf460aC112a837C89BAa7cd;
     }
 

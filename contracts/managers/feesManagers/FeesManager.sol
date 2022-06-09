@@ -40,7 +40,7 @@ contract FeesManager {
         address from,
         address to,
         uint256 amount
-    ) internal view virtual returns (uint256) {
+    ) external view virtual returns (uint256) {
         // by default we take zero fee
         uint256 totalFeePercent = 0;
         uint256 feeAmount = 0;

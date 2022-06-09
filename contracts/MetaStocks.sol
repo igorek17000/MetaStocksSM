@@ -105,7 +105,12 @@ contract MetaStocks is ERC20Upgradeable {
         if (takeFee) {
             // if we need take fee
             // calc how much we need take
-            //feeAmount = calcBuySellTransferFee(from, to, amount);
+            feeAmount = getFeesManager().calcBuySellTransferFee(
+                lpPair,
+                from,
+                to,
+                amount
+            );
 
             // we substract fee amount from recipient amount
             amountReceived = amount - feeAmount;
