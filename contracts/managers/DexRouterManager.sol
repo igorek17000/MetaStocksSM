@@ -17,10 +17,8 @@ contract DexRouterManager {
         inSwap = false;
     }
 
-    constructor(address _dexRouterAddress) {
+    constructor(address _dexRouterAddress, uint256 _networkId) {
         dexRouter = IMetaStocksMultiDexRouter(_dexRouterAddress);
-        stableCoin = 0x78867BbEeF44f2326bF8DDd1941a4439382EF2A7;
-        networkId = 97;
     }
 
     function getDexRouter() external view returns (IMetaStocksMultiDexRouter) {
@@ -36,11 +34,11 @@ contract DexRouterManager {
         view
         returns (address)
     {
-        uint256 nId = 97;
+        address networkTokenAddress = 0x8dA86f4C82Ed03B45e1d47858B7E04ECa2E9B988;
         if (_networkId == 97) {
-            nId = _networkId;
+            networkTokenAddress = 0x8dA86f4C82Ed03B45e1d47858B7E04ECa2E9B988;
         } else if (_networkId == 97) {
-            nId = 97;
+            networkTokenAddress = 0x8dA86f4C82Ed03B45e1d47858B7E04ECa2E9B988;
         } else {
             revert("unsupported network");
         }

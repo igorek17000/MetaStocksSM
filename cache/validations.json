@@ -3832,8 +3832,8 @@
       }
     },
     {
-      "IMetaStockCompanyInfo": {
-        "src": "contracts/interfaces/metaStockInterfaces/IMetaStockCompanyInfo.sol:4",
+      "IMetaStockFranchiseShare": {
+        "src": "contracts/interfaces/metaStockInterfaces/IMetaStockFranchiseShare.sol:4",
         "inherit": [],
         "libraries": [],
         "methods": [
@@ -4141,8 +4141,8 @@
       }
     },
     {
-      "IMetaStockFranchiseShare": {
-        "src": "contracts/interfaces/metaStockInterfaces/IMetaStockFranchiseShare.sol:4",
+      "IMetaStockCompanyInfo": {
+        "src": "contracts/interfaces/metaStockInterfaces/IMetaStockCompanyInfo.sol:4",
         "inherit": [],
         "libraries": [],
         "methods": [
