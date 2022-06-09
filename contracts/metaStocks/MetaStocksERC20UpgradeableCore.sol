@@ -146,7 +146,7 @@ abstract contract MetaStocksERC20UpgradeableCore {
     function setRouter(address _routerAddress) internal virtual onlyOwner {
         dexRouterManager = new DexRouterManager(
             _routerAddress,
-            0x000000000000000000000000000000000000dEaD,
+            0x78867BbEeF44f2326bF8DDd1941a4439382EF2A7, // BUSD
             97
         );
     }

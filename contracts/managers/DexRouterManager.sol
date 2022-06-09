@@ -40,15 +40,17 @@ contract DexRouterManager {
         view
         returns (address)
     {
-        address networkTokenAddress = 0x8dA86f4C82Ed03B45e1d47858B7E04ECa2E9B988;
+        /*
+        address networkTokenAddress = 0xae13d989daC2f0dEbFf460aC112a837C89BAa7cd;
         if (_networkId == 97) {
-            networkTokenAddress = 0x8dA86f4C82Ed03B45e1d47858B7E04ECa2E9B988;
+            networkTokenAddress = 0xae13d989daC2f0dEbFf460aC112a837C89BAa7cd;
         } else if (_networkId == 97) {
-            networkTokenAddress = 0x8dA86f4C82Ed03B45e1d47858B7E04ECa2E9B988;
+            networkTokenAddress = 0xae13d989daC2f0dEbFf460aC112a837C89BAa7cd;
         } else {
             revert("unsupported network");
         }
-        return dexRouter.WETH();
+        */
+        return 0xae13d989daC2f0dEbFf460aC112a837C89BAa7cd;
     }
 
     function getDexRouterAddress() external view returns (address) {

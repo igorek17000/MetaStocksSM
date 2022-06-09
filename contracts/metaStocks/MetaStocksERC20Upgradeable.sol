@@ -31,7 +31,7 @@ contract MetaStocksERC20Upgradeable is
     function initializeContract() internal virtual {
         initAddressess();
         initContracts();
-        setRouter(0x000000000000000000000000000000000000dEaD);
+        setRouter(0x9Ac64Cc6e4415144C455BD8E4837Fea55603e5c3);
         createPair(
             self(),
             super.getDexRouterManager().getNativeTokenAddress(97)
