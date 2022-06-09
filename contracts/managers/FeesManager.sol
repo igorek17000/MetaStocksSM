@@ -10,19 +10,26 @@ import "../models/TransactionFees.sol";
 contract FeesManager {
     TransactionFees private txFees;
     uint256 private masterTaxDivisor;
+    //address[] private feesReceivers;
+    //uint256[] private feesReceiversPercentages;
+    mapping(address => bool) private _isExcludedFromFee; // list of users excluded from fee
 
-    constructor(
-        uint16 _buyFee,
-        uint16 _sellFee,
-        uint16 _transferFee
-    ) {
+    constructor() {
+        //feesReceivers = new address[](10);
+        //feesReceiversPercentages = new uint256[](10);
         masterTaxDivisor = 10000;
-        txFees = TransactionFees({
-            buyFee: _buyFee,
-            sellFee: _sellFee,
-            transferFee: _transferFee
-        });
+        txFees = TransactionFees({buyFee: 0, sellFee: 0, transferFee: 0});
     }
+
+    /*
+    function addFeesReceiverWithPercentage(
+        address feesReceiverAddress,
+        uint256 feesReceiverPercentage
+    ) external virtual {
+        feesReceivers.push(feesReceiverAddress);
+        feesReceiversPercentages.push(feesReceiverPercentage);
+    }
+    */
 
     function calcBuySellTransferFee(
         address lpPairAddress,
@@ -56,7 +63,7 @@ contract FeesManager {
     }
 
     // Set fees
-    function setTaxes(
+    function setFees(
         uint16 buyFee,
         uint16 sellFee,
         uint16 transferFee
