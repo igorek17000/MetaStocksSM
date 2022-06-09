@@ -205,8 +205,8 @@
       ]
     },
     "/home/nkt/Desktop/metaStoksContracts/contracts/managers/metaStocksManagers/MetaStocksCompanyManager.sol": {
-      "lastModificationDate": 1654775255562,
-      "contentHash": "81dad6c69f841feec3c7c3ca135301f7",
+      "lastModificationDate": 1654783374029,
+      "contentHash": "8b365ecca2ad920c5f822f0c43b80579",
       "sourceName": "contracts/managers/metaStocksManagers/MetaStocksCompanyManager.sol",
       "solcConfig": {
         "version": "0.8.14",
@@ -2201,7 +2201,7 @@
       ]
     },
     "/home/nkt/Desktop/metaStoksContracts/contracts/MetaStocks.sol": {
-      "lastModificationDate": 1654782636841,
+      "lastModificationDate": 1654782933316,
       "contentHash": "5c89376c25ea7125c6a614486ad0e565",
       "sourceName": "contracts/MetaStocks.sol",
       "solcConfig": {

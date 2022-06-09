@@ -11,6 +11,7 @@ import {
   PopulatedTransaction,
   BaseContract,
   ContractTransaction,
+  Overrides,
   PayableOverrides,
   CallOverrides,
 } from "ethers";
@@ -25,6 +26,7 @@ interface MetaStocksCompanyManagerInterface extends ethers.utils.Interface {
     "createCompany()": FunctionFragment;
     "getCompanyId(address)": FunctionFragment;
     "isCeo(address)": FunctionFragment;
+    "setMetaStockCompany(address)": FunctionFragment;
   };
 
   encodeFunctionData(
@@ -40,6 +42,10 @@ interface MetaStocksCompanyManagerInterface extends ethers.utils.Interface {
     values: [string]
   ): string;
   encodeFunctionData(functionFragment: "isCeo", values: [string]): string;
+  encodeFunctionData(
+    functionFragment: "setMetaStockCompany",
+    values: [string]
+  ): string;
 
   decodeFunctionResult(
     functionFragment: "ceosCompanies",
@@ -54,6 +60,10 @@ interface MetaStocksCompanyManagerInterface extends ethers.utils.Interface {
     data: BytesLike
   ): Result;
   decodeFunctionResult(functionFragment: "isCeo", data: BytesLike): Result;
+  decodeFunctionResult(
+    functionFragment: "setMetaStockCompany",
+    data: BytesLike
+  ): Result;
 
   events: {};
 }
@@ -117,6 +127,11 @@ export class MetaStocksCompanyManager extends BaseContract {
     ): Promise<[BigNumber]>;
 
     isCeo(account: string, overrides?: CallOverrides): Promise<[boolean]>;
+
+    setMetaStockCompany(
+      account: string,
+      overrides?: Overrides & { from?: string | Promise<string> }
+    ): Promise<ContractTransaction>;
   };
 
   ceosCompanies(arg0: string, overrides?: CallOverrides): Promise<BigNumber>;
@@ -129,6 +144,11 @@ export class MetaStocksCompanyManager extends BaseContract {
 
   isCeo(account: string, overrides?: CallOverrides): Promise<boolean>;
 
+  setMetaStockCompany(
+    account: string,
+    overrides?: Overrides & { from?: string | Promise<string> }
+  ): Promise<ContractTransaction>;
+
   callStatic: {
     ceosCompanies(arg0: string, overrides?: CallOverrides): Promise<BigNumber>;
 
@@ -140,6 +160,11 @@ export class MetaStocksCompanyManager extends BaseContract {
     ): Promise<BigNumber>;
 
     isCeo(account: string, overrides?: CallOverrides): Promise<boolean>;
+
+    setMetaStockCompany(
+      account: string,
+      overrides?: CallOverrides
+    ): Promise<void>;
   };
 
   filters: {};
@@ -157,6 +182,11 @@ export class MetaStocksCompanyManager extends BaseContract {
     ): Promise<BigNumber>;
 
     isCeo(account: string, overrides?: CallOverrides): Promise<BigNumber>;
+
+    setMetaStockCompany(
+      account: string,
+      overrides?: Overrides & { from?: string | Promise<string> }
+    ): Promise<BigNumber>;
   };
 
   populateTransaction: {
@@ -177,6 +207,11 @@ export class MetaStocksCompanyManager extends BaseContract {
     isCeo(
       account: string,
       overrides?: CallOverrides
+    ): Promise<PopulatedTransaction>;
+
+    setMetaStockCompany(
+      account: string,
+      overrides?: Overrides & { from?: string | Promise<string> }
     ): Promise<PopulatedTransaction>;
   };
 }

@@ -36,11 +36,6 @@
       "kind": "transparent"
     },
     {
-      "address": "0xD551a700a4c406351B25FD0fF8554dDE365c503D",
-      "txHash": "0x4ea5bfb0c0b47f805c1404f6117e0a5e479a09345d454d9d541fde013e35d16f",
-      "kind": "transparent"
-    },
-    {
       "address": "0x6AA9e49377fBeAC7295A761C40da04563694Dfc4",
       "txHash": "0x7d940d6033a4da3f3bbdcf2a7e626a65db6d56462ace6f6d4107a1b3b6821dfa",
       "kind": "transparent"
@@ -98,6 +93,16 @@
     {
       "address": "0xa82607A62DAFe732FeD80B655C1688ea6BFA9956",
       "txHash": "0x93abdf83b45c8902336b07e7bdd2118949b5a4fc28dfd3e2da7254259baaa792",
+      "kind": "transparent"
+    },
+    {
+      "address": "0xD551a700a4c406351B25FD0fF8554dDE365c503D",
+      "txHash": "0x7564f39ac87c03d731976b2222386f3ce6a5dac764f007fbcf8dd8af31a6aa59",
+      "kind": "transparent"
+    },
+    {
+      "address": "0x5B06224F736a57635B5BCb50B8EF178B189107cB",
+      "txHash": "0x058375aeaba1e647201d2a6a7197e171ac1761b5dfc52e37a7b58b573a554d67",
       "kind": "transparent"
     }
   ],
@@ -2630,6 +2635,48 @@
           "t_uint8": {
             "label": "uint8",
             "numberOfBytes": "1"
+          }
+        }
+      }
+    },
+    "dfd389874f0e91b85e5b11c895b98e4892da0ac4becfe2aff068d949bb5dc9d6": {
+      "address": "0x7D12E02b70CFf6025CA822210a0547F47a918C7b",
+      "txHash": "0xba2a1673dfd666ef6f295e47fda0e308c8767d145a57c39fda2a85e13404736d",
+      "layout": {
+        "storage": [
+          {
+            "label": "ceosCompanies",
+            "offset": 0,
+            "slot": "0",
+            "type": "t_mapping(t_address,t_uint256)",
+            "contract": "MetaStocksCompanyManager",
+            "src": "contracts/managers/metaStocksManagers/MetaStocksCompanyManager.sol:13"
+          },
+          {
+            "label": "metaStockCompany",
+            "offset": 0,
+            "slot": "1",
+            "type": "t_contract(IMetaStockCompany)8016",
+            "contract": "MetaStocksCompanyManager",
+            "src": "contracts/managers/metaStocksManagers/MetaStocksCompanyManager.sol:14"
+          }
+        ],
+        "types": {
+          "t_address": {
+            "label": "address",
+            "numberOfBytes": "20"
+          },
+          "t_contract(IMetaStockCompany)8016": {
+            "label": "contract IMetaStockCompany",
+            "numberOfBytes": "20"
+          },
+          "t_mapping(t_address,t_uint256)": {
+            "label": "mapping(address => uint256)",
+            "numberOfBytes": "32"
+          },
+          "t_uint256": {
+            "label": "uint256",
+            "numberOfBytes": "32"
           }
         }
       }

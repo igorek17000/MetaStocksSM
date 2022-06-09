@@ -13,11 +13,17 @@ contract MetaStocksCompanyManager is IMetaStocksCompanyManager {
     mapping(address => uint256) public ceosCompanies;
     IMetaStockCompany metaStockCompany;
 
-    constructor() {}
+    constructor() {
+        metaStockCompany = IMetaStockCompany(address(0));
+    }
 
     function createCompany() external payable {
         uint256 companyId = metaStockCompany.createMetaStockCompany(msg.sender);
         ceosCompanies[msg.sender] = companyId;
+    }
+
+    function setMetaStockCompany(address account) public virtual {
+        metaStockCompany = IMetaStockCompany(account);
     }
 
     function isCeo(address account) public view virtual returns (bool) {
