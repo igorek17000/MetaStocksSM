@@ -2,8 +2,8 @@
 pragma solidity ^0.8.14;
 
 import "@openzeppelin/contracts/token/ERC20/IERC20.sol";
-import "../models/TransactionFees.sol";
-import "../models/FeeReceiver.sol";
+import "../../models/TransactionFees.sol";
+import "../../models/FeeReceiver.sol";
 
 contract FeesSplitManager {
     address private sendFeeTokenAddress;
@@ -22,7 +22,7 @@ contract FeesSplitManager {
         returns (address)
     {
         for (uint256 index = 0; index < feesReceiversList.length; index++) {
-            if (feesReceiversList.receiver == _feesReceiverAddress) {
+            if (feesReceiversList[index].receiver == _feesReceiverAddress) {
                 return _feesReceiverAddress;
             }
         }

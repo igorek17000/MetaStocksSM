@@ -11,7 +11,7 @@ import "@openzeppelin/contracts/token/ERC1155/utils/ERC1155Holder.sol";
 import "@openzeppelin/contracts/token/ERC1155/IERC1155Receiver.sol";
 import "@openzeppelin/contracts/token/ERC20/ERC20.sol";
 
-import "./../interfaces/metaStockInterfaces/IMetaStockFranchise.sol";
+import "./../../interfaces/metaStockInterfaces/IMetaStockFranchise.sol";
 
 contract MetaStockCompany is
     Initializable,

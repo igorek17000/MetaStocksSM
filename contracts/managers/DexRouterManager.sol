@@ -3,7 +3,7 @@ pragma solidity ^0.8.14;
 
 import "@openzeppelin/contracts-upgradeable/token/ERC20/ERC20Upgradeable.sol";
 import "@openzeppelin/contracts/token/ERC20/IERC20.sol";
-import "../interfaces/IMetaStocksMultiDexRouter.sol";
+import "../interfaces/dexRouterInterfaces/IMetaStocksMultiDexRouter.sol";
 
 contract DexRouterManager {
     IMetaStocksMultiDexRouter private dexRouter; // router instance for do swaps
