@@ -25,6 +25,10 @@ contract DexRouterManager {
         return dexRouter;
     }
 
+    function isInSwap() public view returns (bool) {
+        return inSwap;
+    }
+
     function getNativeNetworkCurrencyAddress(uint256 networkId)
         public
         pure

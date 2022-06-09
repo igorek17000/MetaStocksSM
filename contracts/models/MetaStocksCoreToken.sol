@@ -6,6 +6,7 @@ import "@uniswap/v2-periphery/contracts/interfaces/IUniswapV2Router02.sol";
 import "@uniswap/v2-core/contracts/interfaces/IUniswapV2Factory.sol";
 import "@openzeppelin/contracts-upgradeable/token/ERC20/ERC20Upgradeable.sol";
 import "./../managers/FeesManager.sol";
+import "./../managers/FeesSplitManager.sol";
 import "./../managers/DexRouterManager.sol";
 
 contract MetaStocksCoreToken is ERC20Upgradeable {
@@ -20,6 +21,7 @@ contract MetaStocksCoreToken is ERC20Upgradeable {
     bool private tradingEnabled;
 
     FeesManager private feesManager;
+    FeesSplitManager private feesSplitManager;
     DexRouterManager private dexRouterManager;
 
     mapping(address => bool) private _isExcludedFromFee; // list of users excluded from fee
@@ -33,11 +35,6 @@ contract MetaStocksCoreToken is ERC20Upgradeable {
     event Burn(address indexed sender, uint256 amount);
 
     // MODIFIERS --------------------------------------------------------------------------------------------
-    modifier swapping() {
-        inSwap = true;
-        _;
-        inSwap = false;
-    }
 
     modifier onlyOwner() {
         require(owner == msg.sender, "Ownable: caller is not the owner");
@@ -74,6 +71,7 @@ contract MetaStocksCoreToken is ERC20Upgradeable {
         // 0% on SELL
         // 0% on Transfer
         feesManager = new FeesManager();
+        feesSplitManager = new FeesSplitManager();
 
         // contract do swap when have 1M tokens balance
         swapThreshold = 1000000000000000000000000;
@@ -156,13 +154,11 @@ contract MetaStocksCoreToken is ERC20Upgradeable {
             // swap tokens
             dexRouterManager.swapTokensForStableCoin(
                 self(),
-                (numTokensToSwap * marketingAddressPercent) / masterTaxDivisor
+                (numTokensToSwap * 12) / 10000
             );
 
             // inject liquidity
-            autoLiquidity(
-                (numTokensToSwap * autoLiquidityPercent) / masterTaxDivisor
-            );
+            autoLiquidity((numTokensToSwap * 123) / 10000);
 
             //burn((numTokensToSwap * autoLiquidityPercent) / masterTaxDivisor);
 
