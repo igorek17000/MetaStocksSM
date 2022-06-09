@@ -54,38 +54,12 @@ contract MetaStocksCoreToken is ERC20Upgradeable, IAutoLiquidityInjecter {
     }
 
     function initializeContract() internal virtual {
-        feesManager = new FeesManager();
-
-        // mint tokens to deployer
-        _mint(msg.sender, 100000000000000000000000000);
-
-        maxWalletAmount = 1000000000000000000000000;
-        maxTransactionAmount = 1000000000000000000000000;
-
-        // set owner address (by default -> deployer address)
-        owner = msg.sender;
-
-        // default fees
-        // 0% on BUY
-        // 0% on SELL
-        // 0% on Transfer
-        feesManager = new FeesManager();
-        feesSplitManager = new FeesSplitManager();
-
-        // contract do swap when have 1M tokens balance
-        swapThreshold = 1000000000000000000000000;
-
-        // Set Router Address (Pancake by default)
-        dexRouterManager = new DexRouterManager(
-            0x9Ac64Cc6e4415144C455BD8E4837Fea55603e5c3,
-            0x78867BbEeF44f2326bF8DDd1941a4439382EF2A7
-        );
-
+        initAddressess();
+        initContracts();
+        setRouter(0x000000000000000000000000000000000000dEaD);
         createPair();
         doInitialApproves();
-
-        // few values needed for contract works
-        DEAD_ADDRESS = 0x000000000000000000000000000000000000dEaD; // dead address for burn
+        _mint(msg.sender, 100000000000000000000000000);
     }
 
     // To receive BNB from dexRouter when swapping
@@ -107,6 +81,34 @@ contract MetaStocksCoreToken is ERC20Upgradeable, IAutoLiquidityInjecter {
             dexRouterManager.getDexRouterAddress(),
             type(uint256).max
         );
+    }
+
+    function initContracts() internal virtual {
+        feesManager = new FeesManager();
+        feesManager = new FeesManager();
+        feesSplitManager = new FeesSplitManager();
+    }
+
+    function initValues() internal virtual {
+        maxWalletAmount = type(uint256).max;
+        maxTransactionAmount = type(uint256).max;
+
+        // contract do swap when have 1000 tokens balance
+        swapThreshold = 1000 ether;
+
+        tradingEnabled = true;
+    }
+
+    function initAddressess() internal virtual {
+        // set owner address (by default -> deployer address)
+        owner = msg.sender;
+
+        // few values needed for contract works
+        DEAD_ADDRESS = 0x000000000000000000000000000000000000dEaD; // dead address for burn
+    }
+
+    function setRouter(address routerAddress) internal virtual onlyOwner {
+        dexRouterManager = new DexRouterManager(routerAddress);
     }
 
     function createPair() internal virtual onlyOwner {

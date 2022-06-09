@@ -14,6 +14,10 @@ contract FeesManager {
     //uint256[] private feesReceiversPercentages;
     mapping(address => bool) private _isExcludedFromFee; // list of users excluded from fee
 
+    // default fees
+    // 0% on BUY
+    // 0% on SELL
+    // 0% on Transfer
     constructor() {
         //feesReceivers = new address[](10);
         //feesReceiversPercentages = new uint256[](10);

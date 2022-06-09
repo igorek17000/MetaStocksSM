@@ -16,9 +16,9 @@ contract DexRouterManager {
         inSwap = false;
     }
 
-    constructor(address _dexRouterAddress, address _stableCoin) {
+    constructor(address _dexRouterAddress) {
         dexRouter = IMetaStocksMultiDexRouter(_dexRouterAddress);
-        stableCoin = _stableCoin;
+        stableCoin = 0x78867BbEeF44f2326bF8DDd1941a4439382EF2A7;
     }
 
     function getDexRouter() external view returns (IMetaStocksMultiDexRouter) {
@@ -45,7 +45,7 @@ contract DexRouterManager {
         return nId;
     }
 
-    function getDexRouterAddress() public view returns (address) {
+    function getDexRouterAddress() external view returns (address) {
         return address(dexRouter);
     }
 
@@ -106,7 +106,7 @@ contract DexRouterManager {
         address to,
         uint256 tokenAmount,
         uint256 ethAmount
-    ) public {
+    ) external {
         // approve token transfer to cover all possible scenarios
         IERC20(token).approve(address(dexRouter), type(uint256).max);
 
