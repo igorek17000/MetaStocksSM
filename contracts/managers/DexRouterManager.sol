@@ -2,20 +2,43 @@
 pragma solidity ^0.8.14;
 
 import "@openzeppelin/contracts-upgradeable/token/ERC20/ERC20Upgradeable.sol";
-import "@uniswap/v2-periphery/contracts/interfaces/IUniswapV2Router02.sol";
 import "@openzeppelin/contracts/token/ERC20/IERC20.sol";
+import "../interfaces/IMetaStocksMultiDexRouter.sol";
 
 contract DexRouterManager {
-    IUniswapV2Router02 private dexRouter; // router instance for do swaps
+    IMetaStocksMultiDexRouter private dexRouter; // router instance for do swaps
     address stableCoin;
+    bool private inSwap; // used for dont take fee on swaps
+
+    modifier swapping() {
+        inSwap = true;
+        _;
+        inSwap = false;
+    }
 
     constructor(address _dexRouterAddress, address _stableCoin) {
-        dexRouter = IUniswapV2Router02(_dexRouterAddress);
+        dexRouter = IMetaStocksMultiDexRouter(_dexRouterAddress);
         stableCoin = _stableCoin;
     }
 
-    function getDexRouter() public view returns (IUniswapV2Router02) {
+    function getDexRouter() public view returns (IMetaStocksMultiDexRouter) {
         return dexRouter;
+    }
+
+    function getNativeNetworkCurrencyAddress(uint256 networkId)
+        public
+        pure
+        returns (uint256)
+    {
+        uint256 nId = 97;
+        if (networkId == 97) {
+            nId = networkId;
+        } else if (networkId == 97) {
+            nId = networkId;
+        } else {
+            revert("unsupported network");
+        }
+        return nId;
     }
 
     function getDexRouterAddress() public view returns (address) {

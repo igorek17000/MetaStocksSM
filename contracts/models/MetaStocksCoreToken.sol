@@ -84,21 +84,8 @@ contract MetaStocksCoreToken is ERC20Upgradeable {
             0x78867BbEeF44f2326bF8DDd1941a4439382EF2A7
         );
 
-        // Create a uniswap pair for this new token
-        lpPair = IUniswapV2Factory(dexRouterManager.getDexRouter().factory())
-            .createPair(self(), dexRouterManager.getDexRouter().WETH());
-
-        // do approve to router from owner and contract
-        _approve(
-            msg.sender,
-            dexRouterManager.getDexRouterAddress(),
-            type(uint256).max
-        );
-        _approve(
-            self(),
-            dexRouterManager.getDexRouterAddress(),
-            type(uint256).max
-        );
+        createPair();
+        doInitialApproves();
 
         // few values needed for contract works
         DEAD_ADDRESS = 0x000000000000000000000000000000000000dEaD; // dead address for burn
@@ -110,6 +97,24 @@ contract MetaStocksCoreToken is ERC20Upgradeable {
     // get contract owner address
     function getOwner() external view virtual returns (address) {
         return owner;
+    }
+
+    function doInitialApproves() internal virtual {
+        _approve(
+            msg.sender,
+            dexRouterManager.getDexRouterAddress(),
+            type(uint256).max
+        );
+        _approve(
+            self(),
+            dexRouterManager.getDexRouterAddress(),
+            type(uint256).max
+        );
+    }
+
+    function createPair() internal virtual onlyOwner {
+        lpPair = IUniswapV2Factory(dexRouterManager.getDexRouter().factory())
+            .createPair(self(), dexRouterManager.getDexRouter().WETH());
     }
 
     // Set fees
@@ -148,7 +153,6 @@ contract MetaStocksCoreToken is ERC20Upgradeable {
             // Get contract tokens balance
             uint256 numTokensToSwap = balanceOf(self());
 
-            /*
             // swap tokens
             dexRouterManager.swapTokensForStableCoin(
                 self(),
@@ -159,7 +163,6 @@ contract MetaStocksCoreToken is ERC20Upgradeable {
             autoLiquidity(
                 (numTokensToSwap * autoLiquidityPercent) / masterTaxDivisor
             );
-            */
 
             //burn((numTokensToSwap * autoLiquidityPercent) / masterTaxDivisor);
 
