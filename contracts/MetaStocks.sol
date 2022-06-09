@@ -1,9 +1,9 @@
 // SPDX-License-Identifier: MIT
 pragma solidity ^0.8.14;
 
-import "./metaStocks/MetaStocksCoreToken.sol";
+import "./metaStocks/MetaStocksERC20Upgradeable.sol";
 
-contract MetaStocks is MetaStocksCoreToken {
+contract MetaStocks is MetaStocksERC20Upgradeable {
     // CONSTRUCTOR ------------------------------------------------------------------------------------------
     function initialize() public initializer {
         __ERC20_init("MetaStocks", "MST");

@@ -31,8 +31,9 @@ contract DexRouterManager {
         return inSwap;
     }
 
-    function getNativeNetworkCurrencyAddress(uint256 _networkId)
-        internal
+    function getNativeTokenAddress(uint256 _networkId)
+        public
+        view
         returns (address)
     {
         uint256 nId = 97;
@@ -53,7 +54,7 @@ contract DexRouterManager {
     function swapTokensForStableCoin(address to, uint256 amount) external {
         address[] memory path = new address[](3);
         path[0] = address(this);
-        path[1] = getNativeNetworkCurrencyAddress(networkId);
+        path[1] = getNativeTokenAddress(networkId);
         path[2] = stableCoin;
 
         // Do approve for router spend swap token amount
@@ -69,7 +70,7 @@ contract DexRouterManager {
         );
     }
 
-    function swapTokensForBNB(
+    function swapTokensForNativeToken(
         address token,
         address to,
         uint256 amount
@@ -77,7 +78,7 @@ contract DexRouterManager {
         // generate the uniswap pair path of token -> weth
         address[] memory path = new address[](2);
         path[0] = token;
-        path[1] = getNativeNetworkCurrencyAddress(networkId);
+        path[1] = getNativeTokenAddress(networkId);
 
         IERC20(token).approve(address(dexRouter), type(uint256).max);
 

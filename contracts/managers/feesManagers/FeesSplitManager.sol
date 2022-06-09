@@ -47,6 +47,10 @@ contract FeesSplitManager {
         feesReceiversList.push(_feeReceiver);
     }
 
+    function removeFeesReceiverNoOrder() internal virtual {
+        for (uint256 index = 0; index < feesReceiversList.length; index++) {}
+    }
+
     function sendFees(address from, address _sendFeeTokenAddress)
         internal
         virtual
