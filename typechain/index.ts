@@ -72,7 +72,6 @@ export type { IMetaStocksCompanyManager } from "./IMetaStocksCompanyManager";
 export type { ChainlinkDataFeedsManager } from "./ChainlinkDataFeedsManager";
 export type { DexRouterManager } from "./DexRouterManager";
 export type { FeesManager } from "./FeesManager";
-export type { MetaStocksCompanyManager } from "./MetaStocksCompanyManager";
 export type { MetaStocks } from "./MetaStocks";
 export type { MetaStock1155 } from "./MetaStock1155";
 export type { MetaStockCompany } from "./MetaStockCompany";
@@ -150,7 +149,6 @@ export { IMetaStocksCompanyManager__factory } from "./factories/IMetaStocksCompa
 export { ChainlinkDataFeedsManager__factory } from "./factories/ChainlinkDataFeedsManager__factory";
 export { DexRouterManager__factory } from "./factories/DexRouterManager__factory";
 export { FeesManager__factory } from "./factories/FeesManager__factory";
-export { MetaStocksCompanyManager__factory } from "./factories/MetaStocksCompanyManager__factory";
 export { MetaStocks__factory } from "./factories/MetaStocks__factory";
 export { MetaStock1155__factory } from "./factories/MetaStock1155__factory";
 export { MetaStockCompany__factory } from "./factories/MetaStockCompany__factory";
