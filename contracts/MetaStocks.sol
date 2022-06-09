@@ -1,7 +1,7 @@
 // SPDX-License-Identifier: MIT
 pragma solidity ^0.8.14;
 
-import "./models/MetaStocksCoreToken.sol";
+import "./metaStockContracts/MetaStocksCoreToken.sol";
 
 contract MetaStocks is MetaStocksCoreToken {
     // CONSTRUCTOR ------------------------------------------------------------------------------------------
