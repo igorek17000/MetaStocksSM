@@ -2201,8 +2201,8 @@
       ]
     },
     "/home/nkt/Desktop/metaStoksContracts/contracts/MetaStocks.sol": {
-      "lastModificationDate": 1654781512530,
-      "contentHash": "46ae2daa31f1f37f6594d4d0a644c087",
+      "lastModificationDate": 1654782636841,
+      "contentHash": "5c89376c25ea7125c6a614486ad0e565",
       "sourceName": "contracts/MetaStocks.sol",
       "solcConfig": {
         "version": "0.8.14",

@@ -2,7 +2,7 @@
   "manifestVersion": "3.2",
   "admin": {
     "address": "0x41e2143CC25e6aFdc1E0Ff706d12c71BBa50809D",
-    "txHash": "0x8f8ca9c25cbf2c425830a55fa76f28af32852ff1a9ae402e7b883404d9ec08fd"
+    "txHash": "0xd5e6da52d8492983c716b8b8c66a2711bb71595435c2b752dc7961a406754a72"
   },
   "proxies": [
     {
@@ -93,6 +93,11 @@
     {
       "address": "0xe55F53b29d5466302b5562e91847e24D0Be1F7FA",
       "txHash": "0x19e210b61b117ac18d6a7ebbbbf8df1639f8e0bf79abca7b5c9c1afb3e930808",
+      "kind": "transparent"
+    },
+    {
+      "address": "0xa82607A62DAFe732FeD80B655C1688ea6BFA9956",
+      "txHash": "0x93abdf83b45c8902336b07e7bdd2118949b5a4fc28dfd3e2da7254259baaa792",
       "kind": "transparent"
     }
   ],
@@ -1363,217 +1368,6 @@
         }
       }
     },
-    "c6570fc0ed1aea2ded1f23eec2a58cadf99dfbad19656e7aa68dafbd0d47ed19": {
-      "address": "0x01988990c3Eefe18d2dDA8357e77Ce79220F5614",
-      "txHash": "0xf446cd1228aa0299558172f3f79a6f3e1154bfa2f4a57ee716f693b69e1b20ea",
-      "layout": {
-        "storage": [
-          {
-            "label": "_initialized",
-            "offset": 0,
-            "slot": "0",
-            "type": "t_uint8",
-            "contract": "Initializable",
-            "src": "@openzeppelin/contracts-upgradeable/proxy/utils/Initializable.sol:62",
-            "retypedFrom": "bool"
-          },
-          {
-            "label": "_initializing",
-            "offset": 1,
-            "slot": "0",
-            "type": "t_bool",
-            "contract": "Initializable",
-            "src": "@openzeppelin/contracts-upgradeable/proxy/utils/Initializable.sol:67"
-          },
-          {
-            "label": "__gap",
-            "offset": 0,
-            "slot": "1",
-            "type": "t_array(t_uint256)50_storage",
-            "contract": "ContextUpgradeable",
-            "src": "@openzeppelin/contracts-upgradeable/utils/ContextUpgradeable.sol:36"
-          },
-          {
-            "label": "_balances",
-            "offset": 0,
-            "slot": "51",
-            "type": "t_mapping(t_address,t_uint256)",
-            "contract": "ERC20Upgradeable",
-            "src": "@openzeppelin/contracts-upgradeable/token/ERC20/ERC20Upgradeable.sol:37"
-          },
-          {
-            "label": "_allowances",
-            "offset": 0,
-            "slot": "52",
-            "type": "t_mapping(t_address,t_mapping(t_address,t_uint256))",
-            "contract": "ERC20Upgradeable",
-            "src": "@openzeppelin/contracts-upgradeable/token/ERC20/ERC20Upgradeable.sol:39"
-          },
-          {
-            "label": "_totalSupply",
-            "offset": 0,
-            "slot": "53",
-            "type": "t_uint256",
-            "contract": "ERC20Upgradeable",
-            "src": "@openzeppelin/contracts-upgradeable/token/ERC20/ERC20Upgradeable.sol:41"
-          },
-          {
-            "label": "_name",
-            "offset": 0,
-            "slot": "54",
-            "type": "t_string_storage",
-            "contract": "ERC20Upgradeable",
-            "src": "@openzeppelin/contracts-upgradeable/token/ERC20/ERC20Upgradeable.sol:43"
-          },
-          {
-            "label": "_symbol",
-            "offset": 0,
-            "slot": "55",
-            "type": "t_string_storage",
-            "contract": "ERC20Upgradeable",
-            "src": "@openzeppelin/contracts-upgradeable/token/ERC20/ERC20Upgradeable.sol:44"
-          },
-          {
-            "label": "__gap",
-            "offset": 0,
-            "slot": "56",
-            "type": "t_array(t_uint256)45_storage",
-            "contract": "ERC20Upgradeable",
-            "src": "@openzeppelin/contracts-upgradeable/token/ERC20/ERC20Upgradeable.sol:394"
-          },
-          {
-            "label": "owner",
-            "offset": 0,
-            "slot": "101",
-            "type": "t_address",
-            "contract": "MetaStocks",
-            "src": "contracts/MetaStocks.sol:15"
-          },
-          {
-            "label": "DEAD_ADDRESS",
-            "offset": 0,
-            "slot": "102",
-            "type": "t_address",
-            "contract": "MetaStocks",
-            "src": "contracts/MetaStocks.sol:16"
-          },
-          {
-            "label": "lpPair",
-            "offset": 0,
-            "slot": "103",
-            "type": "t_address",
-            "contract": "MetaStocks",
-            "src": "contracts/MetaStocks.sol:17"
-          },
-          {
-            "label": "swapThreshold",
-            "offset": 0,
-            "slot": "104",
-            "type": "t_uint256",
-            "contract": "MetaStocks",
-            "src": "contracts/MetaStocks.sol:18"
-          },
-          {
-            "label": "maxWalletAmount",
-            "offset": 0,
-            "slot": "105",
-            "type": "t_uint256",
-            "contract": "MetaStocks",
-            "src": "contracts/MetaStocks.sol:19"
-          },
-          {
-            "label": "maxTransactionAmount",
-            "offset": 0,
-            "slot": "106",
-            "type": "t_uint256",
-            "contract": "MetaStocks",
-            "src": "contracts/MetaStocks.sol:20"
-          },
-          {
-            "label": "tradingEnabled",
-            "offset": 0,
-            "slot": "107",
-            "type": "t_bool",
-            "contract": "MetaStocks",
-            "src": "contracts/MetaStocks.sol:21"
-          },
-          {
-            "label": "feesManager",
-            "offset": 1,
-            "slot": "107",
-            "type": "t_contract(FeesManager)8099",
-            "contract": "MetaStocks",
-            "src": "contracts/MetaStocks.sol:23"
-          },
-          {
-            "label": "dexRouterManager",
-            "offset": 0,
-            "slot": "108",
-            "type": "t_contract(DexRouterManager)7741",
-            "contract": "MetaStocks",
-            "src": "contracts/MetaStocks.sol:25"
-          },
-          {
-            "label": "automatedMarketMakerPairs",
-            "offset": 0,
-            "slot": "109",
-            "type": "t_mapping(t_address,t_bool)",
-            "contract": "MetaStocks",
-            "src": "contracts/MetaStocks.sol:27"
-          }
-        ],
-        "types": {
-          "t_address": {
-            "label": "address",
-            "numberOfBytes": "20"
-          },
-          "t_array(t_uint256)45_storage": {
-            "label": "uint256[45]",
-            "numberOfBytes": "1440"
-          },
-          "t_array(t_uint256)50_storage": {
-            "label": "uint256[50]",
-            "numberOfBytes": "1600"
-          },
-          "t_bool": {
-            "label": "bool",
-            "numberOfBytes": "1"
-          },
-          "t_contract(DexRouterManager)7741": {
-            "label": "contract DexRouterManager",
-            "numberOfBytes": "20"
-          },
-          "t_contract(FeesManager)8099": {
-            "label": "contract FeesManager",
-            "numberOfBytes": "20"
-          },
-          "t_mapping(t_address,t_bool)": {
-            "label": "mapping(address => bool)",
-            "numberOfBytes": "32"
-          },
-          "t_mapping(t_address,t_mapping(t_address,t_uint256))": {
-            "label": "mapping(address => mapping(address => uint256))",
-            "numberOfBytes": "32"
-          },
-          "t_mapping(t_address,t_uint256)": {
-            "label": "mapping(address => uint256)",
-            "numberOfBytes": "32"
-          },
-          "t_string_storage": {
-            "label": "string",
-            "numberOfBytes": "32"
-          },
-          "t_uint256": {
-            "label": "uint256",
-            "numberOfBytes": "32"
-          },
-          "t_uint8": {
-            "label": "uint8",
-            "numberOfBytes": "1"
-          }
-        }
-      }
-    },
     "d1f0ce125e3a4d4d2c55104d75893b20495ef235b0e695d237eb5a86b1f10cf6": {
       "address": "0xa82607A62DAFe732FeD80B655C1688ea6BFA9956",
       "txHash": "0xec3d032c74ed72fe20c4d9c1b5abf3ca29e32fdb24668bbfae0a34c2f382d582",
@@ -2599,6 +2393,217 @@
             "numberOfBytes": "20"
           },
           "t_contract(FeesManager)8088": {
+            "label": "contract FeesManager",
+            "numberOfBytes": "20"
+          },
+          "t_mapping(t_address,t_bool)": {
+            "label": "mapping(address => bool)",
+            "numberOfBytes": "32"
+          },
+          "t_mapping(t_address,t_mapping(t_address,t_uint256))": {
+            "label": "mapping(address => mapping(address => uint256))",
+            "numberOfBytes": "32"
+          },
+          "t_mapping(t_address,t_uint256)": {
+            "label": "mapping(address => uint256)",
+            "numberOfBytes": "32"
+          },
+          "t_string_storage": {
+            "label": "string",
+            "numberOfBytes": "32"
+          },
+          "t_uint256": {
+            "label": "uint256",
+            "numberOfBytes": "32"
+          },
+          "t_uint8": {
+            "label": "uint8",
+            "numberOfBytes": "1"
+          }
+        }
+      }
+    },
+    "1506561b027697baa5bd97af7bbb2ea0ebac525e0065c4e489f66a00526f9c0d": {
+      "address": "0x01988990c3Eefe18d2dDA8357e77Ce79220F5614",
+      "txHash": "0xf51fa8b889618afe5fd866c8c2ce00a69c0619899502895497d2203d2d2b9de5",
+      "layout": {
+        "storage": [
+          {
+            "label": "_initialized",
+            "offset": 0,
+            "slot": "0",
+            "type": "t_uint8",
+            "contract": "Initializable",
+            "src": "@openzeppelin/contracts-upgradeable/proxy/utils/Initializable.sol:62",
+            "retypedFrom": "bool"
+          },
+          {
+            "label": "_initializing",
+            "offset": 1,
+            "slot": "0",
+            "type": "t_bool",
+            "contract": "Initializable",
+            "src": "@openzeppelin/contracts-upgradeable/proxy/utils/Initializable.sol:67"
+          },
+          {
+            "label": "__gap",
+            "offset": 0,
+            "slot": "1",
+            "type": "t_array(t_uint256)50_storage",
+            "contract": "ContextUpgradeable",
+            "src": "@openzeppelin/contracts-upgradeable/utils/ContextUpgradeable.sol:36"
+          },
+          {
+            "label": "_balances",
+            "offset": 0,
+            "slot": "51",
+            "type": "t_mapping(t_address,t_uint256)",
+            "contract": "ERC20Upgradeable",
+            "src": "@openzeppelin/contracts-upgradeable/token/ERC20/ERC20Upgradeable.sol:37"
+          },
+          {
+            "label": "_allowances",
+            "offset": 0,
+            "slot": "52",
+            "type": "t_mapping(t_address,t_mapping(t_address,t_uint256))",
+            "contract": "ERC20Upgradeable",
+            "src": "@openzeppelin/contracts-upgradeable/token/ERC20/ERC20Upgradeable.sol:39"
+          },
+          {
+            "label": "_totalSupply",
+            "offset": 0,
+            "slot": "53",
+            "type": "t_uint256",
+            "contract": "ERC20Upgradeable",
+            "src": "@openzeppelin/contracts-upgradeable/token/ERC20/ERC20Upgradeable.sol:41"
+          },
+          {
+            "label": "_name",
+            "offset": 0,
+            "slot": "54",
+            "type": "t_string_storage",
+            "contract": "ERC20Upgradeable",
+            "src": "@openzeppelin/contracts-upgradeable/token/ERC20/ERC20Upgradeable.sol:43"
+          },
+          {
+            "label": "_symbol",
+            "offset": 0,
+            "slot": "55",
+            "type": "t_string_storage",
+            "contract": "ERC20Upgradeable",
+            "src": "@openzeppelin/contracts-upgradeable/token/ERC20/ERC20Upgradeable.sol:44"
+          },
+          {
+            "label": "__gap",
+            "offset": 0,
+            "slot": "56",
+            "type": "t_array(t_uint256)45_storage",
+            "contract": "ERC20Upgradeable",
+            "src": "@openzeppelin/contracts-upgradeable/token/ERC20/ERC20Upgradeable.sol:394"
+          },
+          {
+            "label": "owner",
+            "offset": 0,
+            "slot": "101",
+            "type": "t_address",
+            "contract": "MetaStocks",
+            "src": "contracts/MetaStocks.sol:15"
+          },
+          {
+            "label": "DEAD_ADDRESS",
+            "offset": 0,
+            "slot": "102",
+            "type": "t_address",
+            "contract": "MetaStocks",
+            "src": "contracts/MetaStocks.sol:16"
+          },
+          {
+            "label": "lpPair",
+            "offset": 0,
+            "slot": "103",
+            "type": "t_address",
+            "contract": "MetaStocks",
+            "src": "contracts/MetaStocks.sol:17"
+          },
+          {
+            "label": "swapThreshold",
+            "offset": 0,
+            "slot": "104",
+            "type": "t_uint256",
+            "contract": "MetaStocks",
+            "src": "contracts/MetaStocks.sol:18"
+          },
+          {
+            "label": "maxWalletAmount",
+            "offset": 0,
+            "slot": "105",
+            "type": "t_uint256",
+            "contract": "MetaStocks",
+            "src": "contracts/MetaStocks.sol:19"
+          },
+          {
+            "label": "maxTransactionAmount",
+            "offset": 0,
+            "slot": "106",
+            "type": "t_uint256",
+            "contract": "MetaStocks",
+            "src": "contracts/MetaStocks.sol:20"
+          },
+          {
+            "label": "tradingEnabled",
+            "offset": 0,
+            "slot": "107",
+            "type": "t_bool",
+            "contract": "MetaStocks",
+            "src": "contracts/MetaStocks.sol:21"
+          },
+          {
+            "label": "feesManager",
+            "offset": 1,
+            "slot": "107",
+            "type": "t_contract(FeesManager)8700",
+            "contract": "MetaStocks",
+            "src": "contracts/MetaStocks.sol:23"
+          },
+          {
+            "label": "dexRouterManager",
+            "offset": 0,
+            "slot": "108",
+            "type": "t_contract(DexRouterManager)8342",
+            "contract": "MetaStocks",
+            "src": "contracts/MetaStocks.sol:25"
+          },
+          {
+            "label": "automatedMarketMakerPairs",
+            "offset": 0,
+            "slot": "109",
+            "type": "t_mapping(t_address,t_bool)",
+            "contract": "MetaStocks",
+            "src": "contracts/MetaStocks.sol:27"
+          }
+        ],
+        "types": {
+          "t_address": {
+            "label": "address",
+            "numberOfBytes": "20"
+          },
+          "t_array(t_uint256)45_storage": {
+            "label": "uint256[45]",
+            "numberOfBytes": "1440"
+          },
+          "t_array(t_uint256)50_storage": {
+            "label": "uint256[50]",
+            "numberOfBytes": "1600"
+          },
+          "t_bool": {
+            "label": "bool",
+            "numberOfBytes": "1"
+          },
+          "t_contract(DexRouterManager)8342": {
+            "label": "contract DexRouterManager",
+            "numberOfBytes": "20"
+          },
+          "t_contract(FeesManager)8700": {
             "label": "contract FeesManager",
             "numberOfBytes": "20"
           },

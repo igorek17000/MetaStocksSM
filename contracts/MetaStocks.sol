@@ -46,7 +46,6 @@ contract MetaStocks is ERC20Upgradeable {
     function initializeContract() internal virtual {
         initAddressess();
         initContracts();
-        //initRouter();
         //setRouter(0x9Ac64Cc6e4415144C455BD8E4837Fea55603e5c3);
         //doInitialApproves();
         _mint(msg.sender, 100000000000000000000000000);
@@ -65,11 +64,10 @@ contract MetaStocks is ERC20Upgradeable {
         );
     }
 
-    function initRouter() internal virtual {
-        setDexRouter(0x2D99ABD9008Dc933ff5c0CD271B88309593aB921);
-    }
-
     function initContracts() internal virtual {
+        dexRouterManager = new DexRouterManager(
+            0x2D99ABD9008Dc933ff5c0CD271B88309593aB921
+        );
         setFeesManager(new FeesManager());
         //setFeesSplitManager(new FeesSplitManager());
     }
