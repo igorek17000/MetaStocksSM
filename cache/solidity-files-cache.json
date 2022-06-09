@@ -733,50 +733,6 @@
         "FeesManager"
       ]
     },
-    "/home/nkt/Desktop/metaStoksContracts/contracts/metaStocks/MetaStocksERC20UpgradeableCore.sol": {
-      "lastModificationDate": 1654777588802,
-      "contentHash": "2a89d77458c54c4cd47f86dcbbaea86b",
-      "sourceName": "contracts/metaStocks/MetaStocksERC20UpgradeableCore.sol",
-      "solcConfig": {
-        "version": "0.8.14",
-        "settings": {
-          "optimizer": {
-            "enabled": true,
-            "runs": 100
-          },
-          "outputSelection": {
-            "*": {
-              "*": [
-                "abi",
-                "evm.bytecode",
-                "evm.deployedBytecode",
-                "evm.methodIdentifiers",
-                "metadata",
-                "storageLayout"
-              ],
-              "": [
-                "ast"
-              ]
-            }
-          }
-        }
-      },
-      "imports": [
-        "@openzeppelin/contracts/token/ERC20/IERC20.sol",
-        "@uniswap/v2-periphery/contracts/interfaces/IUniswapV2Router02.sol",
-        "@uniswap/v2-core/contracts/interfaces/IUniswapV2Factory.sol",
-        "@openzeppelin/contracts-upgradeable/token/ERC20/ERC20Upgradeable.sol",
-        "./../managers/feesManagers/FeesManager.sol",
-        "./../interfaces/dexRouterInterfaces/IAutoLiquidityInjecter.sol",
-        "./../managers/DexRouterManager.sol"
-      ],
-      "versionPragmas": [
-        "^0.8.14"
-      ],
-      "artifacts": [
-        "MetaStocksERC20UpgradeableCore"
-      ]
-    },
     "/home/nkt/Desktop/metaStoksContracts/node_modules/@uniswap/v2-core/contracts/interfaces/IUniswapV2Factory.sol": {
       "lastModificationDate": 1654362658570,
       "contentHash": "3fbfb29d564881bdeaced40b01c7bd37",
@@ -850,7 +806,7 @@
       ]
     },
     "/home/nkt/Desktop/metaStoksContracts/contracts/managers/DexRouterManager.sol": {
-      "lastModificationDate": 1654777586170,
+      "lastModificationDate": 1654778748013,
       "contentHash": "af22695e96832ec268d653df4328b80b",
       "sourceName": "contracts/managers/DexRouterManager.sol",
       "solcConfig": {
@@ -1000,51 +956,6 @@
       ],
       "artifacts": [
         "IJoeRouter01"
-      ]
-    },
-    "/home/nkt/Desktop/metaStoksContracts/contracts/metaStocks/MetaStocksERC20Upgradeable.sol": {
-      "lastModificationDate": 1654777319344,
-      "contentHash": "6888a9583be4318da88f4b1e2b71c29c",
-      "sourceName": "contracts/metaStocks/MetaStocksERC20Upgradeable.sol",
-      "solcConfig": {
-        "version": "0.8.14",
-        "settings": {
-          "optimizer": {
-            "enabled": true,
-            "runs": 100
-          },
-          "outputSelection": {
-            "*": {
-              "*": [
-                "abi",
-                "evm.bytecode",
-                "evm.deployedBytecode",
-                "evm.methodIdentifiers",
-                "metadata",
-                "storageLayout"
-              ],
-              "": [
-                "ast"
-              ]
-            }
-          }
-        }
-      },
-      "imports": [
-        "@openzeppelin/contracts/token/ERC20/IERC20.sol",
-        "@uniswap/v2-periphery/contracts/interfaces/IUniswapV2Router02.sol",
-        "@uniswap/v2-core/contracts/interfaces/IUniswapV2Factory.sol",
-        "@openzeppelin/contracts-upgradeable/token/ERC20/ERC20Upgradeable.sol",
-        "./../managers/feesManagers/FeesManager.sol",
-        "./../interfaces/dexRouterInterfaces/IAutoLiquidityInjecter.sol",
-        "./../managers/DexRouterManager.sol",
-        "./MetaStocksERC20UpgradeableCore.sol"
-      ],
-      "versionPragmas": [
-        "^0.8.14"
-      ],
-      "artifacts": [
-        "MetaStocksERC20Upgradeable"
       ]
     },
     "/home/nkt/Desktop/metaStoksContracts/node_modules/@openzeppelin/contracts-upgradeable/token/ERC721/extensions/ERC721URIStorageUpgradeable.sol": {
@@ -2289,8 +2200,8 @@
       ]
     },
     "/home/nkt/Desktop/metaStoksContracts/contracts/MetaStocks.sol": {
-      "lastModificationDate": 1654777609515,
-      "contentHash": "b998649ea5c345f179203bb57fe003b5",
+      "lastModificationDate": 1654778844875,
+      "contentHash": "91328918d671c5565a9e1ddc4fb6c177",
       "sourceName": "contracts/MetaStocks.sol",
       "solcConfig": {
         "version": "0.8.14",
@@ -2317,7 +2228,13 @@
         }
       },
       "imports": [
-        "./metaStocks/MetaStocksERC20Upgradeable.sol"
+        "@openzeppelin/contracts/token/ERC20/IERC20.sol",
+        "@uniswap/v2-periphery/contracts/interfaces/IUniswapV2Router02.sol",
+        "@uniswap/v2-core/contracts/interfaces/IUniswapV2Factory.sol",
+        "@openzeppelin/contracts-upgradeable/token/ERC20/ERC20Upgradeable.sol",
+        "./managers/feesManagers/FeesManager.sol",
+        "./interfaces/dexRouterInterfaces/IAutoLiquidityInjecter.sol",
+        "./managers/DexRouterManager.sol"
       ],
       "versionPragmas": [
         "^0.8.14"

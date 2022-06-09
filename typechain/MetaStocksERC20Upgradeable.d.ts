@@ -36,7 +36,7 @@ interface MetaStocksERC20UpgradeableInterface extends ethers.utils.Interface {
     "getSwapThreshold()": FunctionFragment;
     "getTradingEnabled()": FunctionFragment;
     "increaseAllowance(address,uint256)": FunctionFragment;
-    "initialize(string,string)": FunctionFragment;
+    "initialize()": FunctionFragment;
     "name()": FunctionFragment;
     "self()": FunctionFragment;
     "setDeadAddress()": FunctionFragment;
@@ -102,7 +102,7 @@ interface MetaStocksERC20UpgradeableInterface extends ethers.utils.Interface {
   ): string;
   encodeFunctionData(
     functionFragment: "initialize",
-    values: [string, string]
+    values?: undefined
   ): string;
   encodeFunctionData(functionFragment: "name", values?: undefined): string;
   encodeFunctionData(functionFragment: "self", values?: undefined): string;
@@ -365,8 +365,6 @@ export class MetaStocksERC20Upgradeable extends BaseContract {
     ): Promise<ContractTransaction>;
 
     initialize(
-      _name: string,
-      _symbol: string,
       overrides?: Overrides & { from?: string | Promise<string> }
     ): Promise<ContractTransaction>;
 
@@ -483,8 +481,6 @@ export class MetaStocksERC20Upgradeable extends BaseContract {
   ): Promise<ContractTransaction>;
 
   initialize(
-    _name: string,
-    _symbol: string,
     overrides?: Overrides & { from?: string | Promise<string> }
   ): Promise<ContractTransaction>;
 
@@ -598,11 +594,7 @@ export class MetaStocksERC20Upgradeable extends BaseContract {
       overrides?: CallOverrides
     ): Promise<boolean>;
 
-    initialize(
-      _name: string,
-      _symbol: string,
-      overrides?: CallOverrides
-    ): Promise<void>;
+    initialize(overrides?: CallOverrides): Promise<void>;
 
     name(overrides?: CallOverrides): Promise<string>;
 
@@ -794,8 +786,6 @@ export class MetaStocksERC20Upgradeable extends BaseContract {
     ): Promise<BigNumber>;
 
     initialize(
-      _name: string,
-      _symbol: string,
       overrides?: Overrides & { from?: string | Promise<string> }
     ): Promise<BigNumber>;
 
@@ -918,8 +908,6 @@ export class MetaStocksERC20Upgradeable extends BaseContract {
     ): Promise<PopulatedTransaction>;
 
     initialize(
-      _name: string,
-      _symbol: string,
       overrides?: Overrides & { from?: string | Promise<string> }
     ): Promise<PopulatedTransaction>;
 

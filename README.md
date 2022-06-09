@@ -18,6 +18,6 @@ npx hardhat node --fork https://speedy-nodes-nyc.moralis.io/aaf5f27c6c7a9ad182a6
 ```sh
 npx hardhat test  --network localhost 
 
-npx hardhat test test/MetaStockFranchiseShare.test.ts --network localhost
+npx hardhat test test/MetaStocks.test.ts --network localhost
 
 ```

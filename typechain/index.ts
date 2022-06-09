@@ -68,8 +68,6 @@ export type { MetaStock1155 } from "./MetaStock1155";
 export type { MetaStockCompany } from "./MetaStockCompany";
 export type { MetaStockFranchise } from "./MetaStockFranchise";
 export type { MetaStockFranchiseShare } from "./MetaStockFranchiseShare";
-export type { MetaStocksERC20Upgradeable } from "./MetaStocksERC20Upgradeable";
-export type { MetaStocksERC20UpgradeableCore } from "./MetaStocksERC20UpgradeableCore";
 
 export { OwnableUpgradeable__factory } from "./factories/OwnableUpgradeable__factory";
 export { Initializable__factory } from "./factories/Initializable__factory";
@@ -138,5 +136,3 @@ export { MetaStock1155__factory } from "./factories/MetaStock1155__factory";
 export { MetaStockCompany__factory } from "./factories/MetaStockCompany__factory";
 export { MetaStockFranchise__factory } from "./factories/MetaStockFranchise__factory";
 export { MetaStockFranchiseShare__factory } from "./factories/MetaStockFranchiseShare__factory";
-export { MetaStocksERC20Upgradeable__factory } from "./factories/MetaStocksERC20Upgradeable__factory";
-export { MetaStocksERC20UpgradeableCore__factory } from "./factories/MetaStocksERC20UpgradeableCore__factory";

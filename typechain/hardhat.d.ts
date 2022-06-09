@@ -296,14 +296,6 @@ declare module "hardhat/types/runtime" {
       name: "MetaStockFranchiseShare",
       signerOrOptions?: ethers.Signer | FactoryOptions
     ): Promise<Contracts.MetaStockFranchiseShare__factory>;
-    getContractFactory(
-      name: "MetaStocksERC20Upgradeable",
-      signerOrOptions?: ethers.Signer | FactoryOptions
-    ): Promise<Contracts.MetaStocksERC20Upgradeable__factory>;
-    getContractFactory(
-      name: "MetaStocksERC20UpgradeableCore",
-      signerOrOptions?: ethers.Signer | FactoryOptions
-    ): Promise<Contracts.MetaStocksERC20UpgradeableCore__factory>;
 
     getContractAt(
       name: "OwnableUpgradeable",
@@ -660,16 +652,6 @@ declare module "hardhat/types/runtime" {
       address: string,
       signer?: ethers.Signer
     ): Promise<Contracts.MetaStockFranchiseShare>;
-    getContractAt(
-      name: "MetaStocksERC20Upgradeable",
-      address: string,
-      signer?: ethers.Signer
-    ): Promise<Contracts.MetaStocksERC20Upgradeable>;
-    getContractAt(
-      name: "MetaStocksERC20UpgradeableCore",
-      address: string,
-      signer?: ethers.Signer
-    ): Promise<Contracts.MetaStocksERC20UpgradeableCore>;
 
     // default types
     getContractFactory(
