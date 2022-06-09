@@ -1,11 +1,13 @@
 import { ethers, upgrades } from 'hardhat'
 const util = require('./util');
-const { parseEther } = ethers.utils;
+//const { parseEther } = ethers.utils;
 const colors = require('colors');
-import { expect } from 'chai'
-import { formatEther } from 'ethers/lib/utils';
+//import { expect } from 'chai'
+//import { formatEther } from 'ethers/lib/utils';
 import { Contract } from 'ethers';
 import { SignerWithAddress } from '@nomiclabs/hardhat-ethers/signers';
+import { expect } from 'chai';
+//import { parseEther, formatEther } from 'ethers/lib/utils';
 
 //available functions
 describe("Token contract", async () => {
@@ -37,78 +39,88 @@ describe("Token contract", async () => {
 
         // INSTANCE CONTRACT
         router = await util.connectRouter()
+        console.log("router:", router.address);
 
         // DEPLOY
         const contractName = 'MetaStocks'
         const tokenFactory = await ethers.getContractFactory(contractName)
         tokenDeployed = await upgrades.deployProxy(tokenFactory, [])
         await tokenDeployed.deployed()
-        console.log("MetaStocks Proxy address:", tokenDeployed.address);
-    });
+        //await tokenDeployed.setDexRouter("0x2D99ABD9008Dc933ff5c0CD271B88309593aB921");
 
-    it("3. Add Liquidity", async () => {
-        await tokenDeployed.approve(util.chains.bsc.router, ethers.constants.MaxUint256, { from: deployer?.address })
-        const tx = await router.connect(deployer).addLiquidityETH(
-            tokenDeployed.address,
-            parseEther("60000000"),
-            parseEther("60000000"),
-            parseEther("100"),
-            deployer?.address,
-            2648069985, // Saturday, 29 November 2053 22:59:45
-            {
-                value: parseEther("100"),
-            }
-        )
-        console.log(`${colors.cyan('TX')}: ${colors.yellow(tx.hash)}`)
-        console.log()
-
-        const routerFactory = await util.connectFactory();
-        const pairAddress = await routerFactory.getPair(util.chains.bsc.wChainCoin, tokenDeployed.address)
-        pairContract = await util.connectPair(pairAddress);
-        console.log(`${colors.cyan('LP Address')}: ${colors.yellow(pairContract?.address)}`)
-        console.log(`${colors.cyan('LP Balance')}: ${colors.yellow(formatEther(await pairContract.balanceOf(deployer?.address)))}`)
+        console.log("router:", router.address);
+        console.log("pairContract:", pairContract?.address);
+        console.log("tokenDeployed:", tokenDeployed?.address);
         expect(1).to.be.eq(1);
-        console.log()
-    });
-
-    it("4. Enable trading", async () => {
-        await tokenDeployed.enableTrading();
-        console.log()
-    });
-
-    it("5. Transfer From Owner To Bob ", async () => {
-        await tokenDeployed.connect(deployer).transfer(bob?.address, parseEther("1000"))
-        expect(await tokenDeployed.balanceOf(bob?.address)).to.be.eq(parseEther("1000"));
-        console.log()
-    });
-
-    it("6. Transfer From Bob To Alice ", async () => {
-        await tokenDeployed.connect(bob).transfer(alice?.address, parseEther("100"))
-        expect(await tokenDeployed.balanceOf(alice?.address)).to.be.eq(parseEther("100"));
-        console.log()
     });
 
 
-    it("7. Buy Bob", async () => {
-
-        console.log()
-        //--- BUY
-        console.log(`${colors.cyan('Contract token Balance Before Swap')}: ${colors.yellow(formatEther(await tokenDeployed.balanceOf(tokenDeployed.address)))}`)
-        await util.swapExactETHForTokens(tokenDeployed.address, router, bob, parseEther("1.2"));
-        console.log(`${colors.cyan('Bob token Balance After Swap')}: ${colors.yellow(formatEther(await tokenDeployed.balanceOf(bob?.address)))}`)
-        console.log(`${colors.cyan('Contract token Balance After')}: ${colors.yellow(formatEther(await tokenDeployed.balanceOf(tokenDeployed.address)))}`)
-        console.log()
-    });
-
-
-    it("8. Sell Bob", async () => {
-        //--- SELL
-        //await util.swapExactTokensForETH(tokenDeployed.address, router, bob, parseEther("1000")); // 100 tokens
-
-        await tokenDeployed.connect(bob).approve(router.address, parseEther("100"))
-        await util.swapExactTokensForTokensSupportingFeeOnTransferTokens(tokenDeployed.address, router, bob, parseEther("100")); // 100 tokens
-        console.log(`${colors.cyan('Bob token Balance')}: ${colors.yellow(formatEther(await tokenDeployed.balanceOf(bob?.address)))}`)
-        console.log(`${colors.cyan('Contract token Balance After')}: ${colors.yellow(formatEther(await tokenDeployed.balanceOf(tokenDeployed.address)))}`)
-        console.log()
-    });
+    /*
+        it("3. Add Liquidity", async () => {
+            await tokenDeployed.approve(util.chains.bsc.router, ethers.constants.MaxUint256, { from: deployer?.address })
+            const tx = await router.connect(deployer).addLiquidityETH(
+                tokenDeployed.address,
+                parseEther("60000000"),
+                parseEther("60000000"),
+                parseEther("100"),
+                deployer?.address,
+                2648069985, // Saturday, 29 November 2053 22:59:45
+                {
+                    value: parseEther("100"),
+                }
+            )
+            console.log(`${colors.cyan('TX')}: ${colors.yellow(tx.hash)}`)
+            console.log()
+    
+            const routerFactory = await util.connectFactory();
+            const pairAddress = await routerFactory.getPair(util.chains.bsc.wChainCoin, tokenDeployed.address)
+            await tokenDeployed.setPairAddress(pairAddress);
+            pairContract = await util.connectPair(pairAddress);
+            console.log(`${colors.cyan('LP Address')}: ${colors.yellow(pairContract?.address)}`)
+            console.log(`${colors.cyan('LP Balance')}: ${colors.yellow(formatEther(await pairContract.balanceOf(deployer?.address)))}`)
+            expect(1).to.be.eq(1);
+            console.log()
+        });
+    
+        it("4. Enable trading", async () => {
+            await tokenDeployed.enableTrading();
+            console.log()
+        });
+    
+        it("5. Transfer From Owner To Bob ", async () => {
+            await tokenDeployed.connect(deployer).transfer(bob?.address, parseEther("1000"))
+            expect(await tokenDeployed.balanceOf(bob?.address)).to.be.eq(parseEther("1000"));
+            console.log()
+        });
+    
+        it("6. Transfer From Bob To Alice ", async () => {
+            await tokenDeployed.connect(bob).transfer(alice?.address, parseEther("100"))
+            expect(await tokenDeployed.balanceOf(alice?.address)).to.be.eq(parseEther("100"));
+            console.log()
+        });
+    
+    
+        it("7. Buy Bob", async () => {
+    
+            console.log()
+            //--- BUY
+            console.log(`${colors.cyan('Contract token Balance Before Swap')}: ${colors.yellow(formatEther(await tokenDeployed.balanceOf(tokenDeployed.address)))}`)
+            await util.swapExactETHForTokens(tokenDeployed.address, router, bob, parseEther("1.2"));
+            console.log(`${colors.cyan('Bob token Balance After Swap')}: ${colors.yellow(formatEther(await tokenDeployed.balanceOf(bob?.address)))}`)
+            console.log(`${colors.cyan('Contract token Balance After')}: ${colors.yellow(formatEther(await tokenDeployed.balanceOf(tokenDeployed.address)))}`)
+            console.log()
+        });
+    
+    
+        it("8. Sell Bob", async () => {
+            //--- SELL
+            //await util.swapExactTokensForETH(tokenDeployed.address, router, bob, parseEther("1000")); // 100 tokens
+    
+            await tokenDeployed.connect(bob).approve(router.address, parseEther("100"))
+            await util.swapExactTokensForTokensSupportingFeeOnTransferTokens(tokenDeployed.address, router, bob, parseEther("100")); // 100 tokens
+            console.log(`${colors.cyan('Bob token Balance')}: ${colors.yellow(formatEther(await tokenDeployed.balanceOf(bob?.address)))}`)
+            console.log(`${colors.cyan('Contract token Balance After')}: ${colors.yellow(formatEther(await tokenDeployed.balanceOf(tokenDeployed.address)))}`)
+            console.log()
+        });
+    */
 });

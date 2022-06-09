@@ -46,9 +46,9 @@ contract MetaStocks is ERC20Upgradeable {
     function initializeContract() internal virtual {
         initAddressess();
         initContracts();
-        setRouter(0x9Ac64Cc6e4415144C455BD8E4837Fea55603e5c3);
-        createPair(self(), getDexRouterManager().getNativeTokenAddress(97));
-        doInitialApproves();
+        //initRouter();
+        //setRouter(0x9Ac64Cc6e4415144C455BD8E4837Fea55603e5c3);
+        //doInitialApproves();
         _mint(msg.sender, 100000000000000000000000000);
     }
 
@@ -65,6 +65,10 @@ contract MetaStocks is ERC20Upgradeable {
         );
     }
 
+    function initRouter() internal virtual {
+        setDexRouter(0x2D99ABD9008Dc933ff5c0CD271B88309593aB921);
+    }
+
     function initContracts() internal virtual {
         setFeesManager(new FeesManager());
         //setFeesSplitManager(new FeesSplitManager());
@@ -77,10 +81,8 @@ contract MetaStocks is ERC20Upgradeable {
     }
 
     function initAddressess() internal virtual {
-        transferOwnership(msg.sender);
-
-        // few values needed for contract works
-        setDeadAddress();
+        owner = msg.sender;
+        DEAD_ADDRESS = 0x000000000000000000000000000000000000dEaD;
     }
 
     function _finalizeTransfer(
@@ -287,6 +289,11 @@ contract MetaStocks is ERC20Upgradeable {
         swapThreshold = _swapThreshold;
     }
 
+    function setlpPair(address _lpPair) public virtual {
+        lpPair = _lpPair;
+        automatedMarketMakerPairs[_lpPair] = true;
+    }
+
     function setMaxWalletAmount(uint256 _maxWalletAmount) public virtual {
         maxWalletAmount = _maxWalletAmount;
     }
@@ -356,16 +363,12 @@ contract MetaStocks is ERC20Upgradeable {
         feesManager.setFees(buyFee, sellFee, transferFee);
     }
 
-    function createPair(address tokenA, address tokenB) internal virtual {
-        lpPair = IUniswapV2Factory(dexRouterManager.getDexRouter().factory())
-            .createPair(tokenA, tokenB);
+    function setPairAddress(address _pairAddress) public virtual {
+        lpPair = _pairAddress;
+        automatedMarketMakerPairs[_pairAddress];
     }
 
-    function setRouter(address _routerAddress) internal virtual {
-        dexRouterManager = new DexRouterManager(
-            _routerAddress,
-            0x78867BbEeF44f2326bF8DDd1941a4439382EF2A7, // BUSD
-            97
-        );
+    function setDexRouter(address _dexRouter) public virtual {
+        dexRouterManager.setDexRouter(_dexRouter);
     }
 }

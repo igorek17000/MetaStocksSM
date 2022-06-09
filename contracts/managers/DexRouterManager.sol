@@ -17,18 +17,18 @@ contract DexRouterManager {
         inSwap = false;
     }
 
-    constructor(
-        address _dexRouterAddress,
-        address _stableCoin,
-        uint256 _networkId
-    ) {
+    constructor(address _dexRouterAddress) {
         dexRouter = IMetaStocksMultiDexRouter(_dexRouterAddress);
-        networkId = _networkId;
-        stableCoin = _stableCoin;
+        networkId = 43113;
+        stableCoin = address(0);
     }
 
     function getDexRouter() external view returns (IMetaStocksMultiDexRouter) {
         return dexRouter;
+    }
+
+    function setDexRouter(address _dexRouterAddress) external {
+        dexRouter = IMetaStocksMultiDexRouter(_dexRouterAddress);
     }
 
     function isInSwap() external view returns (bool) {

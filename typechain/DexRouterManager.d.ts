@@ -26,6 +26,7 @@ interface DexRouterManagerInterface extends ethers.utils.Interface {
     "getDexRouterAddress()": FunctionFragment;
     "getNativeTokenAddress(uint256)": FunctionFragment;
     "isInSwap()": FunctionFragment;
+    "setDexRouter(address)": FunctionFragment;
     "swapTokensForNativeToken(address,address,uint256)": FunctionFragment;
     "swapTokensForStableCoin(address,uint256)": FunctionFragment;
   };
@@ -47,6 +48,10 @@ interface DexRouterManagerInterface extends ethers.utils.Interface {
     values: [BigNumberish]
   ): string;
   encodeFunctionData(functionFragment: "isInSwap", values?: undefined): string;
+  encodeFunctionData(
+    functionFragment: "setDexRouter",
+    values: [string]
+  ): string;
   encodeFunctionData(
     functionFragment: "swapTokensForNativeToken",
     values: [string, string, BigNumberish]
@@ -73,6 +78,10 @@ interface DexRouterManagerInterface extends ethers.utils.Interface {
     data: BytesLike
   ): Result;
   decodeFunctionResult(functionFragment: "isInSwap", data: BytesLike): Result;
+  decodeFunctionResult(
+    functionFragment: "setDexRouter",
+    data: BytesLike
+  ): Result;
   decodeFunctionResult(
     functionFragment: "swapTokensForNativeToken",
     data: BytesLike
@@ -148,6 +157,11 @@ export class DexRouterManager extends BaseContract {
 
     isInSwap(overrides?: CallOverrides): Promise<[boolean]>;
 
+    setDexRouter(
+      _dexRouterAddress: string,
+      overrides?: Overrides & { from?: string | Promise<string> }
+    ): Promise<ContractTransaction>;
+
     swapTokensForNativeToken(
       token: string,
       to: string,
@@ -181,6 +195,11 @@ export class DexRouterManager extends BaseContract {
 
   isInSwap(overrides?: CallOverrides): Promise<boolean>;
 
+  setDexRouter(
+    _dexRouterAddress: string,
+    overrides?: Overrides & { from?: string | Promise<string> }
+  ): Promise<ContractTransaction>;
+
   swapTokensForNativeToken(
     token: string,
     to: string,
@@ -213,6 +232,11 @@ export class DexRouterManager extends BaseContract {
     ): Promise<string>;
 
     isInSwap(overrides?: CallOverrides): Promise<boolean>;
+
+    setDexRouter(
+      _dexRouterAddress: string,
+      overrides?: CallOverrides
+    ): Promise<void>;
 
     swapTokensForNativeToken(
       token: string,
@@ -250,6 +274,11 @@ export class DexRouterManager extends BaseContract {
 
     isInSwap(overrides?: CallOverrides): Promise<BigNumber>;
 
+    setDexRouter(
+      _dexRouterAddress: string,
+      overrides?: Overrides & { from?: string | Promise<string> }
+    ): Promise<BigNumber>;
+
     swapTokensForNativeToken(
       token: string,
       to: string,
@@ -285,6 +314,11 @@ export class DexRouterManager extends BaseContract {
     ): Promise<PopulatedTransaction>;
 
     isInSwap(overrides?: CallOverrides): Promise<PopulatedTransaction>;
+
+    setDexRouter(
+      _dexRouterAddress: string,
+      overrides?: Overrides & { from?: string | Promise<string> }
+    ): Promise<PopulatedTransaction>;
 
     swapTokensForNativeToken(
       token: string,

@@ -806,8 +806,8 @@
       ]
     },
     "/home/nkt/Desktop/metaStoksContracts/contracts/managers/DexRouterManager.sol": {
-      "lastModificationDate": 1654778748013,
-      "contentHash": "af22695e96832ec268d653df4328b80b",
+      "lastModificationDate": 1654781444885,
+      "contentHash": "2a56d0825f389b3065dcbed44e49005d",
       "sourceName": "contracts/managers/DexRouterManager.sol",
       "solcConfig": {
         "version": "0.8.14",
@@ -846,8 +846,8 @@
       ]
     },
     "/home/nkt/Desktop/metaStoksContracts/contracts/interfaces/dexRouterInterfaces/IMetaStocksMultiDexRouter.sol": {
-      "lastModificationDate": 1654762878933,
-      "contentHash": "e6f63d2e257bff156135d5731d3d41ca",
+      "lastModificationDate": 1654782296616,
+      "contentHash": "ba89cfa41aa866d8b9ca40cd3fd13733",
       "sourceName": "contracts/interfaces/dexRouterInterfaces/IMetaStocksMultiDexRouter.sol",
       "solcConfig": {
         "version": "0.8.14",
@@ -875,7 +875,8 @@
       },
       "imports": [
         "@uniswap/v2-periphery/contracts/interfaces/IUniswapV2Router02.sol",
-        "./IJoeRouter02.sol"
+        "./IJoeRouter02.sol",
+        "./IPangolinRouter.sol"
       ],
       "versionPragmas": [
         "^0.8.14"
@@ -2200,8 +2201,8 @@
       ]
     },
     "/home/nkt/Desktop/metaStoksContracts/contracts/MetaStocks.sol": {
-      "lastModificationDate": 1654778844875,
-      "contentHash": "91328918d671c5565a9e1ddc4fb6c177",
+      "lastModificationDate": 1654781512530,
+      "contentHash": "46ae2daa31f1f37f6594d4d0a644c087",
       "sourceName": "contracts/MetaStocks.sol",
       "solcConfig": {
         "version": "0.8.14",
@@ -2382,6 +2383,226 @@
         "^0.8.14"
       ],
       "artifacts": []
+    },
+    "/home/nkt/Desktop/metaStoksContracts/contracts/Avalanche Testnet Connections/BEP20Token.sol": {
+      "lastModificationDate": 1654779538356,
+      "contentHash": "8e39f562408228b9b721989774b80416",
+      "sourceName": "contracts/Avalanche Testnet Connections/BEP20Token.sol",
+      "solcConfig": {
+        "version": "0.5.16",
+        "settings": {
+          "optimizer": {
+            "enabled": false,
+            "runs": 200
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata",
+                "storageLayout"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [],
+      "versionPragmas": [
+        "0.5.16"
+      ],
+      "artifacts": [
+        "BEP20Token",
+        "Context",
+        "IBEP20",
+        "Ownable",
+        "SafeMath"
+      ]
+    },
+    "/home/nkt/Desktop/metaStoksContracts/contracts/Avalanche Testnet Connections/PangolinFactory.sol": {
+      "lastModificationDate": 1654780201899,
+      "contentHash": "cf79ac849b656132dc80f3b529a28ac0",
+      "sourceName": "contracts/Avalanche Testnet Connections/PangolinFactory.sol",
+      "solcConfig": {
+        "version": "0.5.16",
+        "settings": {
+          "optimizer": {
+            "enabled": false,
+            "runs": 200
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata",
+                "storageLayout"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [],
+      "versionPragmas": [
+        ">=0.5.0",
+        ">=0.5.0",
+        ">=0.5.0",
+        "=0.5.16",
+        "=0.5.16",
+        "=0.5.16",
+        "=0.5.16",
+        ">=0.5.0",
+        ">=0.5.0",
+        "=0.5.16",
+        "=0.5.16"
+      ],
+      "artifacts": [
+        "IERC20",
+        "IPangolinCallee",
+        "IPangolinERC20",
+        "IPangolinFactory",
+        "IPangolinPair",
+        "Math",
+        "PangolinERC20",
+        "PangolinFactory",
+        "PangolinPair",
+        "SafeMath",
+        "UQ112x112"
+      ]
+    },
+    "/home/nkt/Desktop/metaStoksContracts/contracts/Avalanche Testnet Connections/PangolinRouter.sol": {
+      "lastModificationDate": 1654780167872,
+      "contentHash": "8c41dedf7b07e6aa9c3ccf11823c8009",
+      "sourceName": "contracts/Avalanche Testnet Connections/PangolinRouter.sol",
+      "solcConfig": {
+        "version": "0.6.6",
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "runs": 1000
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata",
+                "storageLayout"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [],
+      "versionPragmas": [
+        ">=0.5.0",
+        ">=0.6.0",
+        ">=0.6.2",
+        ">=0.5.0",
+        ">=0.6.6 <0.8.0",
+        ">=0.5.0",
+        ">=0.5.0",
+        ">=0.5.0",
+        "=0.6.6"
+      ],
+      "artifacts": [
+        "IERC20",
+        "IPangolinFactory",
+        "IPangolinPair",
+        "IPangolinRouter",
+        "IWAVAX",
+        "PangolinLibrary",
+        "PangolinRouter",
+        "SafeMath",
+        "TransferHelper"
+      ]
+    },
+    "/home/nkt/Desktop/metaStoksContracts/contracts/Avalanche Testnet Connections/WBNB.sol": {
+      "lastModificationDate": 1654779538356,
+      "contentHash": "b1b537778e5e06142c11b9da44884e67",
+      "sourceName": "contracts/Avalanche Testnet Connections/WBNB.sol",
+      "solcConfig": {
+        "version": "0.4.18",
+        "settings": {
+          "optimizer": {
+            "enabled": false,
+            "runs": 200
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata",
+                "storageLayout"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [],
+      "versionPragmas": [
+        "^0.4.18"
+      ],
+      "artifacts": [
+        "WBNB"
+      ]
+    },
+    "/home/nkt/Desktop/metaStoksContracts/contracts/interfaces/dexRouterInterfaces/IPangolinRouter.sol": {
+      "lastModificationDate": 1654781792357,
+      "contentHash": "99f3e54d2d90c1eec1f1dc4a19f103d4",
+      "sourceName": "contracts/interfaces/dexRouterInterfaces/IPangolinRouter.sol",
+      "solcConfig": {
+        "version": "0.8.14",
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "runs": 100
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata",
+                "storageLayout"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [],
+      "versionPragmas": [
+        "^0.8.14"
+      ],
+      "artifacts": [
+        "IPangolinRouter"
+      ]
     }
   }
 }

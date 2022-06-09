@@ -40,11 +40,14 @@ interface MetaStocksInterface extends ethers.utils.Interface {
     "name()": FunctionFragment;
     "self()": FunctionFragment;
     "setDeadAddress()": FunctionFragment;
+    "setDexRouter(address)": FunctionFragment;
     "setFees(uint16,uint16,uint16)": FunctionFragment;
     "setFeesManager(address)": FunctionFragment;
     "setMaxTransactionAmount(uint256)": FunctionFragment;
     "setMaxWalletAmount(uint256)": FunctionFragment;
+    "setPairAddress(address)": FunctionFragment;
     "setSwapThreshold(uint256)": FunctionFragment;
+    "setlpPair(address)": FunctionFragment;
     "symbol()": FunctionFragment;
     "totalSupply()": FunctionFragment;
     "transfer(address,uint256)": FunctionFragment;
@@ -111,6 +114,10 @@ interface MetaStocksInterface extends ethers.utils.Interface {
     values?: undefined
   ): string;
   encodeFunctionData(
+    functionFragment: "setDexRouter",
+    values: [string]
+  ): string;
+  encodeFunctionData(
     functionFragment: "setFees",
     values: [BigNumberish, BigNumberish, BigNumberish]
   ): string;
@@ -127,9 +134,14 @@ interface MetaStocksInterface extends ethers.utils.Interface {
     values: [BigNumberish]
   ): string;
   encodeFunctionData(
+    functionFragment: "setPairAddress",
+    values: [string]
+  ): string;
+  encodeFunctionData(
     functionFragment: "setSwapThreshold",
     values: [BigNumberish]
   ): string;
+  encodeFunctionData(functionFragment: "setlpPair", values: [string]): string;
   encodeFunctionData(functionFragment: "symbol", values?: undefined): string;
   encodeFunctionData(
     functionFragment: "totalSupply",
@@ -197,6 +209,10 @@ interface MetaStocksInterface extends ethers.utils.Interface {
     functionFragment: "setDeadAddress",
     data: BytesLike
   ): Result;
+  decodeFunctionResult(
+    functionFragment: "setDexRouter",
+    data: BytesLike
+  ): Result;
   decodeFunctionResult(functionFragment: "setFees", data: BytesLike): Result;
   decodeFunctionResult(
     functionFragment: "setFeesManager",
@@ -211,9 +227,14 @@ interface MetaStocksInterface extends ethers.utils.Interface {
     data: BytesLike
   ): Result;
   decodeFunctionResult(
+    functionFragment: "setPairAddress",
+    data: BytesLike
+  ): Result;
+  decodeFunctionResult(
     functionFragment: "setSwapThreshold",
     data: BytesLike
   ): Result;
+  decodeFunctionResult(functionFragment: "setlpPair", data: BytesLike): Result;
   decodeFunctionResult(functionFragment: "symbol", data: BytesLike): Result;
   decodeFunctionResult(
     functionFragment: "totalSupply",
@@ -376,6 +397,11 @@ export class MetaStocks extends BaseContract {
       overrides?: Overrides & { from?: string | Promise<string> }
     ): Promise<ContractTransaction>;
 
+    setDexRouter(
+      _dexRouter: string,
+      overrides?: Overrides & { from?: string | Promise<string> }
+    ): Promise<ContractTransaction>;
+
     setFees(
       buyFee: BigNumberish,
       sellFee: BigNumberish,
@@ -398,8 +424,18 @@ export class MetaStocks extends BaseContract {
       overrides?: Overrides & { from?: string | Promise<string> }
     ): Promise<ContractTransaction>;
 
+    setPairAddress(
+      _pairAddress: string,
+      overrides?: Overrides & { from?: string | Promise<string> }
+    ): Promise<ContractTransaction>;
+
     setSwapThreshold(
       _swapThreshold: BigNumberish,
+      overrides?: Overrides & { from?: string | Promise<string> }
+    ): Promise<ContractTransaction>;
+
+    setlpPair(
+      _lpPair: string,
       overrides?: Overrides & { from?: string | Promise<string> }
     ): Promise<ContractTransaction>;
 
@@ -492,6 +528,11 @@ export class MetaStocks extends BaseContract {
     overrides?: Overrides & { from?: string | Promise<string> }
   ): Promise<ContractTransaction>;
 
+  setDexRouter(
+    _dexRouter: string,
+    overrides?: Overrides & { from?: string | Promise<string> }
+  ): Promise<ContractTransaction>;
+
   setFees(
     buyFee: BigNumberish,
     sellFee: BigNumberish,
@@ -514,8 +555,18 @@ export class MetaStocks extends BaseContract {
     overrides?: Overrides & { from?: string | Promise<string> }
   ): Promise<ContractTransaction>;
 
+  setPairAddress(
+    _pairAddress: string,
+    overrides?: Overrides & { from?: string | Promise<string> }
+  ): Promise<ContractTransaction>;
+
   setSwapThreshold(
     _swapThreshold: BigNumberish,
+    overrides?: Overrides & { from?: string | Promise<string> }
+  ): Promise<ContractTransaction>;
+
+  setlpPair(
+    _lpPair: string,
     overrides?: Overrides & { from?: string | Promise<string> }
   ): Promise<ContractTransaction>;
 
@@ -602,6 +653,8 @@ export class MetaStocks extends BaseContract {
 
     setDeadAddress(overrides?: CallOverrides): Promise<void>;
 
+    setDexRouter(_dexRouter: string, overrides?: CallOverrides): Promise<void>;
+
     setFees(
       buyFee: BigNumberish,
       sellFee: BigNumberish,
@@ -624,10 +677,17 @@ export class MetaStocks extends BaseContract {
       overrides?: CallOverrides
     ): Promise<void>;
 
+    setPairAddress(
+      _pairAddress: string,
+      overrides?: CallOverrides
+    ): Promise<void>;
+
     setSwapThreshold(
       _swapThreshold: BigNumberish,
       overrides?: CallOverrides
     ): Promise<void>;
+
+    setlpPair(_lpPair: string, overrides?: CallOverrides): Promise<void>;
 
     symbol(overrides?: CallOverrides): Promise<string>;
 
@@ -797,6 +857,11 @@ export class MetaStocks extends BaseContract {
       overrides?: Overrides & { from?: string | Promise<string> }
     ): Promise<BigNumber>;
 
+    setDexRouter(
+      _dexRouter: string,
+      overrides?: Overrides & { from?: string | Promise<string> }
+    ): Promise<BigNumber>;
+
     setFees(
       buyFee: BigNumberish,
       sellFee: BigNumberish,
@@ -819,8 +884,18 @@ export class MetaStocks extends BaseContract {
       overrides?: Overrides & { from?: string | Promise<string> }
     ): Promise<BigNumber>;
 
+    setPairAddress(
+      _pairAddress: string,
+      overrides?: Overrides & { from?: string | Promise<string> }
+    ): Promise<BigNumber>;
+
     setSwapThreshold(
       _swapThreshold: BigNumberish,
+      overrides?: Overrides & { from?: string | Promise<string> }
+    ): Promise<BigNumber>;
+
+    setlpPair(
+      _lpPair: string,
       overrides?: Overrides & { from?: string | Promise<string> }
     ): Promise<BigNumber>;
 
@@ -919,6 +994,11 @@ export class MetaStocks extends BaseContract {
       overrides?: Overrides & { from?: string | Promise<string> }
     ): Promise<PopulatedTransaction>;
 
+    setDexRouter(
+      _dexRouter: string,
+      overrides?: Overrides & { from?: string | Promise<string> }
+    ): Promise<PopulatedTransaction>;
+
     setFees(
       buyFee: BigNumberish,
       sellFee: BigNumberish,
@@ -941,8 +1021,18 @@ export class MetaStocks extends BaseContract {
       overrides?: Overrides & { from?: string | Promise<string> }
     ): Promise<PopulatedTransaction>;
 
+    setPairAddress(
+      _pairAddress: string,
+      overrides?: Overrides & { from?: string | Promise<string> }
+    ): Promise<PopulatedTransaction>;
+
     setSwapThreshold(
       _swapThreshold: BigNumberish,
+      overrides?: Overrides & { from?: string | Promise<string> }
+    ): Promise<PopulatedTransaction>;
+
+    setlpPair(
+      _lpPair: string,
       overrides?: Overrides & { from?: string | Promise<string> }
     ): Promise<PopulatedTransaction>;
 
