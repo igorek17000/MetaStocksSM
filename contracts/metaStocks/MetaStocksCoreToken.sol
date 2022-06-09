@@ -85,7 +85,6 @@ contract MetaStocksCoreToken is ERC20Upgradeable, IAutoLiquidityInjecter {
 
     function initContracts() internal virtual {
         feesManager = new FeesManager();
-        feesManager = new FeesManager();
         feesSplitManager = new FeesSplitManager();
     }
 

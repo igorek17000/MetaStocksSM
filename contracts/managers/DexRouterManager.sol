@@ -7,8 +7,9 @@ import "../interfaces/dexRouterInterfaces/IMetaStocksMultiDexRouter.sol";
 
 contract DexRouterManager {
     IMetaStocksMultiDexRouter private dexRouter; // router instance for do swaps
-    address stableCoin;
+    address private stableCoin;
     bool private inSwap; // used for dont take fee on swaps
+    uint256 private networkId;
 
     modifier swapping() {
         inSwap = true;
@@ -19,6 +20,7 @@ contract DexRouterManager {
     constructor(address _dexRouterAddress) {
         dexRouter = IMetaStocksMultiDexRouter(_dexRouterAddress);
         stableCoin = 0x78867BbEeF44f2326bF8DDd1941a4439382EF2A7;
+        networkId = 97;
     }
 
     function getDexRouter() external view returns (IMetaStocksMultiDexRouter) {
@@ -29,20 +31,19 @@ contract DexRouterManager {
         return inSwap;
     }
 
-    function getNativeNetworkCurrencyAddress(uint256 networkId)
-        external
-        pure
-        returns (uint256)
+    function getNativeNetworkCurrencyAddress(uint256 _networkId)
+        internal
+        returns (address)
     {
         uint256 nId = 97;
-        if (networkId == 97) {
-            nId = networkId;
-        } else if (networkId == 97) {
-            nId = networkId;
+        if (_networkId == 97) {
+            nId = _networkId;
+        } else if (_networkId == 97) {
+            nId = 97;
         } else {
             revert("unsupported network");
         }
-        return nId;
+        return dexRouter.WETH();
     }
 
     function getDexRouterAddress() external view returns (address) {
@@ -52,7 +53,7 @@ contract DexRouterManager {
     function swapTokensForStableCoin(address to, uint256 amount) external {
         address[] memory path = new address[](3);
         path[0] = address(this);
-        path[1] = dexRouter.WETH();
+        path[1] = getNativeNetworkCurrencyAddress(networkId);
         path[2] = stableCoin;
 
         // Do approve for router spend swap token amount
@@ -76,7 +77,7 @@ contract DexRouterManager {
         // generate the uniswap pair path of token -> weth
         address[] memory path = new address[](2);
         path[0] = token;
-        path[1] = dexRouter.WETH();
+        path[1] = getNativeNetworkCurrencyAddress(networkId);
 
         IERC20(token).approve(address(dexRouter), type(uint256).max);
 
