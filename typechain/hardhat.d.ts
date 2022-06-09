@@ -49,6 +49,18 @@ declare module "hardhat/types/runtime" {
       signerOrOptions?: ethers.Signer | FactoryOptions
     ): Promise<Contracts.IERC1155Upgradeable__factory>;
     getContractFactory(
+      name: "ERC20Upgradeable",
+      signerOrOptions?: ethers.Signer | FactoryOptions
+    ): Promise<Contracts.ERC20Upgradeable__factory>;
+    getContractFactory(
+      name: "IERC20MetadataUpgradeable",
+      signerOrOptions?: ethers.Signer | FactoryOptions
+    ): Promise<Contracts.IERC20MetadataUpgradeable__factory>;
+    getContractFactory(
+      name: "IERC20Upgradeable",
+      signerOrOptions?: ethers.Signer | FactoryOptions
+    ): Promise<Contracts.IERC20Upgradeable__factory>;
+    getContractFactory(
       name: "ERC721Upgradeable",
       signerOrOptions?: ethers.Signer | FactoryOptions
     ): Promise<Contracts.ERC721Upgradeable__factory>;
@@ -112,6 +124,18 @@ declare module "hardhat/types/runtime" {
       name: "IERC165",
       signerOrOptions?: ethers.Signer | FactoryOptions
     ): Promise<Contracts.IERC165__factory>;
+    getContractFactory(
+      name: "IUniswapV2Factory",
+      signerOrOptions?: ethers.Signer | FactoryOptions
+    ): Promise<Contracts.IUniswapV2Factory__factory>;
+    getContractFactory(
+      name: "IUniswapV2Router01",
+      signerOrOptions?: ethers.Signer | FactoryOptions
+    ): Promise<Contracts.IUniswapV2Router01__factory>;
+    getContractFactory(
+      name: "IUniswapV2Router02",
+      signerOrOptions?: ethers.Signer | FactoryOptions
+    ): Promise<Contracts.IUniswapV2Router02__factory>;
     getContractFactory(
       name: "BEP20Token",
       signerOrOptions?: ethers.Signer | FactoryOptions
@@ -193,6 +217,74 @@ declare module "hardhat/types/runtime" {
       signerOrOptions?: ethers.Signer | FactoryOptions
     ): Promise<Contracts.WBNB__factory>;
     getContractFactory(
+      name: "AggregatorV3Interface",
+      signerOrOptions?: ethers.Signer | FactoryOptions
+    ): Promise<Contracts.AggregatorV3Interface__factory>;
+    getContractFactory(
+      name: "IAutoLiquidityInjecter",
+      signerOrOptions?: ethers.Signer | FactoryOptions
+    ): Promise<Contracts.IAutoLiquidityInjecter__factory>;
+    getContractFactory(
+      name: "IDexRouterManager",
+      signerOrOptions?: ethers.Signer | FactoryOptions
+    ): Promise<Contracts.IDexRouterManager__factory>;
+    getContractFactory(
+      name: "IJoeRouter01",
+      signerOrOptions?: ethers.Signer | FactoryOptions
+    ): Promise<Contracts.IJoeRouter01__factory>;
+    getContractFactory(
+      name: "IJoeRouter02",
+      signerOrOptions?: ethers.Signer | FactoryOptions
+    ): Promise<Contracts.IJoeRouter02__factory>;
+    getContractFactory(
+      name: "IMetaStocksMultiDexRouter",
+      signerOrOptions?: ethers.Signer | FactoryOptions
+    ): Promise<Contracts.IMetaStocksMultiDexRouter__factory>;
+    getContractFactory(
+      name: "IMetaStockCompany",
+      signerOrOptions?: ethers.Signer | FactoryOptions
+    ): Promise<Contracts.IMetaStockCompany__factory>;
+    getContractFactory(
+      name: "IMetaStockCompanyInfo",
+      signerOrOptions?: ethers.Signer | FactoryOptions
+    ): Promise<Contracts.IMetaStockCompanyInfo__factory>;
+    getContractFactory(
+      name: "IMetaStockFranchise",
+      signerOrOptions?: ethers.Signer | FactoryOptions
+    ): Promise<Contracts.IMetaStockFranchise__factory>;
+    getContractFactory(
+      name: "IMetaStockFranchiseShare",
+      signerOrOptions?: ethers.Signer | FactoryOptions
+    ): Promise<Contracts.IMetaStockFranchiseShare__factory>;
+    getContractFactory(
+      name: "IMetaStocksCompanyManager",
+      signerOrOptions?: ethers.Signer | FactoryOptions
+    ): Promise<Contracts.IMetaStocksCompanyManager__factory>;
+    getContractFactory(
+      name: "ChainlinkDataFeedsManager",
+      signerOrOptions?: ethers.Signer | FactoryOptions
+    ): Promise<Contracts.ChainlinkDataFeedsManager__factory>;
+    getContractFactory(
+      name: "DexRouterManager",
+      signerOrOptions?: ethers.Signer | FactoryOptions
+    ): Promise<Contracts.DexRouterManager__factory>;
+    getContractFactory(
+      name: "FeesManager",
+      signerOrOptions?: ethers.Signer | FactoryOptions
+    ): Promise<Contracts.FeesManager__factory>;
+    getContractFactory(
+      name: "MetaStocksCompanyManager",
+      signerOrOptions?: ethers.Signer | FactoryOptions
+    ): Promise<Contracts.MetaStocksCompanyManager__factory>;
+    getContractFactory(
+      name: "MetaStocks",
+      signerOrOptions?: ethers.Signer | FactoryOptions
+    ): Promise<Contracts.MetaStocks__factory>;
+    getContractFactory(
+      name: "MetaStock1155",
+      signerOrOptions?: ethers.Signer | FactoryOptions
+    ): Promise<Contracts.MetaStock1155__factory>;
+    getContractFactory(
       name: "MetaStockCompany",
       signerOrOptions?: ethers.Signer | FactoryOptions
     ): Promise<Contracts.MetaStockCompany__factory>;
@@ -204,6 +296,14 @@ declare module "hardhat/types/runtime" {
       name: "MetaStockFranchiseShare",
       signerOrOptions?: ethers.Signer | FactoryOptions
     ): Promise<Contracts.MetaStockFranchiseShare__factory>;
+    getContractFactory(
+      name: "MetaStocksERC20Upgradeable",
+      signerOrOptions?: ethers.Signer | FactoryOptions
+    ): Promise<Contracts.MetaStocksERC20Upgradeable__factory>;
+    getContractFactory(
+      name: "MetaStocksERC20UpgradeableCore",
+      signerOrOptions?: ethers.Signer | FactoryOptions
+    ): Promise<Contracts.MetaStocksERC20UpgradeableCore__factory>;
 
     getContractAt(
       name: "OwnableUpgradeable",
@@ -250,6 +350,21 @@ declare module "hardhat/types/runtime" {
       address: string,
       signer?: ethers.Signer
     ): Promise<Contracts.IERC1155Upgradeable>;
+    getContractAt(
+      name: "ERC20Upgradeable",
+      address: string,
+      signer?: ethers.Signer
+    ): Promise<Contracts.ERC20Upgradeable>;
+    getContractAt(
+      name: "IERC20MetadataUpgradeable",
+      address: string,
+      signer?: ethers.Signer
+    ): Promise<Contracts.IERC20MetadataUpgradeable>;
+    getContractAt(
+      name: "IERC20Upgradeable",
+      address: string,
+      signer?: ethers.Signer
+    ): Promise<Contracts.IERC20Upgradeable>;
     getContractAt(
       name: "ERC721Upgradeable",
       address: string,
@@ -330,6 +445,21 @@ declare module "hardhat/types/runtime" {
       address: string,
       signer?: ethers.Signer
     ): Promise<Contracts.IERC165>;
+    getContractAt(
+      name: "IUniswapV2Factory",
+      address: string,
+      signer?: ethers.Signer
+    ): Promise<Contracts.IUniswapV2Factory>;
+    getContractAt(
+      name: "IUniswapV2Router01",
+      address: string,
+      signer?: ethers.Signer
+    ): Promise<Contracts.IUniswapV2Router01>;
+    getContractAt(
+      name: "IUniswapV2Router02",
+      address: string,
+      signer?: ethers.Signer
+    ): Promise<Contracts.IUniswapV2Router02>;
     getContractAt(
       name: "BEP20Token",
       address: string,
@@ -431,6 +561,91 @@ declare module "hardhat/types/runtime" {
       signer?: ethers.Signer
     ): Promise<Contracts.WBNB>;
     getContractAt(
+      name: "AggregatorV3Interface",
+      address: string,
+      signer?: ethers.Signer
+    ): Promise<Contracts.AggregatorV3Interface>;
+    getContractAt(
+      name: "IAutoLiquidityInjecter",
+      address: string,
+      signer?: ethers.Signer
+    ): Promise<Contracts.IAutoLiquidityInjecter>;
+    getContractAt(
+      name: "IDexRouterManager",
+      address: string,
+      signer?: ethers.Signer
+    ): Promise<Contracts.IDexRouterManager>;
+    getContractAt(
+      name: "IJoeRouter01",
+      address: string,
+      signer?: ethers.Signer
+    ): Promise<Contracts.IJoeRouter01>;
+    getContractAt(
+      name: "IJoeRouter02",
+      address: string,
+      signer?: ethers.Signer
+    ): Promise<Contracts.IJoeRouter02>;
+    getContractAt(
+      name: "IMetaStocksMultiDexRouter",
+      address: string,
+      signer?: ethers.Signer
+    ): Promise<Contracts.IMetaStocksMultiDexRouter>;
+    getContractAt(
+      name: "IMetaStockCompany",
+      address: string,
+      signer?: ethers.Signer
+    ): Promise<Contracts.IMetaStockCompany>;
+    getContractAt(
+      name: "IMetaStockCompanyInfo",
+      address: string,
+      signer?: ethers.Signer
+    ): Promise<Contracts.IMetaStockCompanyInfo>;
+    getContractAt(
+      name: "IMetaStockFranchise",
+      address: string,
+      signer?: ethers.Signer
+    ): Promise<Contracts.IMetaStockFranchise>;
+    getContractAt(
+      name: "IMetaStockFranchiseShare",
+      address: string,
+      signer?: ethers.Signer
+    ): Promise<Contracts.IMetaStockFranchiseShare>;
+    getContractAt(
+      name: "IMetaStocksCompanyManager",
+      address: string,
+      signer?: ethers.Signer
+    ): Promise<Contracts.IMetaStocksCompanyManager>;
+    getContractAt(
+      name: "ChainlinkDataFeedsManager",
+      address: string,
+      signer?: ethers.Signer
+    ): Promise<Contracts.ChainlinkDataFeedsManager>;
+    getContractAt(
+      name: "DexRouterManager",
+      address: string,
+      signer?: ethers.Signer
+    ): Promise<Contracts.DexRouterManager>;
+    getContractAt(
+      name: "FeesManager",
+      address: string,
+      signer?: ethers.Signer
+    ): Promise<Contracts.FeesManager>;
+    getContractAt(
+      name: "MetaStocksCompanyManager",
+      address: string,
+      signer?: ethers.Signer
+    ): Promise<Contracts.MetaStocksCompanyManager>;
+    getContractAt(
+      name: "MetaStocks",
+      address: string,
+      signer?: ethers.Signer
+    ): Promise<Contracts.MetaStocks>;
+    getContractAt(
+      name: "MetaStock1155",
+      address: string,
+      signer?: ethers.Signer
+    ): Promise<Contracts.MetaStock1155>;
+    getContractAt(
       name: "MetaStockCompany",
       address: string,
       signer?: ethers.Signer
@@ -445,6 +660,16 @@ declare module "hardhat/types/runtime" {
       address: string,
       signer?: ethers.Signer
     ): Promise<Contracts.MetaStockFranchiseShare>;
+    getContractAt(
+      name: "MetaStocksERC20Upgradeable",
+      address: string,
+      signer?: ethers.Signer
+    ): Promise<Contracts.MetaStocksERC20Upgradeable>;
+    getContractAt(
+      name: "MetaStocksERC20UpgradeableCore",
+      address: string,
+      signer?: ethers.Signer
+    ): Promise<Contracts.MetaStocksERC20UpgradeableCore>;
 
     // default types
     getContractFactory(

@@ -7,7 +7,7 @@ import "@uniswap/v2-core/contracts/interfaces/IUniswapV2Factory.sol";
 import "@openzeppelin/contracts-upgradeable/token/ERC20/ERC20Upgradeable.sol";
 import "./../managers/feesManagers/FeesManager.sol";
 import "./../interfaces/dexRouterInterfaces/IAutoLiquidityInjecter.sol";
-import "./../managers/feesManagers/FeesSplitManager.sol";
+//import "./../managers/feesManagers/FeesSplitManager.sol";
 import "./../managers/DexRouterManager.sol";
 
 abstract contract MetaStocksERC20UpgradeableCore {
@@ -21,7 +21,7 @@ abstract contract MetaStocksERC20UpgradeableCore {
     bool private tradingEnabled;
 
     FeesManager private feesManager;
-    FeesSplitManager private feesSplitManager;
+    //FeesSplitManager private feesSplitManager;
     DexRouterManager private dexRouterManager;
 
     mapping(address => bool) public automatedMarketMakerPairs;
@@ -80,12 +80,14 @@ abstract contract MetaStocksERC20UpgradeableCore {
         feesManager = _feesManager;
     }
 
+    /*
     function setFeesSplitManager(FeesSplitManager _feesSplitManager)
         public
         virtual
     {
         feesSplitManager = _feesSplitManager;
     }
+    */
 
     function getSwapThreshold() public view virtual returns (uint256) {
         return swapThreshold;
@@ -103,6 +105,7 @@ abstract contract MetaStocksERC20UpgradeableCore {
         return feesManager;
     }
 
+    /*
     function getFeesSplitManager()
         public
         view
@@ -111,6 +114,7 @@ abstract contract MetaStocksERC20UpgradeableCore {
     {
         return feesSplitManager;
     }
+    */
 
     function getDexRouterManager()
         public

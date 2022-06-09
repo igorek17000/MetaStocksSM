@@ -7,7 +7,7 @@ import "@uniswap/v2-core/contracts/interfaces/IUniswapV2Factory.sol";
 import "@openzeppelin/contracts-upgradeable/token/ERC20/ERC20Upgradeable.sol";
 import "./../managers/feesManagers/FeesManager.sol";
 import "./../interfaces/dexRouterInterfaces/IAutoLiquidityInjecter.sol";
-import "./../managers/feesManagers/FeesSplitManager.sol";
+//import "./../managers/feesManagers/FeesSplitManager.sol";
 import "./../managers/DexRouterManager.sol";
 import "./MetaStocksERC20UpgradeableCore.sol";
 
@@ -55,7 +55,7 @@ contract MetaStocksERC20Upgradeable is
 
     function initContracts() internal virtual {
         super.setFeesManager(new FeesManager());
-        super.setFeesSplitManager(new FeesSplitManager());
+        //super.setFeesSplitManager(new FeesSplitManager());
     }
 
     function initValues() internal virtual {

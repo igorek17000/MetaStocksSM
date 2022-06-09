@@ -12,6 +12,7 @@ import {
   BaseContract,
   ContractTransaction,
   Overrides,
+  PayableOverrides,
   CallOverrides,
 } from "ethers";
 import { BytesLike } from "@ethersproject/bytes";
@@ -25,11 +26,12 @@ interface MetaStockFranchiseShareInterface extends ethers.utils.Interface {
     "balanceOfBatch(address[],uint256[])": FunctionFragment;
     "burn(address,uint256,uint256)": FunctionFragment;
     "burnBatch(address,uint256[],uint256[])": FunctionFragment;
+    "createFranchise()": FunctionFragment;
     "exists(uint256)": FunctionFragment;
     "initialize()": FunctionFragment;
     "isApprovedForAll(address,address)": FunctionFragment;
-    "mintFranchiseShare(address,uint256,uint256,bytes)": FunctionFragment;
-    "mintFranchiseShareBatch(address,uint256[],uint256[],bytes)": FunctionFragment;
+    "mintFranchise(address,uint256,uint256,bytes)": FunctionFragment;
+    "mintFranchiseBatch(address,uint256[],uint256[],bytes)": FunctionFragment;
     "owner()": FunctionFragment;
     "pause()": FunctionFragment;
     "paused()": FunctionFragment;
@@ -62,6 +64,10 @@ interface MetaStockFranchiseShareInterface extends ethers.utils.Interface {
     values: [string, BigNumberish[], BigNumberish[]]
   ): string;
   encodeFunctionData(
+    functionFragment: "createFranchise",
+    values?: undefined
+  ): string;
+  encodeFunctionData(
     functionFragment: "exists",
     values: [BigNumberish]
   ): string;
@@ -74,11 +80,11 @@ interface MetaStockFranchiseShareInterface extends ethers.utils.Interface {
     values: [string, string]
   ): string;
   encodeFunctionData(
-    functionFragment: "mintFranchiseShare",
+    functionFragment: "mintFranchise",
     values: [string, BigNumberish, BigNumberish, BytesLike]
   ): string;
   encodeFunctionData(
-    functionFragment: "mintFranchiseShareBatch",
+    functionFragment: "mintFranchiseBatch",
     values: [string, BigNumberish[], BigNumberish[], BytesLike]
   ): string;
   encodeFunctionData(functionFragment: "owner", values?: undefined): string;
@@ -123,6 +129,10 @@ interface MetaStockFranchiseShareInterface extends ethers.utils.Interface {
   ): Result;
   decodeFunctionResult(functionFragment: "burn", data: BytesLike): Result;
   decodeFunctionResult(functionFragment: "burnBatch", data: BytesLike): Result;
+  decodeFunctionResult(
+    functionFragment: "createFranchise",
+    data: BytesLike
+  ): Result;
   decodeFunctionResult(functionFragment: "exists", data: BytesLike): Result;
   decodeFunctionResult(functionFragment: "initialize", data: BytesLike): Result;
   decodeFunctionResult(
@@ -130,11 +140,11 @@ interface MetaStockFranchiseShareInterface extends ethers.utils.Interface {
     data: BytesLike
   ): Result;
   decodeFunctionResult(
-    functionFragment: "mintFranchiseShare",
+    functionFragment: "mintFranchise",
     data: BytesLike
   ): Result;
   decodeFunctionResult(
-    functionFragment: "mintFranchiseShareBatch",
+    functionFragment: "mintFranchiseBatch",
     data: BytesLike
   ): Result;
   decodeFunctionResult(functionFragment: "owner", data: BytesLike): Result;
@@ -305,6 +315,10 @@ export class MetaStockFranchiseShare extends BaseContract {
       overrides?: Overrides & { from?: string | Promise<string> }
     ): Promise<ContractTransaction>;
 
+    createFranchise(
+      overrides?: PayableOverrides & { from?: string | Promise<string> }
+    ): Promise<ContractTransaction>;
+
     exists(id: BigNumberish, overrides?: CallOverrides): Promise<[boolean]>;
 
     initialize(
@@ -317,16 +331,16 @@ export class MetaStockFranchiseShare extends BaseContract {
       overrides?: CallOverrides
     ): Promise<[boolean]>;
 
-    mintFranchiseShare(
-      franchiseAddress: string,
+    mintFranchise(
+      companyAddress: string,
       id: BigNumberish,
       amount: BigNumberish,
       data: BytesLike,
       overrides?: Overrides & { from?: string | Promise<string> }
     ): Promise<ContractTransaction>;
 
-    mintFranchiseShareBatch(
-      franchiseAddress: string,
+    mintFranchiseBatch(
+      companyAddress: string,
       ids: BigNumberish[],
       amounts: BigNumberish[],
       data: BytesLike,
@@ -422,6 +436,10 @@ export class MetaStockFranchiseShare extends BaseContract {
     overrides?: Overrides & { from?: string | Promise<string> }
   ): Promise<ContractTransaction>;
 
+  createFranchise(
+    overrides?: PayableOverrides & { from?: string | Promise<string> }
+  ): Promise<ContractTransaction>;
+
   exists(id: BigNumberish, overrides?: CallOverrides): Promise<boolean>;
 
   initialize(
@@ -434,16 +452,16 @@ export class MetaStockFranchiseShare extends BaseContract {
     overrides?: CallOverrides
   ): Promise<boolean>;
 
-  mintFranchiseShare(
-    franchiseAddress: string,
+  mintFranchise(
+    companyAddress: string,
     id: BigNumberish,
     amount: BigNumberish,
     data: BytesLike,
     overrides?: Overrides & { from?: string | Promise<string> }
   ): Promise<ContractTransaction>;
 
-  mintFranchiseShareBatch(
-    franchiseAddress: string,
+  mintFranchiseBatch(
+    companyAddress: string,
     ids: BigNumberish[],
     amounts: BigNumberish[],
     data: BytesLike,
@@ -536,6 +554,8 @@ export class MetaStockFranchiseShare extends BaseContract {
       overrides?: CallOverrides
     ): Promise<void>;
 
+    createFranchise(overrides?: CallOverrides): Promise<void>;
+
     exists(id: BigNumberish, overrides?: CallOverrides): Promise<boolean>;
 
     initialize(overrides?: CallOverrides): Promise<void>;
@@ -546,16 +566,16 @@ export class MetaStockFranchiseShare extends BaseContract {
       overrides?: CallOverrides
     ): Promise<boolean>;
 
-    mintFranchiseShare(
-      franchiseAddress: string,
+    mintFranchise(
+      companyAddress: string,
       id: BigNumberish,
       amount: BigNumberish,
       data: BytesLike,
       overrides?: CallOverrides
     ): Promise<void>;
 
-    mintFranchiseShareBatch(
-      franchiseAddress: string,
+    mintFranchiseBatch(
+      companyAddress: string,
       ids: BigNumberish[],
       amounts: BigNumberish[],
       data: BytesLike,
@@ -777,6 +797,10 @@ export class MetaStockFranchiseShare extends BaseContract {
       overrides?: Overrides & { from?: string | Promise<string> }
     ): Promise<BigNumber>;
 
+    createFranchise(
+      overrides?: PayableOverrides & { from?: string | Promise<string> }
+    ): Promise<BigNumber>;
+
     exists(id: BigNumberish, overrides?: CallOverrides): Promise<BigNumber>;
 
     initialize(
@@ -789,16 +813,16 @@ export class MetaStockFranchiseShare extends BaseContract {
       overrides?: CallOverrides
     ): Promise<BigNumber>;
 
-    mintFranchiseShare(
-      franchiseAddress: string,
+    mintFranchise(
+      companyAddress: string,
       id: BigNumberish,
       amount: BigNumberish,
       data: BytesLike,
       overrides?: Overrides & { from?: string | Promise<string> }
     ): Promise<BigNumber>;
 
-    mintFranchiseShareBatch(
-      franchiseAddress: string,
+    mintFranchiseBatch(
+      companyAddress: string,
       ids: BigNumberish[],
       amounts: BigNumberish[],
       data: BytesLike,
@@ -895,6 +919,10 @@ export class MetaStockFranchiseShare extends BaseContract {
       overrides?: Overrides & { from?: string | Promise<string> }
     ): Promise<PopulatedTransaction>;
 
+    createFranchise(
+      overrides?: PayableOverrides & { from?: string | Promise<string> }
+    ): Promise<PopulatedTransaction>;
+
     exists(
       id: BigNumberish,
       overrides?: CallOverrides
@@ -910,16 +938,16 @@ export class MetaStockFranchiseShare extends BaseContract {
       overrides?: CallOverrides
     ): Promise<PopulatedTransaction>;
 
-    mintFranchiseShare(
-      franchiseAddress: string,
+    mintFranchise(
+      companyAddress: string,
       id: BigNumberish,
       amount: BigNumberish,
       data: BytesLike,
       overrides?: Overrides & { from?: string | Promise<string> }
     ): Promise<PopulatedTransaction>;
 
-    mintFranchiseShareBatch(
-      franchiseAddress: string,
+    mintFranchiseBatch(
+      companyAddress: string,
       ids: BigNumberish[],
       amounts: BigNumberish[],
       data: BytesLike,

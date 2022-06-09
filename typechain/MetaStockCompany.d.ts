@@ -12,7 +12,6 @@ import {
   BaseContract,
   ContractTransaction,
   Overrides,
-  PayableOverrides,
   CallOverrides,
 } from "ethers";
 import { BytesLike } from "@ethersproject/bytes";
@@ -24,13 +23,10 @@ interface MetaStockCompanyInterface extends ethers.utils.Interface {
   functions: {
     "approve(address,uint256)": FunctionFragment;
     "balanceOf(address)": FunctionFragment;
-    "createCompany()": FunctionFragment;
+    "createMetaStockCompany(address)": FunctionFragment;
     "getApproved(uint256)": FunctionFragment;
-    "getCompanyId(address)": FunctionFragment;
-    "getRewardsByCompany(address)": FunctionFragment;
     "initialize()": FunctionFragment;
     "isApprovedForAll(address,address)": FunctionFragment;
-    "isCeo(address)": FunctionFragment;
     "name()": FunctionFragment;
     "onERC1155BatchReceived(address,address,uint256[],uint256[],bytes)": FunctionFragment;
     "onERC1155Received(address,address,uint256,uint256,bytes)": FunctionFragment;
@@ -48,11 +44,6 @@ interface MetaStockCompanyInterface extends ethers.utils.Interface {
     "transferFrom(address,address,uint256)": FunctionFragment;
     "transferOwnership(address)": FunctionFragment;
     "unpause()": FunctionFragment;
-    "updateCreateCompanyPrice(uint256)": FunctionFragment;
-    "updateHarvestInterval(uint256)": FunctionFragment;
-    "updatePaymentsByInterval(uint256)": FunctionFragment;
-    "updatepPyTokenAddress(address)": FunctionFragment;
-    "upgradeCompanyLevel()": FunctionFragment;
   };
 
   encodeFunctionData(
@@ -61,20 +52,12 @@ interface MetaStockCompanyInterface extends ethers.utils.Interface {
   ): string;
   encodeFunctionData(functionFragment: "balanceOf", values: [string]): string;
   encodeFunctionData(
-    functionFragment: "createCompany",
-    values?: undefined
+    functionFragment: "createMetaStockCompany",
+    values: [string]
   ): string;
   encodeFunctionData(
     functionFragment: "getApproved",
     values: [BigNumberish]
-  ): string;
-  encodeFunctionData(
-    functionFragment: "getCompanyId",
-    values: [string]
-  ): string;
-  encodeFunctionData(
-    functionFragment: "getRewardsByCompany",
-    values: [string]
   ): string;
   encodeFunctionData(
     functionFragment: "initialize",
@@ -84,7 +67,6 @@ interface MetaStockCompanyInterface extends ethers.utils.Interface {
     functionFragment: "isApprovedForAll",
     values: [string, string]
   ): string;
-  encodeFunctionData(functionFragment: "isCeo", values: [string]): string;
   encodeFunctionData(functionFragment: "name", values?: undefined): string;
   encodeFunctionData(
     functionFragment: "onERC1155BatchReceived",
@@ -132,43 +114,15 @@ interface MetaStockCompanyInterface extends ethers.utils.Interface {
     values: [string]
   ): string;
   encodeFunctionData(functionFragment: "unpause", values?: undefined): string;
-  encodeFunctionData(
-    functionFragment: "updateCreateCompanyPrice",
-    values: [BigNumberish]
-  ): string;
-  encodeFunctionData(
-    functionFragment: "updateHarvestInterval",
-    values: [BigNumberish]
-  ): string;
-  encodeFunctionData(
-    functionFragment: "updatePaymentsByInterval",
-    values: [BigNumberish]
-  ): string;
-  encodeFunctionData(
-    functionFragment: "updatepPyTokenAddress",
-    values: [string]
-  ): string;
-  encodeFunctionData(
-    functionFragment: "upgradeCompanyLevel",
-    values?: undefined
-  ): string;
 
   decodeFunctionResult(functionFragment: "approve", data: BytesLike): Result;
   decodeFunctionResult(functionFragment: "balanceOf", data: BytesLike): Result;
   decodeFunctionResult(
-    functionFragment: "createCompany",
+    functionFragment: "createMetaStockCompany",
     data: BytesLike
   ): Result;
   decodeFunctionResult(
     functionFragment: "getApproved",
-    data: BytesLike
-  ): Result;
-  decodeFunctionResult(
-    functionFragment: "getCompanyId",
-    data: BytesLike
-  ): Result;
-  decodeFunctionResult(
-    functionFragment: "getRewardsByCompany",
     data: BytesLike
   ): Result;
   decodeFunctionResult(functionFragment: "initialize", data: BytesLike): Result;
@@ -176,7 +130,6 @@ interface MetaStockCompanyInterface extends ethers.utils.Interface {
     functionFragment: "isApprovedForAll",
     data: BytesLike
   ): Result;
-  decodeFunctionResult(functionFragment: "isCeo", data: BytesLike): Result;
   decodeFunctionResult(functionFragment: "name", data: BytesLike): Result;
   decodeFunctionResult(
     functionFragment: "onERC1155BatchReceived",
@@ -218,26 +171,6 @@ interface MetaStockCompanyInterface extends ethers.utils.Interface {
     data: BytesLike
   ): Result;
   decodeFunctionResult(functionFragment: "unpause", data: BytesLike): Result;
-  decodeFunctionResult(
-    functionFragment: "updateCreateCompanyPrice",
-    data: BytesLike
-  ): Result;
-  decodeFunctionResult(
-    functionFragment: "updateHarvestInterval",
-    data: BytesLike
-  ): Result;
-  decodeFunctionResult(
-    functionFragment: "updatePaymentsByInterval",
-    data: BytesLike
-  ): Result;
-  decodeFunctionResult(
-    functionFragment: "updatepPyTokenAddress",
-    data: BytesLike
-  ): Result;
-  decodeFunctionResult(
-    functionFragment: "upgradeCompanyLevel",
-    data: BytesLike
-  ): Result;
 
   events: {
     "Approval(address,address,uint256)": EventFragment;
@@ -340,24 +273,15 @@ export class MetaStockCompany extends BaseContract {
 
     balanceOf(owner: string, overrides?: CallOverrides): Promise<[BigNumber]>;
 
-    createCompany(
-      overrides?: PayableOverrides & { from?: string | Promise<string> }
+    createMetaStockCompany(
+      to: string,
+      overrides?: Overrides & { from?: string | Promise<string> }
     ): Promise<ContractTransaction>;
 
     getApproved(
       tokenId: BigNumberish,
       overrides?: CallOverrides
     ): Promise<[string]>;
-
-    getCompanyId(
-      account: string,
-      overrides?: CallOverrides
-    ): Promise<[BigNumber]>;
-
-    getRewardsByCompany(
-      account: string,
-      overrides?: CallOverrides
-    ): Promise<[BigNumber]>;
 
     initialize(
       overrides?: Overrides & { from?: string | Promise<string> }
@@ -369,8 +293,6 @@ export class MetaStockCompany extends BaseContract {
       overrides?: CallOverrides
     ): Promise<[boolean]>;
 
-    isCeo(account: string, overrides?: CallOverrides): Promise<[boolean]>;
-
     name(overrides?: CallOverrides): Promise<[string]>;
 
     onERC1155BatchReceived(
@@ -379,8 +301,8 @@ export class MetaStockCompany extends BaseContract {
       arg2: BigNumberish[],
       arg3: BigNumberish[],
       arg4: BytesLike,
-      overrides?: CallOverrides
-    ): Promise<[string]>;
+      overrides?: Overrides & { from?: string | Promise<string> }
+    ): Promise<ContractTransaction>;
 
     onERC1155Received(
       arg0: string,
@@ -388,8 +310,8 @@ export class MetaStockCompany extends BaseContract {
       arg2: BigNumberish,
       arg3: BigNumberish,
       arg4: BytesLike,
-      overrides?: CallOverrides
-    ): Promise<[string]>;
+      overrides?: Overrides & { from?: string | Promise<string> }
+    ): Promise<ContractTransaction>;
 
     owner(overrides?: CallOverrides): Promise<[string]>;
 
@@ -461,30 +383,6 @@ export class MetaStockCompany extends BaseContract {
     unpause(
       overrides?: Overrides & { from?: string | Promise<string> }
     ): Promise<ContractTransaction>;
-
-    updateCreateCompanyPrice(
-      _createCompanyPrice: BigNumberish,
-      overrides?: Overrides & { from?: string | Promise<string> }
-    ): Promise<ContractTransaction>;
-
-    updateHarvestInterval(
-      _harvestInterval: BigNumberish,
-      overrides?: Overrides & { from?: string | Promise<string> }
-    ): Promise<ContractTransaction>;
-
-    updatePaymentsByInterval(
-      _paymentsByInterval: BigNumberish,
-      overrides?: Overrides & { from?: string | Promise<string> }
-    ): Promise<ContractTransaction>;
-
-    updatepPyTokenAddress(
-      _payTokenAddress: string,
-      overrides?: Overrides & { from?: string | Promise<string> }
-    ): Promise<ContractTransaction>;
-
-    upgradeCompanyLevel(
-      overrides?: PayableOverrides & { from?: string | Promise<string> }
-    ): Promise<ContractTransaction>;
   };
 
   approve(
@@ -495,21 +393,15 @@ export class MetaStockCompany extends BaseContract {
 
   balanceOf(owner: string, overrides?: CallOverrides): Promise<BigNumber>;
 
-  createCompany(
-    overrides?: PayableOverrides & { from?: string | Promise<string> }
+  createMetaStockCompany(
+    to: string,
+    overrides?: Overrides & { from?: string | Promise<string> }
   ): Promise<ContractTransaction>;
 
   getApproved(
     tokenId: BigNumberish,
     overrides?: CallOverrides
   ): Promise<string>;
-
-  getCompanyId(account: string, overrides?: CallOverrides): Promise<BigNumber>;
-
-  getRewardsByCompany(
-    account: string,
-    overrides?: CallOverrides
-  ): Promise<BigNumber>;
 
   initialize(
     overrides?: Overrides & { from?: string | Promise<string> }
@@ -521,8 +413,6 @@ export class MetaStockCompany extends BaseContract {
     overrides?: CallOverrides
   ): Promise<boolean>;
 
-  isCeo(account: string, overrides?: CallOverrides): Promise<boolean>;
-
   name(overrides?: CallOverrides): Promise<string>;
 
   onERC1155BatchReceived(
@@ -531,8 +421,8 @@ export class MetaStockCompany extends BaseContract {
     arg2: BigNumberish[],
     arg3: BigNumberish[],
     arg4: BytesLike,
-    overrides?: CallOverrides
-  ): Promise<string>;
+    overrides?: Overrides & { from?: string | Promise<string> }
+  ): Promise<ContractTransaction>;
 
   onERC1155Received(
     arg0: string,
@@ -540,8 +430,8 @@ export class MetaStockCompany extends BaseContract {
     arg2: BigNumberish,
     arg3: BigNumberish,
     arg4: BytesLike,
-    overrides?: CallOverrides
-  ): Promise<string>;
+    overrides?: Overrides & { from?: string | Promise<string> }
+  ): Promise<ContractTransaction>;
 
   owner(overrides?: CallOverrides): Promise<string>;
 
@@ -608,30 +498,6 @@ export class MetaStockCompany extends BaseContract {
     overrides?: Overrides & { from?: string | Promise<string> }
   ): Promise<ContractTransaction>;
 
-  updateCreateCompanyPrice(
-    _createCompanyPrice: BigNumberish,
-    overrides?: Overrides & { from?: string | Promise<string> }
-  ): Promise<ContractTransaction>;
-
-  updateHarvestInterval(
-    _harvestInterval: BigNumberish,
-    overrides?: Overrides & { from?: string | Promise<string> }
-  ): Promise<ContractTransaction>;
-
-  updatePaymentsByInterval(
-    _paymentsByInterval: BigNumberish,
-    overrides?: Overrides & { from?: string | Promise<string> }
-  ): Promise<ContractTransaction>;
-
-  updatepPyTokenAddress(
-    _payTokenAddress: string,
-    overrides?: Overrides & { from?: string | Promise<string> }
-  ): Promise<ContractTransaction>;
-
-  upgradeCompanyLevel(
-    overrides?: PayableOverrides & { from?: string | Promise<string> }
-  ): Promise<ContractTransaction>;
-
   callStatic: {
     approve(
       to: string,
@@ -641,22 +507,15 @@ export class MetaStockCompany extends BaseContract {
 
     balanceOf(owner: string, overrides?: CallOverrides): Promise<BigNumber>;
 
-    createCompany(overrides?: CallOverrides): Promise<void>;
+    createMetaStockCompany(
+      to: string,
+      overrides?: CallOverrides
+    ): Promise<BigNumber>;
 
     getApproved(
       tokenId: BigNumberish,
       overrides?: CallOverrides
     ): Promise<string>;
-
-    getCompanyId(
-      account: string,
-      overrides?: CallOverrides
-    ): Promise<BigNumber>;
-
-    getRewardsByCompany(
-      account: string,
-      overrides?: CallOverrides
-    ): Promise<BigNumber>;
 
     initialize(overrides?: CallOverrides): Promise<void>;
 
@@ -665,8 +524,6 @@ export class MetaStockCompany extends BaseContract {
       operator: string,
       overrides?: CallOverrides
     ): Promise<boolean>;
-
-    isCeo(account: string, overrides?: CallOverrides): Promise<boolean>;
 
     name(overrides?: CallOverrides): Promise<string>;
 
@@ -743,28 +600,6 @@ export class MetaStockCompany extends BaseContract {
     ): Promise<void>;
 
     unpause(overrides?: CallOverrides): Promise<void>;
-
-    updateCreateCompanyPrice(
-      _createCompanyPrice: BigNumberish,
-      overrides?: CallOverrides
-    ): Promise<void>;
-
-    updateHarvestInterval(
-      _harvestInterval: BigNumberish,
-      overrides?: CallOverrides
-    ): Promise<void>;
-
-    updatePaymentsByInterval(
-      _paymentsByInterval: BigNumberish,
-      overrides?: CallOverrides
-    ): Promise<void>;
-
-    updatepPyTokenAddress(
-      _payTokenAddress: string,
-      overrides?: CallOverrides
-    ): Promise<void>;
-
-    upgradeCompanyLevel(overrides?: CallOverrides): Promise<void>;
   };
 
   filters: {
@@ -868,22 +703,13 @@ export class MetaStockCompany extends BaseContract {
 
     balanceOf(owner: string, overrides?: CallOverrides): Promise<BigNumber>;
 
-    createCompany(
-      overrides?: PayableOverrides & { from?: string | Promise<string> }
+    createMetaStockCompany(
+      to: string,
+      overrides?: Overrides & { from?: string | Promise<string> }
     ): Promise<BigNumber>;
 
     getApproved(
       tokenId: BigNumberish,
-      overrides?: CallOverrides
-    ): Promise<BigNumber>;
-
-    getCompanyId(
-      account: string,
-      overrides?: CallOverrides
-    ): Promise<BigNumber>;
-
-    getRewardsByCompany(
-      account: string,
       overrides?: CallOverrides
     ): Promise<BigNumber>;
 
@@ -897,8 +723,6 @@ export class MetaStockCompany extends BaseContract {
       overrides?: CallOverrides
     ): Promise<BigNumber>;
 
-    isCeo(account: string, overrides?: CallOverrides): Promise<BigNumber>;
-
     name(overrides?: CallOverrides): Promise<BigNumber>;
 
     onERC1155BatchReceived(
@@ -907,7 +731,7 @@ export class MetaStockCompany extends BaseContract {
       arg2: BigNumberish[],
       arg3: BigNumberish[],
       arg4: BytesLike,
-      overrides?: CallOverrides
+      overrides?: Overrides & { from?: string | Promise<string> }
     ): Promise<BigNumber>;
 
     onERC1155Received(
@@ -916,7 +740,7 @@ export class MetaStockCompany extends BaseContract {
       arg2: BigNumberish,
       arg3: BigNumberish,
       arg4: BytesLike,
-      overrides?: CallOverrides
+      overrides?: Overrides & { from?: string | Promise<string> }
     ): Promise<BigNumber>;
 
     owner(overrides?: CallOverrides): Promise<BigNumber>;
@@ -989,30 +813,6 @@ export class MetaStockCompany extends BaseContract {
     unpause(
       overrides?: Overrides & { from?: string | Promise<string> }
     ): Promise<BigNumber>;
-
-    updateCreateCompanyPrice(
-      _createCompanyPrice: BigNumberish,
-      overrides?: Overrides & { from?: string | Promise<string> }
-    ): Promise<BigNumber>;
-
-    updateHarvestInterval(
-      _harvestInterval: BigNumberish,
-      overrides?: Overrides & { from?: string | Promise<string> }
-    ): Promise<BigNumber>;
-
-    updatePaymentsByInterval(
-      _paymentsByInterval: BigNumberish,
-      overrides?: Overrides & { from?: string | Promise<string> }
-    ): Promise<BigNumber>;
-
-    updatepPyTokenAddress(
-      _payTokenAddress: string,
-      overrides?: Overrides & { from?: string | Promise<string> }
-    ): Promise<BigNumber>;
-
-    upgradeCompanyLevel(
-      overrides?: PayableOverrides & { from?: string | Promise<string> }
-    ): Promise<BigNumber>;
   };
 
   populateTransaction: {
@@ -1027,22 +827,13 @@ export class MetaStockCompany extends BaseContract {
       overrides?: CallOverrides
     ): Promise<PopulatedTransaction>;
 
-    createCompany(
-      overrides?: PayableOverrides & { from?: string | Promise<string> }
+    createMetaStockCompany(
+      to: string,
+      overrides?: Overrides & { from?: string | Promise<string> }
     ): Promise<PopulatedTransaction>;
 
     getApproved(
       tokenId: BigNumberish,
-      overrides?: CallOverrides
-    ): Promise<PopulatedTransaction>;
-
-    getCompanyId(
-      account: string,
-      overrides?: CallOverrides
-    ): Promise<PopulatedTransaction>;
-
-    getRewardsByCompany(
-      account: string,
       overrides?: CallOverrides
     ): Promise<PopulatedTransaction>;
 
@@ -1056,11 +847,6 @@ export class MetaStockCompany extends BaseContract {
       overrides?: CallOverrides
     ): Promise<PopulatedTransaction>;
 
-    isCeo(
-      account: string,
-      overrides?: CallOverrides
-    ): Promise<PopulatedTransaction>;
-
     name(overrides?: CallOverrides): Promise<PopulatedTransaction>;
 
     onERC1155BatchReceived(
@@ -1069,7 +855,7 @@ export class MetaStockCompany extends BaseContract {
       arg2: BigNumberish[],
       arg3: BigNumberish[],
       arg4: BytesLike,
-      overrides?: CallOverrides
+      overrides?: Overrides & { from?: string | Promise<string> }
     ): Promise<PopulatedTransaction>;
 
     onERC1155Received(
@@ -1078,7 +864,7 @@ export class MetaStockCompany extends BaseContract {
       arg2: BigNumberish,
       arg3: BigNumberish,
       arg4: BytesLike,
-      overrides?: CallOverrides
+      overrides?: Overrides & { from?: string | Promise<string> }
     ): Promise<PopulatedTransaction>;
 
     owner(overrides?: CallOverrides): Promise<PopulatedTransaction>;
@@ -1150,30 +936,6 @@ export class MetaStockCompany extends BaseContract {
 
     unpause(
       overrides?: Overrides & { from?: string | Promise<string> }
-    ): Promise<PopulatedTransaction>;
-
-    updateCreateCompanyPrice(
-      _createCompanyPrice: BigNumberish,
-      overrides?: Overrides & { from?: string | Promise<string> }
-    ): Promise<PopulatedTransaction>;
-
-    updateHarvestInterval(
-      _harvestInterval: BigNumberish,
-      overrides?: Overrides & { from?: string | Promise<string> }
-    ): Promise<PopulatedTransaction>;
-
-    updatePaymentsByInterval(
-      _paymentsByInterval: BigNumberish,
-      overrides?: Overrides & { from?: string | Promise<string> }
-    ): Promise<PopulatedTransaction>;
-
-    updatepPyTokenAddress(
-      _payTokenAddress: string,
-      overrides?: Overrides & { from?: string | Promise<string> }
-    ): Promise<PopulatedTransaction>;
-
-    upgradeCompanyLevel(
-      overrides?: PayableOverrides & { from?: string | Promise<string> }
     ): Promise<PopulatedTransaction>;
   };
 }
