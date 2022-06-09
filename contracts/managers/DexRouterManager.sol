@@ -6,12 +6,20 @@ import "@uniswap/v2-periphery/contracts/interfaces/IUniswapV2Router02.sol";
 import "@openzeppelin/contracts/token/ERC20/IERC20.sol";
 
 contract DexRouterManager {
-    IUniswapV2Router02 public dexRouter; // router instance for do swaps
+    IUniswapV2Router02 private dexRouter; // router instance for do swaps
     address stableCoin;
 
     constructor(address _dexRouterAddress, address _stableCoin) {
         dexRouter = IUniswapV2Router02(_dexRouterAddress);
         stableCoin = _stableCoin;
+    }
+
+    function getDexRouter() public view returns (IUniswapV2Router02) {
+        return dexRouter;
+    }
+
+    function getDexRouterAddress() public view returns (address) {
+        return address(dexRouter);
     }
 
     function swapTokensForStableCoin(address to, uint256 amount) public {

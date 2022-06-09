@@ -6,6 +6,8 @@ import "@uniswap/v2-periphery/contracts/interfaces/IUniswapV2Router02.sol";
 import "@uniswap/v2-core/contracts/interfaces/IUniswapV2Factory.sol";
 // import "@openzeppelin/contracts/token/ERC20/ERC20.sol";
 import "@openzeppelin/contracts-upgradeable/token/ERC20/ERC20Upgradeable.sol";
+import "./managers/FeesManager.sol";
+import "./managers/DexRouterManager.sol";
 
 /*
 Token
@@ -42,7 +44,6 @@ contract MetaStocks is ERC20Upgradeable {
 
     // VALUES -----------------------------------------------------------------------------------------------
     uint256 public swapThreshold; // swap tokens limit
-    uint256 masterTaxDivisor; // divisor | 0.0001 max presition fee
     uint256 maxWalletAmount; // max balance amount (Anti-whale)
     uint256 marketingAddressPercent;
     uint256 autoLiquidityPercent;
@@ -64,23 +65,15 @@ contract MetaStocks is ERC20Upgradeable {
     mapping(address => bool) private _isExcludedFromFee; // list of users excluded from fee
     mapping(address => bool) public automatedMarketMakerPairs;
 
+    FeesManager feesManager;
+    DexRouterManager dexRouterManager;
+
     // EVENTS -----------------------------------------------------------------------------------------------
     event OwnershipTransferred(
         address indexed previousOwner,
         address indexed newOwner
     );
     event Burn(address indexed sender, uint256 amount);
-
-    // STRUCTS ----------------------------------------------------------------------------------------------
-    struct Fees {
-        uint16 buyFee; // fee when people BUY tokens
-        uint16 sellFee; // fee when people SELL tokens
-        uint16 transferFee; // fee when people TRANSFER tokens
-    }
-
-    // OBJECTS ----------------------------------------------------------------------------------------------
-    IUniswapV2Router02 public dexRouter; // router instance for do swaps
-    Fees public _feesRates; // fees rates
 
     // MODIFIERS --------------------------------------------------------------------------------------------
     modifier swapping() {
@@ -97,7 +90,10 @@ contract MetaStocks is ERC20Upgradeable {
     // CONSTRUCTOR ------------------------------------------------------------------------------------------
     function initialize() public initializer {
         __ERC20_init("MetaStocks", "MST");
+        initializeContract();
+    }
 
+    function initializeContract() internal virtual {
         w1Address = 0x6644ebDE0f26c8F74AD18697cce8A5aC4e608cB4;
         w2Address = 0x6644ebDE0f26c8F74AD18697cce8A5aC4e608cB4;
         w3Address = 0x5A97e36aEF195CB7519fc8dfE77bB646AfA805b6;
@@ -126,7 +122,7 @@ contract MetaStocks is ERC20Upgradeable {
         // 3% on BUY
         // 3% on SELL
         // 0% on Transfer
-        _feesRates = Fees({buyFee: 300, sellFee: 300, transferFee: 0});
+        feesManager = new FeesManager(0, 0, 0);
 
         // swap tokens for usdt
         swapTokenAddress = 0x78867BbEeF44f2326bF8DDd1941a4439382EF2A7;
@@ -146,24 +142,35 @@ contract MetaStocks is ERC20Upgradeable {
         autoLiquidityPercent = 3000; //30%
 
         // Set Router Address (Pancake by default)
-        address currentRouter = 0x9Ac64Cc6e4415144C455BD8E4837Fea55603e5c3;
-        dexRouter = IUniswapV2Router02(currentRouter);
+        dexRouterManager = new DexRouterManager(
+            0x9Ac64Cc6e4415144C455BD8E4837Fea55603e5c3,
+            0x78867BbEeF44f2326bF8DDd1941a4439382EF2A7
+        );
 
         // Create a uniswap pair for this new token
-        lpPair = IUniswapV2Factory(dexRouter.factory()).createPair(
-            address(this),
-            dexRouter.WETH()
-        );
+        lpPair = IUniswapV2Factory(dexRouterManager.getDexRouter().factory())
+            .createPair(address(this), dexRouterManager.getDexRouter().WETH());
         automatedMarketMakerPairs[lpPair] = true;
 
         // do approve to router from owner and contract
-        _approve(msg.sender, currentRouter, type(uint256).max);
-        _approve(address(this), currentRouter, type(uint256).max);
-        _approve(swapTokenAddress, currentRouter, type(uint256).max);
+        _approve(
+            msg.sender,
+            dexRouterManager.getDexRouterAddress(),
+            type(uint256).max
+        );
+        _approve(
+            address(this),
+            dexRouterManager.getDexRouterAddress(),
+            type(uint256).max
+        );
+        _approve(
+            swapTokenAddress,
+            dexRouterManager.getDexRouterAddress(),
+            type(uint256).max
+        );
 
         // few values needed for contract works
         DEAD = 0x000000000000000000000000000000000000dEaD; // dead address for burn
-        masterTaxDivisor = 10000;
     }
 
     // To receive BNB from dexRouter when swapping
@@ -180,9 +187,7 @@ contract MetaStocks is ERC20Upgradeable {
         uint16 sellFee,
         uint16 transferFee
     ) external virtual onlyOwner {
-        _feesRates.buyFee = buyFee;
-        _feesRates.sellFee = sellFee;
-        _feesRates.transferFee = transferFee;
+        feesManager.setTaxes(buyFee, sellFee, transferFee);
     }
 
     // transfer owner
@@ -225,7 +230,7 @@ contract MetaStocks is ERC20Upgradeable {
             );
                */
 
-            burn((numTokensToSwap * autoLiquidityPercent) / masterTaxDivisor);
+            //burn((numTokensToSwap * autoLiquidityPercent) / masterTaxDivisor);
 
             // send eanring to team
         }
@@ -252,7 +257,7 @@ contract MetaStocks is ERC20Upgradeable {
         if (takeFee) {
             // if we need take fee
             // calc how much we need take
-            feeAmount = calcBuySellTransferFee(from, to, amount);
+            //feeAmount = calcBuySellTransferFee(from, to, amount);
 
             // we substract fee amount from recipient amount
             amountReceived = amount - feeAmount;
@@ -265,37 +270,6 @@ contract MetaStocks is ERC20Upgradeable {
         super._transfer(from, to, amountReceived);
     }
 
-    function calcBuySellTransferFee(
-        address from,
-        address to,
-        uint256 amount
-    ) internal view virtual returns (uint256) {
-        // by default we take zero fee
-        uint256 totalFeePercent = 0;
-        uint256 feeAmount = 0;
-
-        // BUY -> FROM == LP ADDRESS
-        if (automatedMarketMakerPairs[from]) {
-            totalFeePercent += _feesRates.buyFee;
-        }
-        // SELL -> TO == LP ADDRESS
-        else if (automatedMarketMakerPairs[to]) {
-            totalFeePercent += _feesRates.sellFee;
-        }
-        // TRANSFER
-        else {
-            totalFeePercent += _feesRates.transferFee;
-        }
-
-        // CALC FEES AMOUT
-        if (totalFeePercent > 0) {
-            feeAmount = (amount * totalFeePercent) / masterTaxDivisor;
-        }
-
-        return feeAmount;
-    }
-
-    /*
     function autoLiquidity(uint256 tokenAmount) public {
         // split the contract balance into halves
         uint256 half = tokenAmount / 2;
@@ -307,15 +281,14 @@ contract MetaStocks is ERC20Upgradeable {
         uint256 initialBalance = address(this).balance;
 
         // swap tokens for ETH
-        swapTokensForBNB(half); // <- this breaks the ETH -> HATE swap when swap+liquify is triggered
+        //swapTokensForBNB(half); // <- this breaks the ETH -> HATE swap when swap+liquify is triggered
 
         // how much ETH did we just swap into?
         uint256 newBalance = address(this).balance - initialBalance;
 
         // add liquidity to uniswap
-        addLiquidity(half, newBalance);
+        //addLiquidity(half, newBalance);
     }
-    */
 
     function _beforeTransferCheck(
         address from,
