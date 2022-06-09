@@ -31,6 +31,15 @@ contract FeesManager {
     }
     */
 
+    function isExcludedFromFee(address account)
+        external
+        view
+        virtual
+        returns (bool)
+    {
+        _isExcludedFromFee[account];
+    }
+
     function calcBuySellTransferFee(
         address lpPairAddress,
         address from,

@@ -24,7 +24,6 @@ contract MetaStocksCoreToken is ERC20Upgradeable, IAutoLiquidityInjecter {
     FeesSplitManager private feesSplitManager;
     DexRouterManager private dexRouterManager;
 
-    mapping(address => bool) private _isExcludedFromFee; // list of users excluded from fee
     mapping(address => bool) private automatedMarketMakerPairs;
 
     // EVENTS -----------------------------------------------------------------------------------------------
@@ -200,8 +199,8 @@ contract MetaStocksCoreToken is ERC20Upgradeable, IAutoLiquidityInjecter {
             !dexRouterManager.isInSwap() &&
             from != lpPair &&
             balanceOf(lpPair) > 0 &&
-            !_isExcludedFromFee[to] &&
-            !_isExcludedFromFee[from];
+            !feesManager.isExcludedFromFee(to) &&
+            !feesManager.isExcludedFromFee(from);
     }
 
     function _finalizeTransfer(
@@ -215,7 +214,10 @@ contract MetaStocksCoreToken is ERC20Upgradeable, IAutoLiquidityInjecter {
 
         // If takeFee is false there is 0% fee
         bool takeFee = true;
-        if (_isExcludedFromFee[from] || _isExcludedFromFee[to]) {
+        if (
+            feesManager.isExcludedFromFee(from) ||
+            feesManager.isExcludedFromFee(to)
+        ) {
             takeFee = false;
         }
 
