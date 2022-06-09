@@ -41,22 +41,22 @@ contract MetaStock1155 is
         _unpause();
     }
 
-    function mintFranchise(
-        address companyAddress,
+    function mint(
+        address to,
         uint256 id,
         uint256 amount,
         bytes memory data
     ) public onlyOwner {
-        _mint(companyAddress, id, amount, data);
+        _mint(to, id, amount, data);
     }
 
-    function mintFranchiseBatch(
-        address companyAddress,
+    function mint(
+        address to,
         uint256[] memory ids,
         uint256[] memory amounts,
         bytes memory data
     ) public onlyOwner {
-        _mintBatch(companyAddress, ids, amounts, data);
+        _mintBatch(to, ids, amounts, data);
     }
 
     function _beforeTokenTransfer(
@@ -73,6 +73,4 @@ contract MetaStock1155 is
     {
         super._beforeTokenTransfer(operator, from, to, ids, amounts, data);
     }
-
-    function createFranchise() external payable {}
 }
