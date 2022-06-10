@@ -6,28 +6,16 @@ import "@uniswap/v2-periphery/contracts/interfaces/IUniswapV2Router02.sol";
 import "@openzeppelin/contracts/token/ERC20/IERC20.sol";
 import "../../interfaces/chainlinkInterfaces/AggregatorV3Interface.sol";
 import "../../models/TransactionFees.sol";
+import "../../interfaces/metaStockInterfaces/IMetaStocksBaseManager.sol";
 
-contract MetaStocksManager is ERC20Upgradeable {
+contract MetaStockFranchiseManager is ERC20Upgradeable, IMetaStocksBaseManager {
     mapping(address => uint256) public lastClaimDate;
 
-    function createMetaStockCompany(address to) external returns (uint256) {
-        uint256 tokenId = _tokenIdCounter.current();
-        _tokenIdCounter.increment();
-        _safeMint(to, tokenId);
-        return tokenId;
-    }
+    function getManager(address _account) external view returns (address) {}
 
-    function claimMetaStockFranchiseRewards(
-        address companyAddress,
-        uint256 id,
-        bytes memory data
-    ) public {
-        IERC20(paymentTokenAddress).transferFrom(
-            address(msg.sender),
-            address(paymentTokenAddress),
-            (amount * rewardsPoolFee) / 10000
-        );
+    function createManager() external payable {}
 
-        _mint(companyAddress, id, 1, data);
-    }
+    function updateManager(uint256 managerId) external {}
+
+    function deleteManager(uint256 managerId) external {}
 }
