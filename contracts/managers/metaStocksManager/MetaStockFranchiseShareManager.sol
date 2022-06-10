@@ -8,7 +8,10 @@ import "../../interfaces/chainlinkInterfaces/AggregatorV3Interface.sol";
 import "../../models/TransactionFees.sol";
 import "../../interfaces/metaStockInterfaces/IMetaStocksBaseManager.sol";
 
-contract MetaStocksCompanyManager is ERC20Upgradeable, IMetaStocksBaseManager {
+contract MetaStockFranchiseShareManager is
+    ERC20Upgradeable,
+    IMetaStocksBaseManager
+{
     mapping(address => uint256) public lastClaimDate;
 
     function getManager(address _account) external view returns (address) {}
