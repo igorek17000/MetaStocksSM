@@ -2,11 +2,11 @@
 pragma solidity ^0.8.14;
 
 interface IMetaStocksManager {
-    function getManager() external view returns (address);
+    function getManager(address _account) external view returns (address);
 
     function createManager() external payable;
 
-    function updateManager() external;
+    function updateManager(uint256 managerId) external;
 
-    function deleteManager() external;
+    function deleteManager(uint256 managerId) external;
 }
