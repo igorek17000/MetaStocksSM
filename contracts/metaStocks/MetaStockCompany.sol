@@ -69,11 +69,4 @@ contract MetaStockCompany is
     {
         return super.supportsInterface(interfaceId);
     }
-
-    function createMetaStockCompany(address to) external returns (uint256) {
-        uint256 tokenId = _tokenIdCounter.current();
-        _tokenIdCounter.increment();
-        _safeMint(to, tokenId);
-        return tokenId;
-    }
 }
