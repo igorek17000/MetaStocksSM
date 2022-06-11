@@ -1427,8 +1427,8 @@
       ]
     },
     "/home/nkt/Desktop/metaStoksContracts/contracts/tokens/MetaStocksERC20Upgradable.sol": {
-      "lastModificationDate": 1654952831662,
-      "contentHash": "e7bcb4d657703b80925c830d79ec5d78",
+      "lastModificationDate": 1654956576160,
+      "contentHash": "c4a4aef066cf03eb34b679b9fccd14d4",
       "sourceName": "contracts/tokens/MetaStocksERC20Upgradable.sol",
       "solcConfig": {
         "version": "0.8.14",

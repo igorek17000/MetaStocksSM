@@ -53,6 +53,24 @@ export async function getProxyImplementation(proxyAddress: string): Promise<stri
     return await getImplementationAddress(provider, proxyAddress)
 }
 
+export async function verifyWithotDeploy(
+    contractName: string,
+    contractAddress: string,
+    args: any = []
+) {
+    const tokenImplementationAddress = await getImplementationAddress(
+        ethers.provider,
+        contractAddress
+    )
+
+    await updateABI(contractName)
+
+    console.log('\nVerifing... ' + tokenImplementationAddress + "\n")
+    await verify(tokenImplementationAddress, args)
+}
+
+
+
 export async function connectRouter(): Promise<Contract> {
     return await ethers.getContractAt(
         getRouterName(chains[default_chain]?.dex),
@@ -462,5 +480,6 @@ export default module.exports = {
     swapExactTokensForAVAXSupportingFeeOnTransferTokens,
     chains,
     swapExactETHForTokens,
-    swapExactTokensForTokensSupportingFeeOnTransferTokens
+    swapExactTokensForTokensSupportingFeeOnTransferTokens,
+    verifyWithotDeploy
 }

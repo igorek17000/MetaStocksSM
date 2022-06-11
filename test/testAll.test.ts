@@ -251,6 +251,7 @@ describe("MetaStocks Testing", async () => {
         })
 
         it("14. claimFromAllFranchises", async () => {
+            15509768
 
             const bobBalance = await metaStocksToken.balanceOf(bob?.address);
             console.log(`${colors.cyan("bob Balance : ")} ${colors.yellow(bobBalance)}`)
