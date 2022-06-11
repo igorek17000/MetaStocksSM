@@ -102,9 +102,9 @@ describe("MetaStocks Testing", async () => {
         });
     });
 
-    describe("Deploy Deploy MetaStock Contract Managers", async () => {
+    describe("2.0 - Deploy Deploy MetaStock Contract Managers", async () => {
 
-        it("5. Deploy MetaStocksCompanyManager", async () => {
+        it("2.1 - Deploy MetaStocksCompanyManager", async () => {
             console.log("");
             // DEPLOY
             const contractName = 'MetaStocksCompanyManager'
@@ -123,7 +123,7 @@ describe("MetaStocks Testing", async () => {
 
 
 
-        it("6. Deploy MetaStocksCompanyManager", async () => {
+        it("2.2 - Deploy MetaStocksCompanyManager", async () => {
             console.log("");
             // DEPLOY
             const contractName = 'MetaStocksCompanyManager'
@@ -140,7 +140,7 @@ describe("MetaStocks Testing", async () => {
             console.log("");
         });
 
-        it("7. Deploy MetaStocksFranchiseManager", async () => {
+        it("2.3 - Deploy MetaStocksFranchiseManager", async () => {
             console.log("");
             // DEPLOY
             const contractName = 'MetaStocksFranchiseManager'
@@ -160,36 +160,35 @@ describe("MetaStocks Testing", async () => {
 
     });
 
-    describe("Transfer Ownerships", async () => {
+    describe("3.0 - Transfer Ownerships", async () => {
 
-        it("8. Transfer Ownership MetastockCompany -> MetaStocksCompanyManager", async () => {
+        it("3.1 - Transfer Ownership MetastockCompany -> MetaStocksCompanyManager", async () => {
             await metaStocksCompany.transferOwnership(metaStocksCompanyManager.address);
         })
 
-        it("9. Transfer Ownership MetaStocksFranchise -> MetaStocksFranchiseManager", async () => {
+        it("3.2 - Transfer Ownership MetaStocksFranchise -> MetaStocksFranchiseManager", async () => {
             await metaStocksFranchise.transferOwnership(metaStocksFranchiseManager.address);
             await metaStocksFranchiseManager.setPaymentTokenAddress(metaStocksToken.address);
         })
     })
 
-    describe("Config MetaStocks Token", async () => {
+    describe("4.0 - Config MetaStocks Token", async () => {
 
-
-        it("10. Set Router", async () => {
+        it("4.1 - Set Router", async () => {
             await metaStocksFranchiseManager.setPaymentTokenAddress(metaStocksToken.address);
         })
 
-        it("10.1 Set Router", async () => {
+        it("4.2 - Set Router", async () => {
             await metaStocksToken.setRouterAddress("0x9Ac64Cc6e4415144C455BD8E4837Fea55603e5c3");
         });
 
 
-        it("11. Enable trading", async () => {
+        it("4.3 - Enable trading", async () => {
             await metaStocksToken.enableTrading();
             console.log()
         });
 
-        it("12. Transfer From Owner To Bob ", async () => {
+        it("4.4 - Transfer From Owner To Bob ", async () => {
             console.log(`${colors.cyan("Deployer Token Balance:")} ${colors.yellow(formatEther(await metaStocksToken.balanceOf(deployer?.address)))}`)
             expect(await metaStocksToken.balanceOf(deployer?.address)).to.be.gt(parseEther("0"));
 
@@ -202,10 +201,11 @@ describe("MetaStocks Testing", async () => {
     })
 
 
-    describe("Config contract", async () => {
+    describe("5.0 - Config contract", async () => {
 
-        it("11. Create MetastockCompany", async () => {
+        it("5.1 - Create MetastockCompany", async () => {
             await metaStocksCompanyManager.connect(bob).create();
+            await sleep(2000)
 
             const isCeo = await metaStocksCompanyManager.isCeo(bob.address);
             console.log(`${colors.cyan("isCeo: ")} ${colors.yellow(isCeo)}`)
@@ -213,18 +213,18 @@ describe("MetaStocks Testing", async () => {
             const companyId = await metaStocksCompanyManager.getCompanyId(bob.address);
             console.log(`${colors.cyan("CompanyId: ")} ${colors.yellow(companyId)}`)
 
-            let companyCeoAddress = await metaStocksCompanyManager.getCompanyCEOAddress(bob.address);
+            let companyCeoAddress = await metaStocksCompanyManager.getCompanyCEOAddress(companyId);
             console.log(`${colors.cyan("CompanyCEOAddress: ")} ${colors.yellow(companyCeoAddress)}`)
 
         })
 
-        it("12. Set Payment Token Address MetaStocksFranchise", async () => {
+        it("5.2 - Set Payment Token Address MetaStocksFranchise", async () => {
             await metaStocksToken.connect(deployer).transfer(metaStocksFranchiseManager?.address, parseEther("10000"))
             await metaStocksToken.connect(bob).approve(metaStocksFranchiseManager.address, parseEther("1000000000"))
             await metaStocksFranchiseManager.setPaymentTokenAddress(metaStocksToken.address);
         })
 
-        it("13. Create MetaStocksFranchise", async () => {
+        it("5.3 - Create MetaStocksFranchise", async () => {
             let companyId = await metaStocksCompanyManager.getCompanyId(bob.address);
             console.log(`${colors.cyan("CompanyId: ")} ${colors.yellow(companyId)}`)
             await metaStocksFranchiseManager.connect(bob).createMetaStocksFranchise(metaStocksFranchiseManager.address, companyId, 1, 0x0);
@@ -232,7 +232,7 @@ describe("MetaStocks Testing", async () => {
             //await metaStocksFranchiseManager.connect(bob).createMetaStocksFranchise(metaStocksFranchiseManager.address, companyId, 3, 0x0);
         })
 
-        it("14. Get MetaStocks Franchise Number", async () => {
+        it("5.4 - Get MetaStocks Franchise Number", async () => {
             const companyId = await metaStocksCompanyManager.getCompanyId(bob.address);
             const franchisesNumber = await metaStocksFranchiseManager.connect(bob).getNumberOfMetaStocksFranchises(companyId)
             expect(franchisesNumber).to.be.eq(2);
@@ -240,7 +240,7 @@ describe("MetaStocks Testing", async () => {
         })
 
 
-        it("14. claimFromAllFranchises", async () => {
+        it("5.5 - Claim From All Franchises", async () => {
             const companyId = await metaStocksCompanyManager.getCompanyId(bob.address);
 
             const bobBalance = await metaStocksToken.balanceOf(bob?.address);

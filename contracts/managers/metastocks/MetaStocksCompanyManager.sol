@@ -45,8 +45,9 @@ contract MetaStocksCompanyManager is
 
     function create() external payable {
         require(!ceos[msg.sender], "Already Ceo");
-        ceosCompanies[msg.sender] = MetaStocksCompany.safeMint(msg.sender);
-        companiesCeos[ceosCompanies[msg.sender]] = msg.sender;
+        uint256 companyId = MetaStocksCompany.safeMint(msg.sender);
+        ceosCompanies[msg.sender] = companyId;
+        companiesCeos[companyId] = msg.sender;
         ceos[msg.sender] = true;
         emit CreateCompany(msg.sender, ceosCompanies[msg.sender]);
     }
