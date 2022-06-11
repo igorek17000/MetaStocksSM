@@ -20,7 +20,7 @@ import { Listener, Provider } from "@ethersproject/providers";
 import { FunctionFragment, EventFragment, Result } from "@ethersproject/abi";
 import type { TypedEventFilter, TypedEvent, TypedListener } from "./common";
 
-interface MetaStockFranchiseShareInterface extends ethers.utils.Interface {
+interface MetaStocksFranchiseShareInterface extends ethers.utils.Interface {
   functions: {
     "balanceOf(address,uint256)": FunctionFragment;
     "balanceOfBatch(address[],uint256[])": FunctionFragment;
@@ -245,7 +245,7 @@ export type URIEvent = TypedEvent<
 
 export type UnpausedEvent = TypedEvent<[string] & { account: string }>;
 
-export class MetaStockFranchiseShare extends BaseContract {
+export class MetaStocksFranchiseShare extends BaseContract {
   connect(signerOrProvider: Signer | Provider | string): this;
   attach(addressOrName: string): this;
   deployed(): Promise<this>;
@@ -286,7 +286,7 @@ export class MetaStockFranchiseShare extends BaseContract {
     toBlock?: string | number | undefined
   ): Promise<Array<TypedEvent<EventArgsArray & EventArgsObject>>>;
 
-  interface: MetaStockFranchiseShareInterface;
+  interface: MetaStocksFranchiseShareInterface;
 
   functions: {
     balanceOf(

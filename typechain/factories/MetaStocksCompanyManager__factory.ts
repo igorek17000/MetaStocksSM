@@ -87,7 +87,7 @@ const _abi = [
         type: "address",
       },
     ],
-    name: "setMetaStockCompany",
+    name: "setMetaStocksCompany",
     outputs: [],
     stateMutability: "nonpayable",
     type: "function",

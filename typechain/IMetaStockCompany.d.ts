@@ -20,10 +20,10 @@ import { Listener, Provider } from "@ethersproject/providers";
 import { FunctionFragment, EventFragment, Result } from "@ethersproject/abi";
 import type { TypedEventFilter, TypedEvent, TypedListener } from "./common";
 
-interface IMetaStockCompanyInterface extends ethers.utils.Interface {
+interface IMetaStocksCompanyInterface extends ethers.utils.Interface {
   functions: {
     "createFranchise()": FunctionFragment;
-    "createMetaStockCompany(address)": FunctionFragment;
+    "createMetaStocksCompany(address)": FunctionFragment;
     "safeMint(address)": FunctionFragment;
   };
 
@@ -32,7 +32,7 @@ interface IMetaStockCompanyInterface extends ethers.utils.Interface {
     values?: undefined
   ): string;
   encodeFunctionData(
-    functionFragment: "createMetaStockCompany",
+    functionFragment: "createMetaStocksCompany",
     values: [string]
   ): string;
   encodeFunctionData(functionFragment: "safeMint", values: [string]): string;
@@ -42,7 +42,7 @@ interface IMetaStockCompanyInterface extends ethers.utils.Interface {
     data: BytesLike
   ): Result;
   decodeFunctionResult(
-    functionFragment: "createMetaStockCompany",
+    functionFragment: "createMetaStocksCompany",
     data: BytesLike
   ): Result;
   decodeFunctionResult(functionFragment: "safeMint", data: BytesLike): Result;
@@ -50,7 +50,7 @@ interface IMetaStockCompanyInterface extends ethers.utils.Interface {
   events: {};
 }
 
-export class IMetaStockCompany extends BaseContract {
+export class IMetaStocksCompany extends BaseContract {
   connect(signerOrProvider: Signer | Provider | string): this;
   attach(addressOrName: string): this;
   deployed(): Promise<this>;
@@ -91,14 +91,14 @@ export class IMetaStockCompany extends BaseContract {
     toBlock?: string | number | undefined
   ): Promise<Array<TypedEvent<EventArgsArray & EventArgsObject>>>;
 
-  interface: IMetaStockCompanyInterface;
+  interface: IMetaStocksCompanyInterface;
 
   functions: {
     createFranchise(
       overrides?: PayableOverrides & { from?: string | Promise<string> }
     ): Promise<ContractTransaction>;
 
-    createMetaStockCompany(
+    createMetaStocksCompany(
       to: string,
       overrides?: Overrides & { from?: string | Promise<string> }
     ): Promise<ContractTransaction>;
@@ -113,7 +113,7 @@ export class IMetaStockCompany extends BaseContract {
     overrides?: PayableOverrides & { from?: string | Promise<string> }
   ): Promise<ContractTransaction>;
 
-  createMetaStockCompany(
+  createMetaStocksCompany(
     to: string,
     overrides?: Overrides & { from?: string | Promise<string> }
   ): Promise<ContractTransaction>;
@@ -126,7 +126,7 @@ export class IMetaStockCompany extends BaseContract {
   callStatic: {
     createFranchise(overrides?: CallOverrides): Promise<void>;
 
-    createMetaStockCompany(
+    createMetaStocksCompany(
       to: string,
       overrides?: CallOverrides
     ): Promise<BigNumber>;
@@ -141,7 +141,7 @@ export class IMetaStockCompany extends BaseContract {
       overrides?: PayableOverrides & { from?: string | Promise<string> }
     ): Promise<BigNumber>;
 
-    createMetaStockCompany(
+    createMetaStocksCompany(
       to: string,
       overrides?: Overrides & { from?: string | Promise<string> }
     ): Promise<BigNumber>;
@@ -157,7 +157,7 @@ export class IMetaStockCompany extends BaseContract {
       overrides?: PayableOverrides & { from?: string | Promise<string> }
     ): Promise<PopulatedTransaction>;
 
-    createMetaStockCompany(
+    createMetaStocksCompany(
       to: string,
       overrides?: Overrides & { from?: string | Promise<string> }
     ): Promise<PopulatedTransaction>;

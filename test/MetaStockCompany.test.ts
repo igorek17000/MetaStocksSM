@@ -30,10 +30,10 @@ describe("Token contract", async () => {
         console.log("");
     });
 
-    it("2. Deploy MetaStockFranchise", async () => {
+    it("2. Deploy MetaStocksFranchise", async () => {
         console.log("");
         // DEPLOY
-        const contractName = 'MetaStockFranchise'
+        const contractName = 'MetaStocksFranchise'
         const contractFactory = await ethers.getContractFactory(contractName)
         contractDeployed = await upgrades.deployProxy(contractFactory, [])
         await contractDeployed.deployed()

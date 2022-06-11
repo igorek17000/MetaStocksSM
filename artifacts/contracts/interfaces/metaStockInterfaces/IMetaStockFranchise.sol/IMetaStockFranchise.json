@@ -1,7 +1,7 @@
 {
   "_format": "hh-sol-artifact-1",
-  "contractName": "IMetaStockFranchise",
-  "sourceName": "contracts/interfaces/metaStockInterfaces/IMetaStockFranchise.sol",
+  "contractName": "IMetaStocksFranchise",
+  "sourceName": "contracts/interfaces/MetaStocksInterfaces/IMetaStocksFranchise.sol",
   "abi": [
     {
       "inputs": [],

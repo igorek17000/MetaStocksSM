@@ -1,7 +1,7 @@
 {
   "_format": "hh-sol-artifact-1",
-  "contractName": "IMetaStockCompany",
-  "sourceName": "contracts/interfaces/metaStockInterfaces/IMetaStockCompany.sol",
+  "contractName": "IMetaStocksCompany",
+  "sourceName": "contracts/interfaces/MetaStocksInterfaces/IMetaStocksCompany.sol",
   "abi": [
     {
       "inputs": [],
@@ -18,7 +18,7 @@
           "type": "address"
         }
       ],
-      "name": "createMetaStockCompany",
+      "name": "createMetaStocksCompany",
       "outputs": [
         {
           "internalType": "uint256",

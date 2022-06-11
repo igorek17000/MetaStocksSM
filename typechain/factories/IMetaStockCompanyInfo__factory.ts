@@ -5,9 +5,9 @@
 import { Contract, Signer, utils } from "ethers";
 import { Provider } from "@ethersproject/providers";
 import type {
-  IMetaStockCompanyInfo,
-  IMetaStockCompanyInfoInterface,
-} from "../IMetaStockCompanyInfo";
+  IMetaStocksCompanyInfo,
+  IMetaStocksCompanyInfoInterface,
+} from "../IMetaStocksCompanyInfo";
 
 const _abi = [
   {
@@ -19,19 +19,19 @@ const _abi = [
   },
 ];
 
-export class IMetaStockCompanyInfo__factory {
+export class IMetaStocksCompanyInfo__factory {
   static readonly abi = _abi;
-  static createInterface(): IMetaStockCompanyInfoInterface {
-    return new utils.Interface(_abi) as IMetaStockCompanyInfoInterface;
+  static createInterface(): IMetaStocksCompanyInfoInterface {
+    return new utils.Interface(_abi) as IMetaStocksCompanyInfoInterface;
   }
   static connect(
     address: string,
     signerOrProvider: Signer | Provider
-  ): IMetaStockCompanyInfo {
+  ): IMetaStocksCompanyInfo {
     return new Contract(
       address,
       _abi,
       signerOrProvider
-    ) as IMetaStockCompanyInfo;
+    ) as IMetaStocksCompanyInfo;
   }
 }

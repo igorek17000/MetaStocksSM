@@ -13,7 +13,7 @@ async function main(): Promise<string> {
     console.log(colors.yellow('Deploying...'));
     console.log();
 
-    const contractName = 'MetaStockCompany'
+    const contractName = 'MetaStocksCompany'
     const factory = await ethers.getContractFactory(contractName)
     const company = await upgrades.deployProxy(factory, [])
     await company.deployed()
@@ -25,7 +25,7 @@ async function main(): Promise<string> {
     await company.deployed()
     await sleep(1000)
 
-    console.log(`MetaStockCompany Proxy Address: ${company.address}`)
+    console.log(`MetaStocksCompany Proxy Address: ${company.address}`)
     console.log(`Implementation Address: ${implAddress}`)
 
     return company.address;

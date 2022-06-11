@@ -1,7 +1,7 @@
 {
   "_format": "hh-sol-artifact-1",
-  "contractName": "MetaStockCompany",
-  "sourceName": "contracts/metaStocks/MetaStockCompany.sol",
+  "contractName": "MetaStocksCompany",
+  "sourceName": "contracts/MetaStocks/MetaStocksCompany.sol",
   "abi": [
     {
       "inputs": [],
@@ -186,7 +186,7 @@
           "type": "address"
         }
       ],
-      "name": "createMetaStockCompany",
+      "name": "createMetaStocksCompany",
       "outputs": [
         {
           "internalType": "uint256",

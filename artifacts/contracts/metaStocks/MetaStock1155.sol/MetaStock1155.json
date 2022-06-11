@@ -1,7 +1,7 @@
 {
   "_format": "hh-sol-artifact-1",
-  "contractName": "MetaStock1155",
-  "sourceName": "contracts/metaStocks/MetaStock1155.sol",
+  "contractName": "MetaStocks1155",
+  "sourceName": "contracts/MetaStocks/MetaStocks1155.sol",
   "abi": [
     {
       "inputs": [],

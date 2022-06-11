@@ -5,9 +5,9 @@
 import { Contract, Signer, utils } from "ethers";
 import { Provider } from "@ethersproject/providers";
 import type {
-  IMetaStockFranchiseShare,
-  IMetaStockFranchiseShareInterface,
-} from "../IMetaStockFranchiseShare";
+  IMetaStocksFranchiseShare,
+  IMetaStocksFranchiseShareInterface,
+} from "../IMetaStocksFranchiseShare";
 
 const _abi = [
   {
@@ -19,19 +19,19 @@ const _abi = [
   },
 ];
 
-export class IMetaStockFranchiseShare__factory {
+export class IMetaStocksFranchiseShare__factory {
   static readonly abi = _abi;
-  static createInterface(): IMetaStockFranchiseShareInterface {
-    return new utils.Interface(_abi) as IMetaStockFranchiseShareInterface;
+  static createInterface(): IMetaStocksFranchiseShareInterface {
+    return new utils.Interface(_abi) as IMetaStocksFranchiseShareInterface;
   }
   static connect(
     address: string,
     signerOrProvider: Signer | Provider
-  ): IMetaStockFranchiseShare {
+  ): IMetaStocksFranchiseShare {
     return new Contract(
       address,
       _abi,
       signerOrProvider
-    ) as IMetaStockFranchiseShare;
+    ) as IMetaStocksFranchiseShare;
   }
 }

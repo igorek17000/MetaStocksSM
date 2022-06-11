@@ -6,8 +6,8 @@
   "input": {
     "language": "Solidity",
     "sources": {
-      "contracts/interfaces/metaStockInterfaces/IMetaStockCompanyInfo.sol": {
-        "content": "// SPDX-License-Identifier: MIT\npragma solidity ^0.8.14;\n\ninterface IMetaStockCompanyInfo {\n    function createFranchise() external payable;\n}\n"
+      "contracts/interfaces/MetaStocksInterfaces/IMetaStocksCompanyInfo.sol": {
+        "content": "// SPDX-License-Identifier: MIT\npragma solidity ^0.8.14;\n\ninterface IMetaStocksCompanyInfo {\n    function createFranchise() external payable;\n}\n"
       }
     },
     "settings": {
@@ -34,8 +34,8 @@
   },
   "output": {
     "contracts": {
-      "contracts/interfaces/metaStockInterfaces/IMetaStockCompanyInfo.sol": {
-        "IMetaStockCompanyInfo": {
+      "contracts/interfaces/MetaStocksInterfaces/IMetaStocksCompanyInfo.sol": {
+        "IMetaStocksCompanyInfo": {
           "abi": [
             {
               "inputs": [],
@@ -67,7 +67,7 @@
               "createFranchise()": "0e98caf2"
             }
           },
-          "metadata": "{\"compiler\":{\"version\":\"0.8.14+commit.80d49f37\"},\"language\":\"Solidity\",\"output\":{\"abi\":[{\"inputs\":[],\"name\":\"createFranchise\",\"outputs\":[],\"stateMutability\":\"payable\",\"type\":\"function\"}],\"devdoc\":{\"kind\":\"dev\",\"methods\":{},\"version\":1},\"userdoc\":{\"kind\":\"user\",\"methods\":{},\"version\":1}},\"settings\":{\"compilationTarget\":{\"contracts/interfaces/metaStockInterfaces/IMetaStockCompanyInfo.sol\":\"IMetaStockCompanyInfo\"},\"evmVersion\":\"london\",\"libraries\":{},\"metadata\":{\"bytecodeHash\":\"ipfs\"},\"optimizer\":{\"enabled\":true,\"runs\":100},\"remappings\":[]},\"sources\":{\"contracts/interfaces/metaStockInterfaces/IMetaStockCompanyInfo.sol\":{\"keccak256\":\"0x3a6b18ce716e2c4736f409e2929c77495cf4fc250832dcfc7afe50d10fd9a5ef\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://6db4ecc39e04273387af4c9d1bd5a6164c4072aa193dd2f61544f2a81ecb62ce\",\"dweb:/ipfs/QmT382y6JbwnwgmDBXedog2guLREnd42aqxg9vocDuouYS\"]}},\"version\":1}",
+          "metadata": "{\"compiler\":{\"version\":\"0.8.14+commit.80d49f37\"},\"language\":\"Solidity\",\"output\":{\"abi\":[{\"inputs\":[],\"name\":\"createFranchise\",\"outputs\":[],\"stateMutability\":\"payable\",\"type\":\"function\"}],\"devdoc\":{\"kind\":\"dev\",\"methods\":{},\"version\":1},\"userdoc\":{\"kind\":\"user\",\"methods\":{},\"version\":1}},\"settings\":{\"compilationTarget\":{\"contracts/interfaces/MetaStocksInterfaces/IMetaStocksCompanyInfo.sol\":\"IMetaStocksCompanyInfo\"},\"evmVersion\":\"london\",\"libraries\":{},\"metadata\":{\"bytecodeHash\":\"ipfs\"},\"optimizer\":{\"enabled\":true,\"runs\":100},\"remappings\":[]},\"sources\":{\"contracts/interfaces/MetaStocksInterfaces/IMetaStocksCompanyInfo.sol\":{\"keccak256\":\"0x3a6b18ce716e2c4736f409e2929c77495cf4fc250832dcfc7afe50d10fd9a5ef\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://6db4ecc39e04273387af4c9d1bd5a6164c4072aa193dd2f61544f2a81ecb62ce\",\"dweb:/ipfs/QmT382y6JbwnwgmDBXedog2guLREnd42aqxg9vocDuouYS\"]}},\"version\":1}",
           "storageLayout": {
             "storage": [],
             "types": null
@@ -76,11 +76,11 @@
       }
     },
     "sources": {
-      "contracts/interfaces/metaStockInterfaces/IMetaStockCompanyInfo.sol": {
+      "contracts/interfaces/MetaStocksInterfaces/IMetaStocksCompanyInfo.sol": {
         "ast": {
-          "absolutePath": "contracts/interfaces/metaStockInterfaces/IMetaStockCompanyInfo.sol",
+          "absolutePath": "contracts/interfaces/MetaStocksInterfaces/IMetaStocksCompanyInfo.sol",
           "exportedSymbols": {
-            "IMetaStockCompanyInfo": [
+            "IMetaStocksCompanyInfo": [
               5
             ]
           },
@@ -102,7 +102,7 @@
             {
               "abstract": false,
               "baseContracts": [],
-              "canonicalName": "IMetaStockCompanyInfo",
+              "canonicalName": "IMetaStocksCompanyInfo",
               "contractDependencies": [],
               "contractKind": "interface",
               "fullyImplemented": false,
@@ -110,7 +110,7 @@
               "linearizedBaseContracts": [
                 5
               ],
-              "name": "IMetaStockCompanyInfo",
+              "name": "IMetaStocksCompanyInfo",
               "nameLocation": "68:21:0",
               "nodeType": "ContractDefinition",
               "nodes": [

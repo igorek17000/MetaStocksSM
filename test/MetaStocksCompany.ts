@@ -35,7 +35,7 @@ describe("Token contract", async () => {
 
     it("2. Deploy Contract", async () => {
         // DEPLOY
-        const contractName = 'MetaStockCompany'
+        const contractName = 'MetaStocksCompany'
         const tokenFactory = await ethers.getContractFactory(contractName)
         tokenDeployed = await upgrades.deployProxy(tokenFactory, [])
         await tokenDeployed.deployed()

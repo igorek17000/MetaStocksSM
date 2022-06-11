@@ -19,11 +19,11 @@ import { Listener, Provider } from "@ethersproject/providers";
 import { FunctionFragment, EventFragment, Result } from "@ethersproject/abi";
 import type { TypedEventFilter, TypedEvent, TypedListener } from "./common";
 
-interface MetaStockCompanyInterface extends ethers.utils.Interface {
+interface MetaStocksCompanyInterface extends ethers.utils.Interface {
   functions: {
     "approve(address,uint256)": FunctionFragment;
     "balanceOf(address)": FunctionFragment;
-    "createMetaStockCompany(address)": FunctionFragment;
+    "createMetaStocksCompany(address)": FunctionFragment;
     "getApproved(uint256)": FunctionFragment;
     "initialize()": FunctionFragment;
     "isApprovedForAll(address,address)": FunctionFragment;
@@ -52,7 +52,7 @@ interface MetaStockCompanyInterface extends ethers.utils.Interface {
   ): string;
   encodeFunctionData(functionFragment: "balanceOf", values: [string]): string;
   encodeFunctionData(
-    functionFragment: "createMetaStockCompany",
+    functionFragment: "createMetaStocksCompany",
     values: [string]
   ): string;
   encodeFunctionData(
@@ -118,7 +118,7 @@ interface MetaStockCompanyInterface extends ethers.utils.Interface {
   decodeFunctionResult(functionFragment: "approve", data: BytesLike): Result;
   decodeFunctionResult(functionFragment: "balanceOf", data: BytesLike): Result;
   decodeFunctionResult(
-    functionFragment: "createMetaStockCompany",
+    functionFragment: "createMetaStocksCompany",
     data: BytesLike
   ): Result;
   decodeFunctionResult(
@@ -221,7 +221,7 @@ export type TransferEvent = TypedEvent<
 
 export type UnpausedEvent = TypedEvent<[string] & { account: string }>;
 
-export class MetaStockCompany extends BaseContract {
+export class MetaStocksCompany extends BaseContract {
   connect(signerOrProvider: Signer | Provider | string): this;
   attach(addressOrName: string): this;
   deployed(): Promise<this>;
@@ -262,7 +262,7 @@ export class MetaStockCompany extends BaseContract {
     toBlock?: string | number | undefined
   ): Promise<Array<TypedEvent<EventArgsArray & EventArgsObject>>>;
 
-  interface: MetaStockCompanyInterface;
+  interface: MetaStocksCompanyInterface;
 
   functions: {
     approve(
@@ -273,7 +273,7 @@ export class MetaStockCompany extends BaseContract {
 
     balanceOf(owner: string, overrides?: CallOverrides): Promise<[BigNumber]>;
 
-    createMetaStockCompany(
+    createMetaStocksCompany(
       to: string,
       overrides?: Overrides & { from?: string | Promise<string> }
     ): Promise<ContractTransaction>;
@@ -393,7 +393,7 @@ export class MetaStockCompany extends BaseContract {
 
   balanceOf(owner: string, overrides?: CallOverrides): Promise<BigNumber>;
 
-  createMetaStockCompany(
+  createMetaStocksCompany(
     to: string,
     overrides?: Overrides & { from?: string | Promise<string> }
   ): Promise<ContractTransaction>;
@@ -507,7 +507,7 @@ export class MetaStockCompany extends BaseContract {
 
     balanceOf(owner: string, overrides?: CallOverrides): Promise<BigNumber>;
 
-    createMetaStockCompany(
+    createMetaStocksCompany(
       to: string,
       overrides?: CallOverrides
     ): Promise<BigNumber>;
@@ -703,7 +703,7 @@ export class MetaStockCompany extends BaseContract {
 
     balanceOf(owner: string, overrides?: CallOverrides): Promise<BigNumber>;
 
-    createMetaStockCompany(
+    createMetaStocksCompany(
       to: string,
       overrides?: Overrides & { from?: string | Promise<string> }
     ): Promise<BigNumber>;
@@ -827,7 +827,7 @@ export class MetaStockCompany extends BaseContract {
       overrides?: CallOverrides
     ): Promise<PopulatedTransaction>;
 
-    createMetaStockCompany(
+    createMetaStocksCompany(
       to: string,
       overrides?: Overrides & { from?: string | Promise<string> }
     ): Promise<PopulatedTransaction>;

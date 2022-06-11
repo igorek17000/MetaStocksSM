@@ -148,8 +148,8 @@
             "offset": 0,
             "slot": "251",
             "type": "t_struct(Counter)4270_storage",
-            "contract": "MetaStockCompany",
-            "src": "contracts/metaStocks/MetaStockCompany.sol:24"
+            "contract": "MetaStocksCompany",
+            "src": "contracts/MetaStocks/MetaStocksCompany.sol:24"
           }
         ],
         "types": {

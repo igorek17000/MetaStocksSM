@@ -6,8 +6,8 @@
   "input": {
     "language": "Solidity",
     "sources": {
-      "contracts/interfaces/metaStockInterfaces/IMetaStockCompany.sol": {
-        "content": "// SPDX-License-Identifier: MIT\npragma solidity ^0.8.14;\n\ninterface IMetaStockCompany {\n    function createFranchise() external payable;\n\n    function safeMint(address to) external;\n\n    function createMetaStockCompany(address to) external returns (uint256);\n}\n"
+      "contracts/interfaces/MetaStocksInterfaces/IMetaStocksCompany.sol": {
+        "content": "// SPDX-License-Identifier: MIT\npragma solidity ^0.8.14;\n\ninterface IMetaStocksCompany {\n    function createFranchise() external payable;\n\n    function safeMint(address to) external;\n\n    function createMetaStocksCompany(address to) external returns (uint256);\n}\n"
       }
     },
     "settings": {
@@ -34,8 +34,8 @@
   },
   "output": {
     "contracts": {
-      "contracts/interfaces/metaStockInterfaces/IMetaStockCompany.sol": {
-        "IMetaStockCompany": {
+      "contracts/interfaces/MetaStocksInterfaces/IMetaStocksCompany.sol": {
+        "IMetaStocksCompany": {
           "abi": [
             {
               "inputs": [],
@@ -52,7 +52,7 @@
                   "type": "address"
                 }
               ],
-              "name": "createMetaStockCompany",
+              "name": "createMetaStocksCompany",
               "outputs": [
                 {
                   "internalType": "uint256",
@@ -97,11 +97,11 @@
             },
             "methodIdentifiers": {
               "createFranchise()": "0e98caf2",
-              "createMetaStockCompany(address)": "0431e598",
+              "createMetaStocksCompany(address)": "0431e598",
               "safeMint(address)": "40d097c3"
             }
           },
-          "metadata": "{\"compiler\":{\"version\":\"0.8.14+commit.80d49f37\"},\"language\":\"Solidity\",\"output\":{\"abi\":[{\"inputs\":[],\"name\":\"createFranchise\",\"outputs\":[],\"stateMutability\":\"payable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"to\",\"type\":\"address\"}],\"name\":\"createMetaStockCompany\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"to\",\"type\":\"address\"}],\"name\":\"safeMint\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"}],\"devdoc\":{\"kind\":\"dev\",\"methods\":{},\"version\":1},\"userdoc\":{\"kind\":\"user\",\"methods\":{},\"version\":1}},\"settings\":{\"compilationTarget\":{\"contracts/interfaces/metaStockInterfaces/IMetaStockCompany.sol\":\"IMetaStockCompany\"},\"evmVersion\":\"london\",\"libraries\":{},\"metadata\":{\"bytecodeHash\":\"ipfs\"},\"optimizer\":{\"enabled\":true,\"runs\":100},\"remappings\":[]},\"sources\":{\"contracts/interfaces/metaStockInterfaces/IMetaStockCompany.sol\":{\"keccak256\":\"0x6a4326f6b7c001da37a0b9387342fd1f3fe358561a0d860f2e3d3e7a4fe2434a\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://ed419c6633609ff6826037e98bf510fe6f5cfd664608f786dd2365bdb72bc340\",\"dweb:/ipfs/QmPQWRa5otj97crNehaQ1pJdncL2kH4zr76g1kmUV9xBku\"]}},\"version\":1}",
+          "metadata": "{\"compiler\":{\"version\":\"0.8.14+commit.80d49f37\"},\"language\":\"Solidity\",\"output\":{\"abi\":[{\"inputs\":[],\"name\":\"createFranchise\",\"outputs\":[],\"stateMutability\":\"payable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"to\",\"type\":\"address\"}],\"name\":\"createMetaStocksCompany\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"to\",\"type\":\"address\"}],\"name\":\"safeMint\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"}],\"devdoc\":{\"kind\":\"dev\",\"methods\":{},\"version\":1},\"userdoc\":{\"kind\":\"user\",\"methods\":{},\"version\":1}},\"settings\":{\"compilationTarget\":{\"contracts/interfaces/MetaStocksInterfaces/IMetaStocksCompany.sol\":\"IMetaStocksCompany\"},\"evmVersion\":\"london\",\"libraries\":{},\"metadata\":{\"bytecodeHash\":\"ipfs\"},\"optimizer\":{\"enabled\":true,\"runs\":100},\"remappings\":[]},\"sources\":{\"contracts/interfaces/MetaStocksInterfaces/IMetaStocksCompany.sol\":{\"keccak256\":\"0x6a4326f6b7c001da37a0b9387342fd1f3fe358561a0d860f2e3d3e7a4fe2434a\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://ed419c6633609ff6826037e98bf510fe6f5cfd664608f786dd2365bdb72bc340\",\"dweb:/ipfs/QmPQWRa5otj97crNehaQ1pJdncL2kH4zr76g1kmUV9xBku\"]}},\"version\":1}",
           "storageLayout": {
             "storage": [],
             "types": null
@@ -110,11 +110,11 @@
       }
     },
     "sources": {
-      "contracts/interfaces/metaStockInterfaces/IMetaStockCompany.sol": {
+      "contracts/interfaces/MetaStocksInterfaces/IMetaStocksCompany.sol": {
         "ast": {
-          "absolutePath": "contracts/interfaces/metaStockInterfaces/IMetaStockCompany.sol",
+          "absolutePath": "contracts/interfaces/MetaStocksInterfaces/IMetaStocksCompany.sol",
           "exportedSymbols": {
-            "IMetaStockCompany": [
+            "IMetaStocksCompany": [
               17
             ]
           },
@@ -136,7 +136,7 @@
             {
               "abstract": false,
               "baseContracts": [],
-              "canonicalName": "IMetaStockCompany",
+              "canonicalName": "IMetaStocksCompany",
               "contractDependencies": [],
               "contractKind": "interface",
               "fullyImplemented": false,
@@ -144,7 +144,7 @@
               "linearizedBaseContracts": [
                 17
               ],
-              "name": "IMetaStockCompany",
+              "name": "IMetaStocksCompany",
               "nameLocation": "68:17:0",
               "nodeType": "ContractDefinition",
               "nodes": [
@@ -237,7 +237,7 @@
                   "implemented": false,
                   "kind": "function",
                   "modifiers": [],
-                  "name": "createMetaStockCompany",
+                  "name": "createMetaStocksCompany",
                   "nameLocation": "196:22:0",
                   "nodeType": "FunctionDefinition",
                   "parameters": {

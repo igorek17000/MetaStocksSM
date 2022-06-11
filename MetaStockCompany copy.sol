@@ -11,7 +11,7 @@ import "@openzeppelin/contracts/token/ERC1155/utils/ERC1155Holder.sol";
 import "@openzeppelin/contracts/token/ERC1155/IERC1155Receiver.sol";
 import "@openzeppelin/contracts/token/ERC20/ERC20.sol";
 
-contract MetaStockCompany is
+contract MetaStocksCompany is
     Initializable,
     ERC721Upgradeable,
     PausableUpgradeable,
@@ -36,7 +36,7 @@ contract MetaStockCompany is
     }
 
     function initialize() public initializer {
-        __ERC721_init("MetaStockCompany", "MSC");
+        __ERC721_init("MetaStocksCompany", "MSC");
         __Pausable_init();
         __Ownable_init();
 

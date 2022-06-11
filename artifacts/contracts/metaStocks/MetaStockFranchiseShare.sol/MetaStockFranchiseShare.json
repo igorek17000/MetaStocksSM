@@ -1,7 +1,7 @@
 {
   "_format": "hh-sol-artifact-1",
-  "contractName": "MetaStockFranchiseShare",
-  "sourceName": "contracts/metaStocks/MetaStockFranchiseShare.sol",
+  "contractName": "MetaStocksFranchiseShare",
+  "sourceName": "contracts/MetaStocks/MetaStocksFranchiseShare.sol",
   "abi": [
     {
       "inputs": [],

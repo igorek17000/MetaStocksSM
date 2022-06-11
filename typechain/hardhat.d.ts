@@ -321,21 +321,21 @@ declare module "hardhat/types/runtime" {
       signerOrOptions?: ethers.Signer | FactoryOptions
     ): Promise<Contracts.IPangolinRouter__factory>;
     getContractFactory(
-      name: "IMetaStockCompany",
+      name: "IMetaStocksCompany",
       signerOrOptions?: ethers.Signer | FactoryOptions
-    ): Promise<Contracts.IMetaStockCompany__factory>;
+    ): Promise<Contracts.IMetaStocksCompany__factory>;
     getContractFactory(
-      name: "IMetaStockCompanyInfo",
+      name: "IMetaStocksCompanyInfo",
       signerOrOptions?: ethers.Signer | FactoryOptions
-    ): Promise<Contracts.IMetaStockCompanyInfo__factory>;
+    ): Promise<Contracts.IMetaStocksCompanyInfo__factory>;
     getContractFactory(
-      name: "IMetaStockFranchise",
+      name: "IMetaStocksFranchise",
       signerOrOptions?: ethers.Signer | FactoryOptions
-    ): Promise<Contracts.IMetaStockFranchise__factory>;
+    ): Promise<Contracts.IMetaStocksFranchise__factory>;
     getContractFactory(
-      name: "IMetaStockFranchiseShare",
+      name: "IMetaStocksFranchiseShare",
       signerOrOptions?: ethers.Signer | FactoryOptions
-    ): Promise<Contracts.IMetaStockFranchiseShare__factory>;
+    ): Promise<Contracts.IMetaStocksFranchiseShare__factory>;
     getContractFactory(
       name: "IMetaStocksCompanyManager",
       signerOrOptions?: ethers.Signer | FactoryOptions
@@ -357,21 +357,21 @@ declare module "hardhat/types/runtime" {
       signerOrOptions?: ethers.Signer | FactoryOptions
     ): Promise<Contracts.MetaStocks__factory>;
     getContractFactory(
-      name: "MetaStock1155",
+      name: "MetaStocks1155",
       signerOrOptions?: ethers.Signer | FactoryOptions
-    ): Promise<Contracts.MetaStock1155__factory>;
+    ): Promise<Contracts.MetaStocks1155__factory>;
     getContractFactory(
-      name: "MetaStockCompany",
+      name: "MetaStocksCompany",
       signerOrOptions?: ethers.Signer | FactoryOptions
-    ): Promise<Contracts.MetaStockCompany__factory>;
+    ): Promise<Contracts.MetaStocksCompany__factory>;
     getContractFactory(
-      name: "MetaStockFranchise",
+      name: "MetaStocksFranchise",
       signerOrOptions?: ethers.Signer | FactoryOptions
-    ): Promise<Contracts.MetaStockFranchise__factory>;
+    ): Promise<Contracts.MetaStocksFranchise__factory>;
     getContractFactory(
-      name: "MetaStockFranchiseShare",
+      name: "MetaStocksFranchiseShare",
       signerOrOptions?: ethers.Signer | FactoryOptions
-    ): Promise<Contracts.MetaStockFranchiseShare__factory>;
+    ): Promise<Contracts.MetaStocksFranchiseShare__factory>;
 
     getContractAt(
       name: "OwnableUpgradeable",
@@ -759,25 +759,25 @@ declare module "hardhat/types/runtime" {
       signer?: ethers.Signer
     ): Promise<Contracts.IPangolinRouter>;
     getContractAt(
-      name: "IMetaStockCompany",
+      name: "IMetaStocksCompany",
       address: string,
       signer?: ethers.Signer
-    ): Promise<Contracts.IMetaStockCompany>;
+    ): Promise<Contracts.IMetaStocksCompany>;
     getContractAt(
-      name: "IMetaStockCompanyInfo",
+      name: "IMetaStocksCompanyInfo",
       address: string,
       signer?: ethers.Signer
-    ): Promise<Contracts.IMetaStockCompanyInfo>;
+    ): Promise<Contracts.IMetaStocksCompanyInfo>;
     getContractAt(
-      name: "IMetaStockFranchise",
+      name: "IMetaStocksFranchise",
       address: string,
       signer?: ethers.Signer
-    ): Promise<Contracts.IMetaStockFranchise>;
+    ): Promise<Contracts.IMetaStocksFranchise>;
     getContractAt(
-      name: "IMetaStockFranchiseShare",
+      name: "IMetaStocksFranchiseShare",
       address: string,
       signer?: ethers.Signer
-    ): Promise<Contracts.IMetaStockFranchiseShare>;
+    ): Promise<Contracts.IMetaStocksFranchiseShare>;
     getContractAt(
       name: "IMetaStocksCompanyManager",
       address: string,
@@ -804,25 +804,25 @@ declare module "hardhat/types/runtime" {
       signer?: ethers.Signer
     ): Promise<Contracts.MetaStocks>;
     getContractAt(
-      name: "MetaStock1155",
+      name: "MetaStocks1155",
       address: string,
       signer?: ethers.Signer
-    ): Promise<Contracts.MetaStock1155>;
+    ): Promise<Contracts.MetaStocks1155>;
     getContractAt(
-      name: "MetaStockCompany",
+      name: "MetaStocksCompany",
       address: string,
       signer?: ethers.Signer
-    ): Promise<Contracts.MetaStockCompany>;
+    ): Promise<Contracts.MetaStocksCompany>;
     getContractAt(
-      name: "MetaStockFranchise",
+      name: "MetaStocksFranchise",
       address: string,
       signer?: ethers.Signer
-    ): Promise<Contracts.MetaStockFranchise>;
+    ): Promise<Contracts.MetaStocksFranchise>;
     getContractAt(
-      name: "MetaStockFranchiseShare",
+      name: "MetaStocksFranchiseShare",
       address: string,
       signer?: ethers.Signer
-    ): Promise<Contracts.MetaStockFranchiseShare>;
+    ): Promise<Contracts.MetaStocksFranchiseShare>;
 
     // default types
     getContractFactory(

@@ -1094,8 +1094,8 @@
           "flat": false
         }
       },
-      "IMetaStockFranchise": {
-        "src": "contracts/interfaces/metaStockInterfaces/IMetaStockFranchise.sol:4",
+      "IMetaStocksFranchise": {
+        "src": "contracts/interfaces/MetaStocksInterfaces/IMetaStocksFranchise.sol:4",
         "inherit": [],
         "libraries": [],
         "methods": [
@@ -1110,8 +1110,8 @@
           "flat": false
         }
       },
-      "MetaStockCompany": {
-        "src": "contracts/metaStocks/MetaStockCompany.sol:15",
+      "MetaStocksCompany": {
+        "src": "contracts/MetaStocks/MetaStocksCompany.sol:15",
         "version": {
           "withMetadata": "160fce58cabbe52065a1496082baaca531907779afb9ea9acd92b6750a55d498",
           "withoutMetadata": "160fce58cabbe52065a1496082baaca531907779afb9ea9acd92b6750a55d498",
@@ -1143,7 +1143,7 @@
           "unpause()",
           "safeMint(address)",
           "supportsInterface(bytes4)",
-          "createMetaStockCompany(address)"
+          "createMetaStocksCompany(address)"
         ],
         "linkReferences": [],
         "errors": [],
@@ -1275,8 +1275,8 @@
               "offset": 0,
               "slot": "251",
               "type": "t_struct(Counter)1867_storage",
-              "contract": "MetaStockCompany",
-              "src": "contracts/metaStocks/MetaStockCompany.sol:24"
+              "contract": "MetaStocksCompany",
+              "src": "contracts/MetaStocks/MetaStocksCompany.sol:24"
             }
           ],
           "types": {
@@ -2439,8 +2439,8 @@
           "flat": false
         }
       },
-      "IMetaStockFranchise": {
-        "src": "contracts/interfaces/metaStockInterfaces/IMetaStockFranchise.sol:4",
+      "IMetaStocksFranchise": {
+        "src": "contracts/interfaces/MetaStocksInterfaces/IMetaStocksFranchise.sol:4",
         "inherit": [],
         "libraries": [],
         "methods": [
@@ -2455,8 +2455,8 @@
           "flat": false
         }
       },
-      "MetaStockCompany": {
-        "src": "contracts/metaStocks/MetaStockCompany.sol:15",
+      "MetaStocksCompany": {
+        "src": "contracts/MetaStocks/MetaStocksCompany.sol:15",
         "version": {
           "withMetadata": "160fce58cabbe52065a1496082baaca531907779afb9ea9acd92b6750a55d498",
           "withoutMetadata": "160fce58cabbe52065a1496082baaca531907779afb9ea9acd92b6750a55d498",
@@ -2488,7 +2488,7 @@
           "unpause()",
           "safeMint(address)",
           "supportsInterface(bytes4)",
-          "createMetaStockCompany(address)"
+          "createMetaStocksCompany(address)"
         ],
         "linkReferences": [],
         "errors": [],
@@ -2620,8 +2620,8 @@
               "offset": 0,
               "slot": "251",
               "type": "t_struct(Counter)1867_storage",
-              "contract": "MetaStockCompany",
-              "src": "contracts/metaStocks/MetaStockCompany.sol:24"
+              "contract": "MetaStocksCompany",
+              "src": "contracts/MetaStocks/MetaStocksCompany.sol:24"
             }
           ],
           "types": {
@@ -3784,8 +3784,8 @@
           "flat": false
         }
       },
-      "IMetaStockFranchise": {
-        "src": "contracts/interfaces/metaStockInterfaces/IMetaStockFranchise.sol:4",
+      "IMetaStocksFranchise": {
+        "src": "contracts/interfaces/MetaStocksInterfaces/IMetaStocksFranchise.sol:4",
         "inherit": [],
         "libraries": [],
         "methods": [
@@ -3800,8 +3800,8 @@
           "flat": false
         }
       },
-      "MetaStockCompany": {
-        "src": "contracts/metaStocks/MetaStockCompany.sol:15",
+      "MetaStocksCompany": {
+        "src": "contracts/MetaStocks/MetaStocksCompany.sol:15",
         "version": {
           "withMetadata": "160fce58cabbe52065a1496082baaca531907779afb9ea9acd92b6750a55d498",
           "withoutMetadata": "160fce58cabbe52065a1496082baaca531907779afb9ea9acd92b6750a55d498",
@@ -3833,7 +3833,7 @@
           "unpause()",
           "safeMint(address)",
           "supportsInterface(bytes4)",
-          "createMetaStockCompany(address)"
+          "createMetaStocksCompany(address)"
         ],
         "linkReferences": [],
         "errors": [],
@@ -3965,8 +3965,8 @@
               "offset": 0,
               "slot": "251",
               "type": "t_struct(Counter)1867_storage",
-              "contract": "MetaStockCompany",
-              "src": "contracts/metaStocks/MetaStockCompany.sol:24"
+              "contract": "MetaStocksCompany",
+              "src": "contracts/MetaStocks/MetaStocksCompany.sol:24"
             }
           ],
           "types": {
@@ -6357,8 +6357,8 @@
           "flat": false
         }
       },
-      "IMetaStockFranchise": {
-        "src": "contracts/interfaces/metaStockInterfaces/IMetaStockFranchise.sol:4",
+      "IMetaStocksFranchise": {
+        "src": "contracts/interfaces/MetaStocksInterfaces/IMetaStocksFranchise.sol:4",
         "inherit": [],
         "libraries": [],
         "methods": [
@@ -6603,8 +6603,8 @@
           "flat": true
         }
       },
-      "MetaStock1155": {
-        "src": "contracts/metaStocks/MetaStock1155.sol:11",
+      "MetaStocks1155": {
+        "src": "contracts/MetaStocks/MetaStocks1155.sol:11",
         "version": {
           "withMetadata": "ae1d977b65dbcc722c375317119405330a3387425fb2f836375d70e59fd193f3",
           "withoutMetadata": "ae1d977b65dbcc722c375317119405330a3387425fb2f836375d70e59fd193f3",
@@ -6818,8 +6818,8 @@
           "flat": true
         }
       },
-      "MetaStockCompany": {
-        "src": "contracts/metaStocks/MetaStockCompany.sol:15",
+      "MetaStocksCompany": {
+        "src": "contracts/MetaStocks/MetaStocksCompany.sol:15",
         "version": {
           "withMetadata": "160fce58cabbe52065a1496082baaca531907779afb9ea9acd92b6750a55d498",
           "withoutMetadata": "160fce58cabbe52065a1496082baaca531907779afb9ea9acd92b6750a55d498",
@@ -6851,7 +6851,7 @@
           "unpause()",
           "safeMint(address)",
           "supportsInterface(bytes4)",
-          "createMetaStockCompany(address)"
+          "createMetaStocksCompany(address)"
         ],
         "linkReferences": [],
         "errors": [],
@@ -6983,8 +6983,8 @@
               "offset": 0,
               "slot": "251",
               "type": "t_struct(Counter)4270_storage",
-              "contract": "MetaStockCompany",
-              "src": "contracts/metaStocks/MetaStockCompany.sol:24"
+              "contract": "MetaStocksCompany",
+              "src": "contracts/MetaStocks/MetaStocksCompany.sol:24"
             }
           ],
           "types": {
@@ -7053,15 +7053,15 @@
           "flat": true
         }
       },
-      "MetaStockFranchise": {
-        "src": "contracts/metaStocks/MetaStockFranchise.sol:6",
+      "MetaStocksFranchise": {
+        "src": "contracts/MetaStocks/MetaStocksFranchise.sol:6",
         "version": {
           "withMetadata": "1078b97c890b672113ee4e2617f4f3d8ee0fbf4c350dfa05def9f397d92bdd06",
           "withoutMetadata": "1078b97c890b672113ee4e2617f4f3d8ee0fbf4c350dfa05def9f397d92bdd06",
           "linkedWithoutMetadata": "1078b97c890b672113ee4e2617f4f3d8ee0fbf4c350dfa05def9f397d92bdd06"
         },
         "inherit": [
-          "MetaStock1155",
+          "MetaStocks1155",
           "ERC1155SupplyUpgradeable",
           "ERC1155BurnableUpgradeable",
           "PausableUpgradeable",
@@ -7262,15 +7262,15 @@
           "flat": true
         }
       },
-      "MetaStockFranchiseShare": {
-        "src": "contracts/metaStocks/MetaStockFranchiseShare.sol:6",
+      "MetaStocksFranchiseShare": {
+        "src": "contracts/MetaStocks/MetaStocksFranchiseShare.sol:6",
         "version": {
           "withMetadata": "025fc98202f6478ae77534d84877ef7248036618d2de7308536b1fd99de62c14",
           "withoutMetadata": "025fc98202f6478ae77534d84877ef7248036618d2de7308536b1fd99de62c14",
           "linkedWithoutMetadata": "025fc98202f6478ae77534d84877ef7248036618d2de7308536b1fd99de62c14"
         },
         "inherit": [
-          "MetaStock1155",
+          "MetaStocks1155",
           "ERC1155SupplyUpgradeable",
           "ERC1155BurnableUpgradeable",
           "PausableUpgradeable",
@@ -7764,8 +7764,8 @@
       }
     },
     {
-      "IMetaStockCompanyInfo": {
-        "src": "contracts/interfaces/metaStockInterfaces/IMetaStockCompanyInfo.sol:4",
+      "IMetaStocksCompanyInfo": {
+        "src": "contracts/interfaces/MetaStocksInterfaces/IMetaStocksCompanyInfo.sol:4",
         "inherit": [],
         "libraries": [],
         "methods": [
@@ -7782,8 +7782,8 @@
       }
     },
     {
-      "IMetaStockFranchiseShare": {
-        "src": "contracts/interfaces/metaStockInterfaces/IMetaStockFranchiseShare.sol:4",
+      "IMetaStocksFranchiseShare": {
+        "src": "contracts/interfaces/MetaStocksInterfaces/IMetaStocksFranchiseShare.sol:4",
         "inherit": [],
         "libraries": [],
         "methods": [
@@ -9064,7 +9064,7 @@
     },
     {
       "IMetaStocksCompanyManager": {
-        "src": "contracts/interfaces/metaStockInterfaces/IMetaStocksCompanyManager.sol:4",
+        "src": "contracts/interfaces/MetaStocksInterfaces/IMetaStocksCompanyManager.sol:4",
         "inherit": [],
         "libraries": [],
         "methods": [
@@ -9081,14 +9081,14 @@
       }
     },
     {
-      "IMetaStockCompany": {
-        "src": "contracts/interfaces/metaStockInterfaces/IMetaStockCompany.sol:4",
+      "IMetaStocksCompany": {
+        "src": "contracts/interfaces/MetaStocksInterfaces/IMetaStocksCompany.sol:4",
         "inherit": [],
         "libraries": [],
         "methods": [
           "createFranchise()",
           "safeMint(address)",
-          "createMetaStockCompany(address)"
+          "createMetaStocksCompany(address)"
         ],
         "linkReferences": [],
         "errors": [],

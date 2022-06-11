@@ -19,7 +19,7 @@ import { Listener, Provider } from "@ethersproject/providers";
 import { FunctionFragment, EventFragment, Result } from "@ethersproject/abi";
 import type { TypedEventFilter, TypedEvent, TypedListener } from "./common";
 
-interface IMetaStockFranchiseShareInterface extends ethers.utils.Interface {
+interface IMetaStocksFranchiseShareInterface extends ethers.utils.Interface {
   functions: {
     "createFranchise()": FunctionFragment;
   };
@@ -37,7 +37,7 @@ interface IMetaStockFranchiseShareInterface extends ethers.utils.Interface {
   events: {};
 }
 
-export class IMetaStockFranchiseShare extends BaseContract {
+export class IMetaStocksFranchiseShare extends BaseContract {
   connect(signerOrProvider: Signer | Provider | string): this;
   attach(addressOrName: string): this;
   deployed(): Promise<this>;
@@ -78,7 +78,7 @@ export class IMetaStockFranchiseShare extends BaseContract {
     toBlock?: string | number | undefined
   ): Promise<Array<TypedEvent<EventArgsArray & EventArgsObject>>>;
 
-  interface: IMetaStockFranchiseShareInterface;
+  interface: IMetaStocksFranchiseShareInterface;
 
   functions: {
     createFranchise(
