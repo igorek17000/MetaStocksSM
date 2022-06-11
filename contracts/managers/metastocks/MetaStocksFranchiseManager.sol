@@ -15,8 +15,6 @@ import "../../models/TransactionFees.sol";
 import "../../enums/MetaStocksFranchiseType.sol";
 import "../../tokens/MetaStocksIERC1155ReceiverHolder.sol";
 
-//import "../../interfaces/midasInterfaces/IMidasManager.sol";
-
 contract MetaStocksFranchiseManager is
     MetaStocksIERC1155ReceiverHolder,
     ERC20Upgradeable,
@@ -40,9 +38,10 @@ contract MetaStocksFranchiseManager is
         public
         initializer
     {
-        createFranchisePrice = 10 ether;
-        maintainceFranchiseExpenses = 1000000000000000000;
-        franchiseDailyEarnings = 100000000000000000;
+        createFranchisePrice = 100 ether;
+        franchiseDailyEarnings = 10 ether;
+        maintainceFranchiseExpenses = 1 ether;
+
         paymentTokenAddress = address(0);
         /*
         chainlinkDataFeedsManager = new ChainlinkDataFeedsManager(
@@ -52,11 +51,9 @@ contract MetaStocksFranchiseManager is
         metaStocksFranchise = IMetaStocksFranchise(_metaStocksFranchiseAddress);
     }
 
-    function create() external payable {}
-
-    function update(uint256 managerId) external {}
-
-    function remove(uint256 companyId) external {}
+    function self() public view virtual returns (address) {
+        return address(this);
+    }
 
     function getCreateFranchisePrice() external view returns (uint256) {
         return createFranchisePrice;
@@ -140,7 +137,7 @@ contract MetaStocksFranchiseManager is
     }
 
     function getMetaStocksFranchisesUnclaimedRewards(uint256 companyId)
-        external
+        public
         view
         returns (uint256)
     {
@@ -160,8 +157,16 @@ contract MetaStocksFranchiseManager is
         return totalUnclaimed;
     }
 
-    function getUnclaimedRewards() external view returns (uint256) {
-        return franchiseDailyEarnings;
+    function claimFromAllFranchises(uint256 _companyId) external {
+        uint256 totalUnclaimed = getMetaStocksFranchisesUnclaimedRewards(
+            _companyId
+        );
+
+        IERC20(paymentTokenAddress).transferFrom(
+            address(self()),
+            address(msg.sender),
+            totalUnclaimed
+        );
     }
 
     function getFranchiseValue() external view returns (uint256) {
@@ -174,12 +179,5 @@ contract MetaStocksFranchiseManager is
         );
         */
         return franchiseDailyEarnings;
-    }
-
-    function setPaymentTokenAddress222(address _paymentTokenAddress)
-        external
-        virtual
-    {
-        paymentTokenAddress = _paymentTokenAddress;
     }
 }
