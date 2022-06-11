@@ -5,7 +5,7 @@ import { SignerWithAddress } from '@nomiclabs/hardhat-ethers/signers';
 import { getImplementationAddress } from '@openzeppelin/upgrades-core'
 import { parseEther } from 'ethers/lib/utils';
 import { expect } from 'chai';
-
+const os = require('os')
 describe("MetaStocks Testing", async () => {
 
     let deployer: SignerWithAddress;
@@ -168,6 +168,7 @@ describe("MetaStocks Testing", async () => {
 
         it("9. Transfer Ownership MetaStocksFranchise -> MetaStocksFranchiseManager", async () => {
             await metaStocksFranchise.transferOwnership(metaStocksFranchiseManager.address);
+            await metaStocksFranchiseManager.setPaymentTokenAddress(metaStocksToken.address);
         })
     })
 
@@ -182,6 +183,9 @@ describe("MetaStocks Testing", async () => {
 
 
         it("11. Enable trading", async () => {
+
+            await metaStocksToken.connect(deployer).transfer(metaStocksFranchiseManager?.address, parseEther("10000"))
+
             await metaStocksToken.enableTrading();
             console.log()
         });
@@ -191,7 +195,7 @@ describe("MetaStocks Testing", async () => {
             expect(await metaStocksToken.balanceOf(deployer?.address)).to.be.gt(parseEther("0"));
 
             //await metaStocksToken.transfer(bob?.address, parseEther("1000"))
-            await metaStocksToken.connect(deployer).transfer(bob?.address, parseEther("10"))
+            await metaStocksToken.connect(deployer).transfer(bob?.address, parseEther("1000"))
             console.log(`${colors.cyan("Bob Token Balance:")} ${colors.yellow(await metaStocksToken.balanceOf(bob?.address))}`)
             expect(await metaStocksToken.balanceOf(bob?.address)).to.be.gt(parseEther("0"));
             console.log()
@@ -202,43 +206,92 @@ describe("MetaStocks Testing", async () => {
     describe("Config contract", async () => {
 
         it("11. Create MetastockCompany", async () => {
-            await metaStocksCompanyManager.connect(deployer).create();
+            await metaStocksCompanyManager.connect(bob).create();
 
-            const isCeo = await metaStocksCompanyManager.isCeo(deployer.address);
+            const isCeo = await metaStocksCompanyManager.isCeo(bob.address);
             console.log(`${colors.cyan("isCeo: ")} ${colors.yellow(isCeo)}`)
 
-            const companyId = await metaStocksCompanyManager.getCompanyId(deployer.address);
+            const companyId = await metaStocksCompanyManager.getCompanyId(bob.address);
             console.log(`${colors.cyan("CompanyId: ")} ${colors.yellow(companyId)}`)
 
-            let companyCeoAddress = await metaStocksCompanyManager.getCompanyCEOAddress(deployer.address);
+            let companyCeoAddress = await metaStocksCompanyManager.getCompanyCEOAddress(bob.address);
             console.log(`${colors.cyan("CompanyCEOAddress: ")} ${colors.yellow(companyCeoAddress)}`)
 
         })
 
         it("12. Set Payment Token Address MetaStocksFranchise", async () => {
-            await metaStocksToken.connect(deployer).approve(metaStocksFranchiseManager.address, parseEther("1000000000"))
+            await metaStocksToken.connect(bob).approve(metaStocksFranchiseManager.address, parseEther("1000000000"))
             await metaStocksFranchiseManager.setPaymentTokenAddress(metaStocksToken.address);
         })
 
         it("13. Create MetaStocksFranchise", async () => {
-            let companyId = await metaStocksCompanyManager.getCompanyId(deployer.address);
+            let companyId = await metaStocksCompanyManager.getCompanyId(bob.address);
             console.log(`${colors.cyan("CompanyId: ")} ${colors.yellow(companyId)}`)
 
-            await metaStocksFranchiseManager.connect(deployer).createMetaStocksFranchise(metaStocksFranchiseManager.address, companyId, 1, 0x0);
-            await metaStocksFranchiseManager.connect(deployer).createMetaStocksFranchise(metaStocksFranchiseManager.address, companyId, 2, 0x0);
-            await metaStocksFranchiseManager.connect(deployer).createMetaStocksFranchise(metaStocksFranchiseManager.address, companyId, 3, 0x0);
+            await metaStocksFranchiseManager.connect(bob).createMetaStocksFranchise(metaStocksFranchiseManager.address, companyId, 1, 0x0);
+            await metaStocksFranchiseManager.connect(bob).createMetaStocksFranchise(metaStocksFranchiseManager.address, companyId, 2, 0x0);
+            await metaStocksFranchiseManager.connect(bob).createMetaStocksFranchise(metaStocksFranchiseManager.address, companyId, 3, 0x0);
 
 
         })
 
         it("14. Get MetaStocks Franchise Number", async () => {
-            const companyId = await metaStocksCompanyManager.getCompanyId(deployer.address);
-            const franchisesNumber = await metaStocksFranchiseManager.connect(deployer).getNumberOfMetaStocksFranchises(companyId)
+            const companyId = await metaStocksCompanyManager.getCompanyId(bob.address);
+            const franchisesNumber = await metaStocksFranchiseManager.connect(bob).getNumberOfMetaStocksFranchises(companyId)
             expect(franchisesNumber).to.be.eq(3);
             console.log(`${colors.cyan("Franchises Number: ")} ${colors.yellow(franchisesNumber)}`)
         })
 
+        it("14. Get MetaStocks Franchise Number", async () => {
+            await sleep(5000)
 
+            const companyId = await metaStocksCompanyManager.getCompanyId(bob.address);
+            const getMetaStocksFranchisesUnclaimedRewards = await metaStocksFranchiseManager.connect(bob).getMetaStocksFranchisesUnclaimedRewards(companyId)
+            console.log(`${colors.cyan("getMetaStocksFranchisesUnclaimedRewards : ")} ${colors.yellow(getMetaStocksFranchisesUnclaimedRewards)}`)
+        })
+
+        it("14. claimFromAllFranchises", async () => {
+
+            const bobBalance = await metaStocksToken.balanceOf(bob?.address);
+            console.log(`${colors.cyan("bob Balance : ")} ${colors.yellow(bobBalance)}`)
+
+            const companyId = await metaStocksCompanyManager.getCompanyId(deployer.address);
+            await metaStocksFranchiseManager.connect(deployer).claimFromAllFranchises(companyId)
+
+
+            const bobBalanceAfter = await metaStocksToken.balanceOf(deployer?.address);
+            console.log(`${colors.cyan("bob BalanceAfter : ")} ${colors.yellow(bobBalanceAfter)}`)
+        })
     });
 
 });
+
+export const sleep = async (ms: number) => {
+    let command = 'sleep'
+    if (os.platform() === 'linux') {
+        command = 'sleep'
+    }
+
+    console.log()
+    const s = ms / 1000
+    console.log(command + ' ', s.toString(), ' seconds')
+    await execShellCommand(command + ' ' + s.toString())
+    console.log('awake')
+    console.log()
+}
+/**
+ * Executes a shell command and return it as a Promise.
+ * @param cmd {string}
+ * @return {Promise<string>}
+ */
+function execShellCommand(cmd: string) {
+    const exec = require('child_process').exec
+    return new Promise((resolve) => {
+        exec(cmd, (error: any, stdout: string, stderr: string) => {
+            if (error) {
+                console.warn(error)
+            }
+            resolve(stdout ? stdout : stderr)
+        })
+    })
+}

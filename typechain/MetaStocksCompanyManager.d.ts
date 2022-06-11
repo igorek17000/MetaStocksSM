@@ -40,7 +40,6 @@ interface MetaStocksCompanyManagerInterface extends ethers.utils.Interface {
     "onERC1155BatchReceived(address,address,uint256[],uint256[],bytes)": FunctionFragment;
     "onERC1155Received(address,address,uint256,uint256,bytes)": FunctionFragment;
     "owner()": FunctionFragment;
-    "remove(uint256)": FunctionFragment;
     "renounceOwnership()": FunctionFragment;
     "supportsInterface(bytes4)": FunctionFragment;
     "symbol()": FunctionFragment;
@@ -48,7 +47,6 @@ interface MetaStocksCompanyManagerInterface extends ethers.utils.Interface {
     "transfer(address,uint256)": FunctionFragment;
     "transferFrom(address,address,uint256)": FunctionFragment;
     "transferOwnership(address)": FunctionFragment;
-    "update(uint256)": FunctionFragment;
   };
 
   encodeFunctionData(
@@ -100,10 +98,6 @@ interface MetaStocksCompanyManagerInterface extends ethers.utils.Interface {
   ): string;
   encodeFunctionData(functionFragment: "owner", values?: undefined): string;
   encodeFunctionData(
-    functionFragment: "remove",
-    values: [BigNumberish]
-  ): string;
-  encodeFunctionData(
     functionFragment: "renounceOwnership",
     values?: undefined
   ): string;
@@ -127,10 +121,6 @@ interface MetaStocksCompanyManagerInterface extends ethers.utils.Interface {
   encodeFunctionData(
     functionFragment: "transferOwnership",
     values: [string]
-  ): string;
-  encodeFunctionData(
-    functionFragment: "update",
-    values: [BigNumberish]
   ): string;
 
   decodeFunctionResult(functionFragment: "allowance", data: BytesLike): Result;
@@ -175,7 +165,6 @@ interface MetaStocksCompanyManagerInterface extends ethers.utils.Interface {
     data: BytesLike
   ): Result;
   decodeFunctionResult(functionFragment: "owner", data: BytesLike): Result;
-  decodeFunctionResult(functionFragment: "remove", data: BytesLike): Result;
   decodeFunctionResult(
     functionFragment: "renounceOwnership",
     data: BytesLike
@@ -198,7 +187,6 @@ interface MetaStocksCompanyManagerInterface extends ethers.utils.Interface {
     functionFragment: "transferOwnership",
     data: BytesLike
   ): Result;
-  decodeFunctionResult(functionFragment: "update", data: BytesLike): Result;
 
   events: {
     "Approval(address,address,uint256)": EventFragment;
@@ -364,11 +352,6 @@ export class MetaStocksCompanyManager extends BaseContract {
 
     owner(overrides?: CallOverrides): Promise<[string]>;
 
-    remove(
-      companyId: BigNumberish,
-      overrides?: Overrides & { from?: string | Promise<string> }
-    ): Promise<ContractTransaction>;
-
     renounceOwnership(
       overrides?: Overrides & { from?: string | Promise<string> }
     ): Promise<ContractTransaction>;
@@ -397,11 +380,6 @@ export class MetaStocksCompanyManager extends BaseContract {
 
     transferOwnership(
       newOwner: string,
-      overrides?: Overrides & { from?: string | Promise<string> }
-    ): Promise<ContractTransaction>;
-
-    update(
-      managerId: BigNumberish,
       overrides?: Overrides & { from?: string | Promise<string> }
     ): Promise<ContractTransaction>;
   };
@@ -480,11 +458,6 @@ export class MetaStocksCompanyManager extends BaseContract {
 
   owner(overrides?: CallOverrides): Promise<string>;
 
-  remove(
-    companyId: BigNumberish,
-    overrides?: Overrides & { from?: string | Promise<string> }
-  ): Promise<ContractTransaction>;
-
   renounceOwnership(
     overrides?: Overrides & { from?: string | Promise<string> }
   ): Promise<ContractTransaction>;
@@ -513,11 +486,6 @@ export class MetaStocksCompanyManager extends BaseContract {
 
   transferOwnership(
     newOwner: string,
-    overrides?: Overrides & { from?: string | Promise<string> }
-  ): Promise<ContractTransaction>;
-
-  update(
-    managerId: BigNumberish,
     overrides?: Overrides & { from?: string | Promise<string> }
   ): Promise<ContractTransaction>;
 
@@ -600,8 +568,6 @@ export class MetaStocksCompanyManager extends BaseContract {
 
     owner(overrides?: CallOverrides): Promise<string>;
 
-    remove(companyId: BigNumberish, overrides?: CallOverrides): Promise<void>;
-
     renounceOwnership(overrides?: CallOverrides): Promise<void>;
 
     supportsInterface(
@@ -630,8 +596,6 @@ export class MetaStocksCompanyManager extends BaseContract {
       newOwner: string,
       overrides?: CallOverrides
     ): Promise<void>;
-
-    update(managerId: BigNumberish, overrides?: CallOverrides): Promise<void>;
   };
 
   filters: {
@@ -793,11 +757,6 @@ export class MetaStocksCompanyManager extends BaseContract {
 
     owner(overrides?: CallOverrides): Promise<BigNumber>;
 
-    remove(
-      companyId: BigNumberish,
-      overrides?: Overrides & { from?: string | Promise<string> }
-    ): Promise<BigNumber>;
-
     renounceOwnership(
       overrides?: Overrides & { from?: string | Promise<string> }
     ): Promise<BigNumber>;
@@ -826,11 +785,6 @@ export class MetaStocksCompanyManager extends BaseContract {
 
     transferOwnership(
       newOwner: string,
-      overrides?: Overrides & { from?: string | Promise<string> }
-    ): Promise<BigNumber>;
-
-    update(
-      managerId: BigNumberish,
       overrides?: Overrides & { from?: string | Promise<string> }
     ): Promise<BigNumber>;
   };
@@ -928,11 +882,6 @@ export class MetaStocksCompanyManager extends BaseContract {
 
     owner(overrides?: CallOverrides): Promise<PopulatedTransaction>;
 
-    remove(
-      companyId: BigNumberish,
-      overrides?: Overrides & { from?: string | Promise<string> }
-    ): Promise<PopulatedTransaction>;
-
     renounceOwnership(
       overrides?: Overrides & { from?: string | Promise<string> }
     ): Promise<PopulatedTransaction>;
@@ -961,11 +910,6 @@ export class MetaStocksCompanyManager extends BaseContract {
 
     transferOwnership(
       newOwner: string,
-      overrides?: Overrides & { from?: string | Promise<string> }
-    ): Promise<PopulatedTransaction>;
-
-    update(
-      managerId: BigNumberish,
       overrides?: Overrides & { from?: string | Promise<string> }
     ): Promise<PopulatedTransaction>;
   };

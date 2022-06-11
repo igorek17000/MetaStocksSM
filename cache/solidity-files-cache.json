@@ -2200,8 +2200,8 @@
       ]
     },
     "/home/nkt/Desktop/metaStoksContracts/contracts/managers/metastocks/MetaStocksCompanyManager.sol": {
-      "lastModificationDate": 1654952763461,
-      "contentHash": "f26e7e03c1da09a6ecb95d80c615d0dc",
+      "lastModificationDate": 1654955022340,
+      "contentHash": "b4dc3d19d51c47d4d82f2e8f338f1dd0",
       "sourceName": "contracts/managers/metastocks/MetaStocksCompanyManager.sol",
       "solcConfig": {
         "version": "0.8.14",
@@ -2474,8 +2474,8 @@
       ]
     },
     "/home/nkt/Desktop/metaStoksContracts/contracts/managers/metastocks/MetaStocksFranchiseManager.sol": {
-      "lastModificationDate": 1654954060174,
-      "contentHash": "2da36d2c4899a8e5c2567f15b8ffd667",
+      "lastModificationDate": 1654956144589,
+      "contentHash": "1c9529298f4eeab13e2ebcb14a368bfe",
       "sourceName": "contracts/managers/metastocks/MetaStocksFranchiseManager.sol",
       "solcConfig": {
         "version": "0.8.14",

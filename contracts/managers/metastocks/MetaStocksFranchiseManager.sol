@@ -26,6 +26,7 @@ contract MetaStocksFranchiseManager is
     uint256 private createFranchisePrice;
     uint256 private maintainceFranchiseExpenses;
     uint256 private franchiseDailyEarnings;
+    uint256 private franchiseDailyInterval;
     address private paymentTokenAddress;
 
     mapping(uint256 => uint256) public lastFranchiseClaimDate;
@@ -41,6 +42,7 @@ contract MetaStocksFranchiseManager is
         createFranchisePrice = 100 ether;
         franchiseDailyEarnings = 10 ether;
         maintainceFranchiseExpenses = 1 ether;
+        franchiseDailyInterval = 10;
 
         paymentTokenAddress = address(0);
         /*
@@ -97,6 +99,7 @@ contract MetaStocksFranchiseManager is
         virtual
     {
         paymentTokenAddress = _paymentTokenAddress;
+        IERC20(paymentTokenAddress).approve(self(), type(uint256).max);
     }
 
     function createMetaStocksFranchise(
@@ -149,8 +152,11 @@ contract MetaStocksFranchiseManager is
             for (uint256 index = 0; index < typeNumber; index++) {
                 //totalUnclaimed += franchiseDailyEarnings;
                 totalUnclaimed +=
-                    franchisesLastClaimDates[companyId][typeNumber] -
-                    block.timestamp; // todo revisar
+                    (uint256(
+                        block.timestamp -
+                            franchisesLastClaimDates[companyId][typeNumber]
+                    ) * franchiseDailyEarnings) /
+                    franchiseDailyInterval;
             }
         }
 
