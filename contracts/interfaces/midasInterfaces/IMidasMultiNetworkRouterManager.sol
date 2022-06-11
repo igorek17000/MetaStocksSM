@@ -10,7 +10,7 @@ interface MidasMultiNetworkRouterManager {
     function getNativeNetworkCurrencyAddress(uint256 networkId)
         external
         pure
-        returns (uint256);
+        returns (address);
 
     function getDexRouterAddress() external view returns (address);
 

@@ -5,6 +5,7 @@ import "@openzeppelin/contracts-upgradeable/token/ERC20/ERC20Upgradeable.sol";
 import "@uniswap/v2-periphery/contracts/interfaces/IUniswapV2Router02.sol";
 import "@openzeppelin/contracts/token/ERC20/IERC20.sol";
 import "../../interfaces/chainlinkInterfaces/AggregatorV3Interface.sol";
+import "../../managers/chainlinkManagers/ChainlinkDataFeedsManager.sol";
 import "../../interfaces/metaStocksInterfaces/IMetaStocksCompany.sol";
 import "../../models/TransactionFees.sol";
 
@@ -12,6 +13,7 @@ import "../../models/TransactionFees.sol";
 
 contract MetaStocksFranchiseShareManager is ERC20Upgradeable {
     IMetaStocksCompany MetaStocksCompany;
+    ChainlinkDataFeedsManager chainlinkDataFeedsManager;
 
     uint256 private createFranchisePrice;
     uint256 private maintainceFranchiseExpenses;
@@ -26,6 +28,9 @@ contract MetaStocksFranchiseShareManager is ERC20Upgradeable {
         maintainceFranchiseExpenses = 1000000000000000000;
         franchiseDailyEarnings = 100000000000000000;
         paymentTokenAddress = address(0);
+        chainlinkDataFeedsManager = new ChainlinkDataFeedsManager(
+            0x0A77230d17318075983913bC2145DB16C7366156
+        );
     }
 
     modifier onlyOwner() {
@@ -122,4 +127,23 @@ contract MetaStocksFranchiseShareManager is ERC20Upgradeable {
         _mint(companyAddress, id, 1, data);
     }
     */
+
+    function getFranchiseValue() external view returns (uint256) {
+        /*
+        chainlinkDataFeedsManager.getTokensValueInUSD(
+            _tokenAddress,
+            _amount,
+            _network,
+            midasMultiNetworkRouter
+        );
+        */
+        return franchiseDailyEarnings;
+    }
+
+    function setPaymentTokenAddress222(address _paymentTokenAddress)
+        external
+        virtual
+    {
+        paymentTokenAddress = _paymentTokenAddress;
+    }
 }

@@ -4,7 +4,7 @@ pragma solidity ^0.8.14;
 import "@openzeppelin/contracts-upgradeable/token/ERC20/ERC20Upgradeable.sol";
 import "@openzeppelin/contracts/token/ERC20/IERC20.sol";
 import "../../interfaces/chainlinkInterfaces/AggregatorV3Interface.sol";
-import "../../interfaces/dexRouterInterfaces/IMetaStocksMultiDexRouter.sol";
+import "../../interfaces/midasInterfaces/IMidasMultiNetworkRouter.sol";
 
 contract ChainlinkDataFeedsManager {
     AggregatorV3Interface internal priceFeed;
@@ -31,33 +31,42 @@ contract ChainlinkDataFeedsManager {
     function getTokensValueInUSD(
         address _tokenAddress,
         uint256 _amount,
-        IUniswapV2Router02 dexRouter
+        uint256 _network,
+        IMidasMultiNetworkRouter midasMultiNetworkRouter
     ) public view returns (uint256) {
-        uint256 avaxPrice = uint256(getLatestPriceFromChainlink()) * 1e10;
+        uint256 nativeNetworkCurrencyPrice = uint256(
+            getLatestPriceFromChainlink()
+        ) * 1e10;
         address[] memory path = new address[](2);
         path[0] = _tokenAddress;
-        path[1] = dexRouter.WETH();
-        uint256[] memory amountsOut = dexRouter.getAmountsOut(_amount, path);
+        path[1] = midasMultiNetworkRouter.getNativeNetworkCurrencyAddress(
+            _network
+        );
+        uint256[] memory amountsOut = midasMultiNetworkRouter.getAmountsOut(
+            _amount,
+            path
+        );
         uint256 tokenAmount = amountsOut[1];
-        return (avaxPrice * tokenAmount) / 1000000000000000000;
+        return (nativeNetworkCurrencyPrice * tokenAmount) / 1000000000000000000;
     }
 
-    function getAvaxPriceInUsd() external view returns (uint256) {
+    function getNativeNetworkCurrencyInUsd() external view returns (uint256) {
         return uint256(getLatestPriceFromChainlink()) * 1e10;
     }
 
-    function getAmountOutUSD(uint256 _amount, IUniswapV2Router02 dexRouter)
-        public
-        view
-        returns (uint256)
-    {
-        uint256 avaxPrice = uint256(getLatestPriceFromChainlink()) * 1e10;
+    function getAmountOutUSD(
+        uint256 _amount,
+        IMidasMultiNetworkRouter dexRouter
+    ) public view returns (uint256) {
+        uint256 nativeNetworkCurrencyPrice = uint256(
+            getLatestPriceFromChainlink()
+        ) * 1e10;
         address[] memory path = new address[](2);
         path[0] = address(this);
         path[1] = dexRouter.WETH();
         uint256[] memory amountsOut = dexRouter.getAmountsOut(_amount, path);
         uint256 tokenAmount = amountsOut[1];
 
-        return (avaxPrice * tokenAmount) / 1000000000000000000;
+        return (nativeNetworkCurrencyPrice * tokenAmount) / 1000000000000000000;
     }
 }

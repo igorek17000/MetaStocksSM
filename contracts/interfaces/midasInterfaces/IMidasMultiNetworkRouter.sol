@@ -277,4 +277,9 @@ interface IMidasMultiNetworkRouter is
     ) external override(IUniswapV2Router02, IJoeRouter02, IPangolinRouter);
 
     // custom
+
+    function getNativeNetworkCurrencyAddress(uint256 networkId)
+        external
+        pure
+        returns (address);
 }
