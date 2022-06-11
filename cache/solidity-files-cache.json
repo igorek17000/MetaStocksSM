@@ -387,8 +387,8 @@
       "artifacts": []
     },
     "/home/nkt/Desktop/metaStoksContracts/contracts/MetaStocksFranchise.sol": {
-      "lastModificationDate": 1654944840326,
-      "contentHash": "443f6b248f2ffa47554068fdc65f8d88",
+      "lastModificationDate": 1654953134104,
+      "contentHash": "e7c447835f0c2323fae65de3a3cf7568",
       "sourceName": "contracts/MetaStocksFranchise.sol",
       "solcConfig": {
         "version": "0.8.14",
@@ -415,13 +415,8 @@
         }
       },
       "imports": [
-        "@openzeppelin/contracts-upgradeable/token/ERC1155/ERC1155Upgradeable.sol",
-        "@openzeppelin/contracts-upgradeable/access/OwnableUpgradeable.sol",
-        "@openzeppelin/contracts-upgradeable/security/PausableUpgradeable.sol",
-        "@openzeppelin/contracts-upgradeable/token/ERC1155/extensions/ERC1155BurnableUpgradeable.sol",
-        "@openzeppelin/contracts-upgradeable/token/ERC1155/extensions/ERC1155SupplyUpgradeable.sol",
-        "@openzeppelin/contracts-upgradeable/proxy/utils/Initializable.sol",
-        "./enums/MetaStocksFranchiseType.sol"
+        "./enums/MetaStocksFranchiseType.sol",
+        "./tokens/MetaStocksERC1155Upgradable.sol"
       ],
       "versionPragmas": [
         "^0.8.14"
@@ -932,8 +927,8 @@
       ]
     },
     "/home/nkt/Desktop/metaStoksContracts/contracts/MetaStocksFranchiseShare.sol": {
-      "lastModificationDate": 1654917422809,
-      "contentHash": "24dda23a9f1f4ad3150b94b9e6cd8ac7",
+      "lastModificationDate": 1654953137708,
+      "contentHash": "e92db8e090c10d67db184cbba346564d",
       "sourceName": "contracts/MetaStocksFranchiseShare.sol",
       "solcConfig": {
         "version": "0.8.14",
@@ -960,12 +955,7 @@
         }
       },
       "imports": [
-        "@openzeppelin/contracts-upgradeable/token/ERC1155/ERC1155Upgradeable.sol",
-        "@openzeppelin/contracts-upgradeable/access/OwnableUpgradeable.sol",
-        "@openzeppelin/contracts-upgradeable/security/PausableUpgradeable.sol",
-        "@openzeppelin/contracts-upgradeable/token/ERC1155/extensions/ERC1155BurnableUpgradeable.sol",
-        "@openzeppelin/contracts-upgradeable/token/ERC1155/extensions/ERC1155SupplyUpgradeable.sol",
-        "@openzeppelin/contracts-upgradeable/proxy/utils/Initializable.sol"
+        "./tokens/MetaStocksERC1155Upgradable.sol"
       ],
       "versionPragmas": [
         "^0.8.14"
@@ -3003,6 +2993,50 @@
         "^0.8.14"
       ],
       "artifacts": []
+    },
+    "/home/nkt/Desktop/metaStoksContracts/contracts/tokens/MetaStocksERC1155Upgradable.sol": {
+      "lastModificationDate": 1654953175840,
+      "contentHash": "b34444e289b7de9a6a4c01596d4f5ff6",
+      "sourceName": "contracts/tokens/MetaStocksERC1155Upgradable.sol",
+      "solcConfig": {
+        "version": "0.8.14",
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "runs": 100
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata",
+                "storageLayout"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [
+        "@openzeppelin/contracts-upgradeable/token/ERC1155/ERC1155Upgradeable.sol",
+        "@openzeppelin/contracts-upgradeable/access/OwnableUpgradeable.sol",
+        "@openzeppelin/contracts-upgradeable/security/PausableUpgradeable.sol",
+        "@openzeppelin/contracts-upgradeable/token/ERC1155/extensions/ERC1155BurnableUpgradeable.sol",
+        "@openzeppelin/contracts-upgradeable/token/ERC1155/extensions/ERC1155SupplyUpgradeable.sol",
+        "@openzeppelin/contracts-upgradeable/proxy/utils/Initializable.sol",
+        "./../enums/MetaStocksFranchiseType.sol"
+      ],
+      "versionPragmas": [
+        "^0.8.14"
+      ],
+      "artifacts": [
+        "MetaStocksERC1155Upgradable"
+      ]
     }
   }
 }
