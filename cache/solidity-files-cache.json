@@ -1631,8 +1631,8 @@
       ]
     },
     "/home/nkt/Desktop/metaStoksContracts/contracts/managers/midas/MidasMultinetworkRouterManager.sol": {
-      "lastModificationDate": 1654950104639,
-      "contentHash": "ed36486fe49ee240056232fbf4b6f306",
+      "lastModificationDate": 1654959564464,
+      "contentHash": "c6c7ebe81ac6e45a29dabdb02f733edd",
       "sourceName": "contracts/managers/midas/MidasMultinetworkRouterManager.sol",
       "solcConfig": {
         "version": "0.8.14",
