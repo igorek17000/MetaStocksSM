@@ -105,8 +105,7 @@ contract MetaStocksFranchiseManager is
     function createMetaStocksFranchise(
         address to,
         uint256 companyId,
-        MetaStocksFranchiseType _metaStocksFranchiseType,
-        bytes memory data
+        MetaStocksFranchiseType _metaStocksFranchiseType
     ) external {
         IERC20(paymentTokenAddress).transferFrom(
             address(msg.sender),
@@ -118,7 +117,7 @@ contract MetaStocksFranchiseManager is
             _metaStocksFranchiseType
         );
 
-        metaStocksFranchise.mint(to, franchiseType, 1, data);
+        metaStocksFranchise.mint(to, franchiseType, 1, "0x0");
 
         companyFranchises[companyId][franchiseType] += 1;
         franchisesLastClaimDates[companyId][franchiseType] = block.timestamp;
@@ -189,5 +188,27 @@ contract MetaStocksFranchiseManager is
         );
         */
         return franchiseDailyEarnings;
+    }
+
+    function burnMetaStocksFranchise(
+        address to,
+        uint256 companyId,
+        uint256 amount,
+        MetaStocksFranchiseType _metaStocksFranchiseType
+    ) external {
+        uint256 franchiseType = metaStocksFranchise.getMetaStocksFranchiseType(
+            _metaStocksFranchiseType
+        );
+    }
+
+    function sellMetaStocksFranchise(
+        address to,
+        uint256 companyId,
+        uint256 amount,
+        MetaStocksFranchiseType _metaStocksFranchiseType
+    ) external {
+        uint256 franchiseType = metaStocksFranchise.getMetaStocksFranchiseType(
+            _metaStocksFranchiseType
+        );
     }
 }

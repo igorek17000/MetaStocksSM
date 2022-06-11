@@ -387,7 +387,7 @@
       "artifacts": []
     },
     "/home/nkt/Desktop/metaStoksContracts/contracts/tokens/MetaStocksERC1155Upgradable.sol": {
-      "lastModificationDate": 1654963872152,
+      "lastModificationDate": 1654964968809,
       "contentHash": "0d3b09c272305da1b098f132fab4da03",
       "sourceName": "contracts/tokens/MetaStocksERC1155Upgradable.sol",
       "solcConfig": {
@@ -932,8 +932,8 @@
       ]
     },
     "/home/nkt/Desktop/metaStoksContracts/contracts/MetaStocksFranchiseShare.sol": {
-      "lastModificationDate": 1654963159322,
-      "contentHash": "4af7cec80db2668ec6909be3c16ea10c",
+      "lastModificationDate": 1654965728076,
+      "contentHash": "1589f491b8af88d35ba84449efc8958b",
       "sourceName": "contracts/MetaStocksFranchiseShare.sol",
       "solcConfig": {
         "version": "0.8.14",
@@ -2048,8 +2048,8 @@
       ]
     },
     "/home/nkt/Desktop/metaStoksContracts/contracts/managers/metastocks/MetaStocksFranchiseShareManager.sol": {
-      "lastModificationDate": 1654963906139,
-      "contentHash": "e4bf36cef28148f18fcb0c6227d5cab0",
+      "lastModificationDate": 1654965604918,
+      "contentHash": "19ede6897ad37e8a1251a02dac2937e2",
       "sourceName": "contracts/managers/metastocks/MetaStocksFranchiseShareManager.sol",
       "solcConfig": {
         "version": "0.8.14",
@@ -2077,15 +2077,9 @@
       },
       "imports": [
         "@openzeppelin/contracts-upgradeable/token/ERC20/ERC20Upgradeable.sol",
-        "@uniswap/v2-periphery/contracts/interfaces/IUniswapV2Router02.sol",
-        "@openzeppelin/contracts/token/ERC20/IERC20.sol",
-        "@chainlink/contracts/src/v0.8/interfaces/AggregatorV3Interface.sol",
         "@openzeppelin/contracts-upgradeable/access/OwnableUpgradeable.sol",
-        "@openzeppelin/contracts/token/ERC1155/utils/ERC1155Holder.sol",
-        "@openzeppelin/contracts/token/ERC1155/IERC1155Receiver.sol",
         "../../managers/chainlink/ChainlinkDataFeedsManager.sol",
         "../../interfaces/metaStocks/IMetaStocksFranchiseShare.sol",
-        "../../models/TransactionFees.sol",
         "../../enums/MetaStocksFranchiseType.sol",
         "../../tokens/MetaStocksIERC1155ReceiverHolder.sol"
       ],
@@ -2484,8 +2478,8 @@
       ]
     },
     "/home/nkt/Desktop/metaStoksContracts/contracts/managers/metastocks/MetaStocksFranchiseManager.sol": {
-      "lastModificationDate": 1654963596339,
-      "contentHash": "df0fc3aafdd024281b7a624c0e122ce9",
+      "lastModificationDate": 1654965894599,
+      "contentHash": "a02ea6fc132ebcfe8db7d3236cebf8bc",
       "sourceName": "contracts/managers/metastocks/MetaStocksFranchiseManager.sol",
       "solcConfig": {
         "version": "0.8.14",
@@ -2533,8 +2527,8 @@
       ]
     },
     "/home/nkt/Desktop/metaStoksContracts/contracts/interfaces/metaStocks/IMetaStocksFranchise.sol": {
-      "lastModificationDate": 1654945037209,
-      "contentHash": "29e69a27c1299673f5dea392233c20c9",
+      "lastModificationDate": 1654965684003,
+      "contentHash": "dcefaf39913c64e41fddbfdb80dfd491",
       "sourceName": "contracts/interfaces/metaStocks/IMetaStocksFranchise.sol",
       "solcConfig": {
         "version": "0.8.14",
@@ -3008,8 +3002,8 @@
       "artifacts": []
     },
     "/home/nkt/Desktop/metaStoksContracts/contracts/interfaces/metaStocks/IMetaStocksFranchiseShare.sol": {
-      "lastModificationDate": 1654963890411,
-      "contentHash": "1ddfa173e1efd4f199dfc3d17ecc118a",
+      "lastModificationDate": 1654965551489,
+      "contentHash": "400b8a81c053fe350b50ad7ff433d673",
       "sourceName": "contracts/interfaces/metaStocks/IMetaStocksFranchiseShare.sol",
       "solcConfig": {
         "version": "0.8.14",

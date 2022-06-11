@@ -2,16 +2,9 @@
 pragma solidity ^0.8.14;
 
 import "@openzeppelin/contracts-upgradeable/token/ERC20/ERC20Upgradeable.sol";
-import "@uniswap/v2-periphery/contracts/interfaces/IUniswapV2Router02.sol";
-import "@openzeppelin/contracts/token/ERC20/IERC20.sol";
-import "@chainlink/contracts/src/v0.8/interfaces/AggregatorV3Interface.sol";
 import "@openzeppelin/contracts-upgradeable/access/OwnableUpgradeable.sol";
-import "@openzeppelin/contracts/token/ERC1155/utils/ERC1155Holder.sol";
-import "@openzeppelin/contracts/token/ERC1155/IERC1155Receiver.sol";
-
 import "../../managers/chainlink/ChainlinkDataFeedsManager.sol";
 import "../../interfaces/metaStocks/IMetaStocksFranchiseShare.sol";
-import "../../models/TransactionFees.sol";
 import "../../enums/MetaStocksFranchiseType.sol";
 import "../../tokens/MetaStocksIERC1155ReceiverHolder.sol";
 
@@ -23,10 +16,10 @@ contract MetaStocksFranchiseShareManager is
     IMetaStocksFranchiseShare metaStocksFranchiseShare;
     ChainlinkDataFeedsManager chainlinkDataFeedsManager;
 
-    uint256 private createFranchisePrice;
     uint256 SHARES_NUMBER;
     uint256[] ids;
     uint256[] amounts;
+    mapping(uint256 => mapping(uint256 => uint256)) public franchisesShares;
 
     function initialize(address _metaStocksFranchiseAddress)
         public
@@ -35,23 +28,83 @@ contract MetaStocksFranchiseShareManager is
         SHARES_NUMBER = 100;
         ids = new uint256[](SHARES_NUMBER);
         amounts = new uint256[](SHARES_NUMBER);
+
+        for (uint256 index = 0; index < SHARES_NUMBER; index++) {
+            ids.push(0);
+            amounts.push(1);
+        }
+
+        metaStocksFranchiseShare = IMetaStocksFranchiseShare(
+            _metaStocksFranchiseAddress
+        );
     }
 
     function self() public view virtual returns (address) {
         return address(this);
     }
 
-    function createMetaStocksFranchiseShare(
+    function createMetaStocksFranchiseShares(
         address to,
         uint256 companyId,
-        MetaStocksFranchiseType _metaStocksFranchiseType,
-        bytes memory data
+        uint256 franchiseId
     ) external {
-        for (uint256 index = 0; index < SHARES_NUMBER; index++) {
-            ids.push(1);
-            amounts.push(1);
-        }
+        metaStocksFranchiseShare.mintBatch(to, ids, amounts, "0x0");
+        franchisesShares[companyId][franchiseId] += SHARES_NUMBER;
+    }
 
-        metaStocksFranchiseShare.mintBatch(to, ids, amounts, data);
+    function getNumberOfMetaStocksFranchiseShares(
+        uint256 companyId,
+        uint256 franchiseId
+    ) external view returns (uint256) {
+        return franchisesShares[companyId][franchiseId];
+    }
+
+    function burnMetaStocksFranchiseShares(
+        uint256 companyId,
+        uint256 franchiseId,
+        uint256 amount
+    ) external {
+        require(
+            amount <= franchisesShares[companyId][franchiseId],
+            "Burn exceded share allowance"
+        );
+
+        require(
+            franchisesShares[companyId][franchiseId] - amount >= 0,
+            "Balance after burn cant be lower than zero"
+        );
+
+        franchisesShares[companyId][franchiseId] -= amount;
+        metaStocksFranchiseShare.burnMetaStocksFranchiseShare(
+            msg.sender,
+            franchiseId,
+            amount
+        );
+    }
+
+    function sellMetaStocksFranchiseShares(
+        uint256 companyId,
+        uint256 franchiseId,
+        uint256 amount
+    ) external {
+        require(
+            amount <= franchisesShares[companyId][franchiseId],
+            "Burn exceded share allowance"
+        );
+
+        require(
+            franchisesShares[companyId][franchiseId] - amount >= 0,
+            "Balance after burn cant be lower than zero"
+        );
+
+        franchisesShares[companyId][franchiseId] -= amount;
+
+        metaStocksFranchiseShare.safeTransferFrom(
+            address(this),
+            msg.sender,
+            1,
+            amount,
+            "0x0"
+        );
     }
 }

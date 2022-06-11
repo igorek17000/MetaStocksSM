@@ -12,7 +12,6 @@ import {
   BaseContract,
   ContractTransaction,
   Overrides,
-  PayableOverrides,
   CallOverrides,
 } from "ethers";
 import { BytesLike } from "@ethersproject/bytes";
@@ -22,15 +21,12 @@ import type { TypedEventFilter, TypedEvent, TypedListener } from "./common";
 
 interface IMetaStocksFranchiseInterface extends ethers.utils.Interface {
   functions: {
-    "create()": FunctionFragment;
     "getMetaStocksFranchiseType(uint8)": FunctionFragment;
     "mint(address,uint256,uint256,bytes)": FunctionFragment;
-    "remove(uint256)": FunctionFragment;
     "safeMint(address)": FunctionFragment;
-    "update(uint256)": FunctionFragment;
+    "safeTransferFrom(address,address,uint256,uint256,bytes)": FunctionFragment;
   };
 
-  encodeFunctionData(functionFragment: "create", values?: undefined): string;
   encodeFunctionData(
     functionFragment: "getMetaStocksFranchiseType",
     values: [BigNumberish]
@@ -39,25 +35,22 @@ interface IMetaStocksFranchiseInterface extends ethers.utils.Interface {
     functionFragment: "mint",
     values: [string, BigNumberish, BigNumberish, BytesLike]
   ): string;
-  encodeFunctionData(
-    functionFragment: "remove",
-    values: [BigNumberish]
-  ): string;
   encodeFunctionData(functionFragment: "safeMint", values: [string]): string;
   encodeFunctionData(
-    functionFragment: "update",
-    values: [BigNumberish]
+    functionFragment: "safeTransferFrom",
+    values: [string, string, BigNumberish, BigNumberish, BytesLike]
   ): string;
 
-  decodeFunctionResult(functionFragment: "create", data: BytesLike): Result;
   decodeFunctionResult(
     functionFragment: "getMetaStocksFranchiseType",
     data: BytesLike
   ): Result;
   decodeFunctionResult(functionFragment: "mint", data: BytesLike): Result;
-  decodeFunctionResult(functionFragment: "remove", data: BytesLike): Result;
   decodeFunctionResult(functionFragment: "safeMint", data: BytesLike): Result;
-  decodeFunctionResult(functionFragment: "update", data: BytesLike): Result;
+  decodeFunctionResult(
+    functionFragment: "safeTransferFrom",
+    data: BytesLike
+  ): Result;
 
   events: {};
 }
@@ -106,10 +99,6 @@ export class IMetaStocksFranchise extends BaseContract {
   interface: IMetaStocksFranchiseInterface;
 
   functions: {
-    create(
-      overrides?: PayableOverrides & { from?: string | Promise<string> }
-    ): Promise<ContractTransaction>;
-
     getMetaStocksFranchiseType(
       _metaStocksFranchiseType: BigNumberish,
       overrides?: CallOverrides
@@ -123,25 +112,20 @@ export class IMetaStocksFranchise extends BaseContract {
       overrides?: Overrides & { from?: string | Promise<string> }
     ): Promise<ContractTransaction>;
 
-    remove(
-      companyId: BigNumberish,
-      overrides?: Overrides & { from?: string | Promise<string> }
-    ): Promise<ContractTransaction>;
-
     safeMint(
       to: string,
       overrides?: Overrides & { from?: string | Promise<string> }
     ): Promise<ContractTransaction>;
 
-    update(
-      managerId: BigNumberish,
+    safeTransferFrom(
+      from: string,
+      to: string,
+      id: BigNumberish,
+      amount: BigNumberish,
+      data: BytesLike,
       overrides?: Overrides & { from?: string | Promise<string> }
     ): Promise<ContractTransaction>;
   };
-
-  create(
-    overrides?: PayableOverrides & { from?: string | Promise<string> }
-  ): Promise<ContractTransaction>;
 
   getMetaStocksFranchiseType(
     _metaStocksFranchiseType: BigNumberish,
@@ -156,24 +140,21 @@ export class IMetaStocksFranchise extends BaseContract {
     overrides?: Overrides & { from?: string | Promise<string> }
   ): Promise<ContractTransaction>;
 
-  remove(
-    companyId: BigNumberish,
-    overrides?: Overrides & { from?: string | Promise<string> }
-  ): Promise<ContractTransaction>;
-
   safeMint(
     to: string,
     overrides?: Overrides & { from?: string | Promise<string> }
   ): Promise<ContractTransaction>;
 
-  update(
-    managerId: BigNumberish,
+  safeTransferFrom(
+    from: string,
+    to: string,
+    id: BigNumberish,
+    amount: BigNumberish,
+    data: BytesLike,
     overrides?: Overrides & { from?: string | Promise<string> }
   ): Promise<ContractTransaction>;
 
   callStatic: {
-    create(overrides?: CallOverrides): Promise<void>;
-
     getMetaStocksFranchiseType(
       _metaStocksFranchiseType: BigNumberish,
       overrides?: CallOverrides
@@ -187,20 +168,21 @@ export class IMetaStocksFranchise extends BaseContract {
       overrides?: CallOverrides
     ): Promise<void>;
 
-    remove(companyId: BigNumberish, overrides?: CallOverrides): Promise<void>;
-
     safeMint(to: string, overrides?: CallOverrides): Promise<BigNumber>;
 
-    update(managerId: BigNumberish, overrides?: CallOverrides): Promise<void>;
+    safeTransferFrom(
+      from: string,
+      to: string,
+      id: BigNumberish,
+      amount: BigNumberish,
+      data: BytesLike,
+      overrides?: CallOverrides
+    ): Promise<void>;
   };
 
   filters: {};
 
   estimateGas: {
-    create(
-      overrides?: PayableOverrides & { from?: string | Promise<string> }
-    ): Promise<BigNumber>;
-
     getMetaStocksFranchiseType(
       _metaStocksFranchiseType: BigNumberish,
       overrides?: CallOverrides
@@ -214,27 +196,22 @@ export class IMetaStocksFranchise extends BaseContract {
       overrides?: Overrides & { from?: string | Promise<string> }
     ): Promise<BigNumber>;
 
-    remove(
-      companyId: BigNumberish,
-      overrides?: Overrides & { from?: string | Promise<string> }
-    ): Promise<BigNumber>;
-
     safeMint(
       to: string,
       overrides?: Overrides & { from?: string | Promise<string> }
     ): Promise<BigNumber>;
 
-    update(
-      managerId: BigNumberish,
+    safeTransferFrom(
+      from: string,
+      to: string,
+      id: BigNumberish,
+      amount: BigNumberish,
+      data: BytesLike,
       overrides?: Overrides & { from?: string | Promise<string> }
     ): Promise<BigNumber>;
   };
 
   populateTransaction: {
-    create(
-      overrides?: PayableOverrides & { from?: string | Promise<string> }
-    ): Promise<PopulatedTransaction>;
-
     getMetaStocksFranchiseType(
       _metaStocksFranchiseType: BigNumberish,
       overrides?: CallOverrides
@@ -248,18 +225,17 @@ export class IMetaStocksFranchise extends BaseContract {
       overrides?: Overrides & { from?: string | Promise<string> }
     ): Promise<PopulatedTransaction>;
 
-    remove(
-      companyId: BigNumberish,
-      overrides?: Overrides & { from?: string | Promise<string> }
-    ): Promise<PopulatedTransaction>;
-
     safeMint(
       to: string,
       overrides?: Overrides & { from?: string | Promise<string> }
     ): Promise<PopulatedTransaction>;
 
-    update(
-      managerId: BigNumberish,
+    safeTransferFrom(
+      from: string,
+      to: string,
+      id: BigNumberish,
+      amount: BigNumberish,
+      data: BytesLike,
       overrides?: Overrides & { from?: string | Promise<string> }
     ): Promise<PopulatedTransaction>;
   };

@@ -8,4 +8,18 @@ interface IMetaStocksFranchiseShare {
         uint256[] memory amounts,
         bytes memory data
     ) external;
+
+    function burnMetaStocksFranchiseShare(
+        address to,
+        uint256 tokenId,
+        uint256 amount
+    ) external;
+
+    function safeTransferFrom(
+        address from,
+        address to,
+        uint256 id,
+        uint256 amount,
+        bytes memory data
+    ) external;
 }

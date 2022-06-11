@@ -9,9 +9,11 @@ contract MetaStocksFranchiseShare is MetaStocksERC1155Upgradable {
         super.initialize();
     }
 
-    function getMetaStocksFranchiseType(
-        MetaStocksFranchiseType _metaStocksFranchiseType
-    ) external pure returns (uint256) {
-        return 0;
+    function burnMetaStocksFranchiseShare(
+        address to,
+        uint256 tokenId,
+        uint256 amount
+    ) external {
+        super.burn(to, tokenId, amount);
     }
 }

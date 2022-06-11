@@ -227,9 +227,9 @@ describe("MetaStocks Testing", async () => {
         it("5.3 - Create MetaStocksFranchise", async () => {
             let companyId = await metaStocksCompanyManager.getCompanyId(bob.address);
             console.log(`${colors.cyan("CompanyId: ")} ${colors.yellow(companyId)}`)
-            await metaStocksFranchiseManager.connect(bob).createMetaStocksFranchise(metaStocksFranchiseManager.address, companyId, 1, 0x0);
-            await metaStocksFranchiseManager.connect(bob).createMetaStocksFranchise(metaStocksFranchiseManager.address, companyId, 2, 0x0);
-            //await metaStocksFranchiseManager.connect(bob).createMetaStocksFranchise(metaStocksFranchiseManager.address, companyId, 3, 0x0);
+            await metaStocksFranchiseManager.connect(bob).createMetaStocksFranchise(metaStocksFranchiseManager.address, companyId, 1);
+            await metaStocksFranchiseManager.connect(bob).createMetaStocksFranchise(metaStocksFranchiseManager.address, companyId, 2);
+            //await metaStocksFranchiseManager.connect(bob).createMetaStocksFranchise(metaStocksFranchiseManager.address, companyId, 3);
         })
 
         it("5.4 - Get MetaStocks Franchise Number", async () => {

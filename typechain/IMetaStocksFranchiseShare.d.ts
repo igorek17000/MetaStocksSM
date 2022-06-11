@@ -21,15 +21,33 @@ import type { TypedEventFilter, TypedEvent, TypedListener } from "./common";
 
 interface IMetaStocksFranchiseShareInterface extends ethers.utils.Interface {
   functions: {
+    "burnMetaStocksFranchiseShare(address,uint256,uint256)": FunctionFragment;
     "mintBatch(address,uint256[],uint256[],bytes)": FunctionFragment;
+    "safeTransferFrom(address,address,uint256,uint256,bytes)": FunctionFragment;
   };
 
+  encodeFunctionData(
+    functionFragment: "burnMetaStocksFranchiseShare",
+    values: [string, BigNumberish, BigNumberish]
+  ): string;
   encodeFunctionData(
     functionFragment: "mintBatch",
     values: [string, BigNumberish[], BigNumberish[], BytesLike]
   ): string;
+  encodeFunctionData(
+    functionFragment: "safeTransferFrom",
+    values: [string, string, BigNumberish, BigNumberish, BytesLike]
+  ): string;
 
+  decodeFunctionResult(
+    functionFragment: "burnMetaStocksFranchiseShare",
+    data: BytesLike
+  ): Result;
   decodeFunctionResult(functionFragment: "mintBatch", data: BytesLike): Result;
+  decodeFunctionResult(
+    functionFragment: "safeTransferFrom",
+    data: BytesLike
+  ): Result;
 
   events: {};
 }
@@ -78,6 +96,13 @@ export class IMetaStocksFranchiseShare extends BaseContract {
   interface: IMetaStocksFranchiseShareInterface;
 
   functions: {
+    burnMetaStocksFranchiseShare(
+      to: string,
+      tokenId: BigNumberish,
+      amount: BigNumberish,
+      overrides?: Overrides & { from?: string | Promise<string> }
+    ): Promise<ContractTransaction>;
+
     mintBatch(
       to: string,
       ids: BigNumberish[],
@@ -85,7 +110,23 @@ export class IMetaStocksFranchiseShare extends BaseContract {
       data: BytesLike,
       overrides?: Overrides & { from?: string | Promise<string> }
     ): Promise<ContractTransaction>;
+
+    safeTransferFrom(
+      from: string,
+      to: string,
+      id: BigNumberish,
+      amount: BigNumberish,
+      data: BytesLike,
+      overrides?: Overrides & { from?: string | Promise<string> }
+    ): Promise<ContractTransaction>;
   };
+
+  burnMetaStocksFranchiseShare(
+    to: string,
+    tokenId: BigNumberish,
+    amount: BigNumberish,
+    overrides?: Overrides & { from?: string | Promise<string> }
+  ): Promise<ContractTransaction>;
 
   mintBatch(
     to: string,
@@ -95,11 +136,36 @@ export class IMetaStocksFranchiseShare extends BaseContract {
     overrides?: Overrides & { from?: string | Promise<string> }
   ): Promise<ContractTransaction>;
 
+  safeTransferFrom(
+    from: string,
+    to: string,
+    id: BigNumberish,
+    amount: BigNumberish,
+    data: BytesLike,
+    overrides?: Overrides & { from?: string | Promise<string> }
+  ): Promise<ContractTransaction>;
+
   callStatic: {
+    burnMetaStocksFranchiseShare(
+      to: string,
+      tokenId: BigNumberish,
+      amount: BigNumberish,
+      overrides?: CallOverrides
+    ): Promise<void>;
+
     mintBatch(
       to: string,
       ids: BigNumberish[],
       amounts: BigNumberish[],
+      data: BytesLike,
+      overrides?: CallOverrides
+    ): Promise<void>;
+
+    safeTransferFrom(
+      from: string,
+      to: string,
+      id: BigNumberish,
+      amount: BigNumberish,
       data: BytesLike,
       overrides?: CallOverrides
     ): Promise<void>;
@@ -108,6 +174,13 @@ export class IMetaStocksFranchiseShare extends BaseContract {
   filters: {};
 
   estimateGas: {
+    burnMetaStocksFranchiseShare(
+      to: string,
+      tokenId: BigNumberish,
+      amount: BigNumberish,
+      overrides?: Overrides & { from?: string | Promise<string> }
+    ): Promise<BigNumber>;
+
     mintBatch(
       to: string,
       ids: BigNumberish[],
@@ -115,13 +188,38 @@ export class IMetaStocksFranchiseShare extends BaseContract {
       data: BytesLike,
       overrides?: Overrides & { from?: string | Promise<string> }
     ): Promise<BigNumber>;
+
+    safeTransferFrom(
+      from: string,
+      to: string,
+      id: BigNumberish,
+      amount: BigNumberish,
+      data: BytesLike,
+      overrides?: Overrides & { from?: string | Promise<string> }
+    ): Promise<BigNumber>;
   };
 
   populateTransaction: {
+    burnMetaStocksFranchiseShare(
+      to: string,
+      tokenId: BigNumberish,
+      amount: BigNumberish,
+      overrides?: Overrides & { from?: string | Promise<string> }
+    ): Promise<PopulatedTransaction>;
+
     mintBatch(
       to: string,
       ids: BigNumberish[],
       amounts: BigNumberish[],
+      data: BytesLike,
+      overrides?: Overrides & { from?: string | Promise<string> }
+    ): Promise<PopulatedTransaction>;
+
+    safeTransferFrom(
+      from: string,
+      to: string,
+      id: BigNumberish,
+      amount: BigNumberish,
       data: BytesLike,
       overrides?: Overrides & { from?: string | Promise<string> }
     ): Promise<PopulatedTransaction>;

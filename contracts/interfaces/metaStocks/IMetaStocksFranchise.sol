@@ -10,15 +10,17 @@ interface IMetaStocksFranchise {
         bytes memory data
     ) external;
 
-    function create() external payable;
-
-    function update(uint256 managerId) external;
-
-    function remove(uint256 companyId) external;
-
     function safeMint(address to) external returns (uint256);
 
     function getMetaStocksFranchiseType(
         MetaStocksFranchiseType _metaStocksFranchiseType
     ) external pure returns (uint256);
+
+    function safeTransferFrom(
+        address from,
+        address to,
+        uint256 id,
+        uint256 amount,
+        bytes memory data
+    ) external;
 }

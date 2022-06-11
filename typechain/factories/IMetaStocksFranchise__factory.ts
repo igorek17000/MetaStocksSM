@@ -11,13 +11,6 @@ import type {
 
 const _abi = [
   {
-    inputs: [],
-    name: "create",
-    outputs: [],
-    stateMutability: "payable",
-    type: "function",
-  },
-  {
     inputs: [
       {
         internalType: "enum MetaStocksFranchiseType",
@@ -67,19 +60,6 @@ const _abi = [
   {
     inputs: [
       {
-        internalType: "uint256",
-        name: "companyId",
-        type: "uint256",
-      },
-    ],
-    name: "remove",
-    outputs: [],
-    stateMutability: "nonpayable",
-    type: "function",
-  },
-  {
-    inputs: [
-      {
         internalType: "address",
         name: "to",
         type: "address",
@@ -99,12 +79,32 @@ const _abi = [
   {
     inputs: [
       {
+        internalType: "address",
+        name: "from",
+        type: "address",
+      },
+      {
+        internalType: "address",
+        name: "to",
+        type: "address",
+      },
+      {
         internalType: "uint256",
-        name: "managerId",
+        name: "id",
         type: "uint256",
       },
+      {
+        internalType: "uint256",
+        name: "amount",
+        type: "uint256",
+      },
+      {
+        internalType: "bytes",
+        name: "data",
+        type: "bytes",
+      },
     ],
-    name: "update",
+    name: "safeTransferFrom",
     outputs: [],
     stateMutability: "nonpayable",
     type: "function",
