@@ -369,6 +369,10 @@ declare module "hardhat/types/runtime" {
       signerOrOptions?: ethers.Signer | FactoryOptions
     ): Promise<Contracts.ChainlinkVRFManager__factory>;
     getContractFactory(
+      name: "MetaStocksBaseManager",
+      signerOrOptions?: ethers.Signer | FactoryOptions
+    ): Promise<Contracts.MetaStocksBaseManager__factory>;
+    getContractFactory(
       name: "MetaStocksCompanyManager",
       signerOrOptions?: ethers.Signer | FactoryOptions
     ): Promise<Contracts.MetaStocksCompanyManager__factory>;
@@ -850,6 +854,11 @@ declare module "hardhat/types/runtime" {
       address: string,
       signer?: ethers.Signer
     ): Promise<Contracts.ChainlinkVRFManager>;
+    getContractAt(
+      name: "MetaStocksBaseManager",
+      address: string,
+      signer?: ethers.Signer
+    ): Promise<Contracts.MetaStocksBaseManager>;
     getContractAt(
       name: "MetaStocksCompanyManager",
       address: string,

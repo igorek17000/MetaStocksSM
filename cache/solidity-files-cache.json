@@ -1262,8 +1262,8 @@
       ]
     },
     "/home/nkt/Desktop/metaStoksContracts/contracts/managers/metaStocks/MetaStocksFranchiseManager.sol": {
-      "lastModificationDate": 1654948247691,
-      "contentHash": "e812ed3b92cf8ae3e1e18aa83d91c0bc",
+      "lastModificationDate": 1654949517834,
+      "contentHash": "9c8d0caafafd681a236f742b6412750f",
       "sourceName": "contracts/managers/metaStocks/MetaStocksFranchiseManager.sol",
       "solcConfig": {
         "version": "0.8.14",
@@ -1300,7 +1300,8 @@
         "../../managers/chainlink/ChainlinkDataFeedsManager.sol",
         "../../interfaces/metaStocks/IMetaStocksFranchise.sol",
         "../../models/TransactionFees.sol",
-        "../../enums/MetaStocksFranchiseType.sol"
+        "../../enums/MetaStocksFranchiseType.sol",
+        "./MetaStocksBaseManager.sol"
       ],
       "versionPragmas": [
         "^0.8.14"
@@ -2439,8 +2440,8 @@
       ]
     },
     "/home/nkt/Desktop/metaStoksContracts/contracts/managers/metaStocks/MetaStocksCompanyManager.sol": {
-      "lastModificationDate": 1654948234467,
-      "contentHash": "9b26ea2ddd43625d436e685b3919a060",
+      "lastModificationDate": 1654948645866,
+      "contentHash": "413afa6c84f1502e9cc49241290cc0b4",
       "sourceName": "contracts/managers/metaStocks/MetaStocksCompanyManager.sol",
       "solcConfig": {
         "version": "0.8.14",
@@ -2473,7 +2474,8 @@
         "@openzeppelin/contracts-upgradeable/token/ERC1155/ERC1155Upgradeable.sol",
         "@openzeppelin/contracts/token/ERC1155/IERC1155Receiver.sol",
         "@openzeppelin/contracts-upgradeable/access/OwnableUpgradeable.sol",
-        "../../interfaces/metaStocks/IMetaStocksCompany.sol"
+        "../../interfaces/metaStocks/IMetaStocksCompany.sol",
+        "./MetaStocksBaseManager.sol"
       ],
       "versionPragmas": [
         "^0.8.14"
@@ -2914,6 +2916,46 @@
       ],
       "artifacts": [
         "IMetaStocksFranchiseManager"
+      ]
+    },
+    "/home/nkt/Desktop/metaStoksContracts/contracts/managers/metaStocks/MetaStocksBaseManager.sol": {
+      "lastModificationDate": 1654948598934,
+      "contentHash": "1b3a2e4fa0b9049900f09a17e11cca0b",
+      "sourceName": "contracts/managers/metaStocks/MetaStocksBaseManager.sol",
+      "solcConfig": {
+        "version": "0.8.14",
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "runs": 100
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata",
+                "storageLayout"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [
+        "@openzeppelin/contracts/token/ERC1155/utils/ERC1155Holder.sol",
+        "@openzeppelin/contracts/token/ERC1155/utils/ERC1155Holder.sol",
+        "@openzeppelin/contracts/token/ERC1155/IERC1155Receiver.sol"
+      ],
+      "versionPragmas": [
+        "^0.8.14"
+      ],
+      "artifacts": [
+        "MetaStocksBaseManager"
       ]
     }
   }

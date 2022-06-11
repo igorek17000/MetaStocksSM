@@ -30,11 +30,12 @@ interface MetaStocksFranchiseManagerInterface extends ethers.utils.Interface {
     "createMetaStocksFranchise(address,uint256,uint8,bytes)": FunctionFragment;
     "decimals()": FunctionFragment;
     "decreaseAllowance(address,uint256)": FunctionFragment;
+    "franchisesLastClaimDates(uint256,uint256)": FunctionFragment;
     "getCreateFranchisePrice()": FunctionFragment;
     "getFranchiseDailyEarnings()": FunctionFragment;
     "getFranchiseValue()": FunctionFragment;
     "getMaintainceFranchiseExpenses()": FunctionFragment;
-    "getMetaStocksFranchises(uint256)": FunctionFragment;
+    "getMetaStocksFranchisesUnclaimedRewards(uint256)": FunctionFragment;
     "getNumberOfMetaStocksFranchises(uint256)": FunctionFragment;
     "getPaymentTokenAddress()": FunctionFragment;
     "getUnclaimedRewards()": FunctionFragment;
@@ -85,6 +86,10 @@ interface MetaStocksFranchiseManagerInterface extends ethers.utils.Interface {
     values: [string, BigNumberish]
   ): string;
   encodeFunctionData(
+    functionFragment: "franchisesLastClaimDates",
+    values: [BigNumberish, BigNumberish]
+  ): string;
+  encodeFunctionData(
     functionFragment: "getCreateFranchisePrice",
     values?: undefined
   ): string;
@@ -101,7 +106,7 @@ interface MetaStocksFranchiseManagerInterface extends ethers.utils.Interface {
     values?: undefined
   ): string;
   encodeFunctionData(
-    functionFragment: "getMetaStocksFranchises",
+    functionFragment: "getMetaStocksFranchisesUnclaimedRewards",
     values: [BigNumberish]
   ): string;
   encodeFunctionData(
@@ -207,6 +212,10 @@ interface MetaStocksFranchiseManagerInterface extends ethers.utils.Interface {
     data: BytesLike
   ): Result;
   decodeFunctionResult(
+    functionFragment: "franchisesLastClaimDates",
+    data: BytesLike
+  ): Result;
+  decodeFunctionResult(
     functionFragment: "getCreateFranchisePrice",
     data: BytesLike
   ): Result;
@@ -223,7 +232,7 @@ interface MetaStocksFranchiseManagerInterface extends ethers.utils.Interface {
     data: BytesLike
   ): Result;
   decodeFunctionResult(
-    functionFragment: "getMetaStocksFranchises",
+    functionFragment: "getMetaStocksFranchisesUnclaimedRewards",
     data: BytesLike
   ): Result;
   decodeFunctionResult(
@@ -417,6 +426,12 @@ export class MetaStocksFranchiseManager extends BaseContract {
       overrides?: Overrides & { from?: string | Promise<string> }
     ): Promise<ContractTransaction>;
 
+    franchisesLastClaimDates(
+      arg0: BigNumberish,
+      arg1: BigNumberish,
+      overrides?: CallOverrides
+    ): Promise<[BigNumber]>;
+
     getCreateFranchisePrice(overrides?: CallOverrides): Promise<[BigNumber]>;
 
     getFranchiseDailyEarnings(overrides?: CallOverrides): Promise<[BigNumber]>;
@@ -427,7 +442,7 @@ export class MetaStocksFranchiseManager extends BaseContract {
       overrides?: CallOverrides
     ): Promise<[BigNumber]>;
 
-    getMetaStocksFranchises(
+    getMetaStocksFranchisesUnclaimedRewards(
       companyId: BigNumberish,
       overrides?: CallOverrides
     ): Promise<[BigNumber]>;
@@ -586,6 +601,12 @@ export class MetaStocksFranchiseManager extends BaseContract {
     overrides?: Overrides & { from?: string | Promise<string> }
   ): Promise<ContractTransaction>;
 
+  franchisesLastClaimDates(
+    arg0: BigNumberish,
+    arg1: BigNumberish,
+    overrides?: CallOverrides
+  ): Promise<BigNumber>;
+
   getCreateFranchisePrice(overrides?: CallOverrides): Promise<BigNumber>;
 
   getFranchiseDailyEarnings(overrides?: CallOverrides): Promise<BigNumber>;
@@ -594,7 +615,7 @@ export class MetaStocksFranchiseManager extends BaseContract {
 
   getMaintainceFranchiseExpenses(overrides?: CallOverrides): Promise<BigNumber>;
 
-  getMetaStocksFranchises(
+  getMetaStocksFranchisesUnclaimedRewards(
     companyId: BigNumberish,
     overrides?: CallOverrides
   ): Promise<BigNumber>;
@@ -751,6 +772,12 @@ export class MetaStocksFranchiseManager extends BaseContract {
       overrides?: CallOverrides
     ): Promise<boolean>;
 
+    franchisesLastClaimDates(
+      arg0: BigNumberish,
+      arg1: BigNumberish,
+      overrides?: CallOverrides
+    ): Promise<BigNumber>;
+
     getCreateFranchisePrice(overrides?: CallOverrides): Promise<BigNumber>;
 
     getFranchiseDailyEarnings(overrides?: CallOverrides): Promise<BigNumber>;
@@ -761,7 +788,7 @@ export class MetaStocksFranchiseManager extends BaseContract {
       overrides?: CallOverrides
     ): Promise<BigNumber>;
 
-    getMetaStocksFranchises(
+    getMetaStocksFranchisesUnclaimedRewards(
       companyId: BigNumberish,
       overrides?: CallOverrides
     ): Promise<BigNumber>;
@@ -975,6 +1002,12 @@ export class MetaStocksFranchiseManager extends BaseContract {
       overrides?: Overrides & { from?: string | Promise<string> }
     ): Promise<BigNumber>;
 
+    franchisesLastClaimDates(
+      arg0: BigNumberish,
+      arg1: BigNumberish,
+      overrides?: CallOverrides
+    ): Promise<BigNumber>;
+
     getCreateFranchisePrice(overrides?: CallOverrides): Promise<BigNumber>;
 
     getFranchiseDailyEarnings(overrides?: CallOverrides): Promise<BigNumber>;
@@ -985,7 +1018,7 @@ export class MetaStocksFranchiseManager extends BaseContract {
       overrides?: CallOverrides
     ): Promise<BigNumber>;
 
-    getMetaStocksFranchises(
+    getMetaStocksFranchisesUnclaimedRewards(
       companyId: BigNumberish,
       overrides?: CallOverrides
     ): Promise<BigNumber>;
@@ -1148,6 +1181,12 @@ export class MetaStocksFranchiseManager extends BaseContract {
       overrides?: Overrides & { from?: string | Promise<string> }
     ): Promise<PopulatedTransaction>;
 
+    franchisesLastClaimDates(
+      arg0: BigNumberish,
+      arg1: BigNumberish,
+      overrides?: CallOverrides
+    ): Promise<PopulatedTransaction>;
+
     getCreateFranchisePrice(
       overrides?: CallOverrides
     ): Promise<PopulatedTransaction>;
@@ -1162,7 +1201,7 @@ export class MetaStocksFranchiseManager extends BaseContract {
       overrides?: CallOverrides
     ): Promise<PopulatedTransaction>;
 
-    getMetaStocksFranchises(
+    getMetaStocksFranchisesUnclaimedRewards(
       companyId: BigNumberish,
       overrides?: CallOverrides
     ): Promise<PopulatedTransaction>;

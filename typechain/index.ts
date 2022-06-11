@@ -75,6 +75,7 @@ export type { IMidasMultiNetworkRouter } from "./IMidasMultiNetworkRouter";
 export type { MidasMultiNetworkRouterManager } from "./MidasMultiNetworkRouterManager";
 export type { ChainlinkDataFeedsManager } from "./ChainlinkDataFeedsManager";
 export type { ChainlinkVRFManager } from "./ChainlinkVRFManager";
+export type { MetaStocksBaseManager } from "./MetaStocksBaseManager";
 export type { MetaStocksCompanyManager } from "./MetaStocksCompanyManager";
 export type { MetaStocksFranchiseManager } from "./MetaStocksFranchiseManager";
 export type { MetaStocksFranchiseShareManager } from "./MetaStocksFranchiseShareManager";
@@ -159,6 +160,7 @@ export { IMidasMultiNetworkRouter__factory } from "./factories/IMidasMultiNetwor
 export { MidasMultiNetworkRouterManager__factory } from "./factories/MidasMultiNetworkRouterManager__factory";
 export { ChainlinkDataFeedsManager__factory } from "./factories/ChainlinkDataFeedsManager__factory";
 export { ChainlinkVRFManager__factory } from "./factories/ChainlinkVRFManager__factory";
+export { MetaStocksBaseManager__factory } from "./factories/MetaStocksBaseManager__factory";
 export { MetaStocksCompanyManager__factory } from "./factories/MetaStocksCompanyManager__factory";
 export { MetaStocksFranchiseManager__factory } from "./factories/MetaStocksFranchiseManager__factory";
 export { MetaStocksFranchiseShareManager__factory } from "./factories/MetaStocksFranchiseShareManager__factory";

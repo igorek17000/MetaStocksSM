@@ -13,14 +13,14 @@ import "../../managers/chainlink/ChainlinkDataFeedsManager.sol";
 import "../../interfaces/metaStocks/IMetaStocksFranchise.sol";
 import "../../models/TransactionFees.sol";
 import "../../enums/MetaStocksFranchiseType.sol";
+import "./MetaStocksBaseManager.sol";
 
 //import "../../interfaces/midasInterfaces/IMidasManager.sol";
 
 contract MetaStocksFranchiseManager is
+    MetaStocksBaseManager,
     ERC20Upgradeable,
-    OwnableUpgradeable,
-    IERC1155Receiver,
-    ERC1155Holder
+    OwnableUpgradeable
 {
     IMetaStocksFranchise metaStocksFranchise;
     ChainlinkDataFeedsManager chainlinkDataFeedsManager;
@@ -33,6 +33,8 @@ contract MetaStocksFranchiseManager is
     mapping(uint256 => uint256) public lastFranchiseClaimDate;
 
     mapping(uint256 => mapping(uint256 => uint256)) public companyFranchises;
+    mapping(uint256 => mapping(uint256 => uint256))
+        public franchisesLastClaimDates;
 
     function initialize(address _metaStocksFranchiseAddress)
         public
@@ -48,46 +50,6 @@ contract MetaStocksFranchiseManager is
         );
         */
         metaStocksFranchise = IMetaStocksFranchise(_metaStocksFranchiseAddress);
-    }
-
-    function onERC1155Received(
-        address,
-        address,
-        uint256,
-        uint256,
-        bytes memory
-    )
-        public
-        virtual
-        override(ERC1155Holder, IERC1155Receiver)
-        returns (bytes4)
-    {
-        return this.onERC1155Received.selector;
-    }
-
-    function onERC1155BatchReceived(
-        address,
-        address,
-        uint256[] memory,
-        uint256[] memory,
-        bytes memory
-    )
-        public
-        virtual
-        override(ERC1155Holder, IERC1155Receiver)
-        returns (bytes4)
-    {
-        return this.onERC1155BatchReceived.selector;
-    }
-
-    function supportsInterface(bytes4 interfaceId)
-        public
-        view
-        virtual
-        override(ERC1155Receiver, IERC165)
-        returns (bool)
-    {
-        return super.supportsInterface(interfaceId);
     }
 
     function create() external payable {}
@@ -159,12 +121,7 @@ contract MetaStocksFranchiseManager is
         metaStocksFranchise.mint(to, franchiseType, 1, data);
 
         companyFranchises[companyId][franchiseType] += 1;
-
-        //lastFranchiseClaimDate[companyId] = block.timestamp;
-
-        //companyFranchises[]
-
-        //lastFranchiseClaimDate[] = block.timestamp;
+        franchisesLastClaimDates[companyId][franchiseType] = block.timestamp;
     }
 
     function getNumberOfMetaStocksFranchises(uint256 companyId)
@@ -182,41 +139,30 @@ contract MetaStocksFranchiseManager is
         return totalFranchises;
     }
 
-    function getMetaStocksFranchises(uint256 companyId)
+    function getMetaStocksFranchisesUnclaimedRewards(uint256 companyId)
         external
         view
         returns (uint256)
     {
+        uint256 totalUnclaimed = 0;
+
         for (uint256 typeIndex = 0; typeIndex < 10; typeIndex++) {
             uint256 typeNumber = companyFranchises[companyId][typeIndex];
 
             for (uint256 index = 0; index < typeNumber; index++) {
-                uint256 c = companyFranchises[companyId][index];
+                //totalUnclaimed += franchiseDailyEarnings;
+                totalUnclaimed +=
+                    franchisesLastClaimDates[companyId][typeNumber] -
+                    block.timestamp; // todo revisar
             }
         }
 
-        return franchiseDailyEarnings;
+        return totalUnclaimed;
     }
 
     function getUnclaimedRewards() external view returns (uint256) {
         return franchiseDailyEarnings;
     }
-
-    /*
-    function claimMetaStocksFranchiseRewards(
-        address companyAddress,
-        uint256 id,
-        bytes memory data
-    ) public onlyOwner {
-        IERC20(paymentTokenAddress).transferFrom(
-            address(msg.sender),
-            address(paymentTokenAddress),
-            (amount * rewardsPoolFee) / 10000
-        );
-
-        _mint(companyAddress, id, 1, data);
-    }
-    */
 
     function getFranchiseValue() external view returns (uint256) {
         /*

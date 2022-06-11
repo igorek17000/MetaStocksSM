@@ -8,12 +8,12 @@ import "@openzeppelin/contracts-upgradeable/token/ERC1155/ERC1155Upgradeable.sol
 import "@openzeppelin/contracts/token/ERC1155/IERC1155Receiver.sol";
 import "@openzeppelin/contracts-upgradeable/access/OwnableUpgradeable.sol";
 import "../../interfaces/metaStocks/IMetaStocksCompany.sol";
+import "./MetaStocksBaseManager.sol";
 
 contract MetaStocksCompanyManager is
+    MetaStocksBaseManager,
     ERC20Upgradeable,
-    OwnableUpgradeable,
-    IERC1155Receiver,
-    ERC1155Holder
+    OwnableUpgradeable
 {
     IMetaStocksCompany MetaStocksCompany;
 
@@ -25,46 +25,6 @@ contract MetaStocksCompanyManager is
 
     function initialize(address _metaStocksCompanyAddress) public initializer {
         MetaStocksCompany = IMetaStocksCompany(_metaStocksCompanyAddress);
-    }
-
-    function onERC1155Received(
-        address,
-        address,
-        uint256,
-        uint256,
-        bytes memory
-    )
-        public
-        virtual
-        override(ERC1155Holder, IERC1155Receiver)
-        returns (bytes4)
-    {
-        return this.onERC1155Received.selector;
-    }
-
-    function onERC1155BatchReceived(
-        address,
-        address,
-        uint256[] memory,
-        uint256[] memory,
-        bytes memory
-    )
-        public
-        virtual
-        override(ERC1155Holder, IERC1155Receiver)
-        returns (bytes4)
-    {
-        return this.onERC1155BatchReceived.selector;
-    }
-
-    function supportsInterface(bytes4 interfaceId)
-        public
-        view
-        virtual
-        override(ERC1155Receiver, IERC165)
-        returns (bool)
-    {
-        return super.supportsInterface(interfaceId);
     }
 
     function getCompanyId(address _account) external view returns (uint256) {

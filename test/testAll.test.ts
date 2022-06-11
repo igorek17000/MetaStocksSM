@@ -225,10 +225,20 @@ describe("MetaStocks Testing", async () => {
             console.log(`${colors.cyan("CompanyId: ")} ${colors.yellow(companyId)}`)
 
             await metaStocksFranchiseManager.connect(deployer).createMetaStocksFranchise(metaStocksFranchiseManager.address, companyId, 1, 0x0);
-            //console.log(`${colors.cyan("CompanyId: ")} ${colors.yellow(companyId)}`)
+            await metaStocksFranchiseManager.connect(deployer).createMetaStocksFranchise(metaStocksFranchiseManager.address, companyId, 2, 0x0);
+            await metaStocksFranchiseManager.connect(deployer).createMetaStocksFranchise(metaStocksFranchiseManager.address, companyId, 3, 0x0);
 
 
         })
+
+        it("14. Get MetaStocks Franchise Number", async () => {
+            const companyId = await metaStocksCompanyManager.getCompanyId(deployer.address);
+            const franchisesNumber = await metaStocksFranchiseManager.connect(deployer).getNumberOfMetaStocksFranchises(companyId)
+            expect(franchisesNumber).to.be.eq(3);
+            console.log(`${colors.cyan("Franchises Number: ")} ${colors.yellow(franchisesNumber)}`)
+        })
+
+
     });
 
 });
