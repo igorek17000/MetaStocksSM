@@ -25,11 +25,11 @@ interface MetaStocksFranchiseMarketplaceManagerInterface
     "allowance(address,address)": FunctionFragment;
     "approve(address,uint256)": FunctionFragment;
     "balanceOf(address)": FunctionFragment;
-    "createOrder(uint256,address,uint256)": FunctionFragment;
+    "createOrder(uint256,uint256,address,uint256)": FunctionFragment;
     "decimals()": FunctionFragment;
     "decreaseAllowance(address,uint256)": FunctionFragment;
-    "deleteOrder(uint256,address)": FunctionFragment;
-    "getOrder(uint256,address)": FunctionFragment;
+    "deleteOrder(uint256,uint256,address)": FunctionFragment;
+    "getOrder(uint256,uint256,uint256)": FunctionFragment;
     "increaseAllowance(address,uint256)": FunctionFragment;
     "initialize()": FunctionFragment;
     "name()": FunctionFragment;
@@ -43,7 +43,8 @@ interface MetaStocksFranchiseMarketplaceManagerInterface
     "transfer(address,uint256)": FunctionFragment;
     "transferFrom(address,address,uint256)": FunctionFragment;
     "transferOwnership(address)": FunctionFragment;
-    "updateOrder(uint256,address)": FunctionFragment;
+    "updateOrder(uint256,uint256,address)": FunctionFragment;
+    "usersOrders(uint256,uint256,uint256)": FunctionFragment;
   };
 
   encodeFunctionData(
@@ -57,7 +58,7 @@ interface MetaStocksFranchiseMarketplaceManagerInterface
   encodeFunctionData(functionFragment: "balanceOf", values: [string]): string;
   encodeFunctionData(
     functionFragment: "createOrder",
-    values: [BigNumberish, string, BigNumberish]
+    values: [BigNumberish, BigNumberish, string, BigNumberish]
   ): string;
   encodeFunctionData(functionFragment: "decimals", values?: undefined): string;
   encodeFunctionData(
@@ -66,11 +67,11 @@ interface MetaStocksFranchiseMarketplaceManagerInterface
   ): string;
   encodeFunctionData(
     functionFragment: "deleteOrder",
-    values: [BigNumberish, string]
+    values: [BigNumberish, BigNumberish, string]
   ): string;
   encodeFunctionData(
     functionFragment: "getOrder",
-    values: [BigNumberish, string]
+    values: [BigNumberish, BigNumberish, BigNumberish]
   ): string;
   encodeFunctionData(
     functionFragment: "increaseAllowance",
@@ -117,7 +118,11 @@ interface MetaStocksFranchiseMarketplaceManagerInterface
   ): string;
   encodeFunctionData(
     functionFragment: "updateOrder",
-    values: [BigNumberish, string]
+    values: [BigNumberish, BigNumberish, string]
+  ): string;
+  encodeFunctionData(
+    functionFragment: "usersOrders",
+    values: [BigNumberish, BigNumberish, BigNumberish]
   ): string;
 
   decodeFunctionResult(functionFragment: "allowance", data: BytesLike): Result;
@@ -178,15 +183,19 @@ interface MetaStocksFranchiseMarketplaceManagerInterface
     functionFragment: "updateOrder",
     data: BytesLike
   ): Result;
+  decodeFunctionResult(
+    functionFragment: "usersOrders",
+    data: BytesLike
+  ): Result;
 
   events: {
     "Approval(address,address,uint256)": EventFragment;
-    "CreateOrder(address,uint256,address,uint256)": EventFragment;
-    "DeleteOrder(address,uint256,address)": EventFragment;
+    "CreateOrder(address,uint256,uint256,address,uint256)": EventFragment;
+    "DeleteOrder(address,uint256,uint256,address)": EventFragment;
     "Initialized(uint8)": EventFragment;
     "OwnershipTransferred(address,address)": EventFragment;
     "Transfer(address,address,uint256)": EventFragment;
-    "UpdateOrder(address,uint256,address)": EventFragment;
+    "UpdateOrder(address,uint256,uint256,address)": EventFragment;
   };
 
   getEvent(nameOrSignatureOrTopic: "Approval"): EventFragment;
@@ -207,18 +216,20 @@ export type ApprovalEvent = TypedEvent<
 >;
 
 export type CreateOrderEvent = TypedEvent<
-  [string, BigNumber, string, BigNumber] & {
+  [string, BigNumber, BigNumber, string, BigNumber] & {
     account: string;
     companyId: BigNumber;
+    franchiseType: BigNumber;
     orderId: string;
     amount: BigNumber;
   }
 >;
 
 export type DeleteOrderEvent = TypedEvent<
-  [string, BigNumber, string] & {
+  [string, BigNumber, BigNumber, string] & {
     account: string;
     companyId: BigNumber;
+    franchiseType: BigNumber;
     orderId: string;
   }
 >;
@@ -234,9 +245,10 @@ export type TransferEvent = TypedEvent<
 >;
 
 export type UpdateOrderEvent = TypedEvent<
-  [string, BigNumber, string] & {
+  [string, BigNumber, BigNumber, string] & {
     account: string;
     companyId: BigNumber;
+    franchiseType: BigNumber;
     orderId: string;
   }
 >;
@@ -301,6 +313,7 @@ export class MetaStocksFranchiseMarketplaceManager extends BaseContract {
 
     createOrder(
       companyId: BigNumberish,
+      franchiseType: BigNumberish,
       orderId: string,
       amount: BigNumberish,
       overrides?: Overrides & { from?: string | Promise<string> }
@@ -316,13 +329,15 @@ export class MetaStocksFranchiseMarketplaceManager extends BaseContract {
 
     deleteOrder(
       companyId: BigNumberish,
+      franchiseType: BigNumberish,
       orderId: string,
       overrides?: Overrides & { from?: string | Promise<string> }
     ): Promise<ContractTransaction>;
 
     getOrder(
       companyId: BigNumberish,
-      orderId: string,
+      franchiseType: BigNumberish,
+      orderId: BigNumberish,
       overrides?: CallOverrides
     ): Promise<[BigNumber]>;
 
@@ -391,9 +406,17 @@ export class MetaStocksFranchiseMarketplaceManager extends BaseContract {
 
     updateOrder(
       companyId: BigNumberish,
+      franchiseType: BigNumberish,
       orderId: string,
       overrides?: Overrides & { from?: string | Promise<string> }
     ): Promise<ContractTransaction>;
+
+    usersOrders(
+      arg0: BigNumberish,
+      arg1: BigNumberish,
+      arg2: BigNumberish,
+      overrides?: CallOverrides
+    ): Promise<[BigNumber]>;
   };
 
   allowance(
@@ -412,6 +435,7 @@ export class MetaStocksFranchiseMarketplaceManager extends BaseContract {
 
   createOrder(
     companyId: BigNumberish,
+    franchiseType: BigNumberish,
     orderId: string,
     amount: BigNumberish,
     overrides?: Overrides & { from?: string | Promise<string> }
@@ -427,13 +451,15 @@ export class MetaStocksFranchiseMarketplaceManager extends BaseContract {
 
   deleteOrder(
     companyId: BigNumberish,
+    franchiseType: BigNumberish,
     orderId: string,
     overrides?: Overrides & { from?: string | Promise<string> }
   ): Promise<ContractTransaction>;
 
   getOrder(
     companyId: BigNumberish,
-    orderId: string,
+    franchiseType: BigNumberish,
+    orderId: BigNumberish,
     overrides?: CallOverrides
   ): Promise<BigNumber>;
 
@@ -502,9 +528,17 @@ export class MetaStocksFranchiseMarketplaceManager extends BaseContract {
 
   updateOrder(
     companyId: BigNumberish,
+    franchiseType: BigNumberish,
     orderId: string,
     overrides?: Overrides & { from?: string | Promise<string> }
   ): Promise<ContractTransaction>;
+
+  usersOrders(
+    arg0: BigNumberish,
+    arg1: BigNumberish,
+    arg2: BigNumberish,
+    overrides?: CallOverrides
+  ): Promise<BigNumber>;
 
   callStatic: {
     allowance(
@@ -523,6 +557,7 @@ export class MetaStocksFranchiseMarketplaceManager extends BaseContract {
 
     createOrder(
       companyId: BigNumberish,
+      franchiseType: BigNumberish,
       orderId: string,
       amount: BigNumberish,
       overrides?: CallOverrides
@@ -538,13 +573,15 @@ export class MetaStocksFranchiseMarketplaceManager extends BaseContract {
 
     deleteOrder(
       companyId: BigNumberish,
+      franchiseType: BigNumberish,
       orderId: string,
       overrides?: CallOverrides
     ): Promise<void>;
 
     getOrder(
       companyId: BigNumberish,
-      orderId: string,
+      franchiseType: BigNumberish,
+      orderId: BigNumberish,
       overrides?: CallOverrides
     ): Promise<BigNumber>;
 
@@ -609,9 +646,17 @@ export class MetaStocksFranchiseMarketplaceManager extends BaseContract {
 
     updateOrder(
       companyId: BigNumberish,
+      franchiseType: BigNumberish,
       orderId: string,
       overrides?: CallOverrides
     ): Promise<void>;
+
+    usersOrders(
+      arg0: BigNumberish,
+      arg1: BigNumberish,
+      arg2: BigNumberish,
+      overrides?: CallOverrides
+    ): Promise<BigNumber>;
   };
 
   filters: {
@@ -633,16 +678,18 @@ export class MetaStocksFranchiseMarketplaceManager extends BaseContract {
       { owner: string; spender: string; value: BigNumber }
     >;
 
-    "CreateOrder(address,uint256,address,uint256)"(
+    "CreateOrder(address,uint256,uint256,address,uint256)"(
       account?: string | null,
       companyId?: null,
+      franchiseType?: null,
       orderId?: string | null,
       amount?: null
     ): TypedEventFilter<
-      [string, BigNumber, string, BigNumber],
+      [string, BigNumber, BigNumber, string, BigNumber],
       {
         account: string;
         companyId: BigNumber;
+        franchiseType: BigNumber;
         orderId: string;
         amount: BigNumber;
       }
@@ -651,34 +698,48 @@ export class MetaStocksFranchiseMarketplaceManager extends BaseContract {
     CreateOrder(
       account?: string | null,
       companyId?: null,
+      franchiseType?: null,
       orderId?: string | null,
       amount?: null
     ): TypedEventFilter<
-      [string, BigNumber, string, BigNumber],
+      [string, BigNumber, BigNumber, string, BigNumber],
       {
         account: string;
         companyId: BigNumber;
+        franchiseType: BigNumber;
         orderId: string;
         amount: BigNumber;
       }
     >;
 
-    "DeleteOrder(address,uint256,address)"(
+    "DeleteOrder(address,uint256,uint256,address)"(
       account?: string | null,
       companyId?: null,
+      franchiseType?: null,
       orderId?: string | null
     ): TypedEventFilter<
-      [string, BigNumber, string],
-      { account: string; companyId: BigNumber; orderId: string }
+      [string, BigNumber, BigNumber, string],
+      {
+        account: string;
+        companyId: BigNumber;
+        franchiseType: BigNumber;
+        orderId: string;
+      }
     >;
 
     DeleteOrder(
       account?: string | null,
       companyId?: null,
+      franchiseType?: null,
       orderId?: string | null
     ): TypedEventFilter<
-      [string, BigNumber, string],
-      { account: string; companyId: BigNumber; orderId: string }
+      [string, BigNumber, BigNumber, string],
+      {
+        account: string;
+        companyId: BigNumber;
+        franchiseType: BigNumber;
+        orderId: string;
+      }
     >;
 
     "Initialized(uint8)"(
@@ -723,22 +784,34 @@ export class MetaStocksFranchiseMarketplaceManager extends BaseContract {
       { from: string; to: string; value: BigNumber }
     >;
 
-    "UpdateOrder(address,uint256,address)"(
+    "UpdateOrder(address,uint256,uint256,address)"(
       account?: string | null,
       companyId?: null,
+      franchiseType?: null,
       orderId?: string | null
     ): TypedEventFilter<
-      [string, BigNumber, string],
-      { account: string; companyId: BigNumber; orderId: string }
+      [string, BigNumber, BigNumber, string],
+      {
+        account: string;
+        companyId: BigNumber;
+        franchiseType: BigNumber;
+        orderId: string;
+      }
     >;
 
     UpdateOrder(
       account?: string | null,
       companyId?: null,
+      franchiseType?: null,
       orderId?: string | null
     ): TypedEventFilter<
-      [string, BigNumber, string],
-      { account: string; companyId: BigNumber; orderId: string }
+      [string, BigNumber, BigNumber, string],
+      {
+        account: string;
+        companyId: BigNumber;
+        franchiseType: BigNumber;
+        orderId: string;
+      }
     >;
   };
 
@@ -759,6 +832,7 @@ export class MetaStocksFranchiseMarketplaceManager extends BaseContract {
 
     createOrder(
       companyId: BigNumberish,
+      franchiseType: BigNumberish,
       orderId: string,
       amount: BigNumberish,
       overrides?: Overrides & { from?: string | Promise<string> }
@@ -774,13 +848,15 @@ export class MetaStocksFranchiseMarketplaceManager extends BaseContract {
 
     deleteOrder(
       companyId: BigNumberish,
+      franchiseType: BigNumberish,
       orderId: string,
       overrides?: Overrides & { from?: string | Promise<string> }
     ): Promise<BigNumber>;
 
     getOrder(
       companyId: BigNumberish,
-      orderId: string,
+      franchiseType: BigNumberish,
+      orderId: BigNumberish,
       overrides?: CallOverrides
     ): Promise<BigNumber>;
 
@@ -849,8 +925,16 @@ export class MetaStocksFranchiseMarketplaceManager extends BaseContract {
 
     updateOrder(
       companyId: BigNumberish,
+      franchiseType: BigNumberish,
       orderId: string,
       overrides?: Overrides & { from?: string | Promise<string> }
+    ): Promise<BigNumber>;
+
+    usersOrders(
+      arg0: BigNumberish,
+      arg1: BigNumberish,
+      arg2: BigNumberish,
+      overrides?: CallOverrides
     ): Promise<BigNumber>;
   };
 
@@ -874,6 +958,7 @@ export class MetaStocksFranchiseMarketplaceManager extends BaseContract {
 
     createOrder(
       companyId: BigNumberish,
+      franchiseType: BigNumberish,
       orderId: string,
       amount: BigNumberish,
       overrides?: Overrides & { from?: string | Promise<string> }
@@ -889,13 +974,15 @@ export class MetaStocksFranchiseMarketplaceManager extends BaseContract {
 
     deleteOrder(
       companyId: BigNumberish,
+      franchiseType: BigNumberish,
       orderId: string,
       overrides?: Overrides & { from?: string | Promise<string> }
     ): Promise<PopulatedTransaction>;
 
     getOrder(
       companyId: BigNumberish,
-      orderId: string,
+      franchiseType: BigNumberish,
+      orderId: BigNumberish,
       overrides?: CallOverrides
     ): Promise<PopulatedTransaction>;
 
@@ -964,8 +1051,16 @@ export class MetaStocksFranchiseMarketplaceManager extends BaseContract {
 
     updateOrder(
       companyId: BigNumberish,
+      franchiseType: BigNumberish,
       orderId: string,
       overrides?: Overrides & { from?: string | Promise<string> }
+    ): Promise<PopulatedTransaction>;
+
+    usersOrders(
+      arg0: BigNumberish,
+      arg1: BigNumberish,
+      arg2: BigNumberish,
+      overrides?: CallOverrides
     ): Promise<PopulatedTransaction>;
   };
 }

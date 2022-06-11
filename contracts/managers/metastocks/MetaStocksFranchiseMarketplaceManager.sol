@@ -17,20 +17,26 @@ contract MetaStocksFranchiseMarketplaceManager is
 {
     uint256 ordersIds;
 
+    mapping(uint256 => mapping(uint256 => mapping(uint256 => uint256)))
+        public usersOrders;
+
     event CreateOrder(
         address indexed account,
         uint256 companyId,
+        uint256 franchiseType,
         address indexed orderId,
         uint256 amount
     );
     event UpdateOrder(
         address indexed account,
         uint256 companyId,
+        uint256 franchiseType,
         address indexed orderId
     );
     event DeleteOrder(
         address indexed account,
         uint256 companyId,
+        uint256 franchiseType,
         address indexed orderId
     );
 
@@ -40,26 +46,35 @@ contract MetaStocksFranchiseMarketplaceManager is
 
     function createOrder(
         uint256 companyId,
+        uint256 franchiseType,
         address orderId,
         uint256 amount
     ) external {
         ordersIds++;
-        emit CreateOrder(msg.sender, companyId, orderId, amount);
+        emit CreateOrder(msg.sender, companyId, franchiseType, orderId, amount);
     }
 
-    function getOrder(uint256 companyId, address orderId)
-        external
-        view
-        returns (uint256)
-    {
-        return 0;
+    function getOrder(
+        uint256 companyId,
+        uint256 franchiseType,
+        uint256 orderId
+    ) external view returns (uint256) {
+        return usersOrders[companyId][franchiseType][orderId];
     }
 
-    function updateOrder(uint256 companyId, address orderId) external {
-        emit UpdateOrder(msg.sender, companyId, orderId);
+    function updateOrder(
+        uint256 companyId,
+        uint256 franchiseType,
+        address orderId
+    ) external {
+        emit UpdateOrder(msg.sender, companyId, franchiseType, orderId);
     }
 
-    function deleteOrder(uint256 companyId, address orderId) external {
-        emit DeleteOrder(msg.sender, companyId, orderId);
+    function deleteOrder(
+        uint256 companyId,
+        uint256 franchiseType,
+        address orderId
+    ) external {
+        emit DeleteOrder(msg.sender, companyId, franchiseType, orderId);
     }
 }

@@ -2479,7 +2479,7 @@
       ]
     },
     "/home/nkt/Desktop/metaStoksContracts/contracts/managers/metastocks/MetaStocksFranchiseManager.sol": {
-      "lastModificationDate": 1654972710879,
+      "lastModificationDate": 1654983387379,
       "contentHash": "dfad08fed0edc520245d322786b01e90",
       "sourceName": "contracts/managers/metastocks/MetaStocksFranchiseManager.sol",
       "solcConfig": {
@@ -3079,8 +3079,8 @@
       ]
     },
     "/home/nkt/Desktop/metaStoksContracts/contracts/managers/metastocks/MetaStocksFranchiseMarketplaceManager.sol": {
-      "lastModificationDate": 1654979511164,
-      "contentHash": "924bff53e3ac4af5d5eb8dc42f37c3f1",
+      "lastModificationDate": 1654983733525,
+      "contentHash": "e14e6cc2fb275d334500a1153179960d",
       "sourceName": "contracts/managers/metastocks/MetaStocksFranchiseMarketplaceManager.sol",
       "solcConfig": {
         "version": "0.8.14",
@@ -3121,6 +3121,45 @@
       ],
       "artifacts": [
         "MetaStocksFranchiseMarketplaceManager"
+      ]
+    },
+    "/home/nkt/Desktop/metaStoksContracts/contracts/managers/metastocks/MetaStocksAchievementsManager.sol": {
+      "lastModificationDate": 1654983338296,
+      "contentHash": "295daec8ebe7349a67aa3ef0847bce69",
+      "sourceName": "contracts/managers/metastocks/MetaStocksAchievementsManager.sol",
+      "solcConfig": {
+        "version": "0.8.14",
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "runs": 100
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata",
+                "storageLayout"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [
+        "@openzeppelin/contracts-upgradeable/token/ERC20/ERC20Upgradeable.sol",
+        "@openzeppelin/contracts-upgradeable/access/OwnableUpgradeable.sol"
+      ],
+      "versionPragmas": [
+        "^0.8.14"
+      ],
+      "artifacts": [
+        "MetaStocksAchievementsManager"
       ]
     }
   }
