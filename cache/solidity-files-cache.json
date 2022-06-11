@@ -3079,8 +3079,8 @@
       ]
     },
     "/home/nkt/Desktop/metaStoksContracts/contracts/managers/metastocks/MetaStocksFranchiseMarketplaceManager.sol": {
-      "lastModificationDate": 1654983733525,
-      "contentHash": "e14e6cc2fb275d334500a1153179960d",
+      "lastModificationDate": 1654984238233,
+      "contentHash": "a8b64e5814e283cbac9ec600296d807e",
       "sourceName": "contracts/managers/metastocks/MetaStocksFranchiseMarketplaceManager.sol",
       "solcConfig": {
         "version": "0.8.14",

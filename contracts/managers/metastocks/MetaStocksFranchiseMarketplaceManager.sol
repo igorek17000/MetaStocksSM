@@ -20,24 +20,26 @@ contract MetaStocksFranchiseMarketplaceManager is
     mapping(uint256 => mapping(uint256 => mapping(uint256 => uint256)))
         public usersOrders;
 
+    mapping(uint256 => uint256) public ordersStatus;
+
     event CreateOrder(
         address indexed account,
         uint256 companyId,
         uint256 franchiseType,
-        address indexed orderId,
+        uint256 indexed orderId,
         uint256 amount
     );
     event UpdateOrder(
         address indexed account,
         uint256 companyId,
         uint256 franchiseType,
-        address indexed orderId
+        uint256 indexed orderId
     );
-    event DeleteOrder(
+    event ClosedOrder(
         address indexed account,
         uint256 companyId,
         uint256 franchiseType,
-        address indexed orderId
+        uint256 indexed orderId
     );
 
     function initialize() public initializer {
@@ -47,10 +49,11 @@ contract MetaStocksFranchiseMarketplaceManager is
     function createOrder(
         uint256 companyId,
         uint256 franchiseType,
-        address orderId,
+        uint256 orderId,
         uint256 amount
     ) external {
         ordersIds++;
+        ordersStatus[orderId] = 1;
         emit CreateOrder(msg.sender, companyId, franchiseType, orderId, amount);
     }
 
@@ -65,16 +68,18 @@ contract MetaStocksFranchiseMarketplaceManager is
     function updateOrder(
         uint256 companyId,
         uint256 franchiseType,
-        address orderId
+        uint256 orderId
     ) external {
+        ordersStatus[orderId] = 2;
         emit UpdateOrder(msg.sender, companyId, franchiseType, orderId);
     }
 
-    function deleteOrder(
+    function closedOrder(
         uint256 companyId,
         uint256 franchiseType,
-        address orderId
+        uint256 orderId
     ) external {
-        emit DeleteOrder(msg.sender, companyId, franchiseType, orderId);
+        ordersStatus[orderId] = 3;
+        emit ClosedOrder(msg.sender, companyId, franchiseType, orderId);
     }
 }
