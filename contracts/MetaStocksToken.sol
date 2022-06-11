@@ -10,7 +10,7 @@ import "./managers/transactionFees/TransactionFeesManager.sol";
 import "./interfaces/dexRouter/IAutoLiquidityInjecter.sol";
 //import "./../managers/feesManagers/FeesSplitManager.sol";import "../../interfaces/metaStocks/IMetaStocksCompany.sol";import "../../interfaces/metaStocks/IMetaStocksCompany.sol";
 import "./managers/midas/MidasMultinetworkRouterManager.sol";
-import "./MetaStocksERC20Upgradable.sol";
+import "./tokens/MetaStocksERC20Upgradable.sol";
 
 contract MetaStocksToken is MetaStocksERC20Upgradable {
     // CONSTRUCTOR ------------------------------------------------------------------------------------------

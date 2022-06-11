@@ -386,10 +386,406 @@
       ],
       "artifacts": []
     },
-    "/home/nkt/Desktop/metaStoksContracts/contracts/interfaces/dexRouter/IAutoLiquidityInjecter.sol": {
-      "lastModificationDate": 1654763183305,
-      "contentHash": "f4a9324a99f37b89cf5db400c5037f19",
-      "sourceName": "contracts/interfaces/dexRouter/IAutoLiquidityInjecter.sol",
+    "/home/nkt/Desktop/metaStoksContracts/contracts/MetaStocksFranchise.sol": {
+      "lastModificationDate": 1654944840326,
+      "contentHash": "443f6b248f2ffa47554068fdc65f8d88",
+      "sourceName": "contracts/MetaStocksFranchise.sol",
+      "solcConfig": {
+        "version": "0.8.14",
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "runs": 100
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata",
+                "storageLayout"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [
+        "@openzeppelin/contracts-upgradeable/token/ERC1155/ERC1155Upgradeable.sol",
+        "@openzeppelin/contracts-upgradeable/access/OwnableUpgradeable.sol",
+        "@openzeppelin/contracts-upgradeable/security/PausableUpgradeable.sol",
+        "@openzeppelin/contracts-upgradeable/token/ERC1155/extensions/ERC1155BurnableUpgradeable.sol",
+        "@openzeppelin/contracts-upgradeable/token/ERC1155/extensions/ERC1155SupplyUpgradeable.sol",
+        "@openzeppelin/contracts-upgradeable/proxy/utils/Initializable.sol",
+        "./enums/MetaStocksFranchiseType.sol"
+      ],
+      "versionPragmas": [
+        "^0.8.14"
+      ],
+      "artifacts": [
+        "MetaStocksFranchise"
+      ]
+    },
+    "/home/nkt/Desktop/metaStoksContracts/node_modules/@openzeppelin/contracts-upgradeable/token/ERC1155/ERC1155Upgradeable.sol": {
+      "lastModificationDate": 1654235424316,
+      "contentHash": "badec13a06f45436e46586d6795a4ef9",
+      "sourceName": "@openzeppelin/contracts-upgradeable/token/ERC1155/ERC1155Upgradeable.sol",
+      "solcConfig": {
+        "version": "0.8.14",
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "runs": 100
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata",
+                "storageLayout"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [
+        "./IERC1155Upgradeable.sol",
+        "./IERC1155ReceiverUpgradeable.sol",
+        "./extensions/IERC1155MetadataURIUpgradeable.sol",
+        "../../utils/AddressUpgradeable.sol",
+        "../../utils/ContextUpgradeable.sol",
+        "../../utils/introspection/ERC165Upgradeable.sol",
+        "../../proxy/utils/Initializable.sol"
+      ],
+      "versionPragmas": [
+        "^0.8.0"
+      ],
+      "artifacts": [
+        "ERC1155Upgradeable"
+      ]
+    },
+    "/home/nkt/Desktop/metaStoksContracts/node_modules/@openzeppelin/contracts-upgradeable/access/OwnableUpgradeable.sol": {
+      "lastModificationDate": 1654235424304,
+      "contentHash": "11b77de3cb69dfc6b342ec87bd09cbdd",
+      "sourceName": "@openzeppelin/contracts-upgradeable/access/OwnableUpgradeable.sol",
+      "solcConfig": {
+        "version": "0.8.14",
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "runs": 100
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata",
+                "storageLayout"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [
+        "../utils/ContextUpgradeable.sol",
+        "../proxy/utils/Initializable.sol"
+      ],
+      "versionPragmas": [
+        "^0.8.0"
+      ],
+      "artifacts": [
+        "OwnableUpgradeable"
+      ]
+    },
+    "/home/nkt/Desktop/metaStoksContracts/node_modules/@openzeppelin/contracts-upgradeable/security/PausableUpgradeable.sol": {
+      "lastModificationDate": 1654235424320,
+      "contentHash": "f5233d9eeebd5f0b4633650939e72426",
+      "sourceName": "@openzeppelin/contracts-upgradeable/security/PausableUpgradeable.sol",
+      "solcConfig": {
+        "version": "0.8.14",
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "runs": 100
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata",
+                "storageLayout"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [
+        "../utils/ContextUpgradeable.sol",
+        "../proxy/utils/Initializable.sol"
+      ],
+      "versionPragmas": [
+        "^0.8.0"
+      ],
+      "artifacts": [
+        "PausableUpgradeable"
+      ]
+    },
+    "/home/nkt/Desktop/metaStoksContracts/node_modules/@openzeppelin/contracts-upgradeable/token/ERC1155/extensions/ERC1155BurnableUpgradeable.sol": {
+      "lastModificationDate": 1654235424316,
+      "contentHash": "3c1db085a2eba5ff80d428b03b261036",
+      "sourceName": "@openzeppelin/contracts-upgradeable/token/ERC1155/extensions/ERC1155BurnableUpgradeable.sol",
+      "solcConfig": {
+        "version": "0.8.14",
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "runs": 100
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata",
+                "storageLayout"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [
+        "../ERC1155Upgradeable.sol",
+        "../../../proxy/utils/Initializable.sol"
+      ],
+      "versionPragmas": [
+        "^0.8.0"
+      ],
+      "artifacts": [
+        "ERC1155BurnableUpgradeable"
+      ]
+    },
+    "/home/nkt/Desktop/metaStoksContracts/node_modules/@openzeppelin/contracts-upgradeable/token/ERC1155/extensions/ERC1155SupplyUpgradeable.sol": {
+      "lastModificationDate": 1654235424316,
+      "contentHash": "fbf5fdb7a74554410a3b4059f3d314df",
+      "sourceName": "@openzeppelin/contracts-upgradeable/token/ERC1155/extensions/ERC1155SupplyUpgradeable.sol",
+      "solcConfig": {
+        "version": "0.8.14",
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "runs": 100
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata",
+                "storageLayout"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [
+        "../ERC1155Upgradeable.sol",
+        "../../../proxy/utils/Initializable.sol"
+      ],
+      "versionPragmas": [
+        "^0.8.0"
+      ],
+      "artifacts": [
+        "ERC1155SupplyUpgradeable"
+      ]
+    },
+    "/home/nkt/Desktop/metaStoksContracts/node_modules/@openzeppelin/contracts-upgradeable/proxy/utils/Initializable.sol": {
+      "lastModificationDate": 1654235424312,
+      "contentHash": "be27cb63ce8e469db3306a210450385f",
+      "sourceName": "@openzeppelin/contracts-upgradeable/proxy/utils/Initializable.sol",
+      "solcConfig": {
+        "version": "0.8.14",
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "runs": 100
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata",
+                "storageLayout"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [
+        "../../utils/AddressUpgradeable.sol"
+      ],
+      "versionPragmas": [
+        "^0.8.2"
+      ],
+      "artifacts": [
+        "Initializable"
+      ]
+    },
+    "/home/nkt/Desktop/metaStoksContracts/node_modules/@openzeppelin/contracts-upgradeable/token/ERC1155/IERC1155Upgradeable.sol": {
+      "lastModificationDate": 1654235424316,
+      "contentHash": "a51bc173c3333372b3aa9913bc21f38c",
+      "sourceName": "@openzeppelin/contracts-upgradeable/token/ERC1155/IERC1155Upgradeable.sol",
+      "solcConfig": {
+        "version": "0.8.14",
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "runs": 100
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata",
+                "storageLayout"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [
+        "../../utils/introspection/IERC165Upgradeable.sol"
+      ],
+      "versionPragmas": [
+        "^0.8.0"
+      ],
+      "artifacts": [
+        "IERC1155Upgradeable"
+      ]
+    },
+    "/home/nkt/Desktop/metaStoksContracts/node_modules/@openzeppelin/contracts-upgradeable/token/ERC1155/IERC1155ReceiverUpgradeable.sol": {
+      "lastModificationDate": 1654235424316,
+      "contentHash": "eb51ed084f6f7fd2c7098715c5690285",
+      "sourceName": "@openzeppelin/contracts-upgradeable/token/ERC1155/IERC1155ReceiverUpgradeable.sol",
+      "solcConfig": {
+        "version": "0.8.14",
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "runs": 100
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata",
+                "storageLayout"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [
+        "../../utils/introspection/IERC165Upgradeable.sol"
+      ],
+      "versionPragmas": [
+        "^0.8.0"
+      ],
+      "artifacts": [
+        "IERC1155ReceiverUpgradeable"
+      ]
+    },
+    "/home/nkt/Desktop/metaStoksContracts/node_modules/@openzeppelin/contracts-upgradeable/token/ERC1155/extensions/IERC1155MetadataURIUpgradeable.sol": {
+      "lastModificationDate": 1654235424316,
+      "contentHash": "8b7e95c747e2dab3b5444b37410a8315",
+      "sourceName": "@openzeppelin/contracts-upgradeable/token/ERC1155/extensions/IERC1155MetadataURIUpgradeable.sol",
+      "solcConfig": {
+        "version": "0.8.14",
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "runs": 100
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata",
+                "storageLayout"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [
+        "../IERC1155Upgradeable.sol"
+      ],
+      "versionPragmas": [
+        "^0.8.0"
+      ],
+      "artifacts": [
+        "IERC1155MetadataURIUpgradeable"
+      ]
+    },
+    "/home/nkt/Desktop/metaStoksContracts/node_modules/@openzeppelin/contracts-upgradeable/utils/AddressUpgradeable.sol": {
+      "lastModificationDate": 1654235424320,
+      "contentHash": "b70d2e0552ab1f44f7e44b5f8379c358",
+      "sourceName": "@openzeppelin/contracts-upgradeable/utils/AddressUpgradeable.sol",
       "solcConfig": {
         "version": "0.8.14",
         "settings": {
@@ -416,16 +812,16 @@
       },
       "imports": [],
       "versionPragmas": [
-        "^0.8.14"
+        "^0.8.1"
       ],
       "artifacts": [
-        "IAutoLiquidityInjecter"
+        "AddressUpgradeable"
       ]
     },
-    "/home/nkt/Desktop/metaStoksContracts/contracts/MetaStocksToken.sol": {
-      "lastModificationDate": 1654950221240,
-      "contentHash": "ea1137d829df687971c7fdf6bbc4d6b6",
-      "sourceName": "contracts/MetaStocksToken.sol",
+    "/home/nkt/Desktop/metaStoksContracts/node_modules/@openzeppelin/contracts-upgradeable/utils/ContextUpgradeable.sol": {
+      "lastModificationDate": 1654235424320,
+      "contentHash": "6200b84950eb05b4a92a39fd1d6e0f9b",
+      "sourceName": "@openzeppelin/contracts-upgradeable/utils/ContextUpgradeable.sol",
       "solcConfig": {
         "version": "0.8.14",
         "settings": {
@@ -451,21 +847,483 @@
         }
       },
       "imports": [
-        "@openzeppelin/contracts/token/ERC20/IERC20.sol",
-        "@uniswap/v2-periphery/contracts/interfaces/IUniswapV2Router02.sol",
-        "@uniswap/v2-core/contracts/interfaces/IUniswapV2Factory.sol",
-        "@openzeppelin/contracts-upgradeable/token/ERC20/ERC20Upgradeable.sol",
+        "../proxy/utils/Initializable.sol"
+      ],
+      "versionPragmas": [
+        "^0.8.0"
+      ],
+      "artifacts": [
+        "ContextUpgradeable"
+      ]
+    },
+    "/home/nkt/Desktop/metaStoksContracts/node_modules/@openzeppelin/contracts-upgradeable/utils/introspection/ERC165Upgradeable.sol": {
+      "lastModificationDate": 1654235424324,
+      "contentHash": "5f2d8b81c0ff5bd2047b4846c20b998d",
+      "sourceName": "@openzeppelin/contracts-upgradeable/utils/introspection/ERC165Upgradeable.sol",
+      "solcConfig": {
+        "version": "0.8.14",
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "runs": 100
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata",
+                "storageLayout"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [
+        "./IERC165Upgradeable.sol",
+        "../../proxy/utils/Initializable.sol"
+      ],
+      "versionPragmas": [
+        "^0.8.0"
+      ],
+      "artifacts": [
+        "ERC165Upgradeable"
+      ]
+    },
+    "/home/nkt/Desktop/metaStoksContracts/node_modules/@openzeppelin/contracts-upgradeable/utils/introspection/IERC165Upgradeable.sol": {
+      "lastModificationDate": 1654235424324,
+      "contentHash": "d6ecf203a5e72c845be9bbf2f304a289",
+      "sourceName": "@openzeppelin/contracts-upgradeable/utils/introspection/IERC165Upgradeable.sol",
+      "solcConfig": {
+        "version": "0.8.14",
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "runs": 100
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata",
+                "storageLayout"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [],
+      "versionPragmas": [
+        "^0.8.0"
+      ],
+      "artifacts": [
+        "IERC165Upgradeable"
+      ]
+    },
+    "/home/nkt/Desktop/metaStoksContracts/contracts/MetaStocksFranchiseShare.sol": {
+      "lastModificationDate": 1654917422809,
+      "contentHash": "24dda23a9f1f4ad3150b94b9e6cd8ac7",
+      "sourceName": "contracts/MetaStocksFranchiseShare.sol",
+      "solcConfig": {
+        "version": "0.8.14",
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "runs": 100
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata",
+                "storageLayout"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [
+        "@openzeppelin/contracts-upgradeable/token/ERC1155/ERC1155Upgradeable.sol",
         "@openzeppelin/contracts-upgradeable/access/OwnableUpgradeable.sol",
-        "./managers/transactionFees/TransactionFeesManager.sol",
-        "./interfaces/dexRouter/IAutoLiquidityInjecter.sol",
-        "./managers/midas/MidasMultinetworkRouterManager.sol",
-        "./MetaStocksERC20Upgradable.sol"
+        "@openzeppelin/contracts-upgradeable/security/PausableUpgradeable.sol",
+        "@openzeppelin/contracts-upgradeable/token/ERC1155/extensions/ERC1155BurnableUpgradeable.sol",
+        "@openzeppelin/contracts-upgradeable/token/ERC1155/extensions/ERC1155SupplyUpgradeable.sol",
+        "@openzeppelin/contracts-upgradeable/proxy/utils/Initializable.sol"
       ],
       "versionPragmas": [
         "^0.8.14"
       ],
       "artifacts": [
-        "MetaStocksToken"
+        "MetaStocksFranchiseShare"
+      ]
+    },
+    "/home/nkt/Desktop/metaStoksContracts/node_modules/@openzeppelin/contracts-upgradeable/token/ERC721/ERC721Upgradeable.sol": {
+      "lastModificationDate": 1654235424320,
+      "contentHash": "003a2d431418e4e32f06a75d965e0780",
+      "sourceName": "@openzeppelin/contracts-upgradeable/token/ERC721/ERC721Upgradeable.sol",
+      "solcConfig": {
+        "version": "0.8.14",
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "runs": 100
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata",
+                "storageLayout"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [
+        "./IERC721Upgradeable.sol",
+        "./IERC721ReceiverUpgradeable.sol",
+        "./extensions/IERC721MetadataUpgradeable.sol",
+        "../../utils/AddressUpgradeable.sol",
+        "../../utils/ContextUpgradeable.sol",
+        "../../utils/StringsUpgradeable.sol",
+        "../../utils/introspection/ERC165Upgradeable.sol",
+        "../../proxy/utils/Initializable.sol"
+      ],
+      "versionPragmas": [
+        "^0.8.0"
+      ],
+      "artifacts": [
+        "ERC721Upgradeable"
+      ]
+    },
+    "/home/nkt/Desktop/metaStoksContracts/node_modules/@openzeppelin/contracts-upgradeable/token/ERC721/IERC721Upgradeable.sol": {
+      "lastModificationDate": 1654235424320,
+      "contentHash": "668d517c0c98c142b0dade502dc378af",
+      "sourceName": "@openzeppelin/contracts-upgradeable/token/ERC721/IERC721Upgradeable.sol",
+      "solcConfig": {
+        "version": "0.8.14",
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "runs": 100
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata",
+                "storageLayout"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [
+        "../../utils/introspection/IERC165Upgradeable.sol"
+      ],
+      "versionPragmas": [
+        "^0.8.0"
+      ],
+      "artifacts": [
+        "IERC721Upgradeable"
+      ]
+    },
+    "/home/nkt/Desktop/metaStoksContracts/node_modules/@openzeppelin/contracts-upgradeable/token/ERC721/IERC721ReceiverUpgradeable.sol": {
+      "lastModificationDate": 1654235424320,
+      "contentHash": "ba28cf60b52b00d2b3a190bcdf0952bd",
+      "sourceName": "@openzeppelin/contracts-upgradeable/token/ERC721/IERC721ReceiverUpgradeable.sol",
+      "solcConfig": {
+        "version": "0.8.14",
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "runs": 100
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata",
+                "storageLayout"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [],
+      "versionPragmas": [
+        "^0.8.0"
+      ],
+      "artifacts": [
+        "IERC721ReceiverUpgradeable"
+      ]
+    },
+    "/home/nkt/Desktop/metaStoksContracts/node_modules/@openzeppelin/contracts-upgradeable/token/ERC721/extensions/IERC721MetadataUpgradeable.sol": {
+      "lastModificationDate": 1654235424316,
+      "contentHash": "76212ca0265501d1eb3dd1175e6afca4",
+      "sourceName": "@openzeppelin/contracts-upgradeable/token/ERC721/extensions/IERC721MetadataUpgradeable.sol",
+      "solcConfig": {
+        "version": "0.8.14",
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "runs": 100
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata",
+                "storageLayout"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [
+        "../IERC721Upgradeable.sol"
+      ],
+      "versionPragmas": [
+        "^0.8.0"
+      ],
+      "artifacts": [
+        "IERC721MetadataUpgradeable"
+      ]
+    },
+    "/home/nkt/Desktop/metaStoksContracts/node_modules/@openzeppelin/contracts-upgradeable/utils/StringsUpgradeable.sol": {
+      "lastModificationDate": 1654235424320,
+      "contentHash": "f60b5fcbc57911b0fbc7a31a110f90bc",
+      "sourceName": "@openzeppelin/contracts-upgradeable/utils/StringsUpgradeable.sol",
+      "solcConfig": {
+        "version": "0.8.14",
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "runs": 100
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata",
+                "storageLayout"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [],
+      "versionPragmas": [
+        "^0.8.0"
+      ],
+      "artifacts": [
+        "StringsUpgradeable"
+      ]
+    },
+    "/home/nkt/Desktop/metaStoksContracts/node_modules/@openzeppelin/contracts-upgradeable/token/ERC721/extensions/ERC721URIStorageUpgradeable.sol": {
+      "lastModificationDate": 1654235424316,
+      "contentHash": "2b09eda73a84a74195c040802c951bb6",
+      "sourceName": "@openzeppelin/contracts-upgradeable/token/ERC721/extensions/ERC721URIStorageUpgradeable.sol",
+      "solcConfig": {
+        "version": "0.8.14",
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "runs": 100
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata",
+                "storageLayout"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [
+        "../ERC721Upgradeable.sol",
+        "../../../proxy/utils/Initializable.sol"
+      ],
+      "versionPragmas": [
+        "^0.8.0"
+      ],
+      "artifacts": [
+        "ERC721URIStorageUpgradeable"
+      ]
+    },
+    "/home/nkt/Desktop/metaStoksContracts/contracts/MetaStocksCompany.sol": {
+      "lastModificationDate": 1654952629820,
+      "contentHash": "bd1968387de2def7b430e0eea91329ab",
+      "sourceName": "contracts/MetaStocksCompany.sol",
+      "solcConfig": {
+        "version": "0.8.14",
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "runs": 100
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata",
+                "storageLayout"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [
+        "@openzeppelin/contracts-upgradeable/token/ERC721/ERC721Upgradeable.sol",
+        "@openzeppelin/contracts-upgradeable/token/ERC721/extensions/ERC721URIStorageUpgradeable.sol",
+        "@openzeppelin/contracts-upgradeable/security/PausableUpgradeable.sol",
+        "@openzeppelin/contracts-upgradeable/access/OwnableUpgradeable.sol",
+        "@openzeppelin/contracts-upgradeable/proxy/utils/Initializable.sol",
+        "@openzeppelin/contracts-upgradeable/utils/CountersUpgradeable.sol",
+        "@openzeppelin/contracts/token/ERC20/ERC20.sol"
+      ],
+      "versionPragmas": [
+        "^0.8.14"
+      ],
+      "artifacts": [
+        "MetaStocksCompany"
+      ]
+    },
+    "/home/nkt/Desktop/metaStoksContracts/node_modules/@openzeppelin/contracts-upgradeable/utils/CountersUpgradeable.sol": {
+      "lastModificationDate": 1654235424320,
+      "contentHash": "2e908c762a799baea365e68a50500e2c",
+      "sourceName": "@openzeppelin/contracts-upgradeable/utils/CountersUpgradeable.sol",
+      "solcConfig": {
+        "version": "0.8.14",
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "runs": 100
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata",
+                "storageLayout"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [],
+      "versionPragmas": [
+        "^0.8.0"
+      ],
+      "artifacts": [
+        "CountersUpgradeable"
+      ]
+    },
+    "/home/nkt/Desktop/metaStoksContracts/node_modules/@openzeppelin/contracts/token/ERC20/ERC20.sol": {
+      "lastModificationDate": 1654235424168,
+      "contentHash": "a9d2146925da52142435d3bb8df53c3c",
+      "sourceName": "@openzeppelin/contracts/token/ERC20/ERC20.sol",
+      "solcConfig": {
+        "version": "0.8.14",
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "runs": 100
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata",
+                "storageLayout"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [
+        "./IERC20.sol",
+        "./extensions/IERC20Metadata.sol",
+        "../../utils/Context.sol"
+      ],
+      "versionPragmas": [
+        "^0.8.0"
+      ],
+      "artifacts": [
+        "ERC20"
       ]
     },
     "/home/nkt/Desktop/metaStoksContracts/node_modules/@openzeppelin/contracts/token/ERC20/IERC20.sol": {
@@ -502,6 +1360,124 @@
       ],
       "artifacts": [
         "IERC20"
+      ]
+    },
+    "/home/nkt/Desktop/metaStoksContracts/node_modules/@openzeppelin/contracts/token/ERC20/extensions/IERC20Metadata.sol": {
+      "lastModificationDate": 1654235424168,
+      "contentHash": "909ab67fc5c25033fe6cd364f8c056f9",
+      "sourceName": "@openzeppelin/contracts/token/ERC20/extensions/IERC20Metadata.sol",
+      "solcConfig": {
+        "version": "0.8.14",
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "runs": 100
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata",
+                "storageLayout"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [
+        "../IERC20.sol"
+      ],
+      "versionPragmas": [
+        "^0.8.0"
+      ],
+      "artifacts": [
+        "IERC20Metadata"
+      ]
+    },
+    "/home/nkt/Desktop/metaStoksContracts/node_modules/@openzeppelin/contracts/utils/Context.sol": {
+      "lastModificationDate": 1654235424172,
+      "contentHash": "5f2c5c4b6af2dd4551027144797bc8be",
+      "sourceName": "@openzeppelin/contracts/utils/Context.sol",
+      "solcConfig": {
+        "version": "0.8.14",
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "runs": 100
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata",
+                "storageLayout"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [],
+      "versionPragmas": [
+        "^0.8.0"
+      ],
+      "artifacts": [
+        "Context"
+      ]
+    },
+    "/home/nkt/Desktop/metaStoksContracts/contracts/tokens/MetaStocksERC20Upgradable.sol": {
+      "lastModificationDate": 1654952831662,
+      "contentHash": "e7bcb4d657703b80925c830d79ec5d78",
+      "sourceName": "contracts/tokens/MetaStocksERC20Upgradable.sol",
+      "solcConfig": {
+        "version": "0.8.14",
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "runs": 100
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata",
+                "storageLayout"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [
+        "@openzeppelin/contracts/token/ERC20/IERC20.sol",
+        "@uniswap/v2-periphery/contracts/interfaces/IUniswapV2Router02.sol",
+        "@uniswap/v2-core/contracts/interfaces/IUniswapV2Factory.sol",
+        "@openzeppelin/contracts-upgradeable/token/ERC20/ERC20Upgradeable.sol",
+        "@openzeppelin/contracts-upgradeable/access/OwnableUpgradeable.sol",
+        "./../managers/transactionFees/TransactionFeesManager.sol",
+        "./../managers/midas/MidasMultinetworkRouterManager.sol"
+      ],
+      "versionPragmas": [
+        "^0.8.14"
+      ],
+      "artifacts": [
+        "MetaStocksERC20Upgradable"
       ]
     },
     "/home/nkt/Desktop/metaStoksContracts/node_modules/@uniswap/v2-periphery/contracts/interfaces/IUniswapV2Router02.sol": {
@@ -809,118 +1785,6 @@
         "IERC20MetadataUpgradeable"
       ]
     },
-    "/home/nkt/Desktop/metaStoksContracts/node_modules/@openzeppelin/contracts-upgradeable/utils/ContextUpgradeable.sol": {
-      "lastModificationDate": 1654235424320,
-      "contentHash": "6200b84950eb05b4a92a39fd1d6e0f9b",
-      "sourceName": "@openzeppelin/contracts-upgradeable/utils/ContextUpgradeable.sol",
-      "solcConfig": {
-        "version": "0.8.14",
-        "settings": {
-          "optimizer": {
-            "enabled": true,
-            "runs": 100
-          },
-          "outputSelection": {
-            "*": {
-              "*": [
-                "abi",
-                "evm.bytecode",
-                "evm.deployedBytecode",
-                "evm.methodIdentifiers",
-                "metadata",
-                "storageLayout"
-              ],
-              "": [
-                "ast"
-              ]
-            }
-          }
-        }
-      },
-      "imports": [
-        "../proxy/utils/Initializable.sol"
-      ],
-      "versionPragmas": [
-        "^0.8.0"
-      ],
-      "artifacts": [
-        "ContextUpgradeable"
-      ]
-    },
-    "/home/nkt/Desktop/metaStoksContracts/node_modules/@openzeppelin/contracts-upgradeable/proxy/utils/Initializable.sol": {
-      "lastModificationDate": 1654235424312,
-      "contentHash": "be27cb63ce8e469db3306a210450385f",
-      "sourceName": "@openzeppelin/contracts-upgradeable/proxy/utils/Initializable.sol",
-      "solcConfig": {
-        "version": "0.8.14",
-        "settings": {
-          "optimizer": {
-            "enabled": true,
-            "runs": 100
-          },
-          "outputSelection": {
-            "*": {
-              "*": [
-                "abi",
-                "evm.bytecode",
-                "evm.deployedBytecode",
-                "evm.methodIdentifiers",
-                "metadata",
-                "storageLayout"
-              ],
-              "": [
-                "ast"
-              ]
-            }
-          }
-        }
-      },
-      "imports": [
-        "../../utils/AddressUpgradeable.sol"
-      ],
-      "versionPragmas": [
-        "^0.8.2"
-      ],
-      "artifacts": [
-        "Initializable"
-      ]
-    },
-    "/home/nkt/Desktop/metaStoksContracts/node_modules/@openzeppelin/contracts-upgradeable/utils/AddressUpgradeable.sol": {
-      "lastModificationDate": 1654235424320,
-      "contentHash": "b70d2e0552ab1f44f7e44b5f8379c358",
-      "sourceName": "@openzeppelin/contracts-upgradeable/utils/AddressUpgradeable.sol",
-      "solcConfig": {
-        "version": "0.8.14",
-        "settings": {
-          "optimizer": {
-            "enabled": true,
-            "runs": 100
-          },
-          "outputSelection": {
-            "*": {
-              "*": [
-                "abi",
-                "evm.bytecode",
-                "evm.deployedBytecode",
-                "evm.methodIdentifiers",
-                "metadata",
-                "storageLayout"
-              ],
-              "": [
-                "ast"
-              ]
-            }
-          }
-        }
-      },
-      "imports": [],
-      "versionPragmas": [
-        "^0.8.1"
-      ],
-      "artifacts": [
-        "AddressUpgradeable"
-      ]
-    },
     "/home/nkt/Desktop/metaStoksContracts/contracts/models/TransactionFees.sol": {
       "lastModificationDate": 1654762216725,
       "contentHash": "038572f2f5c1885f736e19f02f562b76",
@@ -1105,10 +1969,10 @@
         "IJoeRouter01"
       ]
     },
-    "/home/nkt/Desktop/metaStoksContracts/contracts/managers/chainlink/ChainlinkDataFeedsManager.sol": {
-      "lastModificationDate": 1654944143397,
-      "contentHash": "0799aa2c7813b91a023c145bebba7829",
-      "sourceName": "contracts/managers/chainlink/ChainlinkDataFeedsManager.sol",
+    "/home/nkt/Desktop/metaStoksContracts/contracts/MetaStocksToken.sol": {
+      "lastModificationDate": 1654952801334,
+      "contentHash": "16b81f3a7fa8b1a450b0c37e9f6b87d9",
+      "sourceName": "contracts/MetaStocksToken.sol",
       "solcConfig": {
         "version": "0.8.14",
         "settings": {
@@ -1134,22 +1998,27 @@
         }
       },
       "imports": [
-        "@openzeppelin/contracts-upgradeable/token/ERC20/ERC20Upgradeable.sol",
         "@openzeppelin/contracts/token/ERC20/IERC20.sol",
-        "@chainlink/contracts/src/v0.8/interfaces/AggregatorV3Interface.sol",
-        "../../interfaces/midas/IMidasMultiNetworkRouter.sol"
+        "@uniswap/v2-periphery/contracts/interfaces/IUniswapV2Router02.sol",
+        "@uniswap/v2-core/contracts/interfaces/IUniswapV2Factory.sol",
+        "@openzeppelin/contracts-upgradeable/token/ERC20/ERC20Upgradeable.sol",
+        "@openzeppelin/contracts-upgradeable/access/OwnableUpgradeable.sol",
+        "./managers/transactionFees/TransactionFeesManager.sol",
+        "./interfaces/dexRouter/IAutoLiquidityInjecter.sol",
+        "./managers/midas/MidasMultinetworkRouterManager.sol",
+        "./tokens/MetaStocksERC20Upgradable.sol"
       ],
       "versionPragmas": [
         "^0.8.14"
       ],
       "artifacts": [
-        "ChainlinkDataFeedsManager"
+        "MetaStocksToken"
       ]
     },
-    "/home/nkt/Desktop/metaStoksContracts/node_modules/@chainlink/contracts/src/v0.8/interfaces/AggregatorV3Interface.sol": {
-      "lastModificationDate": 1654235423880,
-      "contentHash": "611f626b2447ccff9ba5332460fd217f",
-      "sourceName": "@chainlink/contracts/src/v0.8/interfaces/AggregatorV3Interface.sol",
+    "/home/nkt/Desktop/metaStoksContracts/contracts/interfaces/dexRouter/IAutoLiquidityInjecter.sol": {
+      "lastModificationDate": 1654763183305,
+      "contentHash": "f4a9324a99f37b89cf5db400c5037f19",
+      "sourceName": "contracts/interfaces/dexRouter/IAutoLiquidityInjecter.sol",
       "solcConfig": {
         "version": "0.8.14",
         "settings": {
@@ -1176,16 +2045,16 @@
       },
       "imports": [],
       "versionPragmas": [
-        "^0.8.0"
+        "^0.8.14"
       ],
       "artifacts": [
-        "AggregatorV3Interface"
+        "IAutoLiquidityInjecter"
       ]
     },
-    "/home/nkt/Desktop/metaStoksContracts/contracts/managers/metaStocks/MetaStocksFranchiseShareManager.sol": {
-      "lastModificationDate": 1654946090222,
+    "/home/nkt/Desktop/metaStoksContracts/contracts/managers/metastocks/MetaStocksFranchiseShareManager.sol": {
+      "lastModificationDate": 1654952496420,
       "contentHash": "eb8fffb6144e8d610ae0b3818a1c43ca",
-      "sourceName": "contracts/managers/metaStocks/MetaStocksFranchiseShareManager.sol",
+      "sourceName": "contracts/managers/metastocks/MetaStocksFranchiseShareManager.sol",
       "solcConfig": {
         "version": "0.8.14",
         "settings": {
@@ -1227,6 +2096,83 @@
         "MetaStocksFranchiseShareManager"
       ]
     },
+    "/home/nkt/Desktop/metaStoksContracts/node_modules/@chainlink/contracts/src/v0.8/interfaces/AggregatorV3Interface.sol": {
+      "lastModificationDate": 1654235423880,
+      "contentHash": "611f626b2447ccff9ba5332460fd217f",
+      "sourceName": "@chainlink/contracts/src/v0.8/interfaces/AggregatorV3Interface.sol",
+      "solcConfig": {
+        "version": "0.8.14",
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "runs": 100
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata",
+                "storageLayout"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [],
+      "versionPragmas": [
+        "^0.8.0"
+      ],
+      "artifacts": [
+        "AggregatorV3Interface"
+      ]
+    },
+    "/home/nkt/Desktop/metaStoksContracts/contracts/managers/chainlink/ChainlinkDataFeedsManager.sol": {
+      "lastModificationDate": 1654944143397,
+      "contentHash": "0799aa2c7813b91a023c145bebba7829",
+      "sourceName": "contracts/managers/chainlink/ChainlinkDataFeedsManager.sol",
+      "solcConfig": {
+        "version": "0.8.14",
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "runs": 100
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata",
+                "storageLayout"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [
+        "@openzeppelin/contracts-upgradeable/token/ERC20/ERC20Upgradeable.sol",
+        "@openzeppelin/contracts/token/ERC20/IERC20.sol",
+        "@chainlink/contracts/src/v0.8/interfaces/AggregatorV3Interface.sol",
+        "../../interfaces/midas/IMidasMultiNetworkRouter.sol"
+      ],
+      "versionPragmas": [
+        "^0.8.14"
+      ],
+      "artifacts": [
+        "ChainlinkDataFeedsManager"
+      ]
+    },
     "/home/nkt/Desktop/metaStoksContracts/contracts/interfaces/metaStocks/IMetaStocksCompany.sol": {
       "lastModificationDate": 1654913470029,
       "contentHash": "2757bc34d5f400d2817a8a73ee2ce591",
@@ -1263,10 +2209,10 @@
         "IMetaStocksCompany"
       ]
     },
-    "/home/nkt/Desktop/metaStoksContracts/contracts/managers/metaStocks/MetaStocksFranchiseManager.sol": {
-      "lastModificationDate": 1654949517834,
-      "contentHash": "9c8d0caafafd681a236f742b6412750f",
-      "sourceName": "contracts/managers/metaStocks/MetaStocksFranchiseManager.sol",
+    "/home/nkt/Desktop/metaStoksContracts/contracts/managers/metastocks/MetaStocksCompanyManager.sol": {
+      "lastModificationDate": 1654952763461,
+      "contentHash": "f26e7e03c1da09a6ecb95d80c615d0dc",
+      "sourceName": "contracts/managers/metastocks/MetaStocksCompanyManager.sol",
       "solcConfig": {
         "version": "0.8.14",
         "settings": {
@@ -1293,417 +2239,19 @@
       },
       "imports": [
         "@openzeppelin/contracts-upgradeable/token/ERC20/ERC20Upgradeable.sol",
-        "@uniswap/v2-periphery/contracts/interfaces/IUniswapV2Router02.sol",
-        "@openzeppelin/contracts/token/ERC20/IERC20.sol",
-        "@chainlink/contracts/src/v0.8/interfaces/AggregatorV3Interface.sol",
-        "@openzeppelin/contracts-upgradeable/access/OwnableUpgradeable.sol",
         "@openzeppelin/contracts/token/ERC1155/utils/ERC1155Holder.sol",
+        "@openzeppelin/contracts/token/ERC1155/utils/ERC1155Holder.sol",
+        "@openzeppelin/contracts-upgradeable/token/ERC1155/ERC1155Upgradeable.sol",
         "@openzeppelin/contracts/token/ERC1155/IERC1155Receiver.sol",
-        "../../managers/chainlink/ChainlinkDataFeedsManager.sol",
-        "../../interfaces/metaStocks/IMetaStocksFranchise.sol",
-        "../../models/TransactionFees.sol",
-        "../../enums/MetaStocksFranchiseType.sol",
-        "./MetaStocksBaseManager.sol"
-      ],
-      "versionPragmas": [
-        "^0.8.14"
-      ],
-      "artifacts": [
-        "MetaStocksFranchiseManager"
-      ]
-    },
-    "/home/nkt/Desktop/metaStoksContracts/contracts/interfaces/metaStocks/IMetaStocksFranchise.sol": {
-      "lastModificationDate": 1654945037209,
-      "contentHash": "29e69a27c1299673f5dea392233c20c9",
-      "sourceName": "contracts/interfaces/metaStocks/IMetaStocksFranchise.sol",
-      "solcConfig": {
-        "version": "0.8.14",
-        "settings": {
-          "optimizer": {
-            "enabled": true,
-            "runs": 100
-          },
-          "outputSelection": {
-            "*": {
-              "*": [
-                "abi",
-                "evm.bytecode",
-                "evm.deployedBytecode",
-                "evm.methodIdentifiers",
-                "metadata",
-                "storageLayout"
-              ],
-              "": [
-                "ast"
-              ]
-            }
-          }
-        }
-      },
-      "imports": [
-        "../../enums/MetaStocksFranchiseType.sol"
-      ],
-      "versionPragmas": [
-        "^0.8.14"
-      ],
-      "artifacts": [
-        "IMetaStocksFranchise"
-      ]
-    },
-    "/home/nkt/Desktop/metaStoksContracts/node_modules/@openzeppelin/contracts/token/ERC20/extensions/IERC20Metadata.sol": {
-      "lastModificationDate": 1654235424168,
-      "contentHash": "909ab67fc5c25033fe6cd364f8c056f9",
-      "sourceName": "@openzeppelin/contracts/token/ERC20/extensions/IERC20Metadata.sol",
-      "solcConfig": {
-        "version": "0.8.14",
-        "settings": {
-          "optimizer": {
-            "enabled": true,
-            "runs": 100
-          },
-          "outputSelection": {
-            "*": {
-              "*": [
-                "abi",
-                "evm.bytecode",
-                "evm.deployedBytecode",
-                "evm.methodIdentifiers",
-                "metadata",
-                "storageLayout"
-              ],
-              "": [
-                "ast"
-              ]
-            }
-          }
-        }
-      },
-      "imports": [
-        "../IERC20.sol"
-      ],
-      "versionPragmas": [
-        "^0.8.0"
-      ],
-      "artifacts": [
-        "IERC20Metadata"
-      ]
-    },
-    "/home/nkt/Desktop/metaStoksContracts/node_modules/@openzeppelin/contracts/token/ERC20/ERC20.sol": {
-      "lastModificationDate": 1654235424168,
-      "contentHash": "a9d2146925da52142435d3bb8df53c3c",
-      "sourceName": "@openzeppelin/contracts/token/ERC20/ERC20.sol",
-      "solcConfig": {
-        "version": "0.8.14",
-        "settings": {
-          "optimizer": {
-            "enabled": true,
-            "runs": 100
-          },
-          "outputSelection": {
-            "*": {
-              "*": [
-                "abi",
-                "evm.bytecode",
-                "evm.deployedBytecode",
-                "evm.methodIdentifiers",
-                "metadata",
-                "storageLayout"
-              ],
-              "": [
-                "ast"
-              ]
-            }
-          }
-        }
-      },
-      "imports": [
-        "./IERC20.sol",
-        "./extensions/IERC20Metadata.sol",
-        "../../utils/Context.sol"
-      ],
-      "versionPragmas": [
-        "^0.8.0"
-      ],
-      "artifacts": [
-        "ERC20"
-      ]
-    },
-    "/home/nkt/Desktop/metaStoksContracts/node_modules/@openzeppelin/contracts/utils/Context.sol": {
-      "lastModificationDate": 1654235424172,
-      "contentHash": "5f2c5c4b6af2dd4551027144797bc8be",
-      "sourceName": "@openzeppelin/contracts/utils/Context.sol",
-      "solcConfig": {
-        "version": "0.8.14",
-        "settings": {
-          "optimizer": {
-            "enabled": true,
-            "runs": 100
-          },
-          "outputSelection": {
-            "*": {
-              "*": [
-                "abi",
-                "evm.bytecode",
-                "evm.deployedBytecode",
-                "evm.methodIdentifiers",
-                "metadata",
-                "storageLayout"
-              ],
-              "": [
-                "ast"
-              ]
-            }
-          }
-        }
-      },
-      "imports": [],
-      "versionPragmas": [
-        "^0.8.0"
-      ],
-      "artifacts": [
-        "Context"
-      ]
-    },
-    "/home/nkt/Desktop/metaStoksContracts/contracts/MetaStocksCompany.sol": {
-      "lastModificationDate": 1654948149454,
-      "contentHash": "bd1968387de2def7b430e0eea91329ab",
-      "sourceName": "contracts/MetaStocksCompany.sol",
-      "solcConfig": {
-        "version": "0.8.14",
-        "settings": {
-          "optimizer": {
-            "enabled": true,
-            "runs": 100
-          },
-          "outputSelection": {
-            "*": {
-              "*": [
-                "abi",
-                "evm.bytecode",
-                "evm.deployedBytecode",
-                "evm.methodIdentifiers",
-                "metadata",
-                "storageLayout"
-              ],
-              "": [
-                "ast"
-              ]
-            }
-          }
-        }
-      },
-      "imports": [
-        "@openzeppelin/contracts-upgradeable/token/ERC721/ERC721Upgradeable.sol",
-        "@openzeppelin/contracts-upgradeable/token/ERC721/extensions/ERC721URIStorageUpgradeable.sol",
-        "@openzeppelin/contracts-upgradeable/security/PausableUpgradeable.sol",
         "@openzeppelin/contracts-upgradeable/access/OwnableUpgradeable.sol",
-        "@openzeppelin/contracts-upgradeable/proxy/utils/Initializable.sol",
-        "@openzeppelin/contracts-upgradeable/utils/CountersUpgradeable.sol",
-        "@openzeppelin/contracts/token/ERC20/ERC20.sol"
+        "../../interfaces/metaStocks/IMetaStocksCompany.sol",
+        "./../../tokens/MetaStocksIERC1155ReceiverHolder.sol"
       ],
       "versionPragmas": [
         "^0.8.14"
       ],
       "artifacts": [
-        "MetaStocksCompany"
-      ]
-    },
-    "/home/nkt/Desktop/metaStoksContracts/node_modules/@openzeppelin/contracts-upgradeable/token/ERC721/ERC721Upgradeable.sol": {
-      "lastModificationDate": 1654235424320,
-      "contentHash": "003a2d431418e4e32f06a75d965e0780",
-      "sourceName": "@openzeppelin/contracts-upgradeable/token/ERC721/ERC721Upgradeable.sol",
-      "solcConfig": {
-        "version": "0.8.14",
-        "settings": {
-          "optimizer": {
-            "enabled": true,
-            "runs": 100
-          },
-          "outputSelection": {
-            "*": {
-              "*": [
-                "abi",
-                "evm.bytecode",
-                "evm.deployedBytecode",
-                "evm.methodIdentifiers",
-                "metadata",
-                "storageLayout"
-              ],
-              "": [
-                "ast"
-              ]
-            }
-          }
-        }
-      },
-      "imports": [
-        "./IERC721Upgradeable.sol",
-        "./IERC721ReceiverUpgradeable.sol",
-        "./extensions/IERC721MetadataUpgradeable.sol",
-        "../../utils/AddressUpgradeable.sol",
-        "../../utils/ContextUpgradeable.sol",
-        "../../utils/StringsUpgradeable.sol",
-        "../../utils/introspection/ERC165Upgradeable.sol",
-        "../../proxy/utils/Initializable.sol"
-      ],
-      "versionPragmas": [
-        "^0.8.0"
-      ],
-      "artifacts": [
-        "ERC721Upgradeable"
-      ]
-    },
-    "/home/nkt/Desktop/metaStoksContracts/node_modules/@openzeppelin/contracts-upgradeable/token/ERC721/extensions/ERC721URIStorageUpgradeable.sol": {
-      "lastModificationDate": 1654235424316,
-      "contentHash": "2b09eda73a84a74195c040802c951bb6",
-      "sourceName": "@openzeppelin/contracts-upgradeable/token/ERC721/extensions/ERC721URIStorageUpgradeable.sol",
-      "solcConfig": {
-        "version": "0.8.14",
-        "settings": {
-          "optimizer": {
-            "enabled": true,
-            "runs": 100
-          },
-          "outputSelection": {
-            "*": {
-              "*": [
-                "abi",
-                "evm.bytecode",
-                "evm.deployedBytecode",
-                "evm.methodIdentifiers",
-                "metadata",
-                "storageLayout"
-              ],
-              "": [
-                "ast"
-              ]
-            }
-          }
-        }
-      },
-      "imports": [
-        "../ERC721Upgradeable.sol",
-        "../../../proxy/utils/Initializable.sol"
-      ],
-      "versionPragmas": [
-        "^0.8.0"
-      ],
-      "artifacts": [
-        "ERC721URIStorageUpgradeable"
-      ]
-    },
-    "/home/nkt/Desktop/metaStoksContracts/node_modules/@openzeppelin/contracts-upgradeable/security/PausableUpgradeable.sol": {
-      "lastModificationDate": 1654235424320,
-      "contentHash": "f5233d9eeebd5f0b4633650939e72426",
-      "sourceName": "@openzeppelin/contracts-upgradeable/security/PausableUpgradeable.sol",
-      "solcConfig": {
-        "version": "0.8.14",
-        "settings": {
-          "optimizer": {
-            "enabled": true,
-            "runs": 100
-          },
-          "outputSelection": {
-            "*": {
-              "*": [
-                "abi",
-                "evm.bytecode",
-                "evm.deployedBytecode",
-                "evm.methodIdentifiers",
-                "metadata",
-                "storageLayout"
-              ],
-              "": [
-                "ast"
-              ]
-            }
-          }
-        }
-      },
-      "imports": [
-        "../utils/ContextUpgradeable.sol",
-        "../proxy/utils/Initializable.sol"
-      ],
-      "versionPragmas": [
-        "^0.8.0"
-      ],
-      "artifacts": [
-        "PausableUpgradeable"
-      ]
-    },
-    "/home/nkt/Desktop/metaStoksContracts/node_modules/@openzeppelin/contracts-upgradeable/access/OwnableUpgradeable.sol": {
-      "lastModificationDate": 1654235424304,
-      "contentHash": "11b77de3cb69dfc6b342ec87bd09cbdd",
-      "sourceName": "@openzeppelin/contracts-upgradeable/access/OwnableUpgradeable.sol",
-      "solcConfig": {
-        "version": "0.8.14",
-        "settings": {
-          "optimizer": {
-            "enabled": true,
-            "runs": 100
-          },
-          "outputSelection": {
-            "*": {
-              "*": [
-                "abi",
-                "evm.bytecode",
-                "evm.deployedBytecode",
-                "evm.methodIdentifiers",
-                "metadata",
-                "storageLayout"
-              ],
-              "": [
-                "ast"
-              ]
-            }
-          }
-        }
-      },
-      "imports": [
-        "../utils/ContextUpgradeable.sol",
-        "../proxy/utils/Initializable.sol"
-      ],
-      "versionPragmas": [
-        "^0.8.0"
-      ],
-      "artifacts": [
-        "OwnableUpgradeable"
-      ]
-    },
-    "/home/nkt/Desktop/metaStoksContracts/node_modules/@openzeppelin/contracts-upgradeable/utils/CountersUpgradeable.sol": {
-      "lastModificationDate": 1654235424320,
-      "contentHash": "2e908c762a799baea365e68a50500e2c",
-      "sourceName": "@openzeppelin/contracts-upgradeable/utils/CountersUpgradeable.sol",
-      "solcConfig": {
-        "version": "0.8.14",
-        "settings": {
-          "optimizer": {
-            "enabled": true,
-            "runs": 100
-          },
-          "outputSelection": {
-            "*": {
-              "*": [
-                "abi",
-                "evm.bytecode",
-                "evm.deployedBytecode",
-                "evm.methodIdentifiers",
-                "metadata",
-                "storageLayout"
-              ],
-              "": [
-                "ast"
-              ]
-            }
-          }
-        }
-      },
-      "imports": [],
-      "versionPragmas": [
-        "^0.8.0"
-      ],
-      "artifacts": [
-        "CountersUpgradeable"
+        "MetaStocksCompanyManager"
       ]
     },
     "/home/nkt/Desktop/metaStoksContracts/node_modules/@openzeppelin/contracts/token/ERC1155/utils/ERC1155Holder.sol": {
@@ -1782,10 +2330,10 @@
         "IERC1155Receiver"
       ]
     },
-    "/home/nkt/Desktop/metaStoksContracts/node_modules/@openzeppelin/contracts-upgradeable/token/ERC721/IERC721Upgradeable.sol": {
-      "lastModificationDate": 1654235424320,
-      "contentHash": "668d517c0c98c142b0dade502dc378af",
-      "sourceName": "@openzeppelin/contracts-upgradeable/token/ERC721/IERC721Upgradeable.sol",
+    "/home/nkt/Desktop/metaStoksContracts/contracts/tokens/MetaStocksIERC1155ReceiverHolder.sol": {
+      "lastModificationDate": 1654952553744,
+      "contentHash": "812e1ad3008ff4026cd2baf0aadbe255",
+      "sourceName": "contracts/tokens/MetaStocksIERC1155ReceiverHolder.sol",
       "solcConfig": {
         "version": "0.8.14",
         "settings": {
@@ -1811,198 +2359,15 @@
         }
       },
       "imports": [
-        "../../utils/introspection/IERC165Upgradeable.sol"
+        "@openzeppelin/contracts/token/ERC1155/utils/ERC1155Holder.sol",
+        "@openzeppelin/contracts/token/ERC1155/utils/ERC1155Holder.sol",
+        "@openzeppelin/contracts/token/ERC1155/IERC1155Receiver.sol"
       ],
       "versionPragmas": [
-        "^0.8.0"
+        "^0.8.14"
       ],
       "artifacts": [
-        "IERC721Upgradeable"
-      ]
-    },
-    "/home/nkt/Desktop/metaStoksContracts/node_modules/@openzeppelin/contracts-upgradeable/token/ERC721/IERC721ReceiverUpgradeable.sol": {
-      "lastModificationDate": 1654235424320,
-      "contentHash": "ba28cf60b52b00d2b3a190bcdf0952bd",
-      "sourceName": "@openzeppelin/contracts-upgradeable/token/ERC721/IERC721ReceiverUpgradeable.sol",
-      "solcConfig": {
-        "version": "0.8.14",
-        "settings": {
-          "optimizer": {
-            "enabled": true,
-            "runs": 100
-          },
-          "outputSelection": {
-            "*": {
-              "*": [
-                "abi",
-                "evm.bytecode",
-                "evm.deployedBytecode",
-                "evm.methodIdentifiers",
-                "metadata",
-                "storageLayout"
-              ],
-              "": [
-                "ast"
-              ]
-            }
-          }
-        }
-      },
-      "imports": [],
-      "versionPragmas": [
-        "^0.8.0"
-      ],
-      "artifacts": [
-        "IERC721ReceiverUpgradeable"
-      ]
-    },
-    "/home/nkt/Desktop/metaStoksContracts/node_modules/@openzeppelin/contracts-upgradeable/token/ERC721/extensions/IERC721MetadataUpgradeable.sol": {
-      "lastModificationDate": 1654235424316,
-      "contentHash": "76212ca0265501d1eb3dd1175e6afca4",
-      "sourceName": "@openzeppelin/contracts-upgradeable/token/ERC721/extensions/IERC721MetadataUpgradeable.sol",
-      "solcConfig": {
-        "version": "0.8.14",
-        "settings": {
-          "optimizer": {
-            "enabled": true,
-            "runs": 100
-          },
-          "outputSelection": {
-            "*": {
-              "*": [
-                "abi",
-                "evm.bytecode",
-                "evm.deployedBytecode",
-                "evm.methodIdentifiers",
-                "metadata",
-                "storageLayout"
-              ],
-              "": [
-                "ast"
-              ]
-            }
-          }
-        }
-      },
-      "imports": [
-        "../IERC721Upgradeable.sol"
-      ],
-      "versionPragmas": [
-        "^0.8.0"
-      ],
-      "artifacts": [
-        "IERC721MetadataUpgradeable"
-      ]
-    },
-    "/home/nkt/Desktop/metaStoksContracts/node_modules/@openzeppelin/contracts-upgradeable/utils/StringsUpgradeable.sol": {
-      "lastModificationDate": 1654235424320,
-      "contentHash": "f60b5fcbc57911b0fbc7a31a110f90bc",
-      "sourceName": "@openzeppelin/contracts-upgradeable/utils/StringsUpgradeable.sol",
-      "solcConfig": {
-        "version": "0.8.14",
-        "settings": {
-          "optimizer": {
-            "enabled": true,
-            "runs": 100
-          },
-          "outputSelection": {
-            "*": {
-              "*": [
-                "abi",
-                "evm.bytecode",
-                "evm.deployedBytecode",
-                "evm.methodIdentifiers",
-                "metadata",
-                "storageLayout"
-              ],
-              "": [
-                "ast"
-              ]
-            }
-          }
-        }
-      },
-      "imports": [],
-      "versionPragmas": [
-        "^0.8.0"
-      ],
-      "artifacts": [
-        "StringsUpgradeable"
-      ]
-    },
-    "/home/nkt/Desktop/metaStoksContracts/node_modules/@openzeppelin/contracts-upgradeable/utils/introspection/ERC165Upgradeable.sol": {
-      "lastModificationDate": 1654235424324,
-      "contentHash": "5f2d8b81c0ff5bd2047b4846c20b998d",
-      "sourceName": "@openzeppelin/contracts-upgradeable/utils/introspection/ERC165Upgradeable.sol",
-      "solcConfig": {
-        "version": "0.8.14",
-        "settings": {
-          "optimizer": {
-            "enabled": true,
-            "runs": 100
-          },
-          "outputSelection": {
-            "*": {
-              "*": [
-                "abi",
-                "evm.bytecode",
-                "evm.deployedBytecode",
-                "evm.methodIdentifiers",
-                "metadata",
-                "storageLayout"
-              ],
-              "": [
-                "ast"
-              ]
-            }
-          }
-        }
-      },
-      "imports": [
-        "./IERC165Upgradeable.sol",
-        "../../proxy/utils/Initializable.sol"
-      ],
-      "versionPragmas": [
-        "^0.8.0"
-      ],
-      "artifacts": [
-        "ERC165Upgradeable"
-      ]
-    },
-    "/home/nkt/Desktop/metaStoksContracts/node_modules/@openzeppelin/contracts-upgradeable/utils/introspection/IERC165Upgradeable.sol": {
-      "lastModificationDate": 1654235424324,
-      "contentHash": "d6ecf203a5e72c845be9bbf2f304a289",
-      "sourceName": "@openzeppelin/contracts-upgradeable/utils/introspection/IERC165Upgradeable.sol",
-      "solcConfig": {
-        "version": "0.8.14",
-        "settings": {
-          "optimizer": {
-            "enabled": true,
-            "runs": 100
-          },
-          "outputSelection": {
-            "*": {
-              "*": [
-                "abi",
-                "evm.bytecode",
-                "evm.deployedBytecode",
-                "evm.methodIdentifiers",
-                "metadata",
-                "storageLayout"
-              ],
-              "": [
-                "ast"
-              ]
-            }
-          }
-        }
-      },
-      "imports": [],
-      "versionPragmas": [
-        "^0.8.0"
-      ],
-      "artifacts": [
-        "IERC165Upgradeable"
+        "MetaStocksIERC1155ReceiverHolder"
       ]
     },
     "/home/nkt/Desktop/metaStoksContracts/node_modules/@openzeppelin/contracts/token/ERC1155/utils/ERC1155Receiver.sol": {
@@ -2118,333 +2483,10 @@
         "IERC165"
       ]
     },
-    "/home/nkt/Desktop/metaStoksContracts/contracts/MetaStocksFranchiseShare.sol": {
-      "lastModificationDate": 1654917422809,
-      "contentHash": "24dda23a9f1f4ad3150b94b9e6cd8ac7",
-      "sourceName": "contracts/MetaStocksFranchiseShare.sol",
-      "solcConfig": {
-        "version": "0.8.14",
-        "settings": {
-          "optimizer": {
-            "enabled": true,
-            "runs": 100
-          },
-          "outputSelection": {
-            "*": {
-              "*": [
-                "abi",
-                "evm.bytecode",
-                "evm.deployedBytecode",
-                "evm.methodIdentifiers",
-                "metadata",
-                "storageLayout"
-              ],
-              "": [
-                "ast"
-              ]
-            }
-          }
-        }
-      },
-      "imports": [
-        "@openzeppelin/contracts-upgradeable/token/ERC1155/ERC1155Upgradeable.sol",
-        "@openzeppelin/contracts-upgradeable/access/OwnableUpgradeable.sol",
-        "@openzeppelin/contracts-upgradeable/security/PausableUpgradeable.sol",
-        "@openzeppelin/contracts-upgradeable/token/ERC1155/extensions/ERC1155BurnableUpgradeable.sol",
-        "@openzeppelin/contracts-upgradeable/token/ERC1155/extensions/ERC1155SupplyUpgradeable.sol",
-        "@openzeppelin/contracts-upgradeable/proxy/utils/Initializable.sol"
-      ],
-      "versionPragmas": [
-        "^0.8.14"
-      ],
-      "artifacts": [
-        "MetaStocksFranchiseShare"
-      ]
-    },
-    "/home/nkt/Desktop/metaStoksContracts/node_modules/@openzeppelin/contracts-upgradeable/token/ERC1155/ERC1155Upgradeable.sol": {
-      "lastModificationDate": 1654235424316,
-      "contentHash": "badec13a06f45436e46586d6795a4ef9",
-      "sourceName": "@openzeppelin/contracts-upgradeable/token/ERC1155/ERC1155Upgradeable.sol",
-      "solcConfig": {
-        "version": "0.8.14",
-        "settings": {
-          "optimizer": {
-            "enabled": true,
-            "runs": 100
-          },
-          "outputSelection": {
-            "*": {
-              "*": [
-                "abi",
-                "evm.bytecode",
-                "evm.deployedBytecode",
-                "evm.methodIdentifiers",
-                "metadata",
-                "storageLayout"
-              ],
-              "": [
-                "ast"
-              ]
-            }
-          }
-        }
-      },
-      "imports": [
-        "./IERC1155Upgradeable.sol",
-        "./IERC1155ReceiverUpgradeable.sol",
-        "./extensions/IERC1155MetadataURIUpgradeable.sol",
-        "../../utils/AddressUpgradeable.sol",
-        "../../utils/ContextUpgradeable.sol",
-        "../../utils/introspection/ERC165Upgradeable.sol",
-        "../../proxy/utils/Initializable.sol"
-      ],
-      "versionPragmas": [
-        "^0.8.0"
-      ],
-      "artifacts": [
-        "ERC1155Upgradeable"
-      ]
-    },
-    "/home/nkt/Desktop/metaStoksContracts/node_modules/@openzeppelin/contracts-upgradeable/token/ERC1155/extensions/ERC1155BurnableUpgradeable.sol": {
-      "lastModificationDate": 1654235424316,
-      "contentHash": "3c1db085a2eba5ff80d428b03b261036",
-      "sourceName": "@openzeppelin/contracts-upgradeable/token/ERC1155/extensions/ERC1155BurnableUpgradeable.sol",
-      "solcConfig": {
-        "version": "0.8.14",
-        "settings": {
-          "optimizer": {
-            "enabled": true,
-            "runs": 100
-          },
-          "outputSelection": {
-            "*": {
-              "*": [
-                "abi",
-                "evm.bytecode",
-                "evm.deployedBytecode",
-                "evm.methodIdentifiers",
-                "metadata",
-                "storageLayout"
-              ],
-              "": [
-                "ast"
-              ]
-            }
-          }
-        }
-      },
-      "imports": [
-        "../ERC1155Upgradeable.sol",
-        "../../../proxy/utils/Initializable.sol"
-      ],
-      "versionPragmas": [
-        "^0.8.0"
-      ],
-      "artifacts": [
-        "ERC1155BurnableUpgradeable"
-      ]
-    },
-    "/home/nkt/Desktop/metaStoksContracts/node_modules/@openzeppelin/contracts-upgradeable/token/ERC1155/extensions/ERC1155SupplyUpgradeable.sol": {
-      "lastModificationDate": 1654235424316,
-      "contentHash": "fbf5fdb7a74554410a3b4059f3d314df",
-      "sourceName": "@openzeppelin/contracts-upgradeable/token/ERC1155/extensions/ERC1155SupplyUpgradeable.sol",
-      "solcConfig": {
-        "version": "0.8.14",
-        "settings": {
-          "optimizer": {
-            "enabled": true,
-            "runs": 100
-          },
-          "outputSelection": {
-            "*": {
-              "*": [
-                "abi",
-                "evm.bytecode",
-                "evm.deployedBytecode",
-                "evm.methodIdentifiers",
-                "metadata",
-                "storageLayout"
-              ],
-              "": [
-                "ast"
-              ]
-            }
-          }
-        }
-      },
-      "imports": [
-        "../ERC1155Upgradeable.sol",
-        "../../../proxy/utils/Initializable.sol"
-      ],
-      "versionPragmas": [
-        "^0.8.0"
-      ],
-      "artifacts": [
-        "ERC1155SupplyUpgradeable"
-      ]
-    },
-    "/home/nkt/Desktop/metaStoksContracts/node_modules/@openzeppelin/contracts-upgradeable/token/ERC1155/IERC1155Upgradeable.sol": {
-      "lastModificationDate": 1654235424316,
-      "contentHash": "a51bc173c3333372b3aa9913bc21f38c",
-      "sourceName": "@openzeppelin/contracts-upgradeable/token/ERC1155/IERC1155Upgradeable.sol",
-      "solcConfig": {
-        "version": "0.8.14",
-        "settings": {
-          "optimizer": {
-            "enabled": true,
-            "runs": 100
-          },
-          "outputSelection": {
-            "*": {
-              "*": [
-                "abi",
-                "evm.bytecode",
-                "evm.deployedBytecode",
-                "evm.methodIdentifiers",
-                "metadata",
-                "storageLayout"
-              ],
-              "": [
-                "ast"
-              ]
-            }
-          }
-        }
-      },
-      "imports": [
-        "../../utils/introspection/IERC165Upgradeable.sol"
-      ],
-      "versionPragmas": [
-        "^0.8.0"
-      ],
-      "artifacts": [
-        "IERC1155Upgradeable"
-      ]
-    },
-    "/home/nkt/Desktop/metaStoksContracts/node_modules/@openzeppelin/contracts-upgradeable/token/ERC1155/IERC1155ReceiverUpgradeable.sol": {
-      "lastModificationDate": 1654235424316,
-      "contentHash": "eb51ed084f6f7fd2c7098715c5690285",
-      "sourceName": "@openzeppelin/contracts-upgradeable/token/ERC1155/IERC1155ReceiverUpgradeable.sol",
-      "solcConfig": {
-        "version": "0.8.14",
-        "settings": {
-          "optimizer": {
-            "enabled": true,
-            "runs": 100
-          },
-          "outputSelection": {
-            "*": {
-              "*": [
-                "abi",
-                "evm.bytecode",
-                "evm.deployedBytecode",
-                "evm.methodIdentifiers",
-                "metadata",
-                "storageLayout"
-              ],
-              "": [
-                "ast"
-              ]
-            }
-          }
-        }
-      },
-      "imports": [
-        "../../utils/introspection/IERC165Upgradeable.sol"
-      ],
-      "versionPragmas": [
-        "^0.8.0"
-      ],
-      "artifacts": [
-        "IERC1155ReceiverUpgradeable"
-      ]
-    },
-    "/home/nkt/Desktop/metaStoksContracts/node_modules/@openzeppelin/contracts-upgradeable/token/ERC1155/extensions/IERC1155MetadataURIUpgradeable.sol": {
-      "lastModificationDate": 1654235424316,
-      "contentHash": "8b7e95c747e2dab3b5444b37410a8315",
-      "sourceName": "@openzeppelin/contracts-upgradeable/token/ERC1155/extensions/IERC1155MetadataURIUpgradeable.sol",
-      "solcConfig": {
-        "version": "0.8.14",
-        "settings": {
-          "optimizer": {
-            "enabled": true,
-            "runs": 100
-          },
-          "outputSelection": {
-            "*": {
-              "*": [
-                "abi",
-                "evm.bytecode",
-                "evm.deployedBytecode",
-                "evm.methodIdentifiers",
-                "metadata",
-                "storageLayout"
-              ],
-              "": [
-                "ast"
-              ]
-            }
-          }
-        }
-      },
-      "imports": [
-        "../IERC1155Upgradeable.sol"
-      ],
-      "versionPragmas": [
-        "^0.8.0"
-      ],
-      "artifacts": [
-        "IERC1155MetadataURIUpgradeable"
-      ]
-    },
-    "/home/nkt/Desktop/metaStoksContracts/contracts/MetaStocksFranchise.sol": {
-      "lastModificationDate": 1654944840326,
-      "contentHash": "443f6b248f2ffa47554068fdc65f8d88",
-      "sourceName": "contracts/MetaStocksFranchise.sol",
-      "solcConfig": {
-        "version": "0.8.14",
-        "settings": {
-          "optimizer": {
-            "enabled": true,
-            "runs": 100
-          },
-          "outputSelection": {
-            "*": {
-              "*": [
-                "abi",
-                "evm.bytecode",
-                "evm.deployedBytecode",
-                "evm.methodIdentifiers",
-                "metadata",
-                "storageLayout"
-              ],
-              "": [
-                "ast"
-              ]
-            }
-          }
-        }
-      },
-      "imports": [
-        "@openzeppelin/contracts-upgradeable/token/ERC1155/ERC1155Upgradeable.sol",
-        "@openzeppelin/contracts-upgradeable/access/OwnableUpgradeable.sol",
-        "@openzeppelin/contracts-upgradeable/security/PausableUpgradeable.sol",
-        "@openzeppelin/contracts-upgradeable/token/ERC1155/extensions/ERC1155BurnableUpgradeable.sol",
-        "@openzeppelin/contracts-upgradeable/token/ERC1155/extensions/ERC1155SupplyUpgradeable.sol",
-        "@openzeppelin/contracts-upgradeable/proxy/utils/Initializable.sol",
-        "./enums/MetaStocksFranchiseType.sol"
-      ],
-      "versionPragmas": [
-        "^0.8.14"
-      ],
-      "artifacts": [
-        "MetaStocksFranchise"
-      ]
-    },
-    "/home/nkt/Desktop/metaStoksContracts/contracts/managers/metaStocks/MetaStocksCompanyManager.sol": {
-      "lastModificationDate": 1654949645244,
-      "contentHash": "0697b2e59ade63948290f42e587f8bda",
-      "sourceName": "contracts/managers/metaStocks/MetaStocksCompanyManager.sol",
+    "/home/nkt/Desktop/metaStoksContracts/contracts/managers/metastocks/MetaStocksFranchiseManager.sol": {
+      "lastModificationDate": 1654952765613,
+      "contentHash": "d8bbb62a187d3077b3d584a63b691dac",
+      "sourceName": "contracts/managers/metastocks/MetaStocksFranchiseManager.sol",
       "solcConfig": {
         "version": "0.8.14",
         "settings": {
@@ -2471,19 +2513,61 @@
       },
       "imports": [
         "@openzeppelin/contracts-upgradeable/token/ERC20/ERC20Upgradeable.sol",
-        "@openzeppelin/contracts/token/ERC1155/utils/ERC1155Holder.sol",
-        "@openzeppelin/contracts/token/ERC1155/utils/ERC1155Holder.sol",
-        "@openzeppelin/contracts-upgradeable/token/ERC1155/ERC1155Upgradeable.sol",
-        "@openzeppelin/contracts/token/ERC1155/IERC1155Receiver.sol",
+        "@uniswap/v2-periphery/contracts/interfaces/IUniswapV2Router02.sol",
+        "@openzeppelin/contracts/token/ERC20/IERC20.sol",
+        "@chainlink/contracts/src/v0.8/interfaces/AggregatorV3Interface.sol",
         "@openzeppelin/contracts-upgradeable/access/OwnableUpgradeable.sol",
-        "../../interfaces/metaStocks/IMetaStocksCompany.sol",
-        "./MetaStocksBaseManager.sol"
+        "@openzeppelin/contracts/token/ERC1155/utils/ERC1155Holder.sol",
+        "@openzeppelin/contracts/token/ERC1155/IERC1155Receiver.sol",
+        "../../managers/chainlink/ChainlinkDataFeedsManager.sol",
+        "../../interfaces/metaStocks/IMetaStocksFranchise.sol",
+        "../../models/TransactionFees.sol",
+        "../../enums/MetaStocksFranchiseType.sol",
+        "../../tokens/MetaStocksIERC1155ReceiverHolder.sol"
       ],
       "versionPragmas": [
         "^0.8.14"
       ],
       "artifacts": [
-        "MetaStocksCompanyManager"
+        "MetaStocksFranchiseManager"
+      ]
+    },
+    "/home/nkt/Desktop/metaStoksContracts/contracts/interfaces/metaStocks/IMetaStocksFranchise.sol": {
+      "lastModificationDate": 1654945037209,
+      "contentHash": "29e69a27c1299673f5dea392233c20c9",
+      "sourceName": "contracts/interfaces/metaStocks/IMetaStocksFranchise.sol",
+      "solcConfig": {
+        "version": "0.8.14",
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "runs": 100
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata",
+                "storageLayout"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [
+        "../../enums/MetaStocksFranchiseType.sol"
+      ],
+      "versionPragmas": [
+        "^0.8.14"
+      ],
+      "artifacts": [
+        "IMetaStocksFranchise"
       ]
     },
     "/home/nkt/Desktop/metaStoksContracts/contracts/interfaces/midas/IMidasMultiNetworkRouterManager.sol": {
@@ -2522,6 +2606,44 @@
       ],
       "artifacts": [
         "MidasMultiNetworkRouterManager"
+      ]
+    },
+    "/home/nkt/Desktop/metaStoksContracts/contracts/interfaces/metaStocks/IMetaStocksFranchiseManager.sol": {
+      "lastModificationDate": 1654945874879,
+      "contentHash": "117f87023b4d3385286a6a74c63ab731",
+      "sourceName": "contracts/interfaces/metaStocks/IMetaStocksFranchiseManager.sol",
+      "solcConfig": {
+        "version": "0.8.14",
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "runs": 100
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata",
+                "storageLayout"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [
+        "../../enums/MetaStocksFranchiseType.sol"
+      ],
+      "versionPragmas": [
+        "^0.8.14"
+      ],
+      "artifacts": [
+        "IMetaStocksFranchiseManager"
       ]
     },
     "/home/nkt/Desktop/metaStoksContracts/contracts/interfaces/metaStocks/IMetaStockFranchiseShare.sol": {
@@ -2881,128 +3003,6 @@
         "^0.8.14"
       ],
       "artifacts": []
-    },
-    "/home/nkt/Desktop/metaStoksContracts/contracts/interfaces/metaStocks/IMetaStocksFranchiseManager.sol": {
-      "lastModificationDate": 1654945874879,
-      "contentHash": "117f87023b4d3385286a6a74c63ab731",
-      "sourceName": "contracts/interfaces/metaStocks/IMetaStocksFranchiseManager.sol",
-      "solcConfig": {
-        "version": "0.8.14",
-        "settings": {
-          "optimizer": {
-            "enabled": true,
-            "runs": 100
-          },
-          "outputSelection": {
-            "*": {
-              "*": [
-                "abi",
-                "evm.bytecode",
-                "evm.deployedBytecode",
-                "evm.methodIdentifiers",
-                "metadata",
-                "storageLayout"
-              ],
-              "": [
-                "ast"
-              ]
-            }
-          }
-        }
-      },
-      "imports": [
-        "../../enums/MetaStocksFranchiseType.sol"
-      ],
-      "versionPragmas": [
-        "^0.8.14"
-      ],
-      "artifacts": [
-        "IMetaStocksFranchiseManager"
-      ]
-    },
-    "/home/nkt/Desktop/metaStoksContracts/contracts/managers/metaStocks/MetaStocksBaseManager.sol": {
-      "lastModificationDate": 1654948598934,
-      "contentHash": "1b3a2e4fa0b9049900f09a17e11cca0b",
-      "sourceName": "contracts/managers/metaStocks/MetaStocksBaseManager.sol",
-      "solcConfig": {
-        "version": "0.8.14",
-        "settings": {
-          "optimizer": {
-            "enabled": true,
-            "runs": 100
-          },
-          "outputSelection": {
-            "*": {
-              "*": [
-                "abi",
-                "evm.bytecode",
-                "evm.deployedBytecode",
-                "evm.methodIdentifiers",
-                "metadata",
-                "storageLayout"
-              ],
-              "": [
-                "ast"
-              ]
-            }
-          }
-        }
-      },
-      "imports": [
-        "@openzeppelin/contracts/token/ERC1155/utils/ERC1155Holder.sol",
-        "@openzeppelin/contracts/token/ERC1155/utils/ERC1155Holder.sol",
-        "@openzeppelin/contracts/token/ERC1155/IERC1155Receiver.sol"
-      ],
-      "versionPragmas": [
-        "^0.8.14"
-      ],
-      "artifacts": [
-        "MetaStocksBaseManager"
-      ]
-    },
-    "/home/nkt/Desktop/metaStoksContracts/contracts/MetaStocksERC20Upgradable.sol": {
-      "lastModificationDate": 1654950308017,
-      "contentHash": "48f07209727ac0bcb62ffb7925a929f0",
-      "sourceName": "contracts/MetaStocksERC20Upgradable.sol",
-      "solcConfig": {
-        "version": "0.8.14",
-        "settings": {
-          "optimizer": {
-            "enabled": true,
-            "runs": 100
-          },
-          "outputSelection": {
-            "*": {
-              "*": [
-                "abi",
-                "evm.bytecode",
-                "evm.deployedBytecode",
-                "evm.methodIdentifiers",
-                "metadata",
-                "storageLayout"
-              ],
-              "": [
-                "ast"
-              ]
-            }
-          }
-        }
-      },
-      "imports": [
-        "@openzeppelin/contracts/token/ERC20/IERC20.sol",
-        "@uniswap/v2-periphery/contracts/interfaces/IUniswapV2Router02.sol",
-        "@uniswap/v2-core/contracts/interfaces/IUniswapV2Factory.sol",
-        "@openzeppelin/contracts-upgradeable/token/ERC20/ERC20Upgradeable.sol",
-        "@openzeppelin/contracts-upgradeable/access/OwnableUpgradeable.sol",
-        "./managers/transactionFees/TransactionFeesManager.sol",
-        "./managers/midas/MidasMultinetworkRouterManager.sol"
-      ],
-      "versionPragmas": [
-        "^0.8.14"
-      ],
-      "artifacts": [
-        "MetaStocksERC20Upgradable"
-      ]
     }
   }
 }
