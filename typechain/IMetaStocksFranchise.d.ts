@@ -23,12 +23,17 @@ import type { TypedEventFilter, TypedEvent, TypedListener } from "./common";
 interface IMetaStocksFranchiseInterface extends ethers.utils.Interface {
   functions: {
     "create()": FunctionFragment;
+    "mint(address,uint256,uint256,bytes)": FunctionFragment;
     "remove(uint256)": FunctionFragment;
     "safeMint(address)": FunctionFragment;
     "update(uint256)": FunctionFragment;
   };
 
   encodeFunctionData(functionFragment: "create", values?: undefined): string;
+  encodeFunctionData(
+    functionFragment: "mint",
+    values: [string, BigNumberish, BigNumberish, BytesLike]
+  ): string;
   encodeFunctionData(
     functionFragment: "remove",
     values: [BigNumberish]
@@ -40,6 +45,7 @@ interface IMetaStocksFranchiseInterface extends ethers.utils.Interface {
   ): string;
 
   decodeFunctionResult(functionFragment: "create", data: BytesLike): Result;
+  decodeFunctionResult(functionFragment: "mint", data: BytesLike): Result;
   decodeFunctionResult(functionFragment: "remove", data: BytesLike): Result;
   decodeFunctionResult(functionFragment: "safeMint", data: BytesLike): Result;
   decodeFunctionResult(functionFragment: "update", data: BytesLike): Result;
@@ -95,6 +101,14 @@ export class IMetaStocksFranchise extends BaseContract {
       overrides?: PayableOverrides & { from?: string | Promise<string> }
     ): Promise<ContractTransaction>;
 
+    mint(
+      to: string,
+      id: BigNumberish,
+      amount: BigNumberish,
+      data: BytesLike,
+      overrides?: Overrides & { from?: string | Promise<string> }
+    ): Promise<ContractTransaction>;
+
     remove(
       companyId: BigNumberish,
       overrides?: Overrides & { from?: string | Promise<string> }
@@ -115,6 +129,14 @@ export class IMetaStocksFranchise extends BaseContract {
     overrides?: PayableOverrides & { from?: string | Promise<string> }
   ): Promise<ContractTransaction>;
 
+  mint(
+    to: string,
+    id: BigNumberish,
+    amount: BigNumberish,
+    data: BytesLike,
+    overrides?: Overrides & { from?: string | Promise<string> }
+  ): Promise<ContractTransaction>;
+
   remove(
     companyId: BigNumberish,
     overrides?: Overrides & { from?: string | Promise<string> }
@@ -133,6 +155,14 @@ export class IMetaStocksFranchise extends BaseContract {
   callStatic: {
     create(overrides?: CallOverrides): Promise<void>;
 
+    mint(
+      to: string,
+      id: BigNumberish,
+      amount: BigNumberish,
+      data: BytesLike,
+      overrides?: CallOverrides
+    ): Promise<void>;
+
     remove(companyId: BigNumberish, overrides?: CallOverrides): Promise<void>;
 
     safeMint(to: string, overrides?: CallOverrides): Promise<BigNumber>;
@@ -145,6 +175,14 @@ export class IMetaStocksFranchise extends BaseContract {
   estimateGas: {
     create(
       overrides?: PayableOverrides & { from?: string | Promise<string> }
+    ): Promise<BigNumber>;
+
+    mint(
+      to: string,
+      id: BigNumberish,
+      amount: BigNumberish,
+      data: BytesLike,
+      overrides?: Overrides & { from?: string | Promise<string> }
     ): Promise<BigNumber>;
 
     remove(
@@ -166,6 +204,14 @@ export class IMetaStocksFranchise extends BaseContract {
   populateTransaction: {
     create(
       overrides?: PayableOverrides & { from?: string | Promise<string> }
+    ): Promise<PopulatedTransaction>;
+
+    mint(
+      to: string,
+      id: BigNumberish,
+      amount: BigNumberish,
+      data: BytesLike,
+      overrides?: Overrides & { from?: string | Promise<string> }
     ): Promise<PopulatedTransaction>;
 
     remove(

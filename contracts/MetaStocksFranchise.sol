@@ -46,11 +46,11 @@ contract MetaStocksFranchise is
         uint256 id,
         uint256 amount,
         bytes memory data
-    ) public onlyOwner {
+    ) external onlyOwner {
         _mint(to, id, amount, data);
     }
 
-    function mint(
+    function mintBatch(
         address to,
         uint256[] memory ids,
         uint256[] memory amounts,

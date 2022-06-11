@@ -2171,8 +2171,8 @@
       ]
     },
     "/home/nkt/Desktop/metaStoksContracts/contracts/managers/metaStocksManager/MetaStockFranchiseManager.sol": {
-      "lastModificationDate": 1654918508447,
-      "contentHash": "0f211188e2f1e32928e9b22ebf13b9ce",
+      "lastModificationDate": 1654937897004,
+      "contentHash": "5a7f280e1ef7f61242f3f8006d0ddbf3",
       "sourceName": "contracts/managers/metaStocksManager/MetaStockFranchiseManager.sol",
       "solcConfig": {
         "version": "0.8.14",
@@ -2251,7 +2251,7 @@
       ]
     },
     "/home/nkt/Desktop/metaStoksContracts/contracts/managers/midasManagers/MidasMultinetworkRouterManager.sol": {
-      "lastModificationDate": 1654909465428,
+      "lastModificationDate": 1654940368596,
       "contentHash": "a6af99a4ce62af5d60cdc2211a6d83a3",
       "sourceName": "contracts/managers/midasManagers/MidasMultinetworkRouterManager.sol",
       "solcConfig": {
@@ -2291,8 +2291,8 @@
       ]
     },
     "/home/nkt/Desktop/metaStoksContracts/contracts/managers/metaStocksManager/MetaStocksCompanyManager.sol": {
-      "lastModificationDate": 1654914860657,
-      "contentHash": "3ad0785e2ba237b61a4a516b73741295",
+      "lastModificationDate": 1654938268502,
+      "contentHash": "60071093e2a5ff6f8533db0b6ab35883",
       "sourceName": "contracts/managers/metaStocksManager/MetaStocksCompanyManager.sol",
       "solcConfig": {
         "version": "0.8.14",
@@ -2419,8 +2419,8 @@
       ]
     },
     "/home/nkt/Desktop/metaStoksContracts/contracts/MetaStocksFranchise.sol": {
-      "lastModificationDate": 1654917408717,
-      "contentHash": "d21b6156c58582461cbe2ca378a97337",
+      "lastModificationDate": 1654920146668,
+      "contentHash": "9b517c33e6d6a546c62708a4a0dd7c1a",
       "sourceName": "contracts/MetaStocksFranchise.sol",
       "solcConfig": {
         "version": "0.8.14",
@@ -2500,8 +2500,8 @@
       ]
     },
     "/home/nkt/Desktop/metaStoksContracts/contracts/MetaStocksToken.sol": {
-      "lastModificationDate": 1654916778441,
-      "contentHash": "0a636d29edde5e0a5b1d2e817094d450",
+      "lastModificationDate": 1654940603694,
+      "contentHash": "4868a97c6f4ce53a903dce6342583085",
       "sourceName": "contracts/MetaStocksToken.sol",
       "solcConfig": {
         "version": "0.8.14",
@@ -2722,8 +2722,8 @@
       "artifacts": []
     },
     "/home/nkt/Desktop/metaStoksContracts/contracts/interfaces/metaStocksInterfaces/IMetaStocksFranchise.sol": {
-      "lastModificationDate": 1654918580751,
-      "contentHash": "cb728d9db2e5e47e01e9884a3e1f2550",
+      "lastModificationDate": 1654920168397,
+      "contentHash": "1bdb10241251dcfe6886791d322aa487",
       "sourceName": "contracts/interfaces/metaStocksInterfaces/IMetaStocksFranchise.sol",
       "solcConfig": {
         "version": "0.8.14",
@@ -2791,6 +2791,42 @@
       ],
       "artifacts": [
         "IMetaStocksCompanyInfo"
+      ]
+    },
+    "/home/nkt/Desktop/metaStoksContracts/node_modules/hardhat/console.sol": {
+      "lastModificationDate": 1654235427812,
+      "contentHash": "cc4777addd464ea56fa35b1c45df0591",
+      "sourceName": "hardhat/console.sol",
+      "solcConfig": {
+        "version": "0.8.14",
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "runs": 100
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata",
+                "storageLayout"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [],
+      "versionPragmas": [
+        ">=0.4.22 <0.9.0"
+      ],
+      "artifacts": [
+        "console"
       ]
     }
   }

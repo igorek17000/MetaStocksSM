@@ -25,6 +25,7 @@ interface MetaStocksCompanyManagerInterface extends ethers.utils.Interface {
     "allowance(address,address)": FunctionFragment;
     "approve(address,uint256)": FunctionFragment;
     "balanceOf(address)": FunctionFragment;
+    "ceos(address)": FunctionFragment;
     "ceosCompanies(address)": FunctionFragment;
     "create()": FunctionFragment;
     "decimals()": FunctionFragment;
@@ -51,6 +52,7 @@ interface MetaStocksCompanyManagerInterface extends ethers.utils.Interface {
     values: [string, BigNumberish]
   ): string;
   encodeFunctionData(functionFragment: "balanceOf", values: [string]): string;
+  encodeFunctionData(functionFragment: "ceos", values: [string]): string;
   encodeFunctionData(
     functionFragment: "ceosCompanies",
     values: [string]
@@ -94,6 +96,7 @@ interface MetaStocksCompanyManagerInterface extends ethers.utils.Interface {
   decodeFunctionResult(functionFragment: "allowance", data: BytesLike): Result;
   decodeFunctionResult(functionFragment: "approve", data: BytesLike): Result;
   decodeFunctionResult(functionFragment: "balanceOf", data: BytesLike): Result;
+  decodeFunctionResult(functionFragment: "ceos", data: BytesLike): Result;
   decodeFunctionResult(
     functionFragment: "ceosCompanies",
     data: BytesLike
@@ -127,11 +130,13 @@ interface MetaStocksCompanyManagerInterface extends ethers.utils.Interface {
 
   events: {
     "Approval(address,address,uint256)": EventFragment;
+    "CreateCompany(address,uint256)": EventFragment;
     "Initialized(uint8)": EventFragment;
     "Transfer(address,address,uint256)": EventFragment;
   };
 
   getEvent(nameOrSignatureOrTopic: "Approval"): EventFragment;
+  getEvent(nameOrSignatureOrTopic: "CreateCompany"): EventFragment;
   getEvent(nameOrSignatureOrTopic: "Initialized"): EventFragment;
   getEvent(nameOrSignatureOrTopic: "Transfer"): EventFragment;
 }
@@ -142,6 +147,10 @@ export type ApprovalEvent = TypedEvent<
     spender: string;
     value: BigNumber;
   }
+>;
+
+export type CreateCompanyEvent = TypedEvent<
+  [string, BigNumber] & { account: string; comanyId: BigNumber }
 >;
 
 export type InitializedEvent = TypedEvent<[number] & { version: number }>;
@@ -207,6 +216,8 @@ export class MetaStocksCompanyManager extends BaseContract {
     ): Promise<ContractTransaction>;
 
     balanceOf(account: string, overrides?: CallOverrides): Promise<[BigNumber]>;
+
+    ceos(arg0: string, overrides?: CallOverrides): Promise<[boolean]>;
 
     ceosCompanies(
       arg0: string,
@@ -287,6 +298,8 @@ export class MetaStocksCompanyManager extends BaseContract {
 
   balanceOf(account: string, overrides?: CallOverrides): Promise<BigNumber>;
 
+  ceos(arg0: string, overrides?: CallOverrides): Promise<boolean>;
+
   ceosCompanies(arg0: string, overrides?: CallOverrides): Promise<BigNumber>;
 
   create(
@@ -360,6 +373,8 @@ export class MetaStocksCompanyManager extends BaseContract {
 
     balanceOf(account: string, overrides?: CallOverrides): Promise<BigNumber>;
 
+    ceos(arg0: string, overrides?: CallOverrides): Promise<boolean>;
+
     ceosCompanies(arg0: string, overrides?: CallOverrides): Promise<BigNumber>;
 
     create(overrides?: CallOverrides): Promise<void>;
@@ -430,6 +445,22 @@ export class MetaStocksCompanyManager extends BaseContract {
       { owner: string; spender: string; value: BigNumber }
     >;
 
+    "CreateCompany(address,uint256)"(
+      account?: string | null,
+      comanyId?: null
+    ): TypedEventFilter<
+      [string, BigNumber],
+      { account: string; comanyId: BigNumber }
+    >;
+
+    CreateCompany(
+      account?: string | null,
+      comanyId?: null
+    ): TypedEventFilter<
+      [string, BigNumber],
+      { account: string; comanyId: BigNumber }
+    >;
+
     "Initialized(uint8)"(
       version?: null
     ): TypedEventFilter<[number], { version: number }>;
@@ -471,6 +502,8 @@ export class MetaStocksCompanyManager extends BaseContract {
     ): Promise<BigNumber>;
 
     balanceOf(account: string, overrides?: CallOverrides): Promise<BigNumber>;
+
+    ceos(arg0: string, overrides?: CallOverrides): Promise<BigNumber>;
 
     ceosCompanies(arg0: string, overrides?: CallOverrides): Promise<BigNumber>;
 
@@ -546,6 +579,11 @@ export class MetaStocksCompanyManager extends BaseContract {
 
     balanceOf(
       account: string,
+      overrides?: CallOverrides
+    ): Promise<PopulatedTransaction>;
+
+    ceos(
+      arg0: string,
       overrides?: CallOverrides
     ): Promise<PopulatedTransaction>;
 

@@ -9,6 +9,9 @@ contract MetaStocksCompanyManager is ERC20Upgradeable {
 
     uint256 maxCompanies;
     mapping(address => uint256) public ceosCompanies;
+    mapping(address => bool) public ceos;
+
+    event CreateCompany(address indexed account, uint256 comanyId);
 
     function initialize(address _metaStocksCompanyAddress) public initializer {
         maxCompanies = 1 ether;
@@ -20,12 +23,14 @@ contract MetaStocksCompanyManager is ERC20Upgradeable {
     }
 
     function isCeo(address _account) external view returns (bool) {
-        return ceosCompanies[_account] > 0;
+        return ceos[_account];
     }
 
     function create() external payable {
-        require(ceosCompanies[msg.sender] == 0, "Max Companies");
+        require(!ceos[msg.sender], "Already Ceo");
         ceosCompanies[msg.sender] = MetaStocksCompany.safeMint(msg.sender);
+        ceos[msg.sender] = true;
+        emit CreateCompany(msg.sender, ceosCompanies[msg.sender]);
     }
 
     function update(uint256 managerId) external {}

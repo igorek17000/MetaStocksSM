@@ -313,14 +313,6 @@ declare module "hardhat/types/runtime" {
       signerOrOptions?: ethers.Signer | FactoryOptions
     ): Promise<Contracts.IPangolinRouter__factory>;
     getContractFactory(
-      name: "IMetaStocksCompanyInfo",
-      signerOrOptions?: ethers.Signer | FactoryOptions
-    ): Promise<Contracts.IMetaStocksCompanyInfo__factory>;
-    getContractFactory(
-      name: "IMetaStocksFranchise",
-      signerOrOptions?: ethers.Signer | FactoryOptions
-    ): Promise<Contracts.IMetaStocksFranchise__factory>;
-    getContractFactory(
       name: "IMetaStocksFranchiseShare",
       signerOrOptions?: ethers.Signer | FactoryOptions
     ): Promise<Contracts.IMetaStocksFranchiseShare__factory>;
@@ -776,16 +768,6 @@ declare module "hardhat/types/runtime" {
       address: string,
       signer?: ethers.Signer
     ): Promise<Contracts.IPangolinRouter>;
-    getContractAt(
-      name: "IMetaStocksCompanyInfo",
-      address: string,
-      signer?: ethers.Signer
-    ): Promise<Contracts.IMetaStocksCompanyInfo>;
-    getContractAt(
-      name: "IMetaStocksFranchise",
-      address: string,
-      signer?: ethers.Signer
-    ): Promise<Contracts.IMetaStocksFranchise>;
     getContractAt(
       name: "IMetaStocksFranchiseShare",
       address: string,

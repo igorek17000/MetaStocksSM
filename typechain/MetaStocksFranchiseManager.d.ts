@@ -25,8 +25,9 @@ interface MetaStocksFranchiseManagerInterface extends ethers.utils.Interface {
     "allowance(address,address)": FunctionFragment;
     "approve(address,uint256)": FunctionFragment;
     "balanceOf(address)": FunctionFragment;
+    "companyFranchises(uint256)": FunctionFragment;
     "create()": FunctionFragment;
-    "createMetaStocksFranchise(address,uint256,bytes)": FunctionFragment;
+    "createMetaStocksFranchise(address,uint256,uint256,bytes)": FunctionFragment;
     "decimals()": FunctionFragment;
     "decreaseAllowance(address,uint256)": FunctionFragment;
     "getCreateFranchisePrice()": FunctionFragment;
@@ -38,6 +39,7 @@ interface MetaStocksFranchiseManagerInterface extends ethers.utils.Interface {
     "getUnclaimedRewards()": FunctionFragment;
     "increaseAllowance(address,uint256)": FunctionFragment;
     "initialize(address)": FunctionFragment;
+    "lastFranchiseClaimDate(uint256)": FunctionFragment;
     "name()": FunctionFragment;
     "remove(uint256)": FunctionFragment;
     "setCreateFranchisePrice(uint16)": FunctionFragment;
@@ -62,10 +64,14 @@ interface MetaStocksFranchiseManagerInterface extends ethers.utils.Interface {
     values: [string, BigNumberish]
   ): string;
   encodeFunctionData(functionFragment: "balanceOf", values: [string]): string;
+  encodeFunctionData(
+    functionFragment: "companyFranchises",
+    values: [BigNumberish]
+  ): string;
   encodeFunctionData(functionFragment: "create", values?: undefined): string;
   encodeFunctionData(
     functionFragment: "createMetaStocksFranchise",
-    values: [string, BigNumberish, BytesLike]
+    values: [string, BigNumberish, BigNumberish, BytesLike]
   ): string;
   encodeFunctionData(functionFragment: "decimals", values?: undefined): string;
   encodeFunctionData(
@@ -102,6 +108,10 @@ interface MetaStocksFranchiseManagerInterface extends ethers.utils.Interface {
     values: [string, BigNumberish]
   ): string;
   encodeFunctionData(functionFragment: "initialize", values: [string]): string;
+  encodeFunctionData(
+    functionFragment: "lastFranchiseClaimDate",
+    values: [BigNumberish]
+  ): string;
   encodeFunctionData(functionFragment: "name", values?: undefined): string;
   encodeFunctionData(
     functionFragment: "remove",
@@ -152,6 +162,10 @@ interface MetaStocksFranchiseManagerInterface extends ethers.utils.Interface {
   decodeFunctionResult(functionFragment: "allowance", data: BytesLike): Result;
   decodeFunctionResult(functionFragment: "approve", data: BytesLike): Result;
   decodeFunctionResult(functionFragment: "balanceOf", data: BytesLike): Result;
+  decodeFunctionResult(
+    functionFragment: "companyFranchises",
+    data: BytesLike
+  ): Result;
   decodeFunctionResult(functionFragment: "create", data: BytesLike): Result;
   decodeFunctionResult(
     functionFragment: "createMetaStocksFranchise",
@@ -192,6 +206,10 @@ interface MetaStocksFranchiseManagerInterface extends ethers.utils.Interface {
     data: BytesLike
   ): Result;
   decodeFunctionResult(functionFragment: "initialize", data: BytesLike): Result;
+  decodeFunctionResult(
+    functionFragment: "lastFranchiseClaimDate",
+    data: BytesLike
+  ): Result;
   decodeFunctionResult(functionFragment: "name", data: BytesLike): Result;
   decodeFunctionResult(functionFragment: "remove", data: BytesLike): Result;
   decodeFunctionResult(
@@ -313,12 +331,18 @@ export class MetaStocksFranchiseManager extends BaseContract {
 
     balanceOf(account: string, overrides?: CallOverrides): Promise<[BigNumber]>;
 
+    companyFranchises(
+      arg0: BigNumberish,
+      overrides?: CallOverrides
+    ): Promise<[BigNumber]>;
+
     create(
       overrides?: PayableOverrides & { from?: string | Promise<string> }
     ): Promise<ContractTransaction>;
 
     createMetaStocksFranchise(
-      companyAddress: string,
+      to: string,
+      companyId: BigNumberish,
       id: BigNumberish,
       data: BytesLike,
       overrides?: Overrides & { from?: string | Promise<string> }
@@ -358,6 +382,11 @@ export class MetaStocksFranchiseManager extends BaseContract {
       _metaStocksFranchiseAddress: string,
       overrides?: Overrides & { from?: string | Promise<string> }
     ): Promise<ContractTransaction>;
+
+    lastFranchiseClaimDate(
+      arg0: BigNumberish,
+      overrides?: CallOverrides
+    ): Promise<[BigNumber]>;
 
     name(overrides?: CallOverrides): Promise<[string]>;
 
@@ -433,12 +462,18 @@ export class MetaStocksFranchiseManager extends BaseContract {
 
   balanceOf(account: string, overrides?: CallOverrides): Promise<BigNumber>;
 
+  companyFranchises(
+    arg0: BigNumberish,
+    overrides?: CallOverrides
+  ): Promise<BigNumber>;
+
   create(
     overrides?: PayableOverrides & { from?: string | Promise<string> }
   ): Promise<ContractTransaction>;
 
   createMetaStocksFranchise(
-    companyAddress: string,
+    to: string,
+    companyId: BigNumberish,
     id: BigNumberish,
     data: BytesLike,
     overrides?: Overrides & { from?: string | Promise<string> }
@@ -476,6 +511,11 @@ export class MetaStocksFranchiseManager extends BaseContract {
     _metaStocksFranchiseAddress: string,
     overrides?: Overrides & { from?: string | Promise<string> }
   ): Promise<ContractTransaction>;
+
+  lastFranchiseClaimDate(
+    arg0: BigNumberish,
+    overrides?: CallOverrides
+  ): Promise<BigNumber>;
 
   name(overrides?: CallOverrides): Promise<string>;
 
@@ -551,10 +591,16 @@ export class MetaStocksFranchiseManager extends BaseContract {
 
     balanceOf(account: string, overrides?: CallOverrides): Promise<BigNumber>;
 
+    companyFranchises(
+      arg0: BigNumberish,
+      overrides?: CallOverrides
+    ): Promise<BigNumber>;
+
     create(overrides?: CallOverrides): Promise<void>;
 
     createMetaStocksFranchise(
-      companyAddress: string,
+      to: string,
+      companyId: BigNumberish,
       id: BigNumberish,
       data: BytesLike,
       overrides?: CallOverrides
@@ -594,6 +640,11 @@ export class MetaStocksFranchiseManager extends BaseContract {
       _metaStocksFranchiseAddress: string,
       overrides?: CallOverrides
     ): Promise<void>;
+
+    lastFranchiseClaimDate(
+      arg0: BigNumberish,
+      overrides?: CallOverrides
+    ): Promise<BigNumber>;
 
     name(overrides?: CallOverrides): Promise<string>;
 
@@ -710,12 +761,18 @@ export class MetaStocksFranchiseManager extends BaseContract {
 
     balanceOf(account: string, overrides?: CallOverrides): Promise<BigNumber>;
 
+    companyFranchises(
+      arg0: BigNumberish,
+      overrides?: CallOverrides
+    ): Promise<BigNumber>;
+
     create(
       overrides?: PayableOverrides & { from?: string | Promise<string> }
     ): Promise<BigNumber>;
 
     createMetaStocksFranchise(
-      companyAddress: string,
+      to: string,
+      companyId: BigNumberish,
       id: BigNumberish,
       data: BytesLike,
       overrides?: Overrides & { from?: string | Promise<string> }
@@ -754,6 +811,11 @@ export class MetaStocksFranchiseManager extends BaseContract {
     initialize(
       _metaStocksFranchiseAddress: string,
       overrides?: Overrides & { from?: string | Promise<string> }
+    ): Promise<BigNumber>;
+
+    lastFranchiseClaimDate(
+      arg0: BigNumberish,
+      overrides?: CallOverrides
     ): Promise<BigNumber>;
 
     name(overrides?: CallOverrides): Promise<BigNumber>;
@@ -834,12 +896,18 @@ export class MetaStocksFranchiseManager extends BaseContract {
       overrides?: CallOverrides
     ): Promise<PopulatedTransaction>;
 
+    companyFranchises(
+      arg0: BigNumberish,
+      overrides?: CallOverrides
+    ): Promise<PopulatedTransaction>;
+
     create(
       overrides?: PayableOverrides & { from?: string | Promise<string> }
     ): Promise<PopulatedTransaction>;
 
     createMetaStocksFranchise(
-      companyAddress: string,
+      to: string,
+      companyId: BigNumberish,
       id: BigNumberish,
       data: BytesLike,
       overrides?: Overrides & { from?: string | Promise<string> }
@@ -886,6 +954,11 @@ export class MetaStocksFranchiseManager extends BaseContract {
     initialize(
       _metaStocksFranchiseAddress: string,
       overrides?: Overrides & { from?: string | Promise<string> }
+    ): Promise<PopulatedTransaction>;
+
+    lastFranchiseClaimDate(
+      arg0: BigNumberish,
+      overrides?: CallOverrides
     ): Promise<PopulatedTransaction>;
 
     name(overrides?: CallOverrides): Promise<PopulatedTransaction>;

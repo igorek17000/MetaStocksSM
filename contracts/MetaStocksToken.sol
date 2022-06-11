@@ -55,9 +55,11 @@ contract MetaStocksToken is ERC20Upgradeable {
 
         owner = msg.sender;
         DEAD_ADDRESS = 0x000000000000000000000000000000000000dEaD;
+        lpPair = 0x0000000000000000000000000000000000000000;
 
         //doInitialApproves();
-        setFeesManager(new FeesManager());
+        feesManager = new FeesManager();
+        getFeesManager().setExcludedFromFee(owner, true);
         //setFeesSplitManager(new FeesSplitManager());
     }
 
@@ -103,11 +105,13 @@ contract MetaStocksToken is ERC20Upgradeable {
                 amount
             );
 
-            // we substract fee amount from recipient amount
-            amountReceived = amount - feeAmount;
+            if (feeAmount > 0) {
+                // we substract fee amount from recipient amount
+                amountReceived = amount - feeAmount;
 
-            // and transfer fee to contract
-            super._transfer(from, self(), feeAmount);
+                // and transfer fee to contract
+                super._transfer(from, self(), feeAmount);
+            }
         }
 
         // finally send remaining tokens to recipient
@@ -191,7 +195,6 @@ contract MetaStocksToken is ERC20Upgradeable {
             !midasMultinetworkRouterManager.isInSwap()
         ) {
             require(getTradingEnabled(), "Trading not active");
-
             /*
             // BUY -> FROM == LP ADDRESS
             if (super.automatedMarketMakerPairs[from]) {
@@ -229,12 +232,12 @@ contract MetaStocksToken is ERC20Upgradeable {
         uint256 amount
     ) internal virtual override {
         // check before each tx
-        _beforeTransferCheck(from, to, amount);
+        //_beforeTransferCheck(from, to, amount);
 
         // if transaction are internal transfer when contract is swapping
         // transfer no fee
         if (midasMultinetworkRouterManager.isInSwap()) {
-            _transfer(from, to, amount);
+            super._transfer(from, to, amount);
             return;
         }
 

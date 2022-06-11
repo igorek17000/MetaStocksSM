@@ -20,6 +20,10 @@ contract MetaStocksFranchiseManager is ERC20Upgradeable {
     uint256 private franchiseDailyEarnings;
     address private paymentTokenAddress;
 
+    mapping(uint256 => uint256) public lastFranchiseClaimDate;
+
+    mapping(uint256 => uint256) public companyFranchises;
+
     address private owner;
 
     function initialize(address _metaStocksFranchiseAddress)
@@ -103,7 +107,8 @@ contract MetaStocksFranchiseManager is ERC20Upgradeable {
     }
 
     function createMetaStocksFranchise(
-        address companyAddress,
+        address to,
+        uint256 companyId,
         uint256 id,
         bytes memory data
     ) public onlyOwner {
@@ -112,6 +117,13 @@ contract MetaStocksFranchiseManager is ERC20Upgradeable {
             address(paymentTokenAddress),
             10 ether
         );
+
+        //metaStocksFranchise.mint(to, id, 1, data);
+        //lastFranchiseClaimDate[companyId] = block.timestamp;
+
+        //companyFranchises[]
+
+        //lastFranchiseClaimDate[] = block.timestamp;
     }
 
     function getUnclaimedRewards() external view returns (uint256) {
