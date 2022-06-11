@@ -301,10 +301,6 @@ declare module "hardhat/types/runtime" {
       signerOrOptions?: ethers.Signer | FactoryOptions
     ): Promise<Contracts.IAutoLiquidityInjecter__factory>;
     getContractFactory(
-      name: "IDexRouterManager",
-      signerOrOptions?: ethers.Signer | FactoryOptions
-    ): Promise<Contracts.IDexRouterManager__factory>;
-    getContractFactory(
       name: "IJoeRouter01",
       signerOrOptions?: ethers.Signer | FactoryOptions
     ): Promise<Contracts.IJoeRouter01__factory>;
@@ -313,17 +309,9 @@ declare module "hardhat/types/runtime" {
       signerOrOptions?: ethers.Signer | FactoryOptions
     ): Promise<Contracts.IJoeRouter02__factory>;
     getContractFactory(
-      name: "IMetaStocksMultiDexRouter",
-      signerOrOptions?: ethers.Signer | FactoryOptions
-    ): Promise<Contracts.IMetaStocksMultiDexRouter__factory>;
-    getContractFactory(
       name: "IPangolinRouter",
       signerOrOptions?: ethers.Signer | FactoryOptions
     ): Promise<Contracts.IPangolinRouter__factory>;
-    getContractFactory(
-      name: "IMetaStocksCompany",
-      signerOrOptions?: ethers.Signer | FactoryOptions
-    ): Promise<Contracts.IMetaStocksCompany__factory>;
     getContractFactory(
       name: "IMetaStocksCompanyInfo",
       signerOrOptions?: ethers.Signer | FactoryOptions
@@ -337,29 +325,65 @@ declare module "hardhat/types/runtime" {
       signerOrOptions?: ethers.Signer | FactoryOptions
     ): Promise<Contracts.IMetaStocksFranchiseShare__factory>;
     getContractFactory(
+      name: "IMetaStocksBaseManager",
+      signerOrOptions?: ethers.Signer | FactoryOptions
+    ): Promise<Contracts.IMetaStocksBaseManager__factory>;
+    getContractFactory(
+      name: "IMetaStocksCompany",
+      signerOrOptions?: ethers.Signer | FactoryOptions
+    ): Promise<Contracts.IMetaStocksCompany__factory>;
+    getContractFactory(
+      name: "IMetaStocksCompanyInfo",
+      signerOrOptions?: ethers.Signer | FactoryOptions
+    ): Promise<Contracts.IMetaStocksCompanyInfo__factory>;
+    getContractFactory(
       name: "IMetaStocksCompanyManager",
       signerOrOptions?: ethers.Signer | FactoryOptions
     ): Promise<Contracts.IMetaStocksCompanyManager__factory>;
+    getContractFactory(
+      name: "IMetaStocksFranchise",
+      signerOrOptions?: ethers.Signer | FactoryOptions
+    ): Promise<Contracts.IMetaStocksFranchise__factory>;
+    getContractFactory(
+      name: "IMidasManager",
+      signerOrOptions?: ethers.Signer | FactoryOptions
+    ): Promise<Contracts.IMidasManager__factory>;
+    getContractFactory(
+      name: "IMidasManager",
+      signerOrOptions?: ethers.Signer | FactoryOptions
+    ): Promise<Contracts.IMidasManager__factory>;
+    getContractFactory(
+      name: "IMidasMultiNetworkRouter",
+      signerOrOptions?: ethers.Signer | FactoryOptions
+    ): Promise<Contracts.IMidasMultiNetworkRouter__factory>;
+    getContractFactory(
+      name: "MidasMultiNetworkRouterManager",
+      signerOrOptions?: ethers.Signer | FactoryOptions
+    ): Promise<Contracts.MidasMultiNetworkRouterManager__factory>;
     getContractFactory(
       name: "ChainlinkDataFeedsManager",
       signerOrOptions?: ethers.Signer | FactoryOptions
     ): Promise<Contracts.ChainlinkDataFeedsManager__factory>;
     getContractFactory(
-      name: "DexRouterManager",
-      signerOrOptions?: ethers.Signer | FactoryOptions
-    ): Promise<Contracts.DexRouterManager__factory>;
-    getContractFactory(
       name: "FeesManager",
       signerOrOptions?: ethers.Signer | FactoryOptions
     ): Promise<Contracts.FeesManager__factory>;
     getContractFactory(
-      name: "MetaStocks",
+      name: "MetaStocksFranchiseManager",
       signerOrOptions?: ethers.Signer | FactoryOptions
-    ): Promise<Contracts.MetaStocks__factory>;
+    ): Promise<Contracts.MetaStocksFranchiseManager__factory>;
     getContractFactory(
-      name: "MetaStocks1155",
+      name: "MetaStocksCompanyManager",
       signerOrOptions?: ethers.Signer | FactoryOptions
-    ): Promise<Contracts.MetaStocks1155__factory>;
+    ): Promise<Contracts.MetaStocksCompanyManager__factory>;
+    getContractFactory(
+      name: "MetaStocksFranchiseShareManager",
+      signerOrOptions?: ethers.Signer | FactoryOptions
+    ): Promise<Contracts.MetaStocksFranchiseShareManager__factory>;
+    getContractFactory(
+      name: "MidasMultinetworkRouterManager",
+      signerOrOptions?: ethers.Signer | FactoryOptions
+    ): Promise<Contracts.MidasMultinetworkRouterManager__factory>;
     getContractFactory(
       name: "MetaStocksCompany",
       signerOrOptions?: ethers.Signer | FactoryOptions
@@ -372,6 +396,10 @@ declare module "hardhat/types/runtime" {
       name: "MetaStocksFranchiseShare",
       signerOrOptions?: ethers.Signer | FactoryOptions
     ): Promise<Contracts.MetaStocksFranchiseShare__factory>;
+    getContractFactory(
+      name: "MetaStocksToken",
+      signerOrOptions?: ethers.Signer | FactoryOptions
+    ): Promise<Contracts.MetaStocksToken__factory>;
 
     getContractAt(
       name: "OwnableUpgradeable",
@@ -734,11 +762,6 @@ declare module "hardhat/types/runtime" {
       signer?: ethers.Signer
     ): Promise<Contracts.IAutoLiquidityInjecter>;
     getContractAt(
-      name: "IDexRouterManager",
-      address: string,
-      signer?: ethers.Signer
-    ): Promise<Contracts.IDexRouterManager>;
-    getContractAt(
       name: "IJoeRouter01",
       address: string,
       signer?: ethers.Signer
@@ -749,20 +772,10 @@ declare module "hardhat/types/runtime" {
       signer?: ethers.Signer
     ): Promise<Contracts.IJoeRouter02>;
     getContractAt(
-      name: "IMetaStocksMultiDexRouter",
-      address: string,
-      signer?: ethers.Signer
-    ): Promise<Contracts.IMetaStocksMultiDexRouter>;
-    getContractAt(
       name: "IPangolinRouter",
       address: string,
       signer?: ethers.Signer
     ): Promise<Contracts.IPangolinRouter>;
-    getContractAt(
-      name: "IMetaStocksCompany",
-      address: string,
-      signer?: ethers.Signer
-    ): Promise<Contracts.IMetaStocksCompany>;
     getContractAt(
       name: "IMetaStocksCompanyInfo",
       address: string,
@@ -779,35 +792,80 @@ declare module "hardhat/types/runtime" {
       signer?: ethers.Signer
     ): Promise<Contracts.IMetaStocksFranchiseShare>;
     getContractAt(
+      name: "IMetaStocksBaseManager",
+      address: string,
+      signer?: ethers.Signer
+    ): Promise<Contracts.IMetaStocksBaseManager>;
+    getContractAt(
+      name: "IMetaStocksCompany",
+      address: string,
+      signer?: ethers.Signer
+    ): Promise<Contracts.IMetaStocksCompany>;
+    getContractAt(
+      name: "IMetaStocksCompanyInfo",
+      address: string,
+      signer?: ethers.Signer
+    ): Promise<Contracts.IMetaStocksCompanyInfo>;
+    getContractAt(
       name: "IMetaStocksCompanyManager",
       address: string,
       signer?: ethers.Signer
     ): Promise<Contracts.IMetaStocksCompanyManager>;
+    getContractAt(
+      name: "IMetaStocksFranchise",
+      address: string,
+      signer?: ethers.Signer
+    ): Promise<Contracts.IMetaStocksFranchise>;
+    getContractAt(
+      name: "IMidasManager",
+      address: string,
+      signer?: ethers.Signer
+    ): Promise<Contracts.IMidasManager>;
+    getContractAt(
+      name: "IMidasManager",
+      address: string,
+      signer?: ethers.Signer
+    ): Promise<Contracts.IMidasManager>;
+    getContractAt(
+      name: "IMidasMultiNetworkRouter",
+      address: string,
+      signer?: ethers.Signer
+    ): Promise<Contracts.IMidasMultiNetworkRouter>;
+    getContractAt(
+      name: "MidasMultiNetworkRouterManager",
+      address: string,
+      signer?: ethers.Signer
+    ): Promise<Contracts.MidasMultiNetworkRouterManager>;
     getContractAt(
       name: "ChainlinkDataFeedsManager",
       address: string,
       signer?: ethers.Signer
     ): Promise<Contracts.ChainlinkDataFeedsManager>;
     getContractAt(
-      name: "DexRouterManager",
-      address: string,
-      signer?: ethers.Signer
-    ): Promise<Contracts.DexRouterManager>;
-    getContractAt(
       name: "FeesManager",
       address: string,
       signer?: ethers.Signer
     ): Promise<Contracts.FeesManager>;
     getContractAt(
-      name: "MetaStocks",
+      name: "MetaStocksFranchiseManager",
       address: string,
       signer?: ethers.Signer
-    ): Promise<Contracts.MetaStocks>;
+    ): Promise<Contracts.MetaStocksFranchiseManager>;
     getContractAt(
-      name: "MetaStocks1155",
+      name: "MetaStocksCompanyManager",
       address: string,
       signer?: ethers.Signer
-    ): Promise<Contracts.MetaStocks1155>;
+    ): Promise<Contracts.MetaStocksCompanyManager>;
+    getContractAt(
+      name: "MetaStocksFranchiseShareManager",
+      address: string,
+      signer?: ethers.Signer
+    ): Promise<Contracts.MetaStocksFranchiseShareManager>;
+    getContractAt(
+      name: "MidasMultinetworkRouterManager",
+      address: string,
+      signer?: ethers.Signer
+    ): Promise<Contracts.MidasMultinetworkRouterManager>;
     getContractAt(
       name: "MetaStocksCompany",
       address: string,
@@ -823,6 +881,11 @@ declare module "hardhat/types/runtime" {
       address: string,
       signer?: ethers.Signer
     ): Promise<Contracts.MetaStocksFranchiseShare>;
+    getContractAt(
+      name: "MetaStocksToken",
+      address: string,
+      signer?: ethers.Signer
+    ): Promise<Contracts.MetaStocksToken>;
 
     // default types
     getContractFactory(

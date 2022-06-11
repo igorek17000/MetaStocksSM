@@ -21,11 +21,16 @@ import type { TypedEventFilter, TypedEvent, TypedListener } from "./common";
 
 interface FeesManagerInterface extends ethers.utils.Interface {
   functions: {
+    "calcBuySellTransferFee(address,address,address,uint256)": FunctionFragment;
     "isExcludedFromFee(address)": FunctionFragment;
     "setExcludedFromFee(address,bool)": FunctionFragment;
     "setFees(uint16,uint16,uint16)": FunctionFragment;
   };
 
+  encodeFunctionData(
+    functionFragment: "calcBuySellTransferFee",
+    values: [string, string, string, BigNumberish]
+  ): string;
   encodeFunctionData(
     functionFragment: "isExcludedFromFee",
     values: [string]
@@ -39,6 +44,10 @@ interface FeesManagerInterface extends ethers.utils.Interface {
     values: [BigNumberish, BigNumberish, BigNumberish]
   ): string;
 
+  decodeFunctionResult(
+    functionFragment: "calcBuySellTransferFee",
+    data: BytesLike
+  ): Result;
   decodeFunctionResult(
     functionFragment: "isExcludedFromFee",
     data: BytesLike
@@ -96,6 +105,14 @@ export class FeesManager extends BaseContract {
   interface: FeesManagerInterface;
 
   functions: {
+    calcBuySellTransferFee(
+      lpPairAddress: string,
+      from: string,
+      to: string,
+      amount: BigNumberish,
+      overrides?: CallOverrides
+    ): Promise<[BigNumber]>;
+
     isExcludedFromFee(
       account: string,
       overrides?: CallOverrides
@@ -114,6 +131,14 @@ export class FeesManager extends BaseContract {
       overrides?: Overrides & { from?: string | Promise<string> }
     ): Promise<ContractTransaction>;
   };
+
+  calcBuySellTransferFee(
+    lpPairAddress: string,
+    from: string,
+    to: string,
+    amount: BigNumberish,
+    overrides?: CallOverrides
+  ): Promise<BigNumber>;
 
   isExcludedFromFee(
     account: string,
@@ -134,6 +159,14 @@ export class FeesManager extends BaseContract {
   ): Promise<ContractTransaction>;
 
   callStatic: {
+    calcBuySellTransferFee(
+      lpPairAddress: string,
+      from: string,
+      to: string,
+      amount: BigNumberish,
+      overrides?: CallOverrides
+    ): Promise<BigNumber>;
+
     isExcludedFromFee(
       account: string,
       overrides?: CallOverrides
@@ -156,6 +189,14 @@ export class FeesManager extends BaseContract {
   filters: {};
 
   estimateGas: {
+    calcBuySellTransferFee(
+      lpPairAddress: string,
+      from: string,
+      to: string,
+      amount: BigNumberish,
+      overrides?: CallOverrides
+    ): Promise<BigNumber>;
+
     isExcludedFromFee(
       account: string,
       overrides?: CallOverrides
@@ -176,6 +217,14 @@ export class FeesManager extends BaseContract {
   };
 
   populateTransaction: {
+    calcBuySellTransferFee(
+      lpPairAddress: string,
+      from: string,
+      to: string,
+      amount: BigNumberish,
+      overrides?: CallOverrides
+    ): Promise<PopulatedTransaction>;
+
     isExcludedFromFee(
       account: string,
       overrides?: CallOverrides

@@ -2,13 +2,7 @@
 pragma solidity ^0.8.14;
 
 import "@openzeppelin/contracts-upgradeable/token/ERC20/ERC20Upgradeable.sol";
-import "@uniswap/v2-periphery/contracts/interfaces/IUniswapV2Router02.sol";
-import "@openzeppelin/contracts/token/ERC20/IERC20.sol";
-import "../../interfaces/chainlinkInterfaces/AggregatorV3Interface.sol";
-import "../../interfaces/MetaStocksInterfaces/IMetaStocksCompany.sol";
-import "../../models/TransactionFees.sol";
-
-//import "../../interfaces/midasInterfaces/IMidasManager.sol";
+import "../../interfaces/metaStocksInterfaces/IMetaStocksCompany.sol";
 
 contract MetaStocksCompanyManager is ERC20Upgradeable {
     IMetaStocksCompany MetaStocksCompany;
@@ -16,9 +10,9 @@ contract MetaStocksCompanyManager is ERC20Upgradeable {
     uint256 maxCompanies;
     mapping(address => uint256) public ceosCompanies;
 
-    function initialize(address _MetaStocksCompanyAddress) public initializer {
+    function initialize(address _metaStocksCompanyAddress) public initializer {
         maxCompanies = 1 ether;
-        MetaStocksCompany = IMetaStocksCompany(_MetaStocksCompanyAddress);
+        MetaStocksCompany = IMetaStocksCompany(_metaStocksCompanyAddress);
     }
 
     function getCompany(address _account) external view returns (uint256) {

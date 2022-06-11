@@ -21,9 +21,9 @@ import type { TypedEventFilter, TypedEvent, TypedListener } from "./common";
 interface ChainlinkDataFeedsManagerInterface extends ethers.utils.Interface {
   functions: {
     "getAmountOutUSD(uint256,address)": FunctionFragment;
-    "getAvaxPriceInUsd()": FunctionFragment;
     "getLatestPriceFromChainlink()": FunctionFragment;
-    "getTokensValueInUSD(address,uint256,address)": FunctionFragment;
+    "getNativeNetworkCurrencyInUsd()": FunctionFragment;
+    "getTokensValueInUSD(address,uint256,uint256,address)": FunctionFragment;
   };
 
   encodeFunctionData(
@@ -31,16 +31,16 @@ interface ChainlinkDataFeedsManagerInterface extends ethers.utils.Interface {
     values: [BigNumberish, string]
   ): string;
   encodeFunctionData(
-    functionFragment: "getAvaxPriceInUsd",
-    values?: undefined
-  ): string;
-  encodeFunctionData(
     functionFragment: "getLatestPriceFromChainlink",
     values?: undefined
   ): string;
   encodeFunctionData(
+    functionFragment: "getNativeNetworkCurrencyInUsd",
+    values?: undefined
+  ): string;
+  encodeFunctionData(
     functionFragment: "getTokensValueInUSD",
-    values: [string, BigNumberish, string]
+    values: [string, BigNumberish, BigNumberish, string]
   ): string;
 
   decodeFunctionResult(
@@ -48,11 +48,11 @@ interface ChainlinkDataFeedsManagerInterface extends ethers.utils.Interface {
     data: BytesLike
   ): Result;
   decodeFunctionResult(
-    functionFragment: "getAvaxPriceInUsd",
+    functionFragment: "getLatestPriceFromChainlink",
     data: BytesLike
   ): Result;
   decodeFunctionResult(
-    functionFragment: "getLatestPriceFromChainlink",
+    functionFragment: "getNativeNetworkCurrencyInUsd",
     data: BytesLike
   ): Result;
   decodeFunctionResult(
@@ -113,16 +113,19 @@ export class ChainlinkDataFeedsManager extends BaseContract {
       overrides?: CallOverrides
     ): Promise<[BigNumber]>;
 
-    getAvaxPriceInUsd(overrides?: CallOverrides): Promise<[BigNumber]>;
-
     getLatestPriceFromChainlink(
+      overrides?: CallOverrides
+    ): Promise<[BigNumber]>;
+
+    getNativeNetworkCurrencyInUsd(
       overrides?: CallOverrides
     ): Promise<[BigNumber]>;
 
     getTokensValueInUSD(
       _tokenAddress: string,
       _amount: BigNumberish,
-      dexRouter: string,
+      _network: BigNumberish,
+      midasMultiNetworkRouter: string,
       overrides?: CallOverrides
     ): Promise<[BigNumber]>;
   };
@@ -133,14 +136,15 @@ export class ChainlinkDataFeedsManager extends BaseContract {
     overrides?: CallOverrides
   ): Promise<BigNumber>;
 
-  getAvaxPriceInUsd(overrides?: CallOverrides): Promise<BigNumber>;
-
   getLatestPriceFromChainlink(overrides?: CallOverrides): Promise<BigNumber>;
+
+  getNativeNetworkCurrencyInUsd(overrides?: CallOverrides): Promise<BigNumber>;
 
   getTokensValueInUSD(
     _tokenAddress: string,
     _amount: BigNumberish,
-    dexRouter: string,
+    _network: BigNumberish,
+    midasMultiNetworkRouter: string,
     overrides?: CallOverrides
   ): Promise<BigNumber>;
 
@@ -151,14 +155,17 @@ export class ChainlinkDataFeedsManager extends BaseContract {
       overrides?: CallOverrides
     ): Promise<BigNumber>;
 
-    getAvaxPriceInUsd(overrides?: CallOverrides): Promise<BigNumber>;
-
     getLatestPriceFromChainlink(overrides?: CallOverrides): Promise<BigNumber>;
+
+    getNativeNetworkCurrencyInUsd(
+      overrides?: CallOverrides
+    ): Promise<BigNumber>;
 
     getTokensValueInUSD(
       _tokenAddress: string,
       _amount: BigNumberish,
-      dexRouter: string,
+      _network: BigNumberish,
+      midasMultiNetworkRouter: string,
       overrides?: CallOverrides
     ): Promise<BigNumber>;
   };
@@ -172,14 +179,17 @@ export class ChainlinkDataFeedsManager extends BaseContract {
       overrides?: CallOverrides
     ): Promise<BigNumber>;
 
-    getAvaxPriceInUsd(overrides?: CallOverrides): Promise<BigNumber>;
-
     getLatestPriceFromChainlink(overrides?: CallOverrides): Promise<BigNumber>;
+
+    getNativeNetworkCurrencyInUsd(
+      overrides?: CallOverrides
+    ): Promise<BigNumber>;
 
     getTokensValueInUSD(
       _tokenAddress: string,
       _amount: BigNumberish,
-      dexRouter: string,
+      _network: BigNumberish,
+      midasMultiNetworkRouter: string,
       overrides?: CallOverrides
     ): Promise<BigNumber>;
   };
@@ -191,16 +201,19 @@ export class ChainlinkDataFeedsManager extends BaseContract {
       overrides?: CallOverrides
     ): Promise<PopulatedTransaction>;
 
-    getAvaxPriceInUsd(overrides?: CallOverrides): Promise<PopulatedTransaction>;
-
     getLatestPriceFromChainlink(
+      overrides?: CallOverrides
+    ): Promise<PopulatedTransaction>;
+
+    getNativeNetworkCurrencyInUsd(
       overrides?: CallOverrides
     ): Promise<PopulatedTransaction>;
 
     getTokensValueInUSD(
       _tokenAddress: string,
       _amount: BigNumberish,
-      dexRouter: string,
+      _network: BigNumberish,
+      midasMultiNetworkRouter: string,
       overrides?: CallOverrides
     ): Promise<PopulatedTransaction>;
   };
