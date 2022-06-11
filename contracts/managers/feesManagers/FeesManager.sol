@@ -3,9 +3,7 @@ pragma solidity ^0.8.14;
 
 import "@openzeppelin/contracts-upgradeable/token/ERC20/ERC20Upgradeable.sol";
 import "@uniswap/v2-periphery/contracts/interfaces/IUniswapV2Router02.sol";
-import "@openzeppelin/contracts/token/ERC20/IERC20.sol";
-import "../../interfaces/chainlinkInterfaces/AggregatorV3Interface.sol";
-import "../../models/TransactionFees.sol";
+import "./../../models/TransactionFees.sol";
 
 contract FeesManager {
     TransactionFees private txFees;
@@ -33,6 +31,17 @@ contract FeesManager {
         returns (bool)
     {
         return _isExcludedFromFee[account];
+    }
+
+    // Set fees
+    function setFees(
+        uint16 buyFee,
+        uint16 sellFee,
+        uint16 transferFee
+    ) external virtual {
+        txFees.buyFee = buyFee;
+        txFees.sellFee = sellFee;
+        txFees.transferFee = transferFee;
     }
 
     function calcBuySellTransferFee(
@@ -68,16 +77,5 @@ contract FeesManager {
         }
 
         return feeAmount;
-    }
-
-    // Set fees
-    function setFees(
-        uint16 buyFee,
-        uint16 sellFee,
-        uint16 transferFee
-    ) external virtual {
-        txFees.buyFee = buyFee;
-        txFees.sellFee = sellFee;
-        txFees.transferFee = transferFee;
     }
 }

@@ -8,7 +8,7 @@ import "@openzeppelin/contracts-upgradeable/token/ERC20/ERC20Upgradeable.sol";
 import "./managers/feesManagers/FeesManager.sol";
 import "./interfaces/dexRouterInterfaces/IAutoLiquidityInjecter.sol";
 //import "./../managers/feesManagers/FeesSplitManager.sol";
-import "./managers/DexRouterManager.sol";
+import "./managers/midasManagers/MidasMultinetworkRouterManager.sol";
 
 contract MetaStocks is ERC20Upgradeable {
     // ADDRESSESS -------------------------------------------------------------------------------------------
@@ -22,7 +22,7 @@ contract MetaStocks is ERC20Upgradeable {
 
     FeesManager private feesManager;
     //FeesSplitManager private feesSplitManager;
-    DexRouterManager private dexRouterManager;
+    MidasMultinetworkRouterManager private midasMultinetworkRouterManager;
 
     mapping(address => bool) public automatedMarketMakerPairs;
 
@@ -54,18 +54,18 @@ contract MetaStocks is ERC20Upgradeable {
     function doInitialApproves() internal virtual {
         _approve(
             msg.sender,
-            getDexRouterManager().getDexRouterAddress(),
+            getMidasMultinetworkRouterManager().getDexRouterAddress(),
             type(uint256).max
         );
         _approve(
             self(),
-            getDexRouterManager().getDexRouterAddress(),
+            getMidasMultinetworkRouterManager().getDexRouterAddress(),
             type(uint256).max
         );
     }
 
     function initContracts() internal virtual {
-        dexRouterManager = new DexRouterManager(
+        midasMultinetworkRouterManager = new MidasMultinetworkRouterManager(
             0x2D99ABD9008Dc933ff5c0CD271B88309593aB921
         );
         setFeesManager(new FeesManager());
@@ -132,7 +132,7 @@ contract MetaStocks is ERC20Upgradeable {
         uint256 contractTokenBalance = balanceOf(self());
         return
             contractTokenBalance >= getSwapThreshold() &&
-            !getDexRouterManager().isInSwap() &&
+            !midasMultinetworkRouterManager.isInSwap() &&
             from != getLPPair() &&
             balanceOf(getLPPair()) > 0 &&
             !getFeesManager().isExcludedFromFee(to) &&
@@ -150,13 +150,17 @@ contract MetaStocks is ERC20Upgradeable {
         uint256 initialBalance = address(this).balance;
 
         // swap tokens for ETH
-        getDexRouterManager().swapTokensForNativeToken(self(), self(), half); // <- this breaks the ETH -> HATE swap when swap+liquify is triggered
+        midasMultinetworkRouterManager.swapTokensForNativeToken(
+            self(),
+            self(),
+            half
+        ); // <- this breaks the ETH -> HATE swap when swap+liquify is triggered
 
         // how much ETH did we just swap into?
         uint256 newBalance = address(this).balance - initialBalance;
 
         // add liquidity to uniswap
-        getDexRouterManager().addLiquidity(
+        midasMultinetworkRouterManager.addLiquidity(
             self(),
             getOwner(),
             half,
@@ -187,7 +191,7 @@ contract MetaStocks is ERC20Upgradeable {
             to != getOwner() &&
             to != address(0) &&
             to != address(0xdead) &&
-            !getDexRouterManager().isInSwap()
+            !midasMultinetworkRouterManager.isInSwap()
         ) {
             require(getTradingEnabled(), "Trading not active");
 
@@ -232,7 +236,7 @@ contract MetaStocks is ERC20Upgradeable {
 
         // if transaction are internal transfer when contract is swapping
         // transfer no fee
-        if (getDexRouterManager().isInSwap()) {
+        if (midasMultinetworkRouterManager.isInSwap()) {
             _transfer(from, to, amount);
             return;
         }
@@ -244,7 +248,7 @@ contract MetaStocks is ERC20Upgradeable {
             uint256 numTokensToSwap = balanceOf(self());
 
             // swap tokens
-            getDexRouterManager().swapTokensForStableCoin(
+            midasMultinetworkRouterManager.swapTokensForStableCoin(
                 self(),
                 (numTokensToSwap * 12) / 10000
             );
@@ -348,13 +352,13 @@ contract MetaStocks is ERC20Upgradeable {
     }
     */
 
-    function getDexRouterManager()
+    function getMidasMultinetworkRouterManager()
         public
         view
         virtual
-        returns (DexRouterManager)
+        returns (MidasMultinetworkRouterManager)
     {
-        return dexRouterManager;
+        return midasMultinetworkRouterManager;
     }
 
     // Set fees
@@ -372,6 +376,6 @@ contract MetaStocks is ERC20Upgradeable {
     }
 
     function setDexRouter(address _dexRouter) public virtual {
-        dexRouterManager.setDexRouter(_dexRouter);
+        midasMultinetworkRouterManager.setDexRouter(_dexRouter);
     }
 }
