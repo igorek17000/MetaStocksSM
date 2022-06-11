@@ -44,7 +44,7 @@ interface MetaStocksERC20UpgradableInterface extends ethers.utils.Interface {
     "setMaxTransactionAmount(uint256)": FunctionFragment;
     "setMaxWalletAmount(uint256)": FunctionFragment;
     "setPairAddress(address)": FunctionFragment;
-    "setRouterAddress(address)": FunctionFragment;
+    "setRouterAddress(address,address)": FunctionFragment;
     "setSwapThreshold(uint256)": FunctionFragment;
     "setTransactionFeesManager(address)": FunctionFragment;
     "setlpPair(address)": FunctionFragment;
@@ -131,7 +131,7 @@ interface MetaStocksERC20UpgradableInterface extends ethers.utils.Interface {
   ): string;
   encodeFunctionData(
     functionFragment: "setRouterAddress",
-    values: [string]
+    values: [string, string]
   ): string;
   encodeFunctionData(
     functionFragment: "setSwapThreshold",
@@ -426,6 +426,7 @@ export class MetaStocksERC20Upgradable extends BaseContract {
 
     setRouterAddress(
       _routerAddress: string,
+      _chainlinkDataFeedAddress: string,
       overrides?: Overrides & { from?: string | Promise<string> }
     ): Promise<ContractTransaction>;
 
@@ -560,6 +561,7 @@ export class MetaStocksERC20Upgradable extends BaseContract {
 
   setRouterAddress(
     _routerAddress: string,
+    _chainlinkDataFeedAddress: string,
     overrides?: Overrides & { from?: string | Promise<string> }
   ): Promise<ContractTransaction>;
 
@@ -689,6 +691,7 @@ export class MetaStocksERC20Upgradable extends BaseContract {
 
     setRouterAddress(
       _routerAddress: string,
+      _chainlinkDataFeedAddress: string,
       overrides?: CallOverrides
     ): Promise<void>;
 
@@ -901,6 +904,7 @@ export class MetaStocksERC20Upgradable extends BaseContract {
 
     setRouterAddress(
       _routerAddress: string,
+      _chainlinkDataFeedAddress: string,
       overrides?: Overrides & { from?: string | Promise<string> }
     ): Promise<BigNumber>;
 
@@ -1043,6 +1047,7 @@ export class MetaStocksERC20Upgradable extends BaseContract {
 
     setRouterAddress(
       _routerAddress: string,
+      _chainlinkDataFeedAddress: string,
       overrides?: Overrides & { from?: string | Promise<string> }
     ): Promise<PopulatedTransaction>;
 

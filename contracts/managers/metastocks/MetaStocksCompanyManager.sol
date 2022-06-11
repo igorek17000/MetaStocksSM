@@ -21,7 +21,7 @@ contract MetaStocksCompanyManager is
     mapping(uint256 => address) public companiesCeos;
     mapping(address => bool) public ceos;
 
-    event CreateCompany(address indexed account, uint256 comanyId);
+    event CreateCompany(address indexed account, uint256 companyId);
 
     function initialize(address _metaStocksCompanyAddress) public initializer {
         MetaStocksCompany = IMetaStocksCompany(_metaStocksCompanyAddress);

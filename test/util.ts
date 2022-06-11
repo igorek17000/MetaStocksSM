@@ -33,6 +33,7 @@ export const chains: Record<string, Record<string, any>> = {
         whaleBUSD: "0x352a7a5277ec7619500b06fa051974621c1acd12",
         methods: {
             addLiquidity: 'addLiquidity',
+            addLiquidityETH: 'addLiquidityETH',
         }
     }
 }

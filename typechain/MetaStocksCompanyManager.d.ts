@@ -212,7 +212,7 @@ export type ApprovalEvent = TypedEvent<
 >;
 
 export type CreateCompanyEvent = TypedEvent<
-  [string, BigNumber] & { account: string; comanyId: BigNumber }
+  [string, BigNumber] & { account: string; companyId: BigNumber }
 >;
 
 export type InitializedEvent = TypedEvent<[number] & { version: number }>;
@@ -619,18 +619,18 @@ export class MetaStocksCompanyManager extends BaseContract {
 
     "CreateCompany(address,uint256)"(
       account?: string | null,
-      comanyId?: null
+      companyId?: null
     ): TypedEventFilter<
       [string, BigNumber],
-      { account: string; comanyId: BigNumber }
+      { account: string; companyId: BigNumber }
     >;
 
     CreateCompany(
       account?: string | null,
-      comanyId?: null
+      companyId?: null
     ): TypedEventFilter<
       [string, BigNumber],
-      { account: string; comanyId: BigNumber }
+      { account: string; companyId: BigNumber }
     >;
 
     "Initialized(uint8)"(

@@ -27,7 +27,9 @@ interface MidasMultinetworkRouterManagerInterface
     "getDexRouterAddress()": FunctionFragment;
     "getNativeTokenAddress(uint256)": FunctionFragment;
     "getStableCoinAddress(uint256)": FunctionFragment;
+    "getTokensValueInUSD(address,uint256)": FunctionFragment;
     "isInSwap()": FunctionFragment;
+    "setChainlinkDataFeedsManager(address)": FunctionFragment;
     "setDexRouter(address)": FunctionFragment;
     "swapTokensForNativeToken(address,address,uint256)": FunctionFragment;
     "swapTokensForStableCoin(address,address,uint256)": FunctionFragment;
@@ -53,7 +55,15 @@ interface MidasMultinetworkRouterManagerInterface
     functionFragment: "getStableCoinAddress",
     values: [BigNumberish]
   ): string;
+  encodeFunctionData(
+    functionFragment: "getTokensValueInUSD",
+    values: [string, BigNumberish]
+  ): string;
   encodeFunctionData(functionFragment: "isInSwap", values?: undefined): string;
+  encodeFunctionData(
+    functionFragment: "setChainlinkDataFeedsManager",
+    values: [string]
+  ): string;
   encodeFunctionData(
     functionFragment: "setDexRouter",
     values: [string]
@@ -87,7 +97,15 @@ interface MidasMultinetworkRouterManagerInterface
     functionFragment: "getStableCoinAddress",
     data: BytesLike
   ): Result;
+  decodeFunctionResult(
+    functionFragment: "getTokensValueInUSD",
+    data: BytesLike
+  ): Result;
   decodeFunctionResult(functionFragment: "isInSwap", data: BytesLike): Result;
+  decodeFunctionResult(
+    functionFragment: "setChainlinkDataFeedsManager",
+    data: BytesLike
+  ): Result;
   decodeFunctionResult(
     functionFragment: "setDexRouter",
     data: BytesLike
@@ -170,7 +188,18 @@ export class MidasMultinetworkRouterManager extends BaseContract {
       overrides?: CallOverrides
     ): Promise<[string]>;
 
+    getTokensValueInUSD(
+      _tokenAddress: string,
+      _amount: BigNumberish,
+      overrides?: CallOverrides
+    ): Promise<[BigNumber]>;
+
     isInSwap(overrides?: CallOverrides): Promise<[boolean]>;
+
+    setChainlinkDataFeedsManager(
+      _chainlinkDataFeedsManagerAddress: string,
+      overrides?: Overrides & { from?: string | Promise<string> }
+    ): Promise<ContractTransaction>;
 
     setDexRouter(
       _dexRouterAddress: string,
@@ -214,7 +243,18 @@ export class MidasMultinetworkRouterManager extends BaseContract {
     overrides?: CallOverrides
   ): Promise<string>;
 
+  getTokensValueInUSD(
+    _tokenAddress: string,
+    _amount: BigNumberish,
+    overrides?: CallOverrides
+  ): Promise<BigNumber>;
+
   isInSwap(overrides?: CallOverrides): Promise<boolean>;
+
+  setChainlinkDataFeedsManager(
+    _chainlinkDataFeedsManagerAddress: string,
+    overrides?: Overrides & { from?: string | Promise<string> }
+  ): Promise<ContractTransaction>;
 
   setDexRouter(
     _dexRouterAddress: string,
@@ -258,7 +298,18 @@ export class MidasMultinetworkRouterManager extends BaseContract {
       overrides?: CallOverrides
     ): Promise<string>;
 
+    getTokensValueInUSD(
+      _tokenAddress: string,
+      _amount: BigNumberish,
+      overrides?: CallOverrides
+    ): Promise<BigNumber>;
+
     isInSwap(overrides?: CallOverrides): Promise<boolean>;
+
+    setChainlinkDataFeedsManager(
+      _chainlinkDataFeedsManagerAddress: string,
+      overrides?: CallOverrides
+    ): Promise<void>;
 
     setDexRouter(
       _dexRouterAddress: string,
@@ -305,7 +356,18 @@ export class MidasMultinetworkRouterManager extends BaseContract {
       overrides?: CallOverrides
     ): Promise<BigNumber>;
 
+    getTokensValueInUSD(
+      _tokenAddress: string,
+      _amount: BigNumberish,
+      overrides?: CallOverrides
+    ): Promise<BigNumber>;
+
     isInSwap(overrides?: CallOverrides): Promise<BigNumber>;
+
+    setChainlinkDataFeedsManager(
+      _chainlinkDataFeedsManagerAddress: string,
+      overrides?: Overrides & { from?: string | Promise<string> }
+    ): Promise<BigNumber>;
 
     setDexRouter(
       _dexRouterAddress: string,
@@ -352,7 +414,18 @@ export class MidasMultinetworkRouterManager extends BaseContract {
       overrides?: CallOverrides
     ): Promise<PopulatedTransaction>;
 
+    getTokensValueInUSD(
+      _tokenAddress: string,
+      _amount: BigNumberish,
+      overrides?: CallOverrides
+    ): Promise<PopulatedTransaction>;
+
     isInSwap(overrides?: CallOverrides): Promise<PopulatedTransaction>;
+
+    setChainlinkDataFeedsManager(
+      _chainlinkDataFeedsManagerAddress: string,
+      overrides?: Overrides & { from?: string | Promise<string> }
+    ): Promise<PopulatedTransaction>;
 
     setDexRouter(
       _dexRouterAddress: string,

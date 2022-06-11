@@ -6,11 +6,15 @@ import { getImplementationAddress } from '@openzeppelin/upgrades-core'
 import { parseEther, formatEther } from 'ethers/lib/utils';
 import { expect } from 'chai';
 const os = require('os')
+const util = require('./util');
+
 describe("MetaStocks Testing", async () => {
 
     let deployer: SignerWithAddress;
     let bob: SignerWithAddress;
     let alice: SignerWithAddress;
+
+    let router: Contract;
 
     let metaStocksToken: Contract;
     let metaStocksTokenImplementationAddress: string;
@@ -47,6 +51,9 @@ describe("MetaStocks Testing", async () => {
                 console.log(`${colors.cyan('Alice Address')}: ${colors.yellow(alice?.address)}`)
             }
             console.log("");
+
+            router = await util.connectRouter()
+            console.log("router:", router.address);
         });
 
         it("1.2 - Deploy MetaStocksToken", async () => {
@@ -174,12 +181,44 @@ describe("MetaStocks Testing", async () => {
 
     describe("4.0 - Config MetaStocks Token", async () => {
 
-        it("4.1 - Set Router", async () => {
+        it("4.1 - Set setPaymentTokenAddress", async () => {
             await metaStocksFranchiseManager.setPaymentTokenAddress(metaStocksToken.address);
         })
 
         it("4.2 - Set Router", async () => {
-            await metaStocksToken.setRouterAddress("0x9Ac64Cc6e4415144C455BD8E4837Fea55603e5c3");
+
+
+            await metaStocksToken.connect(deployer).setRouterAddress("0x9Ac64Cc6e4415144C455BD8E4837Fea55603e5c3", "0x2514895c72f50D8bd4B4F9b1110F0D6bD2c97526"); // bsc testnet - bnb chanlink
+
+        });
+
+        it("4.3. Add Liquidity", async () => {
+
+
+
+            await metaStocksToken.approve(util.chains.bsc.router, ethers.constants.MaxUint256, { from: deployer?.address })
+            const tx = await router.connect(deployer).addLiquidityETH(
+                metaStocksToken.address,
+                parseEther("100000"),
+                parseEther("100000"),
+                parseEther("100"),
+                deployer?.address,
+                2648069985, // Saturday, 29 November 2053 22:59:45
+                {
+                    value: parseEther("100"),
+                }
+            )
+            console.log(`${colors.cyan('TX')}: ${colors.yellow(tx.hash)}`)
+            console.log()
+
+            const routerFactory = await util.connectFactory();
+            const pairAddress = await routerFactory.getPair(util.chains.bsc.wChainCoin, metaStocksToken.address)
+            await metaStocksToken.setPairAddress(pairAddress);
+            const pairContract = await util.connectPair(pairAddress);
+            console.log(`${colors.cyan('LP Address')}: ${colors.yellow(pairContract?.address)}`)
+            console.log(`${colors.cyan('LP Balance')}: ${colors.yellow(formatEther(await pairContract.balanceOf(deployer?.address)))}`)
+            expect(1).to.be.eq(1);
+            console.log()
         });
 
 
@@ -199,6 +238,7 @@ describe("MetaStocks Testing", async () => {
             console.log()
         });
     })
+
 
 
     describe("5.0 - Config contract", async () => {
@@ -224,7 +264,15 @@ describe("MetaStocks Testing", async () => {
             await metaStocksFranchiseManager.setPaymentTokenAddress(metaStocksToken.address);
         })
 
+        it("5.2.1 - setRouterAddress", async () => {
+            await metaStocksFranchiseManager.connect(deployer).setRouterAddress("0x9Ac64Cc6e4415144C455BD8E4837Fea55603e5c3", "0x2514895c72f50D8bd4B4F9b1110F0D6bD2c97526"); // bsc testnet - bnb chanlink
+
+        })
+
         it("5.3 - Create MetaStocksFranchise", async () => {
+
+
+
             let companyId = await metaStocksCompanyManager.getCompanyId(bob.address);
             console.log(`${colors.cyan("CompanyId: ")} ${colors.yellow(companyId)}`)
             await metaStocksFranchiseManager.connect(bob).createMetaStocksFranchise(metaStocksFranchiseManager.address, companyId, 1);
@@ -260,6 +308,7 @@ describe("MetaStocks Testing", async () => {
 
         })
     });
+
 
 });
 

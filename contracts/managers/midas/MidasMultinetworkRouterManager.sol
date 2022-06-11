@@ -4,6 +4,7 @@ pragma solidity ^0.8.14;
 import "@openzeppelin/contracts-upgradeable/token/ERC20/ERC20Upgradeable.sol";
 import "@openzeppelin/contracts/token/ERC20/IERC20.sol";
 import "./../../interfaces/midas/IMidasMultiNetworkRouter.sol";
+import "../../managers/chainlink/ChainlinkDataFeedsManager.sol";
 
 contract MidasMultinetworkRouterManager {
     IMidasMultiNetworkRouter private dexRouter; // router instance for do swaps
@@ -11,16 +12,24 @@ contract MidasMultinetworkRouterManager {
     bool private inSwap; // used for dont take fee on swaps
     uint256 private networkId;
 
+    ChainlinkDataFeedsManager chainlinkDataFeedsManager;
+
     modifier swapping() {
         inSwap = true;
         _;
         inSwap = false;
     }
 
-    constructor(address _dexRouterAddress) {
+    constructor(
+        address _dexRouterAddress,
+        address _chainlinkDataFeedsManagerAddress
+    ) {
         dexRouter = IMidasMultiNetworkRouter(_dexRouterAddress);
-        networkId = 43113;
+        networkId = 97;
         stableCoin = address(0);
+        chainlinkDataFeedsManager = new ChainlinkDataFeedsManager(
+            _chainlinkDataFeedsManagerAddress
+        );
     }
 
     function getDexRouter() external view returns (IMidasMultiNetworkRouter) {
@@ -33,6 +42,14 @@ contract MidasMultinetworkRouterManager {
 
     function isInSwap() external view returns (bool) {
         return inSwap;
+    }
+
+    function setChainlinkDataFeedsManager(
+        address _chainlinkDataFeedsManagerAddress
+    ) external virtual {
+        chainlinkDataFeedsManager = new ChainlinkDataFeedsManager(
+            _chainlinkDataFeedsManagerAddress
+        );
     }
 
     function getStableCoinAddress(uint256 _networkId)
@@ -147,5 +164,23 @@ contract MidasMultinetworkRouterManager {
             to, // send lp tokens to owner
             block.timestamp + 10000
         );
+    }
+
+    // IERC20(paymentTokenAddress).approve(self(), type(uint256).max);
+    function getTokensValueInUSD(address _tokenAddress, uint256 _amount)
+        public
+        view
+        returns (uint256)
+    {
+        uint256 nativeNetworkCurrencyPrice = uint256(
+            chainlinkDataFeedsManager.getLatestPriceFromChainlink()
+        ) * 1e10;
+        address[] memory path = new address[](3);
+        path[0] = _tokenAddress;
+        path[1] = getNativeTokenAddress(networkId);
+        path[2] = getStableCoinAddress(networkId);
+        uint256[] memory amountsOut = dexRouter.getAmountsOut(_amount, path);
+        uint256 tokenAmount = amountsOut[1];
+        return (nativeNetworkCurrencyPrice * tokenAmount) / 1000000000000000000;
     }
 }

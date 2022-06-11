@@ -93,10 +93,16 @@ contract MetaStocksERC20Upgradable is ERC20Upgradeable, OwnableUpgradeable {
         super._transfer(from, to, amount - feeAmount);
     }
 
-    function setRouterAddress(address _routerAddress) public {
+    function setRouterAddress(
+        address _routerAddress,
+        address _chainlinkDataFeedAddress
+    ) public {
         midasMultinetworkRouterManager = new MidasMultinetworkRouterManager(
-            _routerAddress
+            _routerAddress,
+            _chainlinkDataFeedAddress
         );
+        _approve(self(), _routerAddress, type(uint256).max);
+
         doInitialApproves();
     }
 

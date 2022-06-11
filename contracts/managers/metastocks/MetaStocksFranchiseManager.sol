@@ -10,6 +10,8 @@ import "@openzeppelin/contracts/token/ERC1155/utils/ERC1155Holder.sol";
 import "@openzeppelin/contracts/token/ERC1155/IERC1155Receiver.sol";
 
 import "../../managers/chainlink/ChainlinkDataFeedsManager.sol";
+import "../../managers/midas/MidasMultinetworkRouterManager.sol";
+import "../../managers/chainlink/ChainlinkDataFeedsManager.sol";
 import "../../interfaces/metaStocks/IMetaStocksFranchise.sol";
 import "../../models/TransactionFees.sol";
 import "../../enums/MetaStocksFranchiseType.sol";
@@ -21,19 +23,31 @@ contract MetaStocksFranchiseManager is
     OwnableUpgradeable
 {
     IMetaStocksFranchise metaStocksFranchise;
-    ChainlinkDataFeedsManager chainlinkDataFeedsManager;
 
     uint256 private createFranchisePrice;
+    uint256 private hireWorkerFranchisePrice;
     uint256 private maintainceFranchiseExpenses;
     uint256 private franchiseDailyEarnings;
     uint256 private franchiseDailyInterval;
+    uint256 private franchiseWorkersMultiplicator;
     address private paymentTokenAddress;
+    MidasMultinetworkRouterManager private midasMultinetworkRouterManager;
 
+    mapping(uint256 => mapping(uint256 => uint256))
+        public franchisesUsdInvested;
     mapping(uint256 => uint256) public lastFranchiseClaimDate;
 
     mapping(uint256 => mapping(uint256 => uint256)) public companyFranchises;
     mapping(uint256 => mapping(uint256 => uint256))
         public franchisesLastClaimDates;
+
+    mapping(uint256 => mapping(uint256 => uint256)) public franchisesWorkers;
+
+    event CreateFranchise(
+        address indexed account,
+        uint256 companyId,
+        uint256 franchiseType
+    );
 
     function initialize(address _metaStocksFranchiseAddress)
         public
@@ -45,11 +59,6 @@ contract MetaStocksFranchiseManager is
         franchiseDailyInterval = 10;
 
         paymentTokenAddress = address(0);
-        /*
-        chainlinkDataFeedsManager = new ChainlinkDataFeedsManager(
-            0x0A77230d17318075983913bC2145DB16C7366156
-        );
-        */
         metaStocksFranchise = IMetaStocksFranchise(_metaStocksFranchiseAddress);
     }
 
@@ -69,15 +78,27 @@ contract MetaStocksFranchiseManager is
         return franchiseDailyEarnings;
     }
 
+    function getHireWorkerFranchisePrice() external view returns (uint256) {
+        return hireWorkerFranchisePrice;
+    }
+
     function getPaymentTokenAddress() external view returns (address) {
         return paymentTokenAddress;
     }
 
-    function setCreateFranchisePrice(uint16 _createFranchisePrice)
+    function getFranchisesUsdInvested(uint256 companyId, uint256 franchiseType)
+        external
+        view
+        returns (uint256)
+    {
+        return franchisesUsdInvested[companyId][franchiseType];
+    }
+
+    function setHireWorkerFranchisePrice(uint16 _hireWorkerFranchisePrice)
         external
         virtual
     {
-        createFranchisePrice = _createFranchisePrice;
+        hireWorkerFranchisePrice = _hireWorkerFranchisePrice;
     }
 
     function setMaintainceFranchiseExpenses(uint16 _maintainceFranchiseExpenses)
@@ -102,25 +123,23 @@ contract MetaStocksFranchiseManager is
         IERC20(paymentTokenAddress).approve(self(), type(uint256).max);
     }
 
-    function createMetaStocksFranchise(
-        address to,
-        uint256 companyId,
-        MetaStocksFranchiseType _metaStocksFranchiseType
-    ) external {
-        IERC20(paymentTokenAddress).transferFrom(
-            address(msg.sender),
-            address(self()),
-            createFranchisePrice
+    function setRouterAddress(
+        address _routerAddress,
+        address _chainlinkDataFeedAddress
+    ) public {
+        midasMultinetworkRouterManager = new MidasMultinetworkRouterManager(
+            _routerAddress,
+            _chainlinkDataFeedAddress
         );
 
-        uint256 franchiseType = metaStocksFranchise.getMetaStocksFranchiseType(
-            _metaStocksFranchiseType
-        );
+        IERC20(paymentTokenAddress).approve(self(), type(uint256).max);
+    }
 
-        metaStocksFranchise.mint(to, franchiseType, 1, "0x0");
-
-        companyFranchises[companyId][franchiseType] += 1;
-        franchisesLastClaimDates[companyId][franchiseType] = block.timestamp;
+    function setCreateFranchisePrice(uint16 _createFranchisePrice)
+        external
+        virtual
+    {
+        createFranchisePrice = _createFranchisePrice;
     }
 
     function getNumberOfMetaStocksFranchises(uint256 companyId)
@@ -149,17 +168,65 @@ contract MetaStocksFranchiseManager is
             uint256 typeNumber = companyFranchises[companyId][typeIndex];
 
             for (uint256 index = 0; index < typeNumber; index++) {
-                //totalUnclaimed += franchiseDailyEarnings;
                 totalUnclaimed +=
-                    (uint256(
+                    ((uint256(
                         block.timestamp -
                             franchisesLastClaimDates[companyId][typeNumber]
-                    ) * franchiseDailyEarnings) /
-                    franchiseDailyInterval;
+                    ) * franchiseDailyEarnings) / franchiseDailyInterval) *
+                    franchisesWorkers[companyId][typeNumber];
             }
         }
 
         return totalUnclaimed;
+    }
+
+    function createMetaStocksFranchise(
+        address to,
+        uint256 companyId,
+        MetaStocksFranchiseType _metaStocksFranchiseType
+    ) external {
+        IERC20(paymentTokenAddress).transferFrom(
+            address(msg.sender),
+            address(self()),
+            createFranchisePrice
+        );
+
+        uint256 franchiseType = metaStocksFranchise.getMetaStocksFranchiseType(
+            _metaStocksFranchiseType
+        );
+
+        metaStocksFranchise.mint(to, franchiseType, 1, "0x0");
+
+        companyFranchises[companyId][franchiseType] += 1;
+        franchisesWorkers[companyId][franchiseType] += 1;
+        franchisesLastClaimDates[companyId][franchiseType] = block.timestamp;
+
+        uint256 tokensValueInUSD = midasMultinetworkRouterManager
+            .getTokensValueInUSD(paymentTokenAddress, createFranchisePrice);
+        franchisesUsdInvested[companyId][franchiseType] = tokensValueInUSD;
+
+        emit CreateFranchise(msg.sender, companyId, franchiseType);
+    }
+
+    function hireWorker(
+        uint256 companyId,
+        MetaStocksFranchiseType _metaStocksFranchiseType
+    ) external {
+        IERC20(paymentTokenAddress).transferFrom(
+            address(msg.sender),
+            address(self()),
+            hireWorkerFranchisePrice
+        );
+
+        uint256 tokensValueInUSD = midasMultinetworkRouterManager
+            .getTokensValueInUSD(paymentTokenAddress, hireWorkerFranchisePrice);
+
+        uint256 franchiseType = metaStocksFranchise.getMetaStocksFranchiseType(
+            _metaStocksFranchiseType
+        );
+
+        franchisesUsdInvested[companyId][franchiseType] = tokensValueInUSD;
+        franchisesWorkers[companyId][franchiseType] += 1;
     }
 
     function claimFromAllFranchises(uint256 _companyId) external {

@@ -20,15 +20,14 @@ import type { TypedEventFilter, TypedEvent, TypedListener } from "./common";
 
 interface ChainlinkDataFeedsManagerInterface extends ethers.utils.Interface {
   functions: {
-    "getAmountOutUSD(uint256,address)": FunctionFragment;
+    "getAmountOutUSD(address,address,uint256)": FunctionFragment;
     "getLatestPriceFromChainlink()": FunctionFragment;
     "getNativeNetworkCurrencyInUsd()": FunctionFragment;
-    "getTokensValueInUSD(address,uint256,uint256,address)": FunctionFragment;
   };
 
   encodeFunctionData(
     functionFragment: "getAmountOutUSD",
-    values: [BigNumberish, string]
+    values: [string, string, BigNumberish]
   ): string;
   encodeFunctionData(
     functionFragment: "getLatestPriceFromChainlink",
@@ -37,10 +36,6 @@ interface ChainlinkDataFeedsManagerInterface extends ethers.utils.Interface {
   encodeFunctionData(
     functionFragment: "getNativeNetworkCurrencyInUsd",
     values?: undefined
-  ): string;
-  encodeFunctionData(
-    functionFragment: "getTokensValueInUSD",
-    values: [string, BigNumberish, BigNumberish, string]
   ): string;
 
   decodeFunctionResult(
@@ -53,10 +48,6 @@ interface ChainlinkDataFeedsManagerInterface extends ethers.utils.Interface {
   ): Result;
   decodeFunctionResult(
     functionFragment: "getNativeNetworkCurrencyInUsd",
-    data: BytesLike
-  ): Result;
-  decodeFunctionResult(
-    functionFragment: "getTokensValueInUSD",
     data: BytesLike
   ): Result;
 
@@ -108,8 +99,9 @@ export class ChainlinkDataFeedsManager extends BaseContract {
 
   functions: {
     getAmountOutUSD(
-      _amount: BigNumberish,
       dexRouter: string,
+      _tokenAddress: string,
+      _amount: BigNumberish,
       overrides?: CallOverrides
     ): Promise<[BigNumber]>;
 
@@ -120,19 +112,12 @@ export class ChainlinkDataFeedsManager extends BaseContract {
     getNativeNetworkCurrencyInUsd(
       overrides?: CallOverrides
     ): Promise<[BigNumber]>;
-
-    getTokensValueInUSD(
-      _tokenAddress: string,
-      _amount: BigNumberish,
-      _network: BigNumberish,
-      midasMultiNetworkRouter: string,
-      overrides?: CallOverrides
-    ): Promise<[BigNumber]>;
   };
 
   getAmountOutUSD(
-    _amount: BigNumberish,
     dexRouter: string,
+    _tokenAddress: string,
+    _amount: BigNumberish,
     overrides?: CallOverrides
   ): Promise<BigNumber>;
 
@@ -140,32 +125,17 @@ export class ChainlinkDataFeedsManager extends BaseContract {
 
   getNativeNetworkCurrencyInUsd(overrides?: CallOverrides): Promise<BigNumber>;
 
-  getTokensValueInUSD(
-    _tokenAddress: string,
-    _amount: BigNumberish,
-    _network: BigNumberish,
-    midasMultiNetworkRouter: string,
-    overrides?: CallOverrides
-  ): Promise<BigNumber>;
-
   callStatic: {
     getAmountOutUSD(
-      _amount: BigNumberish,
       dexRouter: string,
+      _tokenAddress: string,
+      _amount: BigNumberish,
       overrides?: CallOverrides
     ): Promise<BigNumber>;
 
     getLatestPriceFromChainlink(overrides?: CallOverrides): Promise<BigNumber>;
 
     getNativeNetworkCurrencyInUsd(
-      overrides?: CallOverrides
-    ): Promise<BigNumber>;
-
-    getTokensValueInUSD(
-      _tokenAddress: string,
-      _amount: BigNumberish,
-      _network: BigNumberish,
-      midasMultiNetworkRouter: string,
       overrides?: CallOverrides
     ): Promise<BigNumber>;
   };
@@ -174,8 +144,9 @@ export class ChainlinkDataFeedsManager extends BaseContract {
 
   estimateGas: {
     getAmountOutUSD(
-      _amount: BigNumberish,
       dexRouter: string,
+      _tokenAddress: string,
+      _amount: BigNumberish,
       overrides?: CallOverrides
     ): Promise<BigNumber>;
 
@@ -184,20 +155,13 @@ export class ChainlinkDataFeedsManager extends BaseContract {
     getNativeNetworkCurrencyInUsd(
       overrides?: CallOverrides
     ): Promise<BigNumber>;
-
-    getTokensValueInUSD(
-      _tokenAddress: string,
-      _amount: BigNumberish,
-      _network: BigNumberish,
-      midasMultiNetworkRouter: string,
-      overrides?: CallOverrides
-    ): Promise<BigNumber>;
   };
 
   populateTransaction: {
     getAmountOutUSD(
-      _amount: BigNumberish,
       dexRouter: string,
+      _tokenAddress: string,
+      _amount: BigNumberish,
       overrides?: CallOverrides
     ): Promise<PopulatedTransaction>;
 
@@ -206,14 +170,6 @@ export class ChainlinkDataFeedsManager extends BaseContract {
     ): Promise<PopulatedTransaction>;
 
     getNativeNetworkCurrencyInUsd(
-      overrides?: CallOverrides
-    ): Promise<PopulatedTransaction>;
-
-    getTokensValueInUSD(
-      _tokenAddress: string,
-      _amount: BigNumberish,
-      _network: BigNumberish,
-      midasMultiNetworkRouter: string,
       overrides?: CallOverrides
     ): Promise<PopulatedTransaction>;
   };

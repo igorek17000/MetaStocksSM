@@ -28,41 +28,20 @@ contract ChainlinkDataFeedsManager {
         return price;
     }
 
-    function getTokensValueInUSD(
+    function getNativeNetworkCurrencyInUsd() external view returns (uint256) {
+        return uint256(getLatestPriceFromChainlink()) * 1e10;
+    }
+
+    function getAmountOutUSD(
+        IMidasMultiNetworkRouter dexRouter,
         address _tokenAddress,
-        uint256 _amount,
-        uint256 _network,
-        IMidasMultiNetworkRouter midasMultiNetworkRouter
+        uint256 _amount
     ) public view returns (uint256) {
         uint256 nativeNetworkCurrencyPrice = uint256(
             getLatestPriceFromChainlink()
         ) * 1e10;
         address[] memory path = new address[](2);
         path[0] = _tokenAddress;
-        path[1] = midasMultiNetworkRouter.getNativeNetworkCurrencyAddress(
-            _network
-        );
-        uint256[] memory amountsOut = midasMultiNetworkRouter.getAmountsOut(
-            _amount,
-            path
-        );
-        uint256 tokenAmount = amountsOut[1];
-        return (nativeNetworkCurrencyPrice * tokenAmount) / 1000000000000000000;
-    }
-
-    function getNativeNetworkCurrencyInUsd() external view returns (uint256) {
-        return uint256(getLatestPriceFromChainlink()) * 1e10;
-    }
-
-    function getAmountOutUSD(
-        uint256 _amount,
-        IMidasMultiNetworkRouter dexRouter
-    ) public view returns (uint256) {
-        uint256 nativeNetworkCurrencyPrice = uint256(
-            getLatestPriceFromChainlink()
-        ) * 1e10;
-        address[] memory path = new address[](2);
-        path[0] = address(this);
         path[1] = dexRouter.WETH();
         uint256[] memory amountsOut = dexRouter.getAmountsOut(_amount, path);
         uint256 tokenAmount = amountsOut[1];
