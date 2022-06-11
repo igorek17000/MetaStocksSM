@@ -66,9 +66,84 @@ contract MetaStocksFranchise is MetaStocksERC1155Upgradable {
             franchiseType = 9;
         } else if (
             _metaStocksFranchiseType ==
-            MetaStocksFranchiseType.MetaStocksFranchiseType2
+            MetaStocksFranchiseType.MetaStocksFranchiseType11
         ) {
             franchiseType = 10;
+        } else if (
+            _metaStocksFranchiseType ==
+            MetaStocksFranchiseType.MetaStocksFranchiseType12
+        ) {
+            franchiseType = 11;
+        } else if (
+            _metaStocksFranchiseType ==
+            MetaStocksFranchiseType.MetaStocksFranchiseType13
+        ) {
+            franchiseType = 12;
+        } else if (
+            _metaStocksFranchiseType ==
+            MetaStocksFranchiseType.MetaStocksFranchiseType14
+        ) {
+            franchiseType = 13;
+        } else if (
+            _metaStocksFranchiseType ==
+            MetaStocksFranchiseType.MetaStocksFranchiseType15
+        ) {
+            franchiseType = 14;
+        } else if (
+            _metaStocksFranchiseType ==
+            MetaStocksFranchiseType.MetaStocksFranchiseType16
+        ) {
+            franchiseType = 15;
+        } else if (
+            _metaStocksFranchiseType ==
+            MetaStocksFranchiseType.MetaStocksFranchiseType17
+        ) {
+            franchiseType = 16;
+        } else if (
+            _metaStocksFranchiseType ==
+            MetaStocksFranchiseType.MetaStocksFranchiseType18
+        ) {
+            franchiseType = 17;
+        } else if (
+            _metaStocksFranchiseType ==
+            MetaStocksFranchiseType.MetaStocksFranchiseType19
+        ) {
+            franchiseType = 18;
+        } else if (
+            _metaStocksFranchiseType ==
+            MetaStocksFranchiseType.MetaStocksFranchiseType20
+        ) {
+            franchiseType = 19;
+        } else if (
+            _metaStocksFranchiseType ==
+            MetaStocksFranchiseType.MetaStocksFranchiseType21
+        ) {
+            franchiseType = 20;
+        } else if (
+            _metaStocksFranchiseType ==
+            MetaStocksFranchiseType.MetaStocksFranchiseType22
+        ) {
+            franchiseType = 21;
+        } else if (
+            _metaStocksFranchiseType ==
+            MetaStocksFranchiseType.MetaStocksFranchiseType23
+        ) {
+            franchiseType = 22;
+        } else if (
+            _metaStocksFranchiseType ==
+            MetaStocksFranchiseType.MetaStocksFranchiseType24
+        ) {
+            franchiseType = 23;
+        } else if (
+            _metaStocksFranchiseType ==
+            MetaStocksFranchiseType.MetaStocksFranchiseType25
+        ) {
+            franchiseType = 24;
+        } else if (
+            _metaStocksFranchiseType ==
+            MetaStocksFranchiseType.MetaStocksFranchiseType26
+        ) {
+            franchiseType = 25;
         } else {
             franchiseType = 0;
         }
