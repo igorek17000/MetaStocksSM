@@ -345,6 +345,14 @@ declare module "hardhat/types/runtime" {
       signerOrOptions?: ethers.Signer | FactoryOptions
     ): Promise<Contracts.IMetaStocksFranchiseManager__factory>;
     getContractFactory(
+      name: "IMetaStocksFranchiseShare",
+      signerOrOptions?: ethers.Signer | FactoryOptions
+    ): Promise<Contracts.IMetaStocksFranchiseShare__factory>;
+    getContractFactory(
+      name: "IMetaStocksFranchiseShareManager",
+      signerOrOptions?: ethers.Signer | FactoryOptions
+    ): Promise<Contracts.IMetaStocksFranchiseShareManager__factory>;
+    getContractFactory(
       name: "IMidasManager",
       signerOrOptions?: ethers.Signer | FactoryOptions
     ): Promise<Contracts.IMidasManager__factory>;
@@ -832,6 +840,16 @@ declare module "hardhat/types/runtime" {
       address: string,
       signer?: ethers.Signer
     ): Promise<Contracts.IMetaStocksFranchiseManager>;
+    getContractAt(
+      name: "IMetaStocksFranchiseShare",
+      address: string,
+      signer?: ethers.Signer
+    ): Promise<Contracts.IMetaStocksFranchiseShare>;
+    getContractAt(
+      name: "IMetaStocksFranchiseShareManager",
+      address: string,
+      signer?: ethers.Signer
+    ): Promise<Contracts.IMetaStocksFranchiseShareManager>;
     getContractAt(
       name: "IMidasManager",
       address: string,

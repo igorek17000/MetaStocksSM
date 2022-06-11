@@ -164,17 +164,13 @@ async function main(): Promise<void> {
         await sleep(5000)
         await test_util.verifyWithotDeploy(contractName, metaStocksCompanyManager.address, [metaStocksFranchise.address])
 
-
-
-
-
         await metaStocksCompany.connect(deployer).transferOwnership(metaStocksCompanyManager.address);
         await sleep(2000);
         await metaStocksFranchise.connect(deployer).transferOwnership(metaStocksFranchiseManager.address);
         await sleep(2000);
         await metaStocksFranchiseManager.connect(deployer).setPaymentTokenAddress(metaStocksToken.address);
         await sleep(2000);
-        await metaStocksToken.connect(deployer).setRouterAddress("0x688d21b0B8Dc35971AF58cFF1F7Bf65639937860");
+        await metaStocksToken.connect(deployer).setRouterAddress("0x9Ac64Cc6e4415144C455BD8E4837Fea55603e5c3");
         await sleep(2000);
         await metaStocksToken.connect(deployer).transfer(metaStocksFranchiseManager?.address, parseEther("10000"))
         await sleep(2000);

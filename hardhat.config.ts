@@ -187,7 +187,7 @@ const config: HardhatUserConfig = {
       chainId: 56,
     },
     bsctestnet: {
-      url: 'https://data-seed-prebsc-2-s3.binance.org:8545',
+      url: 'https://speedy-nodes-nyc.moralis.io/aaf5f27c6c7a9ad182a69ccd/bsc/testnet/archive',
       accounts: [
         `${mnemonic}`,
         mnemonicBob,

@@ -387,8 +387,8 @@
       "artifacts": []
     },
     "/home/nkt/Desktop/metaStoksContracts/contracts/tokens/MetaStocksERC1155Upgradable.sol": {
-      "lastModificationDate": 1654953175840,
-      "contentHash": "b34444e289b7de9a6a4c01596d4f5ff6",
+      "lastModificationDate": 1654963872152,
+      "contentHash": "0d3b09c272305da1b098f132fab4da03",
       "sourceName": "contracts/tokens/MetaStocksERC1155Upgradable.sol",
       "solcConfig": {
         "version": "0.8.14",
@@ -932,8 +932,8 @@
       ]
     },
     "/home/nkt/Desktop/metaStoksContracts/contracts/MetaStocksFranchiseShare.sol": {
-      "lastModificationDate": 1654953137708,
-      "contentHash": "e92db8e090c10d67db184cbba346564d",
+      "lastModificationDate": 1654963159322,
+      "contentHash": "4af7cec80db2668ec6909be3c16ea10c",
       "sourceName": "contracts/MetaStocksFranchiseShare.sol",
       "solcConfig": {
         "version": "0.8.14",
@@ -960,6 +960,7 @@
         }
       },
       "imports": [
+        "./enums/MetaStocksFranchiseType.sol",
         "./tokens/MetaStocksERC1155Upgradable.sol"
       ],
       "versionPragmas": [
@@ -2047,8 +2048,8 @@
       ]
     },
     "/home/nkt/Desktop/metaStoksContracts/contracts/managers/metastocks/MetaStocksFranchiseShareManager.sol": {
-      "lastModificationDate": 1654952496420,
-      "contentHash": "eb8fffb6144e8d610ae0b3818a1c43ca",
+      "lastModificationDate": 1654963906139,
+      "contentHash": "e4bf36cef28148f18fcb0c6227d5cab0",
       "sourceName": "contracts/managers/metastocks/MetaStocksFranchiseShareManager.sol",
       "solcConfig": {
         "version": "0.8.14",
@@ -2080,9 +2081,13 @@
         "@openzeppelin/contracts/token/ERC20/IERC20.sol",
         "@chainlink/contracts/src/v0.8/interfaces/AggregatorV3Interface.sol",
         "@openzeppelin/contracts-upgradeable/access/OwnableUpgradeable.sol",
+        "@openzeppelin/contracts/token/ERC1155/utils/ERC1155Holder.sol",
+        "@openzeppelin/contracts/token/ERC1155/IERC1155Receiver.sol",
         "../../managers/chainlink/ChainlinkDataFeedsManager.sol",
-        "../../interfaces/metaStocks/IMetaStocksCompany.sol",
-        "../../models/TransactionFees.sol"
+        "../../interfaces/metaStocks/IMetaStocksFranchiseShare.sol",
+        "../../models/TransactionFees.sol",
+        "../../enums/MetaStocksFranchiseType.sol",
+        "../../tokens/MetaStocksIERC1155ReceiverHolder.sol"
       ],
       "versionPragmas": [
         "^0.8.14"
@@ -2479,7 +2484,7 @@
       ]
     },
     "/home/nkt/Desktop/metaStoksContracts/contracts/managers/metastocks/MetaStocksFranchiseManager.sol": {
-      "lastModificationDate": 1654956514319,
+      "lastModificationDate": 1654963596339,
       "contentHash": "df0fc3aafdd024281b7a624c0e122ce9",
       "sourceName": "contracts/managers/metastocks/MetaStocksFranchiseManager.sol",
       "solcConfig": {
@@ -2604,7 +2609,7 @@
       ]
     },
     "/home/nkt/Desktop/metaStoksContracts/contracts/MetaStocksFranchise.sol": {
-      "lastModificationDate": 1654953134104,
+      "lastModificationDate": 1654963816617,
       "contentHash": "e7c447835f0c2323fae65de3a3cf7568",
       "sourceName": "contracts/MetaStocksFranchise.sol",
       "solcConfig": {
@@ -2678,42 +2683,6 @@
       ],
       "artifacts": [
         "IMetaStocksFranchiseManager"
-      ]
-    },
-    "/home/nkt/Desktop/metaStoksContracts/contracts/interfaces/metaStocks/IMetaStockFranchiseShare.sol": {
-      "lastModificationDate": 1654913446593,
-      "contentHash": "1fbf25db9926ffc0e69baa53aa0650b0",
-      "sourceName": "contracts/interfaces/metaStocks/IMetaStockFranchiseShare.sol",
-      "solcConfig": {
-        "version": "0.8.14",
-        "settings": {
-          "optimizer": {
-            "enabled": true,
-            "runs": 100
-          },
-          "outputSelection": {
-            "*": {
-              "*": [
-                "abi",
-                "evm.bytecode",
-                "evm.deployedBytecode",
-                "evm.methodIdentifiers",
-                "metadata",
-                "storageLayout"
-              ],
-              "": [
-                "ast"
-              ]
-            }
-          }
-        }
-      },
-      "imports": [],
-      "versionPragmas": [
-        "^0.8.14"
-      ],
-      "artifacts": [
-        "IMetaStocksFranchiseShare"
       ]
     },
     "/home/nkt/Desktop/metaStoksContracts/contracts/interfaces/metaStocks/IMetaStocksBaseManager.sol": {
@@ -3037,6 +3006,80 @@
         "^0.8.14"
       ],
       "artifacts": []
+    },
+    "/home/nkt/Desktop/metaStoksContracts/contracts/interfaces/metaStocks/IMetaStocksFranchiseShare.sol": {
+      "lastModificationDate": 1654963890411,
+      "contentHash": "1ddfa173e1efd4f199dfc3d17ecc118a",
+      "sourceName": "contracts/interfaces/metaStocks/IMetaStocksFranchiseShare.sol",
+      "solcConfig": {
+        "version": "0.8.14",
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "runs": 100
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata",
+                "storageLayout"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [],
+      "versionPragmas": [
+        "^0.8.14"
+      ],
+      "artifacts": [
+        "IMetaStocksFranchiseShare"
+      ]
+    },
+    "/home/nkt/Desktop/metaStoksContracts/contracts/interfaces/metaStocks/IMetaStocksFranchiseShareManager.sol": {
+      "lastModificationDate": 1654963884775,
+      "contentHash": "a6f01112e365ae02b4ad370f8baa019c",
+      "sourceName": "contracts/interfaces/metaStocks/IMetaStocksFranchiseShareManager.sol",
+      "solcConfig": {
+        "version": "0.8.14",
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "runs": 100
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata",
+                "storageLayout"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [
+        "../../enums/MetaStocksFranchiseType.sol"
+      ],
+      "versionPragmas": [
+        "^0.8.14"
+      ],
+      "artifacts": [
+        "IMetaStocksFranchiseShareManager"
+      ]
     }
   }
 }

@@ -70,6 +70,7 @@ export type { IMetaStocksCompanyInfo } from "./IMetaStocksCompanyInfo";
 export type { IMetaStocksCompanyManager } from "./IMetaStocksCompanyManager";
 export type { IMetaStocksFranchise } from "./IMetaStocksFranchise";
 export type { IMetaStocksFranchiseManager } from "./IMetaStocksFranchiseManager";
+export type { IMetaStocksFranchiseShareManager } from "./IMetaStocksFranchiseShareManager";
 export type { IMidasManager } from "./IMidasManager";
 export type { IMidasMultiNetworkRouter } from "./IMidasMultiNetworkRouter";
 export type { MidasMultiNetworkRouterManager } from "./MidasMultiNetworkRouterManager";
@@ -157,6 +158,7 @@ export { IMetaStocksCompanyInfo__factory } from "./factories/IMetaStocksCompanyI
 export { IMetaStocksCompanyManager__factory } from "./factories/IMetaStocksCompanyManager__factory";
 export { IMetaStocksFranchise__factory } from "./factories/IMetaStocksFranchise__factory";
 export { IMetaStocksFranchiseManager__factory } from "./factories/IMetaStocksFranchiseManager__factory";
+export { IMetaStocksFranchiseShareManager__factory } from "./factories/IMetaStocksFranchiseShareManager__factory";
 export { IMidasManager__factory } from "./factories/IMidasManager__factory";
 export { IMidasMultiNetworkRouter__factory } from "./factories/IMidasMultiNetworkRouter__factory";
 export { MidasMultiNetworkRouterManager__factory } from "./factories/MidasMultiNetworkRouterManager__factory";

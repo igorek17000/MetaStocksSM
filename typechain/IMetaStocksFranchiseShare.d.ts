@@ -11,7 +11,7 @@ import {
   PopulatedTransaction,
   BaseContract,
   ContractTransaction,
-  PayableOverrides,
+  Overrides,
   CallOverrides,
 } from "ethers";
 import { BytesLike } from "@ethersproject/bytes";
@@ -21,18 +21,15 @@ import type { TypedEventFilter, TypedEvent, TypedListener } from "./common";
 
 interface IMetaStocksFranchiseShareInterface extends ethers.utils.Interface {
   functions: {
-    "createFranchise()": FunctionFragment;
+    "mintBatch(address,uint256[],uint256[],bytes)": FunctionFragment;
   };
 
   encodeFunctionData(
-    functionFragment: "createFranchise",
-    values?: undefined
+    functionFragment: "mintBatch",
+    values: [string, BigNumberish[], BigNumberish[], BytesLike]
   ): string;
 
-  decodeFunctionResult(
-    functionFragment: "createFranchise",
-    data: BytesLike
-  ): Result;
+  decodeFunctionResult(functionFragment: "mintBatch", data: BytesLike): Result;
 
   events: {};
 }
@@ -81,30 +78,52 @@ export class IMetaStocksFranchiseShare extends BaseContract {
   interface: IMetaStocksFranchiseShareInterface;
 
   functions: {
-    createFranchise(
-      overrides?: PayableOverrides & { from?: string | Promise<string> }
+    mintBatch(
+      to: string,
+      ids: BigNumberish[],
+      amounts: BigNumberish[],
+      data: BytesLike,
+      overrides?: Overrides & { from?: string | Promise<string> }
     ): Promise<ContractTransaction>;
   };
 
-  createFranchise(
-    overrides?: PayableOverrides & { from?: string | Promise<string> }
+  mintBatch(
+    to: string,
+    ids: BigNumberish[],
+    amounts: BigNumberish[],
+    data: BytesLike,
+    overrides?: Overrides & { from?: string | Promise<string> }
   ): Promise<ContractTransaction>;
 
   callStatic: {
-    createFranchise(overrides?: CallOverrides): Promise<void>;
+    mintBatch(
+      to: string,
+      ids: BigNumberish[],
+      amounts: BigNumberish[],
+      data: BytesLike,
+      overrides?: CallOverrides
+    ): Promise<void>;
   };
 
   filters: {};
 
   estimateGas: {
-    createFranchise(
-      overrides?: PayableOverrides & { from?: string | Promise<string> }
+    mintBatch(
+      to: string,
+      ids: BigNumberish[],
+      amounts: BigNumberish[],
+      data: BytesLike,
+      overrides?: Overrides & { from?: string | Promise<string> }
     ): Promise<BigNumber>;
   };
 
   populateTransaction: {
-    createFranchise(
-      overrides?: PayableOverrides & { from?: string | Promise<string> }
+    mintBatch(
+      to: string,
+      ids: BigNumberish[],
+      amounts: BigNumberish[],
+      data: BytesLike,
+      overrides?: Overrides & { from?: string | Promise<string> }
     ): Promise<PopulatedTransaction>;
   };
 }
