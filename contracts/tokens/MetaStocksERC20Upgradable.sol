@@ -78,7 +78,6 @@ contract MetaStocksERC20Upgradable is ERC20Upgradeable, OwnableUpgradeable {
         uint256 feeAmount = 0; // received fee amount is zero
 
         // If takeFee is false there is 0% fee
-        bool takeFee = false;
         if (
             !transactionFeesManager.isExcludedFromFee(from) &&
             !transactionFeesManager.isExcludedFromFee(to)
@@ -92,11 +91,13 @@ contract MetaStocksERC20Upgradable is ERC20Upgradeable, OwnableUpgradeable {
                 amount
             );
 
-            // we substract fee amount from recipient amount
-            amountReceived = amount - feeAmount;
+            if (feeAmount > 0) {
+                // we substract fee amount from recipient amount
+                amountReceived = amount - feeAmount;
 
-            // and transfer fee to contract
-            super._transfer(from, self(), feeAmount);
+                // and transfer fee to contract
+                super._transfer(from, self(), feeAmount);
+            }
         }
 
         // finally send remaining tokens to recipient

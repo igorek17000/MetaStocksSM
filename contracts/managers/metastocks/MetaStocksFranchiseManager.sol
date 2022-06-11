@@ -173,6 +173,10 @@ contract MetaStocksFranchiseManager is
             address(msg.sender),
             totalUnclaimed
         );
+
+        for (uint256 typeIndex = 0; typeIndex < 10; typeIndex++) {
+            franchisesLastClaimDates[_companyId][typeIndex] = block.timestamp;
+        }
     }
 
     function getFranchiseValue() external view returns (uint256) {
