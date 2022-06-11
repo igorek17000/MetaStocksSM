@@ -1,0 +1,156 @@
+{
+  "id": "bdbdb1920e793555c5768882c81d09fa",
+  "_format": "hh-sol-build-info-1",
+  "solcVersion": "0.8.14",
+  "solcLongVersion": "0.8.14+commit.80d49f37",
+  "input": {
+    "language": "Solidity",
+    "sources": {
+      "contracts/interfaces/metaStocks/IMetaStockFranchiseShare.sol": {
+        "content": "// SPDX-License-Identifier: MIT\npragma solidity ^0.8.14;\n\ninterface IMetaStocksFranchiseShare {\n    function createFranchise() external payable;\n}\n"
+      }
+    },
+    "settings": {
+      "optimizer": {
+        "enabled": true,
+        "runs": 100
+      },
+      "outputSelection": {
+        "*": {
+          "*": [
+            "abi",
+            "evm.bytecode",
+            "evm.deployedBytecode",
+            "evm.methodIdentifiers",
+            "metadata",
+            "storageLayout"
+          ],
+          "": [
+            "ast"
+          ]
+        }
+      }
+    }
+  },
+  "output": {
+    "contracts": {
+      "contracts/interfaces/metaStocks/IMetaStockFranchiseShare.sol": {
+        "IMetaStocksFranchiseShare": {
+          "abi": [
+            {
+              "inputs": [],
+              "name": "createFranchise",
+              "outputs": [],
+              "stateMutability": "payable",
+              "type": "function"
+            }
+          ],
+          "evm": {
+            "bytecode": {
+              "functionDebugData": {},
+              "generatedSources": [],
+              "linkReferences": {},
+              "object": "",
+              "opcodes": "",
+              "sourceMap": ""
+            },
+            "deployedBytecode": {
+              "functionDebugData": {},
+              "generatedSources": [],
+              "immutableReferences": {},
+              "linkReferences": {},
+              "object": "",
+              "opcodes": "",
+              "sourceMap": ""
+            },
+            "methodIdentifiers": {
+              "createFranchise()": "0e98caf2"
+            }
+          },
+          "metadata": "{\"compiler\":{\"version\":\"0.8.14+commit.80d49f37\"},\"language\":\"Solidity\",\"output\":{\"abi\":[{\"inputs\":[],\"name\":\"createFranchise\",\"outputs\":[],\"stateMutability\":\"payable\",\"type\":\"function\"}],\"devdoc\":{\"kind\":\"dev\",\"methods\":{},\"version\":1},\"userdoc\":{\"kind\":\"user\",\"methods\":{},\"version\":1}},\"settings\":{\"compilationTarget\":{\"contracts/interfaces/metaStocks/IMetaStockFranchiseShare.sol\":\"IMetaStocksFranchiseShare\"},\"evmVersion\":\"london\",\"libraries\":{},\"metadata\":{\"bytecodeHash\":\"ipfs\"},\"optimizer\":{\"enabled\":true,\"runs\":100},\"remappings\":[]},\"sources\":{\"contracts/interfaces/metaStocks/IMetaStockFranchiseShare.sol\":{\"keccak256\":\"0x94775cad19289c2f6a0ab927960bd451cc41d1a06978d4d3c3cb2928a75c4656\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://697e73559bdb74bceb8d1475a256cd4035048450d1cc843529cc514ccd7f9189\",\"dweb:/ipfs/Qmbn2p85suvvirc97QfEPDbfGv8ceoMirzpfTfkZsrcwWm\"]}},\"version\":1}",
+          "storageLayout": {
+            "storage": [],
+            "types": null
+          }
+        }
+      }
+    },
+    "sources": {
+      "contracts/interfaces/metaStocks/IMetaStockFranchiseShare.sol": {
+        "ast": {
+          "absolutePath": "contracts/interfaces/metaStocks/IMetaStockFranchiseShare.sol",
+          "exportedSymbols": {
+            "IMetaStocksFranchiseShare": [
+              5
+            ]
+          },
+          "id": 6,
+          "license": "MIT",
+          "nodeType": "SourceUnit",
+          "nodes": [
+            {
+              "id": 1,
+              "literals": [
+                "solidity",
+                "^",
+                "0.8",
+                ".14"
+              ],
+              "nodeType": "PragmaDirective",
+              "src": "32:24:0"
+            },
+            {
+              "abstract": false,
+              "baseContracts": [],
+              "canonicalName": "IMetaStocksFranchiseShare",
+              "contractDependencies": [],
+              "contractKind": "interface",
+              "fullyImplemented": false,
+              "id": 5,
+              "linearizedBaseContracts": [
+                5
+              ],
+              "name": "IMetaStocksFranchiseShare",
+              "nameLocation": "68:25:0",
+              "nodeType": "ContractDefinition",
+              "nodes": [
+                {
+                  "functionSelector": "0e98caf2",
+                  "id": 4,
+                  "implemented": false,
+                  "kind": "function",
+                  "modifiers": [],
+                  "name": "createFranchise",
+                  "nameLocation": "109:15:0",
+                  "nodeType": "FunctionDefinition",
+                  "parameters": {
+                    "id": 2,
+                    "nodeType": "ParameterList",
+                    "parameters": [],
+                    "src": "124:2:0"
+                  },
+                  "returnParameters": {
+                    "id": 3,
+                    "nodeType": "ParameterList",
+                    "parameters": [],
+                    "src": "143:0:0"
+                  },
+                  "scope": 5,
+                  "src": "100:44:0",
+                  "stateMutability": "payable",
+                  "virtual": false,
+                  "visibility": "external"
+                }
+              ],
+              "scope": 6,
+              "src": "58:88:0",
+              "usedErrors": []
+            }
+          ],
+          "src": "32:115:0"
+        },
+        "id": 0
+      }
+    }
+  }
+}

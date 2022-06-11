@@ -29,24 +29,24 @@ interface MetaStocksTokenInterface extends ethers.utils.Interface {
     "decimals()": FunctionFragment;
     "decreaseAllowance(address,uint256)": FunctionFragment;
     "enableTrading()": FunctionFragment;
-    "getFeesManager()": FunctionFragment;
     "getLPPair()": FunctionFragment;
     "getMidasMultinetworkRouterManager()": FunctionFragment;
     "getOwner()": FunctionFragment;
     "getSwapThreshold()": FunctionFragment;
     "getTradingEnabled()": FunctionFragment;
+    "getTransactionFeesManager()": FunctionFragment;
     "increaseAllowance(address,uint256)": FunctionFragment;
     "initialize(string,string,uint256)": FunctionFragment;
     "name()": FunctionFragment;
     "self()": FunctionFragment;
     "setDexRouter(address)": FunctionFragment;
     "setFees(uint16,uint16,uint16)": FunctionFragment;
-    "setFeesManager(address)": FunctionFragment;
     "setMaxTransactionAmount(uint256)": FunctionFragment;
     "setMaxWalletAmount(uint256)": FunctionFragment;
     "setPairAddress(address)": FunctionFragment;
     "setRouterAddress(address)": FunctionFragment;
     "setSwapThreshold(uint256)": FunctionFragment;
+    "setTransactionFeesManager(address)": FunctionFragment;
     "setlpPair(address)": FunctionFragment;
     "symbol()": FunctionFragment;
     "totalSupply()": FunctionFragment;
@@ -81,10 +81,6 @@ interface MetaStocksTokenInterface extends ethers.utils.Interface {
     functionFragment: "enableTrading",
     values?: undefined
   ): string;
-  encodeFunctionData(
-    functionFragment: "getFeesManager",
-    values?: undefined
-  ): string;
   encodeFunctionData(functionFragment: "getLPPair", values?: undefined): string;
   encodeFunctionData(
     functionFragment: "getMidasMultinetworkRouterManager",
@@ -97,6 +93,10 @@ interface MetaStocksTokenInterface extends ethers.utils.Interface {
   ): string;
   encodeFunctionData(
     functionFragment: "getTradingEnabled",
+    values?: undefined
+  ): string;
+  encodeFunctionData(
+    functionFragment: "getTransactionFeesManager",
     values?: undefined
   ): string;
   encodeFunctionData(
@@ -118,10 +118,6 @@ interface MetaStocksTokenInterface extends ethers.utils.Interface {
     values: [BigNumberish, BigNumberish, BigNumberish]
   ): string;
   encodeFunctionData(
-    functionFragment: "setFeesManager",
-    values: [string]
-  ): string;
-  encodeFunctionData(
     functionFragment: "setMaxTransactionAmount",
     values: [BigNumberish]
   ): string;
@@ -140,6 +136,10 @@ interface MetaStocksTokenInterface extends ethers.utils.Interface {
   encodeFunctionData(
     functionFragment: "setSwapThreshold",
     values: [BigNumberish]
+  ): string;
+  encodeFunctionData(
+    functionFragment: "setTransactionFeesManager",
+    values: [string]
   ): string;
   encodeFunctionData(functionFragment: "setlpPair", values: [string]): string;
   encodeFunctionData(functionFragment: "symbol", values?: undefined): string;
@@ -180,10 +180,6 @@ interface MetaStocksTokenInterface extends ethers.utils.Interface {
     functionFragment: "enableTrading",
     data: BytesLike
   ): Result;
-  decodeFunctionResult(
-    functionFragment: "getFeesManager",
-    data: BytesLike
-  ): Result;
   decodeFunctionResult(functionFragment: "getLPPair", data: BytesLike): Result;
   decodeFunctionResult(
     functionFragment: "getMidasMultinetworkRouterManager",
@@ -199,6 +195,10 @@ interface MetaStocksTokenInterface extends ethers.utils.Interface {
     data: BytesLike
   ): Result;
   decodeFunctionResult(
+    functionFragment: "getTransactionFeesManager",
+    data: BytesLike
+  ): Result;
+  decodeFunctionResult(
     functionFragment: "increaseAllowance",
     data: BytesLike
   ): Result;
@@ -210,10 +210,6 @@ interface MetaStocksTokenInterface extends ethers.utils.Interface {
     data: BytesLike
   ): Result;
   decodeFunctionResult(functionFragment: "setFees", data: BytesLike): Result;
-  decodeFunctionResult(
-    functionFragment: "setFeesManager",
-    data: BytesLike
-  ): Result;
   decodeFunctionResult(
     functionFragment: "setMaxTransactionAmount",
     data: BytesLike
@@ -232,6 +228,10 @@ interface MetaStocksTokenInterface extends ethers.utils.Interface {
   ): Result;
   decodeFunctionResult(
     functionFragment: "setSwapThreshold",
+    data: BytesLike
+  ): Result;
+  decodeFunctionResult(
+    functionFragment: "setTransactionFeesManager",
     data: BytesLike
   ): Result;
   decodeFunctionResult(functionFragment: "setlpPair", data: BytesLike): Result;
@@ -367,8 +367,6 @@ export class MetaStocksToken extends BaseContract {
       overrides?: Overrides & { from?: string | Promise<string> }
     ): Promise<ContractTransaction>;
 
-    getFeesManager(overrides?: CallOverrides): Promise<[string]>;
-
     getLPPair(overrides?: CallOverrides): Promise<[string]>;
 
     getMidasMultinetworkRouterManager(
@@ -380,6 +378,8 @@ export class MetaStocksToken extends BaseContract {
     getSwapThreshold(overrides?: CallOverrides): Promise<[BigNumber]>;
 
     getTradingEnabled(overrides?: CallOverrides): Promise<[boolean]>;
+
+    getTransactionFeesManager(overrides?: CallOverrides): Promise<[string]>;
 
     increaseAllowance(
       spender: string,
@@ -410,11 +410,6 @@ export class MetaStocksToken extends BaseContract {
       overrides?: Overrides & { from?: string | Promise<string> }
     ): Promise<ContractTransaction>;
 
-    setFeesManager(
-      _feesManager: string,
-      overrides?: Overrides & { from?: string | Promise<string> }
-    ): Promise<ContractTransaction>;
-
     setMaxTransactionAmount(
       _maxTransactionAmount: BigNumberish,
       overrides?: Overrides & { from?: string | Promise<string> }
@@ -437,6 +432,11 @@ export class MetaStocksToken extends BaseContract {
 
     setSwapThreshold(
       _swapThreshold: BigNumberish,
+      overrides?: Overrides & { from?: string | Promise<string> }
+    ): Promise<ContractTransaction>;
+
+    setTransactionFeesManager(
+      _transactionFeesManager: string,
       overrides?: Overrides & { from?: string | Promise<string> }
     ): Promise<ContractTransaction>;
 
@@ -504,8 +504,6 @@ export class MetaStocksToken extends BaseContract {
     overrides?: Overrides & { from?: string | Promise<string> }
   ): Promise<ContractTransaction>;
 
-  getFeesManager(overrides?: CallOverrides): Promise<string>;
-
   getLPPair(overrides?: CallOverrides): Promise<string>;
 
   getMidasMultinetworkRouterManager(overrides?: CallOverrides): Promise<string>;
@@ -515,6 +513,8 @@ export class MetaStocksToken extends BaseContract {
   getSwapThreshold(overrides?: CallOverrides): Promise<BigNumber>;
 
   getTradingEnabled(overrides?: CallOverrides): Promise<boolean>;
+
+  getTransactionFeesManager(overrides?: CallOverrides): Promise<string>;
 
   increaseAllowance(
     spender: string,
@@ -545,11 +545,6 @@ export class MetaStocksToken extends BaseContract {
     overrides?: Overrides & { from?: string | Promise<string> }
   ): Promise<ContractTransaction>;
 
-  setFeesManager(
-    _feesManager: string,
-    overrides?: Overrides & { from?: string | Promise<string> }
-  ): Promise<ContractTransaction>;
-
   setMaxTransactionAmount(
     _maxTransactionAmount: BigNumberish,
     overrides?: Overrides & { from?: string | Promise<string> }
@@ -572,6 +567,11 @@ export class MetaStocksToken extends BaseContract {
 
   setSwapThreshold(
     _swapThreshold: BigNumberish,
+    overrides?: Overrides & { from?: string | Promise<string> }
+  ): Promise<ContractTransaction>;
+
+  setTransactionFeesManager(
+    _transactionFeesManager: string,
     overrides?: Overrides & { from?: string | Promise<string> }
   ): Promise<ContractTransaction>;
 
@@ -637,8 +637,6 @@ export class MetaStocksToken extends BaseContract {
 
     enableTrading(overrides?: CallOverrides): Promise<void>;
 
-    getFeesManager(overrides?: CallOverrides): Promise<string>;
-
     getLPPair(overrides?: CallOverrides): Promise<string>;
 
     getMidasMultinetworkRouterManager(
@@ -650,6 +648,8 @@ export class MetaStocksToken extends BaseContract {
     getSwapThreshold(overrides?: CallOverrides): Promise<BigNumber>;
 
     getTradingEnabled(overrides?: CallOverrides): Promise<boolean>;
+
+    getTransactionFeesManager(overrides?: CallOverrides): Promise<string>;
 
     increaseAllowance(
       spender: string,
@@ -677,11 +677,6 @@ export class MetaStocksToken extends BaseContract {
       overrides?: CallOverrides
     ): Promise<void>;
 
-    setFeesManager(
-      _feesManager: string,
-      overrides?: CallOverrides
-    ): Promise<void>;
-
     setMaxTransactionAmount(
       _maxTransactionAmount: BigNumberish,
       overrides?: CallOverrides
@@ -704,6 +699,11 @@ export class MetaStocksToken extends BaseContract {
 
     setSwapThreshold(
       _swapThreshold: BigNumberish,
+      overrides?: CallOverrides
+    ): Promise<void>;
+
+    setTransactionFeesManager(
+      _transactionFeesManager: string,
       overrides?: CallOverrides
     ): Promise<void>;
 
@@ -847,8 +847,6 @@ export class MetaStocksToken extends BaseContract {
       overrides?: Overrides & { from?: string | Promise<string> }
     ): Promise<BigNumber>;
 
-    getFeesManager(overrides?: CallOverrides): Promise<BigNumber>;
-
     getLPPair(overrides?: CallOverrides): Promise<BigNumber>;
 
     getMidasMultinetworkRouterManager(
@@ -860,6 +858,8 @@ export class MetaStocksToken extends BaseContract {
     getSwapThreshold(overrides?: CallOverrides): Promise<BigNumber>;
 
     getTradingEnabled(overrides?: CallOverrides): Promise<BigNumber>;
+
+    getTransactionFeesManager(overrides?: CallOverrides): Promise<BigNumber>;
 
     increaseAllowance(
       spender: string,
@@ -890,11 +890,6 @@ export class MetaStocksToken extends BaseContract {
       overrides?: Overrides & { from?: string | Promise<string> }
     ): Promise<BigNumber>;
 
-    setFeesManager(
-      _feesManager: string,
-      overrides?: Overrides & { from?: string | Promise<string> }
-    ): Promise<BigNumber>;
-
     setMaxTransactionAmount(
       _maxTransactionAmount: BigNumberish,
       overrides?: Overrides & { from?: string | Promise<string> }
@@ -917,6 +912,11 @@ export class MetaStocksToken extends BaseContract {
 
     setSwapThreshold(
       _swapThreshold: BigNumberish,
+      overrides?: Overrides & { from?: string | Promise<string> }
+    ): Promise<BigNumber>;
+
+    setTransactionFeesManager(
+      _transactionFeesManager: string,
       overrides?: Overrides & { from?: string | Promise<string> }
     ): Promise<BigNumber>;
 
@@ -988,8 +988,6 @@ export class MetaStocksToken extends BaseContract {
       overrides?: Overrides & { from?: string | Promise<string> }
     ): Promise<PopulatedTransaction>;
 
-    getFeesManager(overrides?: CallOverrides): Promise<PopulatedTransaction>;
-
     getLPPair(overrides?: CallOverrides): Promise<PopulatedTransaction>;
 
     getMidasMultinetworkRouterManager(
@@ -1001,6 +999,10 @@ export class MetaStocksToken extends BaseContract {
     getSwapThreshold(overrides?: CallOverrides): Promise<PopulatedTransaction>;
 
     getTradingEnabled(overrides?: CallOverrides): Promise<PopulatedTransaction>;
+
+    getTransactionFeesManager(
+      overrides?: CallOverrides
+    ): Promise<PopulatedTransaction>;
 
     increaseAllowance(
       spender: string,
@@ -1031,11 +1033,6 @@ export class MetaStocksToken extends BaseContract {
       overrides?: Overrides & { from?: string | Promise<string> }
     ): Promise<PopulatedTransaction>;
 
-    setFeesManager(
-      _feesManager: string,
-      overrides?: Overrides & { from?: string | Promise<string> }
-    ): Promise<PopulatedTransaction>;
-
     setMaxTransactionAmount(
       _maxTransactionAmount: BigNumberish,
       overrides?: Overrides & { from?: string | Promise<string> }
@@ -1058,6 +1055,11 @@ export class MetaStocksToken extends BaseContract {
 
     setSwapThreshold(
       _swapThreshold: BigNumberish,
+      overrides?: Overrides & { from?: string | Promise<string> }
+    ): Promise<PopulatedTransaction>;
+
+    setTransactionFeesManager(
+      _transactionFeesManager: string,
       overrides?: Overrides & { from?: string | Promise<string> }
     ): Promise<PopulatedTransaction>;
 

@@ -27,10 +27,13 @@ interface MetaStocksCompanyManagerInterface extends ethers.utils.Interface {
     "balanceOf(address)": FunctionFragment;
     "ceos(address)": FunctionFragment;
     "ceosCompanies(address)": FunctionFragment;
+    "companiesCeos(uint256)": FunctionFragment;
     "create()": FunctionFragment;
     "decimals()": FunctionFragment;
     "decreaseAllowance(address,uint256)": FunctionFragment;
-    "getCompany(address)": FunctionFragment;
+    "getCompanyCEOAddress(uint256)": FunctionFragment;
+    "getCompanyFranchises(uint256)": FunctionFragment;
+    "getCompanyId(address)": FunctionFragment;
     "increaseAllowance(address,uint256)": FunctionFragment;
     "initialize(address)": FunctionFragment;
     "isCeo(address)": FunctionFragment;
@@ -57,13 +60,28 @@ interface MetaStocksCompanyManagerInterface extends ethers.utils.Interface {
     functionFragment: "ceosCompanies",
     values: [string]
   ): string;
+  encodeFunctionData(
+    functionFragment: "companiesCeos",
+    values: [BigNumberish]
+  ): string;
   encodeFunctionData(functionFragment: "create", values?: undefined): string;
   encodeFunctionData(functionFragment: "decimals", values?: undefined): string;
   encodeFunctionData(
     functionFragment: "decreaseAllowance",
     values: [string, BigNumberish]
   ): string;
-  encodeFunctionData(functionFragment: "getCompany", values: [string]): string;
+  encodeFunctionData(
+    functionFragment: "getCompanyCEOAddress",
+    values: [BigNumberish]
+  ): string;
+  encodeFunctionData(
+    functionFragment: "getCompanyFranchises",
+    values: [BigNumberish]
+  ): string;
+  encodeFunctionData(
+    functionFragment: "getCompanyId",
+    values: [string]
+  ): string;
   encodeFunctionData(
     functionFragment: "increaseAllowance",
     values: [string, BigNumberish]
@@ -101,13 +119,28 @@ interface MetaStocksCompanyManagerInterface extends ethers.utils.Interface {
     functionFragment: "ceosCompanies",
     data: BytesLike
   ): Result;
+  decodeFunctionResult(
+    functionFragment: "companiesCeos",
+    data: BytesLike
+  ): Result;
   decodeFunctionResult(functionFragment: "create", data: BytesLike): Result;
   decodeFunctionResult(functionFragment: "decimals", data: BytesLike): Result;
   decodeFunctionResult(
     functionFragment: "decreaseAllowance",
     data: BytesLike
   ): Result;
-  decodeFunctionResult(functionFragment: "getCompany", data: BytesLike): Result;
+  decodeFunctionResult(
+    functionFragment: "getCompanyCEOAddress",
+    data: BytesLike
+  ): Result;
+  decodeFunctionResult(
+    functionFragment: "getCompanyFranchises",
+    data: BytesLike
+  ): Result;
+  decodeFunctionResult(
+    functionFragment: "getCompanyId",
+    data: BytesLike
+  ): Result;
   decodeFunctionResult(
     functionFragment: "increaseAllowance",
     data: BytesLike
@@ -224,6 +257,11 @@ export class MetaStocksCompanyManager extends BaseContract {
       overrides?: CallOverrides
     ): Promise<[BigNumber]>;
 
+    companiesCeos(
+      arg0: BigNumberish,
+      overrides?: CallOverrides
+    ): Promise<[string]>;
+
     create(
       overrides?: PayableOverrides & { from?: string | Promise<string> }
     ): Promise<ContractTransaction>;
@@ -236,7 +274,17 @@ export class MetaStocksCompanyManager extends BaseContract {
       overrides?: Overrides & { from?: string | Promise<string> }
     ): Promise<ContractTransaction>;
 
-    getCompany(
+    getCompanyCEOAddress(
+      companyId: BigNumberish,
+      overrides?: CallOverrides
+    ): Promise<[string]>;
+
+    getCompanyFranchises(
+      companyId: BigNumberish,
+      overrides?: CallOverrides
+    ): Promise<[BigNumber]>;
+
+    getCompanyId(
       _account: string,
       overrides?: CallOverrides
     ): Promise<[BigNumber]>;
@@ -302,6 +350,8 @@ export class MetaStocksCompanyManager extends BaseContract {
 
   ceosCompanies(arg0: string, overrides?: CallOverrides): Promise<BigNumber>;
 
+  companiesCeos(arg0: BigNumberish, overrides?: CallOverrides): Promise<string>;
+
   create(
     overrides?: PayableOverrides & { from?: string | Promise<string> }
   ): Promise<ContractTransaction>;
@@ -314,7 +364,17 @@ export class MetaStocksCompanyManager extends BaseContract {
     overrides?: Overrides & { from?: string | Promise<string> }
   ): Promise<ContractTransaction>;
 
-  getCompany(_account: string, overrides?: CallOverrides): Promise<BigNumber>;
+  getCompanyCEOAddress(
+    companyId: BigNumberish,
+    overrides?: CallOverrides
+  ): Promise<string>;
+
+  getCompanyFranchises(
+    companyId: BigNumberish,
+    overrides?: CallOverrides
+  ): Promise<BigNumber>;
+
+  getCompanyId(_account: string, overrides?: CallOverrides): Promise<BigNumber>;
 
   increaseAllowance(
     spender: string,
@@ -377,6 +437,11 @@ export class MetaStocksCompanyManager extends BaseContract {
 
     ceosCompanies(arg0: string, overrides?: CallOverrides): Promise<BigNumber>;
 
+    companiesCeos(
+      arg0: BigNumberish,
+      overrides?: CallOverrides
+    ): Promise<string>;
+
     create(overrides?: CallOverrides): Promise<void>;
 
     decimals(overrides?: CallOverrides): Promise<number>;
@@ -387,7 +452,20 @@ export class MetaStocksCompanyManager extends BaseContract {
       overrides?: CallOverrides
     ): Promise<boolean>;
 
-    getCompany(_account: string, overrides?: CallOverrides): Promise<BigNumber>;
+    getCompanyCEOAddress(
+      companyId: BigNumberish,
+      overrides?: CallOverrides
+    ): Promise<string>;
+
+    getCompanyFranchises(
+      companyId: BigNumberish,
+      overrides?: CallOverrides
+    ): Promise<BigNumber>;
+
+    getCompanyId(
+      _account: string,
+      overrides?: CallOverrides
+    ): Promise<BigNumber>;
 
     increaseAllowance(
       spender: string,
@@ -507,6 +585,11 @@ export class MetaStocksCompanyManager extends BaseContract {
 
     ceosCompanies(arg0: string, overrides?: CallOverrides): Promise<BigNumber>;
 
+    companiesCeos(
+      arg0: BigNumberish,
+      overrides?: CallOverrides
+    ): Promise<BigNumber>;
+
     create(
       overrides?: PayableOverrides & { from?: string | Promise<string> }
     ): Promise<BigNumber>;
@@ -519,7 +602,20 @@ export class MetaStocksCompanyManager extends BaseContract {
       overrides?: Overrides & { from?: string | Promise<string> }
     ): Promise<BigNumber>;
 
-    getCompany(_account: string, overrides?: CallOverrides): Promise<BigNumber>;
+    getCompanyCEOAddress(
+      companyId: BigNumberish,
+      overrides?: CallOverrides
+    ): Promise<BigNumber>;
+
+    getCompanyFranchises(
+      companyId: BigNumberish,
+      overrides?: CallOverrides
+    ): Promise<BigNumber>;
+
+    getCompanyId(
+      _account: string,
+      overrides?: CallOverrides
+    ): Promise<BigNumber>;
 
     increaseAllowance(
       spender: string,
@@ -592,6 +688,11 @@ export class MetaStocksCompanyManager extends BaseContract {
       overrides?: CallOverrides
     ): Promise<PopulatedTransaction>;
 
+    companiesCeos(
+      arg0: BigNumberish,
+      overrides?: CallOverrides
+    ): Promise<PopulatedTransaction>;
+
     create(
       overrides?: PayableOverrides & { from?: string | Promise<string> }
     ): Promise<PopulatedTransaction>;
@@ -604,7 +705,17 @@ export class MetaStocksCompanyManager extends BaseContract {
       overrides?: Overrides & { from?: string | Promise<string> }
     ): Promise<PopulatedTransaction>;
 
-    getCompany(
+    getCompanyCEOAddress(
+      companyId: BigNumberish,
+      overrides?: CallOverrides
+    ): Promise<PopulatedTransaction>;
+
+    getCompanyFranchises(
+      companyId: BigNumberish,
+      overrides?: CallOverrides
+    ): Promise<PopulatedTransaction>;
+
+    getCompanyId(
       _account: string,
       overrides?: CallOverrides
     ): Promise<PopulatedTransaction>;

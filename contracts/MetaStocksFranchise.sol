@@ -7,6 +7,7 @@ import "@openzeppelin/contracts-upgradeable/security/PausableUpgradeable.sol";
 import "@openzeppelin/contracts-upgradeable/token/ERC1155/extensions/ERC1155BurnableUpgradeable.sol";
 import "@openzeppelin/contracts-upgradeable/token/ERC1155/extensions/ERC1155SupplyUpgradeable.sol";
 import "@openzeppelin/contracts-upgradeable/proxy/utils/Initializable.sol";
+import "./enums/MetaStocksFranchiseType.sol";
 
 contract MetaStocksFranchise is
     Initializable,
@@ -72,5 +73,72 @@ contract MetaStocksFranchise is
         whenNotPaused
     {
         super._beforeTokenTransfer(operator, from, to, ids, amounts, data);
+    }
+
+    function getMetaStocksFranchiseType(
+        MetaStocksFranchiseType _metaStocksFranchiseType
+    ) external pure returns (uint256) {
+        uint256 franchiseType = 0;
+
+        if (
+            _metaStocksFranchiseType ==
+            MetaStocksFranchiseType.MetaStocksFranchiseType1
+        ) {
+            franchiseType = 0;
+        } else if (
+            _metaStocksFranchiseType ==
+            MetaStocksFranchiseType.MetaStocksFranchiseType2
+        ) {
+            franchiseType = 1;
+        } else if (
+            _metaStocksFranchiseType ==
+            MetaStocksFranchiseType.MetaStocksFranchiseType3
+        ) {
+            franchiseType = 2;
+        } else if (
+            _metaStocksFranchiseType ==
+            MetaStocksFranchiseType.MetaStocksFranchiseType4
+        ) {
+            franchiseType = 3;
+        } else if (
+            _metaStocksFranchiseType ==
+            MetaStocksFranchiseType.MetaStocksFranchiseType5
+        ) {
+            franchiseType = 4;
+        } else if (
+            _metaStocksFranchiseType ==
+            MetaStocksFranchiseType.MetaStocksFranchiseType6
+        ) {
+            franchiseType = 5;
+        } else if (
+            _metaStocksFranchiseType ==
+            MetaStocksFranchiseType.MetaStocksFranchiseType7
+        ) {
+            franchiseType = 6;
+        } else if (
+            _metaStocksFranchiseType ==
+            MetaStocksFranchiseType.MetaStocksFranchiseType8
+        ) {
+            franchiseType = 7;
+        } else if (
+            _metaStocksFranchiseType ==
+            MetaStocksFranchiseType.MetaStocksFranchiseType9
+        ) {
+            franchiseType = 8;
+        } else if (
+            _metaStocksFranchiseType ==
+            MetaStocksFranchiseType.MetaStocksFranchiseType10
+        ) {
+            franchiseType = 9;
+        } else if (
+            _metaStocksFranchiseType ==
+            MetaStocksFranchiseType.MetaStocksFranchiseType2
+        ) {
+            franchiseType = 10;
+        } else {
+            franchiseType = 0;
+        }
+
+        return franchiseType;
     }
 }

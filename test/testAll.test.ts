@@ -198,7 +198,7 @@ describe("MetaStocks Testing", async () => {
         });
     })
 
-    /*
+
     describe("Config contract", async () => {
 
         it("11. Create MetastockCompany", async () => {
@@ -207,8 +207,12 @@ describe("MetaStocks Testing", async () => {
             const isCeo = await metaStocksCompanyManager.isCeo(deployer.address);
             console.log(`${colors.cyan("isCeo: ")} ${colors.yellow(isCeo)}`)
 
-            let companyId = await metaStocksCompanyManager.getCompany(deployer.address);
+            const companyId = await metaStocksCompanyManager.getCompanyId(deployer.address);
             console.log(`${colors.cyan("CompanyId: ")} ${colors.yellow(companyId)}`)
+
+            let companyCeoAddress = await metaStocksCompanyManager.getCompanyCEOAddress(deployer.address);
+            console.log(`${colors.cyan("CompanyCEOAddress: ")} ${colors.yellow(companyCeoAddress)}`)
+
         })
 
         it("12. Set Payment Token Address MetaStocksFranchise", async () => {
@@ -217,13 +221,14 @@ describe("MetaStocks Testing", async () => {
         })
 
         it("13. Create MetaStocksFranchise", async () => {
-            let companyId = await metaStocksCompanyManager.getCompany(deployer.address);
-
-            await metaStocksFranchiseManager.connect(deployer).createMetaStocksFranchise(metaStocksCompanyManager.address, companyId, 1, 0x0);
+            let companyId = await metaStocksCompanyManager.getCompanyId(deployer.address);
             console.log(`${colors.cyan("CompanyId: ")} ${colors.yellow(companyId)}`)
+
+            //await metaStocksFranchiseManager.connect(deployer).createMetaStocksFranchise(metaStocksFranchiseManager.address, companyId, 1, 0x0);
+            //console.log(`${colors.cyan("CompanyId: ")} ${colors.yellow(companyId)}`)
 
 
         })
     });
-    */
+
 });

@@ -5,10 +5,10 @@ import "@openzeppelin/contracts/token/ERC20/IERC20.sol";
 import "@uniswap/v2-periphery/contracts/interfaces/IUniswapV2Router02.sol";
 import "@uniswap/v2-core/contracts/interfaces/IUniswapV2Factory.sol";
 import "@openzeppelin/contracts-upgradeable/token/ERC20/ERC20Upgradeable.sol";
-import "./managers/feesManagers/FeesManager.sol";
-import "./interfaces/dexRouterInterfaces/IAutoLiquidityInjecter.sol";
+import "./managers/transactionFees/TransactionFeesManager.sol";
+import "./interfaces/dexRouter/IAutoLiquidityInjecter.sol";
 //import "./../managers/feesManagers/FeesSplitManager.sol";
-import "./managers/midasManagers/MidasMultinetworkRouterManager.sol";
+import "./managers/midas/MidasMultinetworkRouterManager.sol";
 
 contract MetaStocksToken is ERC20Upgradeable {
     // ADDRESSESS -------------------------------------------------------------------------------------------
@@ -20,7 +20,7 @@ contract MetaStocksToken is ERC20Upgradeable {
     uint256 private maxTransactionAmount; // max balance amount (Anti-whale)
     bool private tradingEnabled;
 
-    FeesManager private feesManager;
+    TransactionFeesManager private transactionFeesManager;
     //FeesSplitManager private feesSplitManager;
     MidasMultinetworkRouterManager private midasMultinetworkRouterManager;
 
@@ -58,8 +58,8 @@ contract MetaStocksToken is ERC20Upgradeable {
         lpPair = 0x0000000000000000000000000000000000000000;
 
         //doInitialApproves();
-        feesManager = new FeesManager();
-        getFeesManager().setExcludedFromFee(owner, true);
+        transactionFeesManager = new TransactionFeesManager();
+        transactionFeesManager.setExcludedFromFee(owner, true);
         //setFeesSplitManager(new FeesSplitManager());
     }
 
@@ -88,8 +88,8 @@ contract MetaStocksToken is ERC20Upgradeable {
         // If takeFee is false there is 0% fee
         bool takeFee = true;
         if (
-            getFeesManager().isExcludedFromFee(from) ||
-            getFeesManager().isExcludedFromFee(to)
+            transactionFeesManager.isExcludedFromFee(from) ||
+            transactionFeesManager.isExcludedFromFee(to)
         ) {
             takeFee = false;
         }
@@ -98,7 +98,7 @@ contract MetaStocksToken is ERC20Upgradeable {
         if (takeFee) {
             // if we need take fee
             // calc how much we need take
-            feeAmount = getFeesManager().calcBuySellTransferFee(
+            feeAmount = transactionFeesManager.calcBuySellTransferFee(
                 lpPair,
                 from,
                 to,
@@ -136,8 +136,8 @@ contract MetaStocksToken is ERC20Upgradeable {
             !midasMultinetworkRouterManager.isInSwap() &&
             from != getLPPair() &&
             balanceOf(getLPPair()) > 0 &&
-            !getFeesManager().isExcludedFromFee(to) &&
-            !getFeesManager().isExcludedFromFee(from);
+            !transactionFeesManager.isExcludedFromFee(to) &&
+            !transactionFeesManager.isExcludedFromFee(from);
     }
 
     function autoInjectLiquidity(uint256 tokenAmount) public {
@@ -308,8 +308,10 @@ contract MetaStocksToken is ERC20Upgradeable {
         maxTransactionAmount = _maxTransactionAmount;
     }
 
-    function setFeesManager(FeesManager _feesManager) public virtual {
-        feesManager = _feesManager;
+    function setTransactionFeesManager(
+        TransactionFeesManager _transactionFeesManager
+    ) public virtual {
+        transactionFeesManager = transactionFeesManager;
     }
 
     /*
@@ -333,8 +335,13 @@ contract MetaStocksToken is ERC20Upgradeable {
         return tradingEnabled;
     }
 
-    function getFeesManager() public view virtual returns (FeesManager) {
-        return feesManager;
+    function getTransactionFeesManager()
+        public
+        view
+        virtual
+        returns (TransactionFeesManager)
+    {
+        return transactionFeesManager;
     }
 
     /*
@@ -363,7 +370,7 @@ contract MetaStocksToken is ERC20Upgradeable {
         uint16 sellFee,
         uint16 transferFee
     ) external virtual {
-        feesManager.setFees(buyFee, sellFee, transferFee);
+        transactionFeesManager.setFees(buyFee, sellFee, transferFee);
     }
 
     function setPairAddress(address _pairAddress) public virtual {

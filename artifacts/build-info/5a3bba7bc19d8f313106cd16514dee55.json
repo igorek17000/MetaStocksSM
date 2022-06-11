@@ -1,0 +1,156 @@
+{
+  "id": "5a3bba7bc19d8f313106cd16514dee55",
+  "_format": "hh-sol-build-info-1",
+  "solcVersion": "0.8.14",
+  "solcLongVersion": "0.8.14+commit.80d49f37",
+  "input": {
+    "language": "Solidity",
+    "sources": {
+      "contracts/interfaces/metaStocks/IMetaStocksCompanyManager.sol": {
+        "content": "// SPDX-License-Identifier: MIT\npragma solidity ^0.8.14;\n\ninterface IMetaStocksCompanyManager {\n    function createCompany() external payable;\n}\n"
+      }
+    },
+    "settings": {
+      "optimizer": {
+        "enabled": true,
+        "runs": 100
+      },
+      "outputSelection": {
+        "*": {
+          "*": [
+            "abi",
+            "evm.bytecode",
+            "evm.deployedBytecode",
+            "evm.methodIdentifiers",
+            "metadata",
+            "storageLayout"
+          ],
+          "": [
+            "ast"
+          ]
+        }
+      }
+    }
+  },
+  "output": {
+    "contracts": {
+      "contracts/interfaces/metaStocks/IMetaStocksCompanyManager.sol": {
+        "IMetaStocksCompanyManager": {
+          "abi": [
+            {
+              "inputs": [],
+              "name": "createCompany",
+              "outputs": [],
+              "stateMutability": "payable",
+              "type": "function"
+            }
+          ],
+          "evm": {
+            "bytecode": {
+              "functionDebugData": {},
+              "generatedSources": [],
+              "linkReferences": {},
+              "object": "",
+              "opcodes": "",
+              "sourceMap": ""
+            },
+            "deployedBytecode": {
+              "functionDebugData": {},
+              "generatedSources": [],
+              "immutableReferences": {},
+              "linkReferences": {},
+              "object": "",
+              "opcodes": "",
+              "sourceMap": ""
+            },
+            "methodIdentifiers": {
+              "createCompany()": "e3d1317a"
+            }
+          },
+          "metadata": "{\"compiler\":{\"version\":\"0.8.14+commit.80d49f37\"},\"language\":\"Solidity\",\"output\":{\"abi\":[{\"inputs\":[],\"name\":\"createCompany\",\"outputs\":[],\"stateMutability\":\"payable\",\"type\":\"function\"}],\"devdoc\":{\"kind\":\"dev\",\"methods\":{},\"version\":1},\"userdoc\":{\"kind\":\"user\",\"methods\":{},\"version\":1}},\"settings\":{\"compilationTarget\":{\"contracts/interfaces/metaStocks/IMetaStocksCompanyManager.sol\":\"IMetaStocksCompanyManager\"},\"evmVersion\":\"london\",\"libraries\":{},\"metadata\":{\"bytecodeHash\":\"ipfs\"},\"optimizer\":{\"enabled\":true,\"runs\":100},\"remappings\":[]},\"sources\":{\"contracts/interfaces/metaStocks/IMetaStocksCompanyManager.sol\":{\"keccak256\":\"0x8073c1c8c95443d4bf6618f0caf5ca76d93f5649fbc0b77e3393ce6caaee73b9\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://d674da4440a9622e31e1251adf08c24564f039932f65e92310613b72f845195f\",\"dweb:/ipfs/QmNj5fWDnURFn6ycmSi12wDKuL9A5dx3JDcfwhRYpNjEMQ\"]}},\"version\":1}",
+          "storageLayout": {
+            "storage": [],
+            "types": null
+          }
+        }
+      }
+    },
+    "sources": {
+      "contracts/interfaces/metaStocks/IMetaStocksCompanyManager.sol": {
+        "ast": {
+          "absolutePath": "contracts/interfaces/metaStocks/IMetaStocksCompanyManager.sol",
+          "exportedSymbols": {
+            "IMetaStocksCompanyManager": [
+              5
+            ]
+          },
+          "id": 6,
+          "license": "MIT",
+          "nodeType": "SourceUnit",
+          "nodes": [
+            {
+              "id": 1,
+              "literals": [
+                "solidity",
+                "^",
+                "0.8",
+                ".14"
+              ],
+              "nodeType": "PragmaDirective",
+              "src": "32:24:0"
+            },
+            {
+              "abstract": false,
+              "baseContracts": [],
+              "canonicalName": "IMetaStocksCompanyManager",
+              "contractDependencies": [],
+              "contractKind": "interface",
+              "fullyImplemented": false,
+              "id": 5,
+              "linearizedBaseContracts": [
+                5
+              ],
+              "name": "IMetaStocksCompanyManager",
+              "nameLocation": "68:25:0",
+              "nodeType": "ContractDefinition",
+              "nodes": [
+                {
+                  "functionSelector": "e3d1317a",
+                  "id": 4,
+                  "implemented": false,
+                  "kind": "function",
+                  "modifiers": [],
+                  "name": "createCompany",
+                  "nameLocation": "109:13:0",
+                  "nodeType": "FunctionDefinition",
+                  "parameters": {
+                    "id": 2,
+                    "nodeType": "ParameterList",
+                    "parameters": [],
+                    "src": "122:2:0"
+                  },
+                  "returnParameters": {
+                    "id": 3,
+                    "nodeType": "ParameterList",
+                    "parameters": [],
+                    "src": "141:0:0"
+                  },
+                  "scope": 5,
+                  "src": "100:42:0",
+                  "stateMutability": "payable",
+                  "virtual": false,
+                  "visibility": "external"
+                }
+              ],
+              "scope": 6,
+              "src": "58:86:0",
+              "usedErrors": []
+            }
+          ],
+          "src": "32:113:0"
+        },
+        "id": 0
+      }
+    }
+  }
+}

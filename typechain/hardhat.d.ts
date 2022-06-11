@@ -13,6 +13,14 @@ import * as Contracts from ".";
 declare module "hardhat/types/runtime" {
   interface HardhatEthersHelpers extends HardhatEthersHelpersBase {
     getContractFactory(
+      name: "AggregatorV3Interface",
+      signerOrOptions?: ethers.Signer | FactoryOptions
+    ): Promise<Contracts.AggregatorV3Interface__factory>;
+    getContractFactory(
+      name: "VRFCoordinatorV2Interface",
+      signerOrOptions?: ethers.Signer | FactoryOptions
+    ): Promise<Contracts.VRFCoordinatorV2Interface__factory>;
+    getContractFactory(
       name: "OwnableUpgradeable",
       signerOrOptions?: ethers.Signer | FactoryOptions
     ): Promise<Contracts.OwnableUpgradeable__factory>;
@@ -293,10 +301,6 @@ declare module "hardhat/types/runtime" {
       signerOrOptions?: ethers.Signer | FactoryOptions
     ): Promise<Contracts.WBNB__factory>;
     getContractFactory(
-      name: "AggregatorV3Interface",
-      signerOrOptions?: ethers.Signer | FactoryOptions
-    ): Promise<Contracts.AggregatorV3Interface__factory>;
-    getContractFactory(
       name: "IAutoLiquidityInjecter",
       signerOrOptions?: ethers.Signer | FactoryOptions
     ): Promise<Contracts.IAutoLiquidityInjecter__factory>;
@@ -357,17 +361,17 @@ declare module "hardhat/types/runtime" {
       signerOrOptions?: ethers.Signer | FactoryOptions
     ): Promise<Contracts.ChainlinkDataFeedsManager__factory>;
     getContractFactory(
-      name: "FeesManager",
+      name: "ChainlinkVRFManager",
       signerOrOptions?: ethers.Signer | FactoryOptions
-    ): Promise<Contracts.FeesManager__factory>;
-    getContractFactory(
-      name: "MetaStocksFranchiseManager",
-      signerOrOptions?: ethers.Signer | FactoryOptions
-    ): Promise<Contracts.MetaStocksFranchiseManager__factory>;
+    ): Promise<Contracts.ChainlinkVRFManager__factory>;
     getContractFactory(
       name: "MetaStocksCompanyManager",
       signerOrOptions?: ethers.Signer | FactoryOptions
     ): Promise<Contracts.MetaStocksCompanyManager__factory>;
+    getContractFactory(
+      name: "MetaStocksFranchiseManager",
+      signerOrOptions?: ethers.Signer | FactoryOptions
+    ): Promise<Contracts.MetaStocksFranchiseManager__factory>;
     getContractFactory(
       name: "MetaStocksFranchiseShareManager",
       signerOrOptions?: ethers.Signer | FactoryOptions
@@ -376,6 +380,10 @@ declare module "hardhat/types/runtime" {
       name: "MidasMultinetworkRouterManager",
       signerOrOptions?: ethers.Signer | FactoryOptions
     ): Promise<Contracts.MidasMultinetworkRouterManager__factory>;
+    getContractFactory(
+      name: "TransactionFeesManager",
+      signerOrOptions?: ethers.Signer | FactoryOptions
+    ): Promise<Contracts.TransactionFeesManager__factory>;
     getContractFactory(
       name: "MetaStocksCompany",
       signerOrOptions?: ethers.Signer | FactoryOptions
@@ -393,6 +401,16 @@ declare module "hardhat/types/runtime" {
       signerOrOptions?: ethers.Signer | FactoryOptions
     ): Promise<Contracts.MetaStocksToken__factory>;
 
+    getContractAt(
+      name: "AggregatorV3Interface",
+      address: string,
+      signer?: ethers.Signer
+    ): Promise<Contracts.AggregatorV3Interface>;
+    getContractAt(
+      name: "VRFCoordinatorV2Interface",
+      address: string,
+      signer?: ethers.Signer
+    ): Promise<Contracts.VRFCoordinatorV2Interface>;
     getContractAt(
       name: "OwnableUpgradeable",
       address: string,
@@ -744,11 +762,6 @@ declare module "hardhat/types/runtime" {
       signer?: ethers.Signer
     ): Promise<Contracts.WBNB>;
     getContractAt(
-      name: "AggregatorV3Interface",
-      address: string,
-      signer?: ethers.Signer
-    ): Promise<Contracts.AggregatorV3Interface>;
-    getContractAt(
       name: "IAutoLiquidityInjecter",
       address: string,
       signer?: ethers.Signer
@@ -824,20 +837,20 @@ declare module "hardhat/types/runtime" {
       signer?: ethers.Signer
     ): Promise<Contracts.ChainlinkDataFeedsManager>;
     getContractAt(
-      name: "FeesManager",
+      name: "ChainlinkVRFManager",
       address: string,
       signer?: ethers.Signer
-    ): Promise<Contracts.FeesManager>;
-    getContractAt(
-      name: "MetaStocksFranchiseManager",
-      address: string,
-      signer?: ethers.Signer
-    ): Promise<Contracts.MetaStocksFranchiseManager>;
+    ): Promise<Contracts.ChainlinkVRFManager>;
     getContractAt(
       name: "MetaStocksCompanyManager",
       address: string,
       signer?: ethers.Signer
     ): Promise<Contracts.MetaStocksCompanyManager>;
+    getContractAt(
+      name: "MetaStocksFranchiseManager",
+      address: string,
+      signer?: ethers.Signer
+    ): Promise<Contracts.MetaStocksFranchiseManager>;
     getContractAt(
       name: "MetaStocksFranchiseShareManager",
       address: string,
@@ -848,6 +861,11 @@ declare module "hardhat/types/runtime" {
       address: string,
       signer?: ethers.Signer
     ): Promise<Contracts.MidasMultinetworkRouterManager>;
+    getContractAt(
+      name: "TransactionFeesManager",
+      address: string,
+      signer?: ethers.Signer
+    ): Promise<Contracts.TransactionFeesManager>;
     getContractAt(
       name: "MetaStocksCompany",
       address: string,

@@ -26,6 +26,7 @@ interface MetaStocksFranchiseInterface extends ethers.utils.Interface {
     "burn(address,uint256,uint256)": FunctionFragment;
     "burnBatch(address,uint256[],uint256[])": FunctionFragment;
     "exists(uint256)": FunctionFragment;
+    "getMetaStocksFranchiseType(uint8)": FunctionFragment;
     "initialize()": FunctionFragment;
     "isApprovedForAll(address,address)": FunctionFragment;
     "mint(address,uint256,uint256,bytes)": FunctionFragment;
@@ -63,6 +64,10 @@ interface MetaStocksFranchiseInterface extends ethers.utils.Interface {
   ): string;
   encodeFunctionData(
     functionFragment: "exists",
+    values: [BigNumberish]
+  ): string;
+  encodeFunctionData(
+    functionFragment: "getMetaStocksFranchiseType",
     values: [BigNumberish]
   ): string;
   encodeFunctionData(
@@ -124,6 +129,10 @@ interface MetaStocksFranchiseInterface extends ethers.utils.Interface {
   decodeFunctionResult(functionFragment: "burn", data: BytesLike): Result;
   decodeFunctionResult(functionFragment: "burnBatch", data: BytesLike): Result;
   decodeFunctionResult(functionFragment: "exists", data: BytesLike): Result;
+  decodeFunctionResult(
+    functionFragment: "getMetaStocksFranchiseType",
+    data: BytesLike
+  ): Result;
   decodeFunctionResult(functionFragment: "initialize", data: BytesLike): Result;
   decodeFunctionResult(
     functionFragment: "isApprovedForAll",
@@ -301,6 +310,11 @@ export class MetaStocksFranchise extends BaseContract {
 
     exists(id: BigNumberish, overrides?: CallOverrides): Promise<[boolean]>;
 
+    getMetaStocksFranchiseType(
+      _metaStocksFranchiseType: BigNumberish,
+      overrides?: CallOverrides
+    ): Promise<[BigNumber]>;
+
     initialize(
       overrides?: Overrides & { from?: string | Promise<string> }
     ): Promise<ContractTransaction>;
@@ -418,6 +432,11 @@ export class MetaStocksFranchise extends BaseContract {
 
   exists(id: BigNumberish, overrides?: CallOverrides): Promise<boolean>;
 
+  getMetaStocksFranchiseType(
+    _metaStocksFranchiseType: BigNumberish,
+    overrides?: CallOverrides
+  ): Promise<BigNumber>;
+
   initialize(
     overrides?: Overrides & { from?: string | Promise<string> }
   ): Promise<ContractTransaction>;
@@ -531,6 +550,11 @@ export class MetaStocksFranchise extends BaseContract {
     ): Promise<void>;
 
     exists(id: BigNumberish, overrides?: CallOverrides): Promise<boolean>;
+
+    getMetaStocksFranchiseType(
+      _metaStocksFranchiseType: BigNumberish,
+      overrides?: CallOverrides
+    ): Promise<BigNumber>;
 
     initialize(overrides?: CallOverrides): Promise<void>;
 
@@ -773,6 +797,11 @@ export class MetaStocksFranchise extends BaseContract {
 
     exists(id: BigNumberish, overrides?: CallOverrides): Promise<BigNumber>;
 
+    getMetaStocksFranchiseType(
+      _metaStocksFranchiseType: BigNumberish,
+      overrides?: CallOverrides
+    ): Promise<BigNumber>;
+
     initialize(
       overrides?: Overrides & { from?: string | Promise<string> }
     ): Promise<BigNumber>;
@@ -891,6 +920,11 @@ export class MetaStocksFranchise extends BaseContract {
 
     exists(
       id: BigNumberish,
+      overrides?: CallOverrides
+    ): Promise<PopulatedTransaction>;
+
+    getMetaStocksFranchiseType(
+      _metaStocksFranchiseType: BigNumberish,
       overrides?: CallOverrides
     ): Promise<PopulatedTransaction>;
 

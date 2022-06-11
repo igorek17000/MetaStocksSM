@@ -20,6 +20,25 @@ const _abi = [
   {
     inputs: [
       {
+        internalType: "enum MetaStocksFranchiseType",
+        name: "_metaStocksFranchiseType",
+        type: "uint8",
+      },
+    ],
+    name: "getMetaStocksFranchiseType",
+    outputs: [
+      {
+        internalType: "uint256",
+        name: "",
+        type: "uint256",
+      },
+    ],
+    stateMutability: "pure",
+    type: "function",
+  },
+  {
+    inputs: [
+      {
         internalType: "address",
         name: "to",
         type: "address",
