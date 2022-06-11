@@ -270,20 +270,17 @@ describe("MetaStocks Testing", async () => {
         })
 
         it("5.3 - Create MetaStocksFranchise", async () => {
-
-
-
             let companyId = await metaStocksCompanyManager.getCompanyId(bob.address);
             console.log(`${colors.cyan("CompanyId: ")} ${colors.yellow(companyId)}`)
             await metaStocksFranchiseManager.connect(bob).createMetaStocksFranchise(metaStocksFranchiseManager.address, companyId, 1);
-            await metaStocksFranchiseManager.connect(bob).createMetaStocksFranchise(metaStocksFranchiseManager.address, companyId, 2);
+            //await metaStocksFranchiseManager.connect(bob).createMetaStocksFranchise(metaStocksFranchiseManager.address, companyId, 2);
             //await metaStocksFranchiseManager.connect(bob).createMetaStocksFranchise(metaStocksFranchiseManager.address, companyId, 3);
         })
 
         it("5.4 - Get MetaStocks Franchise Number", async () => {
             const companyId = await metaStocksCompanyManager.getCompanyId(bob.address);
             const franchisesNumber = await metaStocksFranchiseManager.connect(bob).getNumberOfMetaStocksFranchises(companyId)
-            expect(franchisesNumber).to.be.eq(2);
+            expect(franchisesNumber).to.be.eq(1);
             console.log(`${colors.cyan("Franchises Number: ")} ${colors.yellow(franchisesNumber)}`)
         })
 
@@ -300,12 +297,13 @@ describe("MetaStocks Testing", async () => {
             await sleep(5000)
             await metaStocksFranchiseManager.connect(bob).claimFromAllFranchises(companyId)
 
-            const bobBalanceAfter = await metaStocksToken.balanceOf(bob?.address);
-            console.log(`${colors.cyan("Bob Balance After Claim: ")} ${colors.yellow(formatEther(bobBalanceAfter))}`)
 
             const getMetaStocksFranchisesUnclaimedRewardsAfter = await metaStocksFranchiseManager.connect(bob).getMetaStocksFranchisesUnclaimedRewards(companyId)
             console.log(`${colors.cyan("getMetaStocksFranchisesUnclaimedRewardsAfter : ")} ${colors.yellow(formatEther(getMetaStocksFranchisesUnclaimedRewardsAfter))}`)
 
+
+            const bobBalanceAfter = await metaStocksToken.balanceOf(bob?.address);
+            console.log(`${colors.cyan("Bob Balance After Claim: ")} ${colors.yellow(formatEther(bobBalanceAfter))}`)
         })
     });
 
