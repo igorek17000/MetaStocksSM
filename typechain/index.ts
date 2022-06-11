@@ -82,6 +82,7 @@ export type { MetaStocksFranchiseShareManager } from "./MetaStocksFranchiseShare
 export type { MidasMultinetworkRouterManager } from "./MidasMultinetworkRouterManager";
 export type { TransactionFeesManager } from "./TransactionFeesManager";
 export type { MetaStocksCompany } from "./MetaStocksCompany";
+export type { MetaStocksERC20Upgradable } from "./MetaStocksERC20Upgradable";
 export type { MetaStocksFranchise } from "./MetaStocksFranchise";
 export type { MetaStocksFranchiseShare } from "./MetaStocksFranchiseShare";
 export type { MetaStocksToken } from "./MetaStocksToken";
@@ -167,6 +168,7 @@ export { MetaStocksFranchiseShareManager__factory } from "./factories/MetaStocks
 export { MidasMultinetworkRouterManager__factory } from "./factories/MidasMultinetworkRouterManager__factory";
 export { TransactionFeesManager__factory } from "./factories/TransactionFeesManager__factory";
 export { MetaStocksCompany__factory } from "./factories/MetaStocksCompany__factory";
+export { MetaStocksERC20Upgradable__factory } from "./factories/MetaStocksERC20Upgradable__factory";
 export { MetaStocksFranchise__factory } from "./factories/MetaStocksFranchise__factory";
 export { MetaStocksFranchiseShare__factory } from "./factories/MetaStocksFranchiseShare__factory";
 export { MetaStocksToken__factory } from "./factories/MetaStocksToken__factory";

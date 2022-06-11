@@ -23,7 +23,6 @@ interface MetaStocksTokenInterface extends ethers.utils.Interface {
   functions: {
     "allowance(address,address)": FunctionFragment;
     "approve(address,uint256)": FunctionFragment;
-    "autoInjectLiquidity(uint256)": FunctionFragment;
     "automatedMarketMakerPairs(address)": FunctionFragment;
     "balanceOf(address)": FunctionFragment;
     "decimals()": FunctionFragment;
@@ -31,13 +30,14 @@ interface MetaStocksTokenInterface extends ethers.utils.Interface {
     "enableTrading()": FunctionFragment;
     "getLPPair()": FunctionFragment;
     "getMidasMultinetworkRouterManager()": FunctionFragment;
-    "getOwner()": FunctionFragment;
     "getSwapThreshold()": FunctionFragment;
     "getTradingEnabled()": FunctionFragment;
     "getTransactionFeesManager()": FunctionFragment;
     "increaseAllowance(address,uint256)": FunctionFragment;
     "initialize(string,string,uint256)": FunctionFragment;
     "name()": FunctionFragment;
+    "owner()": FunctionFragment;
+    "renounceOwnership()": FunctionFragment;
     "self()": FunctionFragment;
     "setDexRouter(address)": FunctionFragment;
     "setFees(uint16,uint16,uint16)": FunctionFragment;
@@ -64,10 +64,6 @@ interface MetaStocksTokenInterface extends ethers.utils.Interface {
     values: [string, BigNumberish]
   ): string;
   encodeFunctionData(
-    functionFragment: "autoInjectLiquidity",
-    values: [BigNumberish]
-  ): string;
-  encodeFunctionData(
     functionFragment: "automatedMarketMakerPairs",
     values: [string]
   ): string;
@@ -86,7 +82,6 @@ interface MetaStocksTokenInterface extends ethers.utils.Interface {
     functionFragment: "getMidasMultinetworkRouterManager",
     values?: undefined
   ): string;
-  encodeFunctionData(functionFragment: "getOwner", values?: undefined): string;
   encodeFunctionData(
     functionFragment: "getSwapThreshold",
     values?: undefined
@@ -108,6 +103,11 @@ interface MetaStocksTokenInterface extends ethers.utils.Interface {
     values: [string, string, BigNumberish]
   ): string;
   encodeFunctionData(functionFragment: "name", values?: undefined): string;
+  encodeFunctionData(functionFragment: "owner", values?: undefined): string;
+  encodeFunctionData(
+    functionFragment: "renounceOwnership",
+    values?: undefined
+  ): string;
   encodeFunctionData(functionFragment: "self", values?: undefined): string;
   encodeFunctionData(
     functionFragment: "setDexRouter",
@@ -163,10 +163,6 @@ interface MetaStocksTokenInterface extends ethers.utils.Interface {
   decodeFunctionResult(functionFragment: "allowance", data: BytesLike): Result;
   decodeFunctionResult(functionFragment: "approve", data: BytesLike): Result;
   decodeFunctionResult(
-    functionFragment: "autoInjectLiquidity",
-    data: BytesLike
-  ): Result;
-  decodeFunctionResult(
     functionFragment: "automatedMarketMakerPairs",
     data: BytesLike
   ): Result;
@@ -185,7 +181,6 @@ interface MetaStocksTokenInterface extends ethers.utils.Interface {
     functionFragment: "getMidasMultinetworkRouterManager",
     data: BytesLike
   ): Result;
-  decodeFunctionResult(functionFragment: "getOwner", data: BytesLike): Result;
   decodeFunctionResult(
     functionFragment: "getSwapThreshold",
     data: BytesLike
@@ -204,6 +199,11 @@ interface MetaStocksTokenInterface extends ethers.utils.Interface {
   ): Result;
   decodeFunctionResult(functionFragment: "initialize", data: BytesLike): Result;
   decodeFunctionResult(functionFragment: "name", data: BytesLike): Result;
+  decodeFunctionResult(functionFragment: "owner", data: BytesLike): Result;
+  decodeFunctionResult(
+    functionFragment: "renounceOwnership",
+    data: BytesLike
+  ): Result;
   decodeFunctionResult(functionFragment: "self", data: BytesLike): Result;
   decodeFunctionResult(
     functionFragment: "setDexRouter",
@@ -343,11 +343,6 @@ export class MetaStocksToken extends BaseContract {
       overrides?: Overrides & { from?: string | Promise<string> }
     ): Promise<ContractTransaction>;
 
-    autoInjectLiquidity(
-      tokenAmount: BigNumberish,
-      overrides?: Overrides & { from?: string | Promise<string> }
-    ): Promise<ContractTransaction>;
-
     automatedMarketMakerPairs(
       arg0: string,
       overrides?: CallOverrides
@@ -373,8 +368,6 @@ export class MetaStocksToken extends BaseContract {
       overrides?: CallOverrides
     ): Promise<[string]>;
 
-    getOwner(overrides?: CallOverrides): Promise<[string]>;
-
     getSwapThreshold(overrides?: CallOverrides): Promise<[BigNumber]>;
 
     getTradingEnabled(overrides?: CallOverrides): Promise<[boolean]>;
@@ -395,6 +388,12 @@ export class MetaStocksToken extends BaseContract {
     ): Promise<ContractTransaction>;
 
     name(overrides?: CallOverrides): Promise<[string]>;
+
+    owner(overrides?: CallOverrides): Promise<[string]>;
+
+    renounceOwnership(
+      overrides?: Overrides & { from?: string | Promise<string> }
+    ): Promise<ContractTransaction>;
 
     self(overrides?: CallOverrides): Promise<[string]>;
 
@@ -463,7 +462,7 @@ export class MetaStocksToken extends BaseContract {
     ): Promise<ContractTransaction>;
 
     transferOwnership(
-      account: string,
+      newOwner: string,
       overrides?: Overrides & { from?: string | Promise<string> }
     ): Promise<ContractTransaction>;
   };
@@ -477,11 +476,6 @@ export class MetaStocksToken extends BaseContract {
   approve(
     spender: string,
     amount: BigNumberish,
-    overrides?: Overrides & { from?: string | Promise<string> }
-  ): Promise<ContractTransaction>;
-
-  autoInjectLiquidity(
-    tokenAmount: BigNumberish,
     overrides?: Overrides & { from?: string | Promise<string> }
   ): Promise<ContractTransaction>;
 
@@ -508,8 +502,6 @@ export class MetaStocksToken extends BaseContract {
 
   getMidasMultinetworkRouterManager(overrides?: CallOverrides): Promise<string>;
 
-  getOwner(overrides?: CallOverrides): Promise<string>;
-
   getSwapThreshold(overrides?: CallOverrides): Promise<BigNumber>;
 
   getTradingEnabled(overrides?: CallOverrides): Promise<boolean>;
@@ -530,6 +522,12 @@ export class MetaStocksToken extends BaseContract {
   ): Promise<ContractTransaction>;
 
   name(overrides?: CallOverrides): Promise<string>;
+
+  owner(overrides?: CallOverrides): Promise<string>;
+
+  renounceOwnership(
+    overrides?: Overrides & { from?: string | Promise<string> }
+  ): Promise<ContractTransaction>;
 
   self(overrides?: CallOverrides): Promise<string>;
 
@@ -598,7 +596,7 @@ export class MetaStocksToken extends BaseContract {
   ): Promise<ContractTransaction>;
 
   transferOwnership(
-    account: string,
+    newOwner: string,
     overrides?: Overrides & { from?: string | Promise<string> }
   ): Promise<ContractTransaction>;
 
@@ -614,11 +612,6 @@ export class MetaStocksToken extends BaseContract {
       amount: BigNumberish,
       overrides?: CallOverrides
     ): Promise<boolean>;
-
-    autoInjectLiquidity(
-      tokenAmount: BigNumberish,
-      overrides?: CallOverrides
-    ): Promise<void>;
 
     automatedMarketMakerPairs(
       arg0: string,
@@ -643,8 +636,6 @@ export class MetaStocksToken extends BaseContract {
       overrides?: CallOverrides
     ): Promise<string>;
 
-    getOwner(overrides?: CallOverrides): Promise<string>;
-
     getSwapThreshold(overrides?: CallOverrides): Promise<BigNumber>;
 
     getTradingEnabled(overrides?: CallOverrides): Promise<boolean>;
@@ -665,6 +656,10 @@ export class MetaStocksToken extends BaseContract {
     ): Promise<void>;
 
     name(overrides?: CallOverrides): Promise<string>;
+
+    owner(overrides?: CallOverrides): Promise<string>;
+
+    renounceOwnership(overrides?: CallOverrides): Promise<void>;
 
     self(overrides?: CallOverrides): Promise<string>;
 
@@ -727,7 +722,7 @@ export class MetaStocksToken extends BaseContract {
     ): Promise<boolean>;
 
     transferOwnership(
-      account: string,
+      newOwner: string,
       overrides?: CallOverrides
     ): Promise<void>;
   };
@@ -823,11 +818,6 @@ export class MetaStocksToken extends BaseContract {
       overrides?: Overrides & { from?: string | Promise<string> }
     ): Promise<BigNumber>;
 
-    autoInjectLiquidity(
-      tokenAmount: BigNumberish,
-      overrides?: Overrides & { from?: string | Promise<string> }
-    ): Promise<BigNumber>;
-
     automatedMarketMakerPairs(
       arg0: string,
       overrides?: CallOverrides
@@ -853,8 +843,6 @@ export class MetaStocksToken extends BaseContract {
       overrides?: CallOverrides
     ): Promise<BigNumber>;
 
-    getOwner(overrides?: CallOverrides): Promise<BigNumber>;
-
     getSwapThreshold(overrides?: CallOverrides): Promise<BigNumber>;
 
     getTradingEnabled(overrides?: CallOverrides): Promise<BigNumber>;
@@ -875,6 +863,12 @@ export class MetaStocksToken extends BaseContract {
     ): Promise<BigNumber>;
 
     name(overrides?: CallOverrides): Promise<BigNumber>;
+
+    owner(overrides?: CallOverrides): Promise<BigNumber>;
+
+    renounceOwnership(
+      overrides?: Overrides & { from?: string | Promise<string> }
+    ): Promise<BigNumber>;
 
     self(overrides?: CallOverrides): Promise<BigNumber>;
 
@@ -943,7 +937,7 @@ export class MetaStocksToken extends BaseContract {
     ): Promise<BigNumber>;
 
     transferOwnership(
-      account: string,
+      newOwner: string,
       overrides?: Overrides & { from?: string | Promise<string> }
     ): Promise<BigNumber>;
   };
@@ -958,11 +952,6 @@ export class MetaStocksToken extends BaseContract {
     approve(
       spender: string,
       amount: BigNumberish,
-      overrides?: Overrides & { from?: string | Promise<string> }
-    ): Promise<PopulatedTransaction>;
-
-    autoInjectLiquidity(
-      tokenAmount: BigNumberish,
       overrides?: Overrides & { from?: string | Promise<string> }
     ): Promise<PopulatedTransaction>;
 
@@ -994,8 +983,6 @@ export class MetaStocksToken extends BaseContract {
       overrides?: CallOverrides
     ): Promise<PopulatedTransaction>;
 
-    getOwner(overrides?: CallOverrides): Promise<PopulatedTransaction>;
-
     getSwapThreshold(overrides?: CallOverrides): Promise<PopulatedTransaction>;
 
     getTradingEnabled(overrides?: CallOverrides): Promise<PopulatedTransaction>;
@@ -1018,6 +1005,12 @@ export class MetaStocksToken extends BaseContract {
     ): Promise<PopulatedTransaction>;
 
     name(overrides?: CallOverrides): Promise<PopulatedTransaction>;
+
+    owner(overrides?: CallOverrides): Promise<PopulatedTransaction>;
+
+    renounceOwnership(
+      overrides?: Overrides & { from?: string | Promise<string> }
+    ): Promise<PopulatedTransaction>;
 
     self(overrides?: CallOverrides): Promise<PopulatedTransaction>;
 
@@ -1086,7 +1079,7 @@ export class MetaStocksToken extends BaseContract {
     ): Promise<PopulatedTransaction>;
 
     transferOwnership(
-      account: string,
+      newOwner: string,
       overrides?: Overrides & { from?: string | Promise<string> }
     ): Promise<PopulatedTransaction>;
   };

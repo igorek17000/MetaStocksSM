@@ -26,10 +26,11 @@ interface MidasMultinetworkRouterManagerInterface
     "getDexRouter()": FunctionFragment;
     "getDexRouterAddress()": FunctionFragment;
     "getNativeTokenAddress(uint256)": FunctionFragment;
+    "getStableCoinAddress(uint256)": FunctionFragment;
     "isInSwap()": FunctionFragment;
     "setDexRouter(address)": FunctionFragment;
     "swapTokensForNativeToken(address,address,uint256)": FunctionFragment;
-    "swapTokensForStableCoin(address,uint256)": FunctionFragment;
+    "swapTokensForStableCoin(address,address,uint256)": FunctionFragment;
   };
 
   encodeFunctionData(
@@ -48,6 +49,10 @@ interface MidasMultinetworkRouterManagerInterface
     functionFragment: "getNativeTokenAddress",
     values: [BigNumberish]
   ): string;
+  encodeFunctionData(
+    functionFragment: "getStableCoinAddress",
+    values: [BigNumberish]
+  ): string;
   encodeFunctionData(functionFragment: "isInSwap", values?: undefined): string;
   encodeFunctionData(
     functionFragment: "setDexRouter",
@@ -59,7 +64,7 @@ interface MidasMultinetworkRouterManagerInterface
   ): string;
   encodeFunctionData(
     functionFragment: "swapTokensForStableCoin",
-    values: [string, BigNumberish]
+    values: [string, string, BigNumberish]
   ): string;
 
   decodeFunctionResult(
@@ -76,6 +81,10 @@ interface MidasMultinetworkRouterManagerInterface
   ): Result;
   decodeFunctionResult(
     functionFragment: "getNativeTokenAddress",
+    data: BytesLike
+  ): Result;
+  decodeFunctionResult(
+    functionFragment: "getStableCoinAddress",
     data: BytesLike
   ): Result;
   decodeFunctionResult(functionFragment: "isInSwap", data: BytesLike): Result;
@@ -156,6 +165,11 @@ export class MidasMultinetworkRouterManager extends BaseContract {
       overrides?: CallOverrides
     ): Promise<[string]>;
 
+    getStableCoinAddress(
+      _networkId: BigNumberish,
+      overrides?: CallOverrides
+    ): Promise<[string]>;
+
     isInSwap(overrides?: CallOverrides): Promise<[boolean]>;
 
     setDexRouter(
@@ -171,6 +185,7 @@ export class MidasMultinetworkRouterManager extends BaseContract {
     ): Promise<ContractTransaction>;
 
     swapTokensForStableCoin(
+      tokenAddress: string,
       to: string,
       amount: BigNumberish,
       overrides?: Overrides & { from?: string | Promise<string> }
@@ -194,6 +209,11 @@ export class MidasMultinetworkRouterManager extends BaseContract {
     overrides?: CallOverrides
   ): Promise<string>;
 
+  getStableCoinAddress(
+    _networkId: BigNumberish,
+    overrides?: CallOverrides
+  ): Promise<string>;
+
   isInSwap(overrides?: CallOverrides): Promise<boolean>;
 
   setDexRouter(
@@ -209,6 +229,7 @@ export class MidasMultinetworkRouterManager extends BaseContract {
   ): Promise<ContractTransaction>;
 
   swapTokensForStableCoin(
+    tokenAddress: string,
     to: string,
     amount: BigNumberish,
     overrides?: Overrides & { from?: string | Promise<string> }
@@ -232,6 +253,11 @@ export class MidasMultinetworkRouterManager extends BaseContract {
       overrides?: CallOverrides
     ): Promise<string>;
 
+    getStableCoinAddress(
+      _networkId: BigNumberish,
+      overrides?: CallOverrides
+    ): Promise<string>;
+
     isInSwap(overrides?: CallOverrides): Promise<boolean>;
 
     setDexRouter(
@@ -247,6 +273,7 @@ export class MidasMultinetworkRouterManager extends BaseContract {
     ): Promise<void>;
 
     swapTokensForStableCoin(
+      tokenAddress: string,
       to: string,
       amount: BigNumberish,
       overrides?: CallOverrides
@@ -273,6 +300,11 @@ export class MidasMultinetworkRouterManager extends BaseContract {
       overrides?: CallOverrides
     ): Promise<BigNumber>;
 
+    getStableCoinAddress(
+      _networkId: BigNumberish,
+      overrides?: CallOverrides
+    ): Promise<BigNumber>;
+
     isInSwap(overrides?: CallOverrides): Promise<BigNumber>;
 
     setDexRouter(
@@ -288,6 +320,7 @@ export class MidasMultinetworkRouterManager extends BaseContract {
     ): Promise<BigNumber>;
 
     swapTokensForStableCoin(
+      tokenAddress: string,
       to: string,
       amount: BigNumberish,
       overrides?: Overrides & { from?: string | Promise<string> }
@@ -314,6 +347,11 @@ export class MidasMultinetworkRouterManager extends BaseContract {
       overrides?: CallOverrides
     ): Promise<PopulatedTransaction>;
 
+    getStableCoinAddress(
+      _networkId: BigNumberish,
+      overrides?: CallOverrides
+    ): Promise<PopulatedTransaction>;
+
     isInSwap(overrides?: CallOverrides): Promise<PopulatedTransaction>;
 
     setDexRouter(
@@ -329,6 +367,7 @@ export class MidasMultinetworkRouterManager extends BaseContract {
     ): Promise<PopulatedTransaction>;
 
     swapTokensForStableCoin(
+      tokenAddress: string,
       to: string,
       amount: BigNumberish,
       overrides?: Overrides & { from?: string | Promise<string> }

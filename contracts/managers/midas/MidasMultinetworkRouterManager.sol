@@ -35,6 +35,23 @@ contract MidasMultinetworkRouterManager {
         return inSwap;
     }
 
+    function getStableCoinAddress(uint256 _networkId)
+        public
+        pure
+        returns (address)
+    {
+        address networkTokenAddress = 0xae13d989daC2f0dEbFf460aC112a837C89BAa7cd;
+        if (_networkId == 97) {
+            networkTokenAddress = 0xae13d989daC2f0dEbFf460aC112a837C89BAa7cd;
+        } else if (_networkId == 97) {
+            networkTokenAddress = 0xae13d989daC2f0dEbFf460aC112a837C89BAa7cd;
+        } else {
+            revert("unsupported network");
+        }
+
+        return 0xae13d989daC2f0dEbFf460aC112a837C89BAa7cd;
+    }
+
     function getNativeTokenAddress(uint256 _networkId)
         public
         pure
@@ -56,9 +73,13 @@ contract MidasMultinetworkRouterManager {
         return address(dexRouter);
     }
 
-    function swapTokensForStableCoin(address to, uint256 amount) external {
+    function swapTokensForStableCoin(
+        address tokenAddress,
+        address to,
+        uint256 amount
+    ) external {
         address[] memory path = new address[](3);
-        path[0] = address(this);
+        path[0] = tokenAddress;
         path[1] = getNativeTokenAddress(networkId);
         path[2] = stableCoin;
 

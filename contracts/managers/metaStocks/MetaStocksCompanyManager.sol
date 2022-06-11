@@ -53,5 +53,19 @@ contract MetaStocksCompanyManager is
 
     function update(uint256 managerId) external {}
 
-    function remove(uint256 companyId) external {}
+    function remove(uint256 companyId) external {} /*
+    function claimMetaStocksFranchiseRewards(
+        address companyAddress,
+        uint256 id,
+        bytes memory data
+    ) public onlyOwner {
+        IERC20(paymentTokenAddress).transferFrom(
+            address(msg.sender),
+            address(paymentTokenAddress),
+            (amount * rewardsPoolFee) / 10000
+        );
+
+        _mint(companyAddress, id, 1, data);
+    }
+    */
 }

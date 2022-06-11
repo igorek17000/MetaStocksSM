@@ -397,6 +397,10 @@ declare module "hardhat/types/runtime" {
       signerOrOptions?: ethers.Signer | FactoryOptions
     ): Promise<Contracts.MetaStocksCompany__factory>;
     getContractFactory(
+      name: "MetaStocksERC20Upgradable",
+      signerOrOptions?: ethers.Signer | FactoryOptions
+    ): Promise<Contracts.MetaStocksERC20Upgradable__factory>;
+    getContractFactory(
       name: "MetaStocksFranchise",
       signerOrOptions?: ethers.Signer | FactoryOptions
     ): Promise<Contracts.MetaStocksFranchise__factory>;
@@ -889,6 +893,11 @@ declare module "hardhat/types/runtime" {
       address: string,
       signer?: ethers.Signer
     ): Promise<Contracts.MetaStocksCompany>;
+    getContractAt(
+      name: "MetaStocksERC20Upgradable",
+      address: string,
+      signer?: ethers.Signer
+    ): Promise<Contracts.MetaStocksERC20Upgradable>;
     getContractAt(
       name: "MetaStocksFranchise",
       address: string,

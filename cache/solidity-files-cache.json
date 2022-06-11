@@ -423,8 +423,8 @@
       ]
     },
     "/home/nkt/Desktop/metaStoksContracts/contracts/MetaStocksToken.sol": {
-      "lastModificationDate": 1654947845894,
-      "contentHash": "c472db8b9315c76b3f3deed4a192b58d",
+      "lastModificationDate": 1654950221240,
+      "contentHash": "ea1137d829df687971c7fdf6bbc4d6b6",
       "sourceName": "contracts/MetaStocksToken.sol",
       "solcConfig": {
         "version": "0.8.14",
@@ -455,9 +455,11 @@
         "@uniswap/v2-periphery/contracts/interfaces/IUniswapV2Router02.sol",
         "@uniswap/v2-core/contracts/interfaces/IUniswapV2Factory.sol",
         "@openzeppelin/contracts-upgradeable/token/ERC20/ERC20Upgradeable.sol",
+        "@openzeppelin/contracts-upgradeable/access/OwnableUpgradeable.sol",
         "./managers/transactionFees/TransactionFeesManager.sol",
         "./interfaces/dexRouter/IAutoLiquidityInjecter.sol",
-        "./managers/midas/MidasMultinetworkRouterManager.sol"
+        "./managers/midas/MidasMultinetworkRouterManager.sol",
+        "./MetaStocksERC20Upgradable.sol"
       ],
       "versionPragmas": [
         "^0.8.14"
@@ -658,8 +660,8 @@
       ]
     },
     "/home/nkt/Desktop/metaStoksContracts/contracts/managers/midas/MidasMultinetworkRouterManager.sol": {
-      "lastModificationDate": 1654943138381,
-      "contentHash": "7bf7ad435154215bde26e08cf430fbea",
+      "lastModificationDate": 1654950104639,
+      "contentHash": "ed36486fe49ee240056232fbf4b6f306",
       "sourceName": "contracts/managers/midas/MidasMultinetworkRouterManager.sol",
       "solcConfig": {
         "version": "0.8.14",
@@ -2440,8 +2442,8 @@
       ]
     },
     "/home/nkt/Desktop/metaStoksContracts/contracts/managers/metaStocks/MetaStocksCompanyManager.sol": {
-      "lastModificationDate": 1654948645866,
-      "contentHash": "413afa6c84f1502e9cc49241290cc0b4",
+      "lastModificationDate": 1654949645244,
+      "contentHash": "0697b2e59ade63948290f42e587f8bda",
       "sourceName": "contracts/managers/metaStocks/MetaStocksCompanyManager.sol",
       "solcConfig": {
         "version": "0.8.14",
@@ -2956,6 +2958,50 @@
       ],
       "artifacts": [
         "MetaStocksBaseManager"
+      ]
+    },
+    "/home/nkt/Desktop/metaStoksContracts/contracts/MetaStocksERC20Upgradable.sol": {
+      "lastModificationDate": 1654950308017,
+      "contentHash": "48f07209727ac0bcb62ffb7925a929f0",
+      "sourceName": "contracts/MetaStocksERC20Upgradable.sol",
+      "solcConfig": {
+        "version": "0.8.14",
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "runs": 100
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata",
+                "storageLayout"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [
+        "@openzeppelin/contracts/token/ERC20/IERC20.sol",
+        "@uniswap/v2-periphery/contracts/interfaces/IUniswapV2Router02.sol",
+        "@uniswap/v2-core/contracts/interfaces/IUniswapV2Factory.sol",
+        "@openzeppelin/contracts-upgradeable/token/ERC20/ERC20Upgradeable.sol",
+        "@openzeppelin/contracts-upgradeable/access/OwnableUpgradeable.sol",
+        "./managers/transactionFees/TransactionFeesManager.sol",
+        "./managers/midas/MidasMultinetworkRouterManager.sol"
+      ],
+      "versionPragmas": [
+        "^0.8.14"
+      ],
+      "artifacts": [
+        "MetaStocksERC20Upgradable"
       ]
     }
   }
