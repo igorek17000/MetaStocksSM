@@ -107,8 +107,8 @@ contract MetaStocksFranchiseManager is
     ) external {
         IERC20(paymentTokenAddress).transferFrom(
             address(msg.sender),
-            address(paymentTokenAddress),
-            10 ether
+            address(self()),
+            createFranchisePrice
         );
 
         uint256 franchiseType = metaStocksFranchise.getMetaStocksFranchiseType(
