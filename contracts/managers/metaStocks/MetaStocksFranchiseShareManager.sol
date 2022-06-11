@@ -5,13 +5,18 @@ import "@openzeppelin/contracts-upgradeable/token/ERC20/ERC20Upgradeable.sol";
 import "@uniswap/v2-periphery/contracts/interfaces/IUniswapV2Router02.sol";
 import "@openzeppelin/contracts/token/ERC20/IERC20.sol";
 import "@chainlink/contracts/src/v0.8/interfaces/AggregatorV3Interface.sol";
+import "@openzeppelin/contracts-upgradeable/access/OwnableUpgradeable.sol";
+
 import "../../managers/chainlink/ChainlinkDataFeedsManager.sol";
 import "../../interfaces/metaStocks/IMetaStocksCompany.sol";
 import "../../models/TransactionFees.sol";
 
 //import "../../interfaces/midasInterfaces/IMidasManager.sol";
 
-contract MetaStocksFranchiseShareManager is ERC20Upgradeable {
+contract MetaStocksFranchiseShareManager is
+    ERC20Upgradeable,
+    OwnableUpgradeable
+{
     IMetaStocksCompany MetaStocksCompany;
     ChainlinkDataFeedsManager chainlinkDataFeedsManager;
 
@@ -20,10 +25,7 @@ contract MetaStocksFranchiseShareManager is ERC20Upgradeable {
     uint256 private franchiseDailyEarnings;
     address private paymentTokenAddress;
 
-    address private owner;
-
     function initialize(address _metaStocksCompanyAddress) public initializer {
-        owner = msg.sender;
         createFranchisePrice = 10 ether;
         maintainceFranchiseExpenses = 1000000000000000000;
         franchiseDailyEarnings = 100000000000000000;
@@ -31,19 +33,6 @@ contract MetaStocksFranchiseShareManager is ERC20Upgradeable {
         chainlinkDataFeedsManager = new ChainlinkDataFeedsManager(
             0x0A77230d17318075983913bC2145DB16C7366156
         );
-    }
-
-    modifier onlyOwner() {
-        require(owner == msg.sender, "Ownable: caller is not the owner");
-        _;
-    }
-
-    function getOwner() public view virtual returns (address) {
-        return owner;
-    }
-
-    function transferOwnership(address account) public virtual {
-        owner = account;
     }
 
     function create() external payable {}

@@ -25,7 +25,7 @@ interface MetaStocksFranchiseManagerInterface extends ethers.utils.Interface {
     "allowance(address,address)": FunctionFragment;
     "approve(address,uint256)": FunctionFragment;
     "balanceOf(address)": FunctionFragment;
-    "companyFranchises(uint256)": FunctionFragment;
+    "companyFranchises(uint256,uint256)": FunctionFragment;
     "create()": FunctionFragment;
     "createMetaStocksFranchise(address,uint256,uint8,bytes)": FunctionFragment;
     "decimals()": FunctionFragment;
@@ -34,20 +34,25 @@ interface MetaStocksFranchiseManagerInterface extends ethers.utils.Interface {
     "getFranchiseDailyEarnings()": FunctionFragment;
     "getFranchiseValue()": FunctionFragment;
     "getMaintainceFranchiseExpenses()": FunctionFragment;
-    "getMetaStocksFranchisesByCompanyId(uint256)": FunctionFragment;
-    "getOwner()": FunctionFragment;
+    "getMetaStocksFranchises(uint256)": FunctionFragment;
+    "getNumberOfMetaStocksFranchises(uint256)": FunctionFragment;
     "getPaymentTokenAddress()": FunctionFragment;
     "getUnclaimedRewards()": FunctionFragment;
     "increaseAllowance(address,uint256)": FunctionFragment;
     "initialize(address)": FunctionFragment;
     "lastFranchiseClaimDate(uint256)": FunctionFragment;
     "name()": FunctionFragment;
+    "onERC1155BatchReceived(address,address,uint256[],uint256[],bytes)": FunctionFragment;
+    "onERC1155Received(address,address,uint256,uint256,bytes)": FunctionFragment;
+    "owner()": FunctionFragment;
     "remove(uint256)": FunctionFragment;
+    "renounceOwnership()": FunctionFragment;
     "setCreateFranchisePrice(uint16)": FunctionFragment;
     "setFranchiseDailyEarnings(uint16)": FunctionFragment;
     "setMaintainceFranchiseExpenses(uint16)": FunctionFragment;
     "setPaymentTokenAddress(address)": FunctionFragment;
     "setPaymentTokenAddress222(address)": FunctionFragment;
+    "supportsInterface(bytes4)": FunctionFragment;
     "symbol()": FunctionFragment;
     "totalSupply()": FunctionFragment;
     "transfer(address,uint256)": FunctionFragment;
@@ -67,7 +72,7 @@ interface MetaStocksFranchiseManagerInterface extends ethers.utils.Interface {
   encodeFunctionData(functionFragment: "balanceOf", values: [string]): string;
   encodeFunctionData(
     functionFragment: "companyFranchises",
-    values: [BigNumberish]
+    values: [BigNumberish, BigNumberish]
   ): string;
   encodeFunctionData(functionFragment: "create", values?: undefined): string;
   encodeFunctionData(
@@ -96,10 +101,13 @@ interface MetaStocksFranchiseManagerInterface extends ethers.utils.Interface {
     values?: undefined
   ): string;
   encodeFunctionData(
-    functionFragment: "getMetaStocksFranchisesByCompanyId",
+    functionFragment: "getMetaStocksFranchises",
     values: [BigNumberish]
   ): string;
-  encodeFunctionData(functionFragment: "getOwner", values?: undefined): string;
+  encodeFunctionData(
+    functionFragment: "getNumberOfMetaStocksFranchises",
+    values: [BigNumberish]
+  ): string;
   encodeFunctionData(
     functionFragment: "getPaymentTokenAddress",
     values?: undefined
@@ -119,8 +127,21 @@ interface MetaStocksFranchiseManagerInterface extends ethers.utils.Interface {
   ): string;
   encodeFunctionData(functionFragment: "name", values?: undefined): string;
   encodeFunctionData(
+    functionFragment: "onERC1155BatchReceived",
+    values: [string, string, BigNumberish[], BigNumberish[], BytesLike]
+  ): string;
+  encodeFunctionData(
+    functionFragment: "onERC1155Received",
+    values: [string, string, BigNumberish, BigNumberish, BytesLike]
+  ): string;
+  encodeFunctionData(functionFragment: "owner", values?: undefined): string;
+  encodeFunctionData(
     functionFragment: "remove",
     values: [BigNumberish]
+  ): string;
+  encodeFunctionData(
+    functionFragment: "renounceOwnership",
+    values?: undefined
   ): string;
   encodeFunctionData(
     functionFragment: "setCreateFranchisePrice",
@@ -141,6 +162,10 @@ interface MetaStocksFranchiseManagerInterface extends ethers.utils.Interface {
   encodeFunctionData(
     functionFragment: "setPaymentTokenAddress222",
     values: [string]
+  ): string;
+  encodeFunctionData(
+    functionFragment: "supportsInterface",
+    values: [BytesLike]
   ): string;
   encodeFunctionData(functionFragment: "symbol", values?: undefined): string;
   encodeFunctionData(
@@ -198,10 +223,13 @@ interface MetaStocksFranchiseManagerInterface extends ethers.utils.Interface {
     data: BytesLike
   ): Result;
   decodeFunctionResult(
-    functionFragment: "getMetaStocksFranchisesByCompanyId",
+    functionFragment: "getMetaStocksFranchises",
     data: BytesLike
   ): Result;
-  decodeFunctionResult(functionFragment: "getOwner", data: BytesLike): Result;
+  decodeFunctionResult(
+    functionFragment: "getNumberOfMetaStocksFranchises",
+    data: BytesLike
+  ): Result;
   decodeFunctionResult(
     functionFragment: "getPaymentTokenAddress",
     data: BytesLike
@@ -220,7 +248,20 @@ interface MetaStocksFranchiseManagerInterface extends ethers.utils.Interface {
     data: BytesLike
   ): Result;
   decodeFunctionResult(functionFragment: "name", data: BytesLike): Result;
+  decodeFunctionResult(
+    functionFragment: "onERC1155BatchReceived",
+    data: BytesLike
+  ): Result;
+  decodeFunctionResult(
+    functionFragment: "onERC1155Received",
+    data: BytesLike
+  ): Result;
+  decodeFunctionResult(functionFragment: "owner", data: BytesLike): Result;
   decodeFunctionResult(functionFragment: "remove", data: BytesLike): Result;
+  decodeFunctionResult(
+    functionFragment: "renounceOwnership",
+    data: BytesLike
+  ): Result;
   decodeFunctionResult(
     functionFragment: "setCreateFranchisePrice",
     data: BytesLike
@@ -239,6 +280,10 @@ interface MetaStocksFranchiseManagerInterface extends ethers.utils.Interface {
   ): Result;
   decodeFunctionResult(
     functionFragment: "setPaymentTokenAddress222",
+    data: BytesLike
+  ): Result;
+  decodeFunctionResult(
+    functionFragment: "supportsInterface",
     data: BytesLike
   ): Result;
   decodeFunctionResult(functionFragment: "symbol", data: BytesLike): Result;
@@ -260,11 +305,13 @@ interface MetaStocksFranchiseManagerInterface extends ethers.utils.Interface {
   events: {
     "Approval(address,address,uint256)": EventFragment;
     "Initialized(uint8)": EventFragment;
+    "OwnershipTransferred(address,address)": EventFragment;
     "Transfer(address,address,uint256)": EventFragment;
   };
 
   getEvent(nameOrSignatureOrTopic: "Approval"): EventFragment;
   getEvent(nameOrSignatureOrTopic: "Initialized"): EventFragment;
+  getEvent(nameOrSignatureOrTopic: "OwnershipTransferred"): EventFragment;
   getEvent(nameOrSignatureOrTopic: "Transfer"): EventFragment;
 }
 
@@ -277,6 +324,10 @@ export type ApprovalEvent = TypedEvent<
 >;
 
 export type InitializedEvent = TypedEvent<[number] & { version: number }>;
+
+export type OwnershipTransferredEvent = TypedEvent<
+  [string, string] & { previousOwner: string; newOwner: string }
+>;
 
 export type TransferEvent = TypedEvent<
   [string, string, BigNumber] & { from: string; to: string; value: BigNumber }
@@ -342,6 +393,7 @@ export class MetaStocksFranchiseManager extends BaseContract {
 
     companyFranchises(
       arg0: BigNumberish,
+      arg1: BigNumberish,
       overrides?: CallOverrides
     ): Promise<[BigNumber]>;
 
@@ -375,12 +427,15 @@ export class MetaStocksFranchiseManager extends BaseContract {
       overrides?: CallOverrides
     ): Promise<[BigNumber]>;
 
-    getMetaStocksFranchisesByCompanyId(
+    getMetaStocksFranchises(
       companyId: BigNumberish,
       overrides?: CallOverrides
     ): Promise<[BigNumber]>;
 
-    getOwner(overrides?: CallOverrides): Promise<[string]>;
+    getNumberOfMetaStocksFranchises(
+      companyId: BigNumberish,
+      overrides?: CallOverrides
+    ): Promise<[BigNumber]>;
 
     getPaymentTokenAddress(overrides?: CallOverrides): Promise<[string]>;
 
@@ -404,8 +459,32 @@ export class MetaStocksFranchiseManager extends BaseContract {
 
     name(overrides?: CallOverrides): Promise<[string]>;
 
+    onERC1155BatchReceived(
+      arg0: string,
+      arg1: string,
+      arg2: BigNumberish[],
+      arg3: BigNumberish[],
+      arg4: BytesLike,
+      overrides?: Overrides & { from?: string | Promise<string> }
+    ): Promise<ContractTransaction>;
+
+    onERC1155Received(
+      arg0: string,
+      arg1: string,
+      arg2: BigNumberish,
+      arg3: BigNumberish,
+      arg4: BytesLike,
+      overrides?: Overrides & { from?: string | Promise<string> }
+    ): Promise<ContractTransaction>;
+
+    owner(overrides?: CallOverrides): Promise<[string]>;
+
     remove(
       companyId: BigNumberish,
+      overrides?: Overrides & { from?: string | Promise<string> }
+    ): Promise<ContractTransaction>;
+
+    renounceOwnership(
       overrides?: Overrides & { from?: string | Promise<string> }
     ): Promise<ContractTransaction>;
 
@@ -434,6 +513,11 @@ export class MetaStocksFranchiseManager extends BaseContract {
       overrides?: Overrides & { from?: string | Promise<string> }
     ): Promise<ContractTransaction>;
 
+    supportsInterface(
+      interfaceId: BytesLike,
+      overrides?: CallOverrides
+    ): Promise<[boolean]>;
+
     symbol(overrides?: CallOverrides): Promise<[string]>;
 
     totalSupply(overrides?: CallOverrides): Promise<[BigNumber]>;
@@ -452,7 +536,7 @@ export class MetaStocksFranchiseManager extends BaseContract {
     ): Promise<ContractTransaction>;
 
     transferOwnership(
-      account: string,
+      newOwner: string,
       overrides?: Overrides & { from?: string | Promise<string> }
     ): Promise<ContractTransaction>;
 
@@ -478,6 +562,7 @@ export class MetaStocksFranchiseManager extends BaseContract {
 
   companyFranchises(
     arg0: BigNumberish,
+    arg1: BigNumberish,
     overrides?: CallOverrides
   ): Promise<BigNumber>;
 
@@ -509,12 +594,15 @@ export class MetaStocksFranchiseManager extends BaseContract {
 
   getMaintainceFranchiseExpenses(overrides?: CallOverrides): Promise<BigNumber>;
 
-  getMetaStocksFranchisesByCompanyId(
+  getMetaStocksFranchises(
     companyId: BigNumberish,
     overrides?: CallOverrides
   ): Promise<BigNumber>;
 
-  getOwner(overrides?: CallOverrides): Promise<string>;
+  getNumberOfMetaStocksFranchises(
+    companyId: BigNumberish,
+    overrides?: CallOverrides
+  ): Promise<BigNumber>;
 
   getPaymentTokenAddress(overrides?: CallOverrides): Promise<string>;
 
@@ -538,8 +626,32 @@ export class MetaStocksFranchiseManager extends BaseContract {
 
   name(overrides?: CallOverrides): Promise<string>;
 
+  onERC1155BatchReceived(
+    arg0: string,
+    arg1: string,
+    arg2: BigNumberish[],
+    arg3: BigNumberish[],
+    arg4: BytesLike,
+    overrides?: Overrides & { from?: string | Promise<string> }
+  ): Promise<ContractTransaction>;
+
+  onERC1155Received(
+    arg0: string,
+    arg1: string,
+    arg2: BigNumberish,
+    arg3: BigNumberish,
+    arg4: BytesLike,
+    overrides?: Overrides & { from?: string | Promise<string> }
+  ): Promise<ContractTransaction>;
+
+  owner(overrides?: CallOverrides): Promise<string>;
+
   remove(
     companyId: BigNumberish,
+    overrides?: Overrides & { from?: string | Promise<string> }
+  ): Promise<ContractTransaction>;
+
+  renounceOwnership(
     overrides?: Overrides & { from?: string | Promise<string> }
   ): Promise<ContractTransaction>;
 
@@ -568,6 +680,11 @@ export class MetaStocksFranchiseManager extends BaseContract {
     overrides?: Overrides & { from?: string | Promise<string> }
   ): Promise<ContractTransaction>;
 
+  supportsInterface(
+    interfaceId: BytesLike,
+    overrides?: CallOverrides
+  ): Promise<boolean>;
+
   symbol(overrides?: CallOverrides): Promise<string>;
 
   totalSupply(overrides?: CallOverrides): Promise<BigNumber>;
@@ -586,7 +703,7 @@ export class MetaStocksFranchiseManager extends BaseContract {
   ): Promise<ContractTransaction>;
 
   transferOwnership(
-    account: string,
+    newOwner: string,
     overrides?: Overrides & { from?: string | Promise<string> }
   ): Promise<ContractTransaction>;
 
@@ -612,6 +729,7 @@ export class MetaStocksFranchiseManager extends BaseContract {
 
     companyFranchises(
       arg0: BigNumberish,
+      arg1: BigNumberish,
       overrides?: CallOverrides
     ): Promise<BigNumber>;
 
@@ -643,12 +761,15 @@ export class MetaStocksFranchiseManager extends BaseContract {
       overrides?: CallOverrides
     ): Promise<BigNumber>;
 
-    getMetaStocksFranchisesByCompanyId(
+    getMetaStocksFranchises(
       companyId: BigNumberish,
       overrides?: CallOverrides
     ): Promise<BigNumber>;
 
-    getOwner(overrides?: CallOverrides): Promise<string>;
+    getNumberOfMetaStocksFranchises(
+      companyId: BigNumberish,
+      overrides?: CallOverrides
+    ): Promise<BigNumber>;
 
     getPaymentTokenAddress(overrides?: CallOverrides): Promise<string>;
 
@@ -672,7 +793,29 @@ export class MetaStocksFranchiseManager extends BaseContract {
 
     name(overrides?: CallOverrides): Promise<string>;
 
+    onERC1155BatchReceived(
+      arg0: string,
+      arg1: string,
+      arg2: BigNumberish[],
+      arg3: BigNumberish[],
+      arg4: BytesLike,
+      overrides?: CallOverrides
+    ): Promise<string>;
+
+    onERC1155Received(
+      arg0: string,
+      arg1: string,
+      arg2: BigNumberish,
+      arg3: BigNumberish,
+      arg4: BytesLike,
+      overrides?: CallOverrides
+    ): Promise<string>;
+
+    owner(overrides?: CallOverrides): Promise<string>;
+
     remove(companyId: BigNumberish, overrides?: CallOverrides): Promise<void>;
+
+    renounceOwnership(overrides?: CallOverrides): Promise<void>;
 
     setCreateFranchisePrice(
       _createFranchisePrice: BigNumberish,
@@ -699,6 +842,11 @@ export class MetaStocksFranchiseManager extends BaseContract {
       overrides?: CallOverrides
     ): Promise<void>;
 
+    supportsInterface(
+      interfaceId: BytesLike,
+      overrides?: CallOverrides
+    ): Promise<boolean>;
+
     symbol(overrides?: CallOverrides): Promise<string>;
 
     totalSupply(overrides?: CallOverrides): Promise<BigNumber>;
@@ -717,7 +865,7 @@ export class MetaStocksFranchiseManager extends BaseContract {
     ): Promise<boolean>;
 
     transferOwnership(
-      account: string,
+      newOwner: string,
       overrides?: CallOverrides
     ): Promise<void>;
 
@@ -750,6 +898,22 @@ export class MetaStocksFranchiseManager extends BaseContract {
     Initialized(
       version?: null
     ): TypedEventFilter<[number], { version: number }>;
+
+    "OwnershipTransferred(address,address)"(
+      previousOwner?: string | null,
+      newOwner?: string | null
+    ): TypedEventFilter<
+      [string, string],
+      { previousOwner: string; newOwner: string }
+    >;
+
+    OwnershipTransferred(
+      previousOwner?: string | null,
+      newOwner?: string | null
+    ): TypedEventFilter<
+      [string, string],
+      { previousOwner: string; newOwner: string }
+    >;
 
     "Transfer(address,address,uint256)"(
       from?: string | null,
@@ -787,6 +951,7 @@ export class MetaStocksFranchiseManager extends BaseContract {
 
     companyFranchises(
       arg0: BigNumberish,
+      arg1: BigNumberish,
       overrides?: CallOverrides
     ): Promise<BigNumber>;
 
@@ -820,12 +985,15 @@ export class MetaStocksFranchiseManager extends BaseContract {
       overrides?: CallOverrides
     ): Promise<BigNumber>;
 
-    getMetaStocksFranchisesByCompanyId(
+    getMetaStocksFranchises(
       companyId: BigNumberish,
       overrides?: CallOverrides
     ): Promise<BigNumber>;
 
-    getOwner(overrides?: CallOverrides): Promise<BigNumber>;
+    getNumberOfMetaStocksFranchises(
+      companyId: BigNumberish,
+      overrides?: CallOverrides
+    ): Promise<BigNumber>;
 
     getPaymentTokenAddress(overrides?: CallOverrides): Promise<BigNumber>;
 
@@ -849,8 +1017,32 @@ export class MetaStocksFranchiseManager extends BaseContract {
 
     name(overrides?: CallOverrides): Promise<BigNumber>;
 
+    onERC1155BatchReceived(
+      arg0: string,
+      arg1: string,
+      arg2: BigNumberish[],
+      arg3: BigNumberish[],
+      arg4: BytesLike,
+      overrides?: Overrides & { from?: string | Promise<string> }
+    ): Promise<BigNumber>;
+
+    onERC1155Received(
+      arg0: string,
+      arg1: string,
+      arg2: BigNumberish,
+      arg3: BigNumberish,
+      arg4: BytesLike,
+      overrides?: Overrides & { from?: string | Promise<string> }
+    ): Promise<BigNumber>;
+
+    owner(overrides?: CallOverrides): Promise<BigNumber>;
+
     remove(
       companyId: BigNumberish,
+      overrides?: Overrides & { from?: string | Promise<string> }
+    ): Promise<BigNumber>;
+
+    renounceOwnership(
       overrides?: Overrides & { from?: string | Promise<string> }
     ): Promise<BigNumber>;
 
@@ -879,6 +1071,11 @@ export class MetaStocksFranchiseManager extends BaseContract {
       overrides?: Overrides & { from?: string | Promise<string> }
     ): Promise<BigNumber>;
 
+    supportsInterface(
+      interfaceId: BytesLike,
+      overrides?: CallOverrides
+    ): Promise<BigNumber>;
+
     symbol(overrides?: CallOverrides): Promise<BigNumber>;
 
     totalSupply(overrides?: CallOverrides): Promise<BigNumber>;
@@ -897,7 +1094,7 @@ export class MetaStocksFranchiseManager extends BaseContract {
     ): Promise<BigNumber>;
 
     transferOwnership(
-      account: string,
+      newOwner: string,
       overrides?: Overrides & { from?: string | Promise<string> }
     ): Promise<BigNumber>;
 
@@ -927,6 +1124,7 @@ export class MetaStocksFranchiseManager extends BaseContract {
 
     companyFranchises(
       arg0: BigNumberish,
+      arg1: BigNumberish,
       overrides?: CallOverrides
     ): Promise<PopulatedTransaction>;
 
@@ -964,12 +1162,15 @@ export class MetaStocksFranchiseManager extends BaseContract {
       overrides?: CallOverrides
     ): Promise<PopulatedTransaction>;
 
-    getMetaStocksFranchisesByCompanyId(
+    getMetaStocksFranchises(
       companyId: BigNumberish,
       overrides?: CallOverrides
     ): Promise<PopulatedTransaction>;
 
-    getOwner(overrides?: CallOverrides): Promise<PopulatedTransaction>;
+    getNumberOfMetaStocksFranchises(
+      companyId: BigNumberish,
+      overrides?: CallOverrides
+    ): Promise<PopulatedTransaction>;
 
     getPaymentTokenAddress(
       overrides?: CallOverrides
@@ -997,8 +1198,32 @@ export class MetaStocksFranchiseManager extends BaseContract {
 
     name(overrides?: CallOverrides): Promise<PopulatedTransaction>;
 
+    onERC1155BatchReceived(
+      arg0: string,
+      arg1: string,
+      arg2: BigNumberish[],
+      arg3: BigNumberish[],
+      arg4: BytesLike,
+      overrides?: Overrides & { from?: string | Promise<string> }
+    ): Promise<PopulatedTransaction>;
+
+    onERC1155Received(
+      arg0: string,
+      arg1: string,
+      arg2: BigNumberish,
+      arg3: BigNumberish,
+      arg4: BytesLike,
+      overrides?: Overrides & { from?: string | Promise<string> }
+    ): Promise<PopulatedTransaction>;
+
+    owner(overrides?: CallOverrides): Promise<PopulatedTransaction>;
+
     remove(
       companyId: BigNumberish,
+      overrides?: Overrides & { from?: string | Promise<string> }
+    ): Promise<PopulatedTransaction>;
+
+    renounceOwnership(
       overrides?: Overrides & { from?: string | Promise<string> }
     ): Promise<PopulatedTransaction>;
 
@@ -1027,6 +1252,11 @@ export class MetaStocksFranchiseManager extends BaseContract {
       overrides?: Overrides & { from?: string | Promise<string> }
     ): Promise<PopulatedTransaction>;
 
+    supportsInterface(
+      interfaceId: BytesLike,
+      overrides?: CallOverrides
+    ): Promise<PopulatedTransaction>;
+
     symbol(overrides?: CallOverrides): Promise<PopulatedTransaction>;
 
     totalSupply(overrides?: CallOverrides): Promise<PopulatedTransaction>;
@@ -1045,7 +1275,7 @@ export class MetaStocksFranchiseManager extends BaseContract {
     ): Promise<PopulatedTransaction>;
 
     transferOwnership(
-      account: string,
+      newOwner: string,
       overrides?: Overrides & { from?: string | Promise<string> }
     ): Promise<PopulatedTransaction>;
 

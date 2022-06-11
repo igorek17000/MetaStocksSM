@@ -5,6 +5,10 @@ import "@openzeppelin/contracts-upgradeable/token/ERC20/ERC20Upgradeable.sol";
 import "@uniswap/v2-periphery/contracts/interfaces/IUniswapV2Router02.sol";
 import "@openzeppelin/contracts/token/ERC20/IERC20.sol";
 import "@chainlink/contracts/src/v0.8/interfaces/AggregatorV3Interface.sol";
+import "@openzeppelin/contracts-upgradeable/access/OwnableUpgradeable.sol";
+import "@openzeppelin/contracts/token/ERC1155/utils/ERC1155Holder.sol";
+import "@openzeppelin/contracts/token/ERC1155/IERC1155Receiver.sol";
+
 import "../../managers/chainlink/ChainlinkDataFeedsManager.sol";
 import "../../interfaces/metaStocks/IMetaStocksFranchise.sol";
 import "../../models/TransactionFees.sol";
@@ -12,7 +16,12 @@ import "../../enums/MetaStocksFranchiseType.sol";
 
 //import "../../interfaces/midasInterfaces/IMidasManager.sol";
 
-contract MetaStocksFranchiseManager is ERC20Upgradeable {
+contract MetaStocksFranchiseManager is
+    ERC20Upgradeable,
+    OwnableUpgradeable,
+    IERC1155Receiver,
+    ERC1155Holder
+{
     IMetaStocksFranchise metaStocksFranchise;
     ChainlinkDataFeedsManager chainlinkDataFeedsManager;
 
@@ -23,15 +32,12 @@ contract MetaStocksFranchiseManager is ERC20Upgradeable {
 
     mapping(uint256 => uint256) public lastFranchiseClaimDate;
 
-    mapping(uint256 => uint256) public companyFranchises;
-
-    address private owner;
+    mapping(uint256 => mapping(uint256 => uint256)) public companyFranchises;
 
     function initialize(address _metaStocksFranchiseAddress)
         public
         initializer
     {
-        owner = msg.sender;
         createFranchisePrice = 10 ether;
         maintainceFranchiseExpenses = 1000000000000000000;
         franchiseDailyEarnings = 100000000000000000;
@@ -44,17 +50,44 @@ contract MetaStocksFranchiseManager is ERC20Upgradeable {
         metaStocksFranchise = IMetaStocksFranchise(_metaStocksFranchiseAddress);
     }
 
-    modifier onlyOwner() {
-        require(owner == msg.sender, "Ownable: caller is not the owner");
-        _;
+    function onERC1155Received(
+        address,
+        address,
+        uint256,
+        uint256,
+        bytes memory
+    )
+        public
+        virtual
+        override(ERC1155Holder, IERC1155Receiver)
+        returns (bytes4)
+    {
+        return this.onERC1155Received.selector;
     }
 
-    function getOwner() public view virtual returns (address) {
-        return owner;
+    function onERC1155BatchReceived(
+        address,
+        address,
+        uint256[] memory,
+        uint256[] memory,
+        bytes memory
+    )
+        public
+        virtual
+        override(ERC1155Holder, IERC1155Receiver)
+        returns (bytes4)
+    {
+        return this.onERC1155BatchReceived.selector;
     }
 
-    function transferOwnership(address account) public virtual {
-        owner = account;
+    function supportsInterface(bytes4 interfaceId)
+        public
+        view
+        virtual
+        override(ERC1155Receiver, IERC165)
+        returns (bool)
+    {
+        return super.supportsInterface(interfaceId);
     }
 
     function create() external payable {}
@@ -112,21 +145,21 @@ contract MetaStocksFranchiseManager is ERC20Upgradeable {
         uint256 companyId,
         MetaStocksFranchiseType _metaStocksFranchiseType,
         bytes memory data
-    ) public onlyOwner {
+    ) external {
         IERC20(paymentTokenAddress).transferFrom(
             address(msg.sender),
             address(paymentTokenAddress),
             10 ether
         );
 
-        metaStocksFranchise.mint(
-            to,
-            metaStocksFranchise.getMetaStocksFranchiseType(
-                _metaStocksFranchiseType
-            ),
-            1,
-            data
+        uint256 franchiseType = metaStocksFranchise.getMetaStocksFranchiseType(
+            _metaStocksFranchiseType
         );
+
+        metaStocksFranchise.mint(to, franchiseType, 1, data);
+
+        companyFranchises[companyId][franchiseType] += 1;
+
         //lastFranchiseClaimDate[companyId] = block.timestamp;
 
         //companyFranchises[]
@@ -134,11 +167,34 @@ contract MetaStocksFranchiseManager is ERC20Upgradeable {
         //lastFranchiseClaimDate[] = block.timestamp;
     }
 
-    function getMetaStocksFranchisesByCompanyId(uint256 companyId)
+    function getNumberOfMetaStocksFranchises(uint256 companyId)
         external
         view
         returns (uint256)
     {
+        uint256 totalFranchises = 0;
+
+        // loop all types
+        for (uint256 typeIndex = 0; typeIndex < 10; typeIndex++) {
+            totalFranchises += companyFranchises[companyId][typeIndex];
+        }
+
+        return totalFranchises;
+    }
+
+    function getMetaStocksFranchises(uint256 companyId)
+        external
+        view
+        returns (uint256)
+    {
+        for (uint256 typeIndex = 0; typeIndex < 10; typeIndex++) {
+            uint256 typeNumber = companyFranchises[companyId][typeIndex];
+
+            for (uint256 index = 0; index < typeNumber; index++) {
+                uint256 c = companyFranchises[companyId][index];
+            }
+        }
+
         return franchiseDailyEarnings;
     }
 

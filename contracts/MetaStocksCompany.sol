@@ -7,17 +7,13 @@ import "@openzeppelin/contracts-upgradeable/security/PausableUpgradeable.sol";
 import "@openzeppelin/contracts-upgradeable/access/OwnableUpgradeable.sol";
 import "@openzeppelin/contracts-upgradeable/proxy/utils/Initializable.sol";
 import "@openzeppelin/contracts-upgradeable/utils/CountersUpgradeable.sol";
-import "@openzeppelin/contracts/token/ERC1155/utils/ERC1155Holder.sol";
-import "@openzeppelin/contracts/token/ERC1155/IERC1155Receiver.sol";
 import "@openzeppelin/contracts/token/ERC20/ERC20.sol";
 
 contract MetaStocksCompany is
     Initializable,
     ERC721Upgradeable,
     PausableUpgradeable,
-    OwnableUpgradeable,
-    IERC1155Receiver,
-    ERC1155Holder
+    OwnableUpgradeable
 {
     using CountersUpgradeable for CountersUpgradeable.Counter;
     CountersUpgradeable.Counter private _tokenIdCounter;
@@ -58,15 +54,5 @@ contract MetaStocksCompany is
 
     function _burn(uint256 tokenId) internal override(ERC721Upgradeable) {
         super._burn(tokenId);
-    }
-
-    function supportsInterface(bytes4 interfaceId)
-        public
-        view
-        virtual
-        override(ERC721Upgradeable, ERC1155Receiver, IERC165)
-        returns (bool)
-    {
-        return super.supportsInterface(interfaceId);
     }
 }

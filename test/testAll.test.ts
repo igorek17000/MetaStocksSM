@@ -224,7 +224,7 @@ describe("MetaStocks Testing", async () => {
             let companyId = await metaStocksCompanyManager.getCompanyId(deployer.address);
             console.log(`${colors.cyan("CompanyId: ")} ${colors.yellow(companyId)}`)
 
-            //await metaStocksFranchiseManager.connect(deployer).createMetaStocksFranchise(metaStocksFranchiseManager.address, companyId, 1, 0x0);
+            await metaStocksFranchiseManager.connect(deployer).createMetaStocksFranchise(metaStocksFranchiseManager.address, companyId, 1, 0x0);
             //console.log(`${colors.cyan("CompanyId: ")} ${colors.yellow(companyId)}`)
 
 
