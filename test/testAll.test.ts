@@ -10,6 +10,10 @@ const util = require('./util');
 
 describe("MetaStocks Testing", async () => {
 
+    const deployedContracts: any = [
+
+    ]
+
     let deployer: SignerWithAddress;
     let bob: SignerWithAddress;
     let alice: SignerWithAddress;
@@ -68,9 +72,14 @@ describe("MetaStocks Testing", async () => {
                 metaStocksToken.address
             )
 
-            console.log(`${colors.cyan(contractName + ' Proxy Address: ')} ${colors.yellow(metaStocksToken.address)}`)
-            console.log(`${colors.cyan(contractName + ' Implementation Address: ')} ${colors.yellow(metaStocksTokenImplementationAddress)}`)
-            console.log("");
+            console.log(`${colors.cyan(contractName + 'ProxyAddress: ')} ${colors.yellow(metaStocksToken.address)}`)
+            console.log(`${colors.cyan(contractName + 'ImplAddress: ')} ${colors.yellow(metaStocksTokenImplementationAddress)}`)
+
+            deployedContracts.push({
+                contractName: {
+                    address: metaStocksToken.address
+                }
+            })
         });
 
         it("1.3 - Deploy MetaStocksCompany", async () => {
@@ -88,6 +97,12 @@ describe("MetaStocks Testing", async () => {
             console.log(`${colors.cyan(contractName + ' Proxy Address: ')} ${colors.yellow(metaStocksCompany.address)}`)
             console.log(`${colors.cyan(contractName + ' Implementation Address: ')} ${colors.yellow(metaStocksCompanyImplementationAddress)}`)
             console.log("");
+
+            deployedContracts.push({
+                contractName: {
+                    address: metaStocksCompany.address
+                }
+            })
         });
 
 
@@ -106,6 +121,12 @@ describe("MetaStocks Testing", async () => {
             console.log(`${colors.cyan(contractName + ' Proxy Address: ')} ${colors.yellow(metaStocksFranchise.address)}`)
             console.log(`${colors.cyan(contractName + ' Implementation Address: ')} ${colors.yellow(metaStocksFranchiseImplementationAddress)}`)
             console.log("");
+
+            deployedContracts.push({
+                contractName: {
+                    address: metaStocksFranchise.address
+                }
+            })
         });
     });
 
@@ -126,6 +147,12 @@ describe("MetaStocks Testing", async () => {
             console.log(`${colors.cyan(contractName + ' Proxy Address: ')} ${colors.yellow(metaStocksCompanyManager.address)}`)
             console.log(`${colors.cyan(contractName + ' Implementation Address: ')} ${colors.yellow(metaStocksCompanyManagerImplementationAddress)}`)
             console.log("");
+
+            deployedContracts.push({
+                contractName: {
+                    address: metaStocksCompanyManager.address
+                }
+            })
         });
 
 
@@ -145,6 +172,12 @@ describe("MetaStocks Testing", async () => {
             console.log(`${colors.cyan(contractName + ' Proxy Address: ')} ${colors.yellow(metaStocksCompanyManager.address)}`)
             console.log(`${colors.cyan(contractName + ' Implementation Address: ')} ${colors.yellow(metaStocksCompanyManagerImplementationAddress)}`)
             console.log("");
+
+            deployedContracts.push({
+                contractName: {
+                    address: metaStocksCompanyManager.address
+                }
+            })
         });
 
         it("2.3 - Deploy MetaStocksFranchiseManager", async () => {
@@ -162,10 +195,26 @@ describe("MetaStocks Testing", async () => {
             console.log(`${colors.cyan(contractName + ' Proxy Address: ')} ${colors.yellow(metaStocksFranchiseManager.address)}`)
             console.log(`${colors.cyan(contractName + ' Implementation Address: ')} ${colors.yellow(metaStocksFranchiseManagerImplementationAddress)}`)
             console.log("");
+
+            deployedContracts.push({
+                contractName: {
+                    address: metaStocksFranchiseManager.address
+                }
+            })
         });
-
-
     });
+
+    /*
+    describe("Save Deployed Contracts", async () => {
+
+        it("Save JSON Contracts", async () => {
+
+            console.log({
+                deployedContracts: deployedContracts
+            })
+        })
+    })
+    */
 
     describe("3.0 - Transfer Ownerships", async () => {
 
@@ -310,7 +359,7 @@ describe("MetaStocks Testing", async () => {
 
 });
 
-export const sleep = async (ms: number) => {
+export const sleep = async (ms: number, message: string = "") => {
     let command = 'sleep'
     if (os.platform() === 'linux') {
         command = 'sleep'
@@ -318,7 +367,12 @@ export const sleep = async (ms: number) => {
 
     console.log()
     const s = ms / 1000
-    console.log(command + ' ', s.toString(), ' seconds')
+
+    if (message.length > 0) {
+        console.log(command + ' ', s.toString(), ' seconds\n')
+    }
+
+    console.log(command + ' ', s.toString(), ' seconds\n')
     await execShellCommand(command + ' ' + s.toString())
     console.log('awake')
     console.log()

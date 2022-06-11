@@ -78,6 +78,7 @@ export type { ChainlinkDataFeedsManager } from "./ChainlinkDataFeedsManager";
 export type { ChainlinkVRFManager } from "./ChainlinkVRFManager";
 export type { MetaStocksCompanyManager } from "./MetaStocksCompanyManager";
 export type { MetaStocksFranchiseManager } from "./MetaStocksFranchiseManager";
+export type { MetaStocksFranchiseMarketplaceManager } from "./MetaStocksFranchiseMarketplaceManager";
 export type { MetaStocksFranchiseShareManager } from "./MetaStocksFranchiseShareManager";
 export type { MidasMultinetworkRouterManager } from "./MidasMultinetworkRouterManager";
 export type { TransactionFeesManager } from "./TransactionFeesManager";
@@ -166,6 +167,7 @@ export { ChainlinkDataFeedsManager__factory } from "./factories/ChainlinkDataFee
 export { ChainlinkVRFManager__factory } from "./factories/ChainlinkVRFManager__factory";
 export { MetaStocksCompanyManager__factory } from "./factories/MetaStocksCompanyManager__factory";
 export { MetaStocksFranchiseManager__factory } from "./factories/MetaStocksFranchiseManager__factory";
+export { MetaStocksFranchiseMarketplaceManager__factory } from "./factories/MetaStocksFranchiseMarketplaceManager__factory";
 export { MetaStocksFranchiseShareManager__factory } from "./factories/MetaStocksFranchiseShareManager__factory";
 export { MidasMultinetworkRouterManager__factory } from "./factories/MidasMultinetworkRouterManager__factory";
 export { TransactionFeesManager__factory } from "./factories/TransactionFeesManager__factory";
