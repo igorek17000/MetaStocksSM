@@ -27,6 +27,7 @@ interface MetaStocksTokenInterface extends ethers.utils.Interface {
     "balanceOf(address)": FunctionFragment;
     "decimals()": FunctionFragment;
     "decreaseAllowance(address,uint256)": FunctionFragment;
+    "enableSwapEnabled(bool)": FunctionFragment;
     "enableTrading()": FunctionFragment;
     "getLPPair()": FunctionFragment;
     "getMidasMultinetworkRouterManager()": FunctionFragment;
@@ -39,7 +40,6 @@ interface MetaStocksTokenInterface extends ethers.utils.Interface {
     "owner()": FunctionFragment;
     "renounceOwnership()": FunctionFragment;
     "self()": FunctionFragment;
-    "setDexRouter(address)": FunctionFragment;
     "setFees(uint16,uint16,uint16)": FunctionFragment;
     "setMaxTransactionAmount(uint256)": FunctionFragment;
     "setMaxWalletAmount(uint256)": FunctionFragment;
@@ -72,6 +72,10 @@ interface MetaStocksTokenInterface extends ethers.utils.Interface {
   encodeFunctionData(
     functionFragment: "decreaseAllowance",
     values: [string, BigNumberish]
+  ): string;
+  encodeFunctionData(
+    functionFragment: "enableSwapEnabled",
+    values: [boolean]
   ): string;
   encodeFunctionData(
     functionFragment: "enableTrading",
@@ -109,10 +113,6 @@ interface MetaStocksTokenInterface extends ethers.utils.Interface {
     values?: undefined
   ): string;
   encodeFunctionData(functionFragment: "self", values?: undefined): string;
-  encodeFunctionData(
-    functionFragment: "setDexRouter",
-    values: [string]
-  ): string;
   encodeFunctionData(
     functionFragment: "setFees",
     values: [BigNumberish, BigNumberish, BigNumberish]
@@ -173,6 +173,10 @@ interface MetaStocksTokenInterface extends ethers.utils.Interface {
     data: BytesLike
   ): Result;
   decodeFunctionResult(
+    functionFragment: "enableSwapEnabled",
+    data: BytesLike
+  ): Result;
+  decodeFunctionResult(
     functionFragment: "enableTrading",
     data: BytesLike
   ): Result;
@@ -205,10 +209,6 @@ interface MetaStocksTokenInterface extends ethers.utils.Interface {
     data: BytesLike
   ): Result;
   decodeFunctionResult(functionFragment: "self", data: BytesLike): Result;
-  decodeFunctionResult(
-    functionFragment: "setDexRouter",
-    data: BytesLike
-  ): Result;
   decodeFunctionResult(functionFragment: "setFees", data: BytesLike): Result;
   decodeFunctionResult(
     functionFragment: "setMaxTransactionAmount",
@@ -358,6 +358,11 @@ export class MetaStocksToken extends BaseContract {
       overrides?: Overrides & { from?: string | Promise<string> }
     ): Promise<ContractTransaction>;
 
+    enableSwapEnabled(
+      val: boolean,
+      overrides?: Overrides & { from?: string | Promise<string> }
+    ): Promise<ContractTransaction>;
+
     enableTrading(
       overrides?: Overrides & { from?: string | Promise<string> }
     ): Promise<ContractTransaction>;
@@ -396,11 +401,6 @@ export class MetaStocksToken extends BaseContract {
     ): Promise<ContractTransaction>;
 
     self(overrides?: CallOverrides): Promise<[string]>;
-
-    setDexRouter(
-      _dexRouter: string,
-      overrides?: Overrides & { from?: string | Promise<string> }
-    ): Promise<ContractTransaction>;
 
     setFees(
       buyFee: BigNumberish,
@@ -494,6 +494,11 @@ export class MetaStocksToken extends BaseContract {
     overrides?: Overrides & { from?: string | Promise<string> }
   ): Promise<ContractTransaction>;
 
+  enableSwapEnabled(
+    val: boolean,
+    overrides?: Overrides & { from?: string | Promise<string> }
+  ): Promise<ContractTransaction>;
+
   enableTrading(
     overrides?: Overrides & { from?: string | Promise<string> }
   ): Promise<ContractTransaction>;
@@ -530,11 +535,6 @@ export class MetaStocksToken extends BaseContract {
   ): Promise<ContractTransaction>;
 
   self(overrides?: CallOverrides): Promise<string>;
-
-  setDexRouter(
-    _dexRouter: string,
-    overrides?: Overrides & { from?: string | Promise<string> }
-  ): Promise<ContractTransaction>;
 
   setFees(
     buyFee: BigNumberish,
@@ -628,6 +628,8 @@ export class MetaStocksToken extends BaseContract {
       overrides?: CallOverrides
     ): Promise<boolean>;
 
+    enableSwapEnabled(val: boolean, overrides?: CallOverrides): Promise<void>;
+
     enableTrading(overrides?: CallOverrides): Promise<void>;
 
     getLPPair(overrides?: CallOverrides): Promise<string>;
@@ -662,8 +664,6 @@ export class MetaStocksToken extends BaseContract {
     renounceOwnership(overrides?: CallOverrides): Promise<void>;
 
     self(overrides?: CallOverrides): Promise<string>;
-
-    setDexRouter(_dexRouter: string, overrides?: CallOverrides): Promise<void>;
 
     setFees(
       buyFee: BigNumberish,
@@ -833,6 +833,11 @@ export class MetaStocksToken extends BaseContract {
       overrides?: Overrides & { from?: string | Promise<string> }
     ): Promise<BigNumber>;
 
+    enableSwapEnabled(
+      val: boolean,
+      overrides?: Overrides & { from?: string | Promise<string> }
+    ): Promise<BigNumber>;
+
     enableTrading(
       overrides?: Overrides & { from?: string | Promise<string> }
     ): Promise<BigNumber>;
@@ -871,11 +876,6 @@ export class MetaStocksToken extends BaseContract {
     ): Promise<BigNumber>;
 
     self(overrides?: CallOverrides): Promise<BigNumber>;
-
-    setDexRouter(
-      _dexRouter: string,
-      overrides?: Overrides & { from?: string | Promise<string> }
-    ): Promise<BigNumber>;
 
     setFees(
       buyFee: BigNumberish,
@@ -973,6 +973,11 @@ export class MetaStocksToken extends BaseContract {
       overrides?: Overrides & { from?: string | Promise<string> }
     ): Promise<PopulatedTransaction>;
 
+    enableSwapEnabled(
+      val: boolean,
+      overrides?: Overrides & { from?: string | Promise<string> }
+    ): Promise<PopulatedTransaction>;
+
     enableTrading(
       overrides?: Overrides & { from?: string | Promise<string> }
     ): Promise<PopulatedTransaction>;
@@ -1013,11 +1018,6 @@ export class MetaStocksToken extends BaseContract {
     ): Promise<PopulatedTransaction>;
 
     self(overrides?: CallOverrides): Promise<PopulatedTransaction>;
-
-    setDexRouter(
-      _dexRouter: string,
-      overrides?: Overrides & { from?: string | Promise<string> }
-    ): Promise<PopulatedTransaction>;
 
     setFees(
       buyFee: BigNumberish,

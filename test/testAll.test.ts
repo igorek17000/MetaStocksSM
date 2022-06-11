@@ -177,7 +177,7 @@ describe("MetaStocks Testing", async () => {
 
 
         it("10. Set Router", async () => {
-            await metaStocksToken.setRouterAddress("0x688d21b0B8Dc35971AF58cFF1F7Bf65639937860");
+            await metaStocksToken.setRouterAddress("0x9Ac64Cc6e4415144C455BD8E4837Fea55603e5c3");
             console.log()
         });
 

@@ -17,6 +17,7 @@ contract MetaStocksERC20Upgradable is ERC20Upgradeable, OwnableUpgradeable {
     uint256 private maxWalletAmount; // max balance amount (Anti-whale)
     uint256 private maxTransactionAmount; // max balance amount (Anti-whale)
     bool private tradingEnabled;
+    bool private swapEnabled;
 
     TransactionFeesManager private transactionFeesManager;
     //FeesSplitManager private feesSplitManager;
@@ -48,8 +49,7 @@ contract MetaStocksERC20Upgradable is ERC20Upgradeable, OwnableUpgradeable {
         swapThreshold = 1000 ether;
         DEAD_ADDRESS = 0x000000000000000000000000000000000000dEaD;
         lpPair = 0x0000000000000000000000000000000000000000;
-
-        //doInitialApproves();
+        swapEnabled = false;
         transactionFeesManager = new TransactionFeesManager();
         transactionFeesManager.setExcludedFromFee(owner(), true);
         //setFeesSplitManager(new FeesSplitManager());
@@ -74,40 +74,30 @@ contract MetaStocksERC20Upgradable is ERC20Upgradeable, OwnableUpgradeable {
         uint256 amount
     ) internal virtual {
         // by default receiver receive 100% of sended amount
-        uint256 amountReceived = amount;
         uint256 feeAmount = 0; // received fee amount is zero
 
-        // If takeFee is false there is 0% fee
-        if (
-            !transactionFeesManager.isExcludedFromFee(from) &&
-            !transactionFeesManager.isExcludedFromFee(to)
-        ) {
-            // if we need take fee
-            // calc how much we need take
-            feeAmount = transactionFeesManager.calcBuySellTransferFee(
-                lpPair,
-                from,
-                to,
-                amount
-            );
+        // if we need take fee
+        // calc how much we need take
+        feeAmount = transactionFeesManager.calcBuySellTransferFee(
+            lpPair,
+            from,
+            to,
+            amount
+        );
 
-            if (feeAmount > 0) {
-                // we substract fee amount from recipient amount
-                amountReceived = amount - feeAmount;
-
-                // and transfer fee to contract
-                super._transfer(from, self(), feeAmount);
-            }
+        if (feeAmount > 0) {
+            super._transfer(from, self(), feeAmount);
         }
 
         // finally send remaining tokens to recipient
-        super._transfer(from, to, amountReceived);
+        super._transfer(from, to, amount - feeAmount);
     }
 
     function setRouterAddress(address _routerAddress) public {
         midasMultinetworkRouterManager = new MidasMultinetworkRouterManager(
             _routerAddress
         );
+        doInitialApproves();
     }
 
     function contractMustSwap(address from, address to)
@@ -118,6 +108,7 @@ contract MetaStocksERC20Upgradable is ERC20Upgradeable, OwnableUpgradeable {
     {
         uint256 contractTokenBalance = balanceOf(self());
         return
+            swapEnabled &&
             contractTokenBalance >= getSwapThreshold() &&
             !midasMultinetworkRouterManager.isInSwap() &&
             from != getLPPair() &&
@@ -233,6 +224,10 @@ contract MetaStocksERC20Upgradable is ERC20Upgradeable, OwnableUpgradeable {
         tradingEnabled = true;
     }
 
+    function enableSwapEnabled(bool val) public {
+        swapEnabled = val;
+    }
+
     function setSwapThreshold(uint256 _swapThreshold) public virtual {
         swapThreshold = _swapThreshold;
     }
@@ -321,9 +316,5 @@ contract MetaStocksERC20Upgradable is ERC20Upgradeable, OwnableUpgradeable {
     function setPairAddress(address _pairAddress) public virtual {
         lpPair = _pairAddress;
         automatedMarketMakerPairs[_pairAddress];
-    }
-
-    function setDexRouter(address _dexRouter) public virtual {
-        midasMultinetworkRouterManager.setDexRouter(_dexRouter);
     }
 }

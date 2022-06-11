@@ -40,16 +40,16 @@ contract MidasMultinetworkRouterManager {
         pure
         returns (address)
     {
-        address networkTokenAddress = 0xae13d989daC2f0dEbFf460aC112a837C89BAa7cd;
+        address networkTokenAddress = 0x78867BbEeF44f2326bF8DDd1941a4439382EF2A7;
         if (_networkId == 97) {
-            networkTokenAddress = 0xae13d989daC2f0dEbFf460aC112a837C89BAa7cd;
+            networkTokenAddress = 0x78867BbEeF44f2326bF8DDd1941a4439382EF2A7;
         } else if (_networkId == 97) {
-            networkTokenAddress = 0xae13d989daC2f0dEbFf460aC112a837C89BAa7cd;
+            networkTokenAddress = 0x78867BbEeF44f2326bF8DDd1941a4439382EF2A7;
         } else {
             revert("unsupported network");
         }
 
-        return 0xae13d989daC2f0dEbFf460aC112a837C89BAa7cd;
+        return networkTokenAddress;
     }
 
     function getNativeTokenAddress(uint256 _networkId)
@@ -66,7 +66,7 @@ contract MidasMultinetworkRouterManager {
             revert("unsupported network");
         }
 
-        return 0xae13d989daC2f0dEbFf460aC112a837C89BAa7cd;
+        return networkTokenAddress;
     }
 
     function getDexRouterAddress() external view returns (address) {
