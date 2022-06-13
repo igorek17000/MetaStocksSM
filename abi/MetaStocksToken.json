@@ -469,6 +469,11 @@
         "internalType": "address",
         "name": "_routerAddress",
         "type": "address"
+      },
+      {
+        "internalType": "address",
+        "name": "_chainlinkDataFeedAddress",
+        "type": "address"
       }
     ],
     "name": "setRouterAddress",

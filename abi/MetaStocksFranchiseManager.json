@@ -28,6 +28,31 @@
     "anonymous": false,
     "inputs": [
       {
+        "indexed": true,
+        "internalType": "address",
+        "name": "account",
+        "type": "address"
+      },
+      {
+        "indexed": false,
+        "internalType": "uint256",
+        "name": "companyId",
+        "type": "uint256"
+      },
+      {
+        "indexed": false,
+        "internalType": "uint256",
+        "name": "franchiseType",
+        "type": "uint256"
+      }
+    ],
+    "name": "CreateFranchise",
+    "type": "event"
+  },
+  {
+    "anonymous": false,
+    "inputs": [
+      {
         "indexed": false,
         "internalType": "uint8",
         "name": "version",
@@ -151,6 +176,34 @@
   {
     "inputs": [
       {
+        "internalType": "address",
+        "name": "to",
+        "type": "address"
+      },
+      {
+        "internalType": "uint256",
+        "name": "companyId",
+        "type": "uint256"
+      },
+      {
+        "internalType": "uint256",
+        "name": "amount",
+        "type": "uint256"
+      },
+      {
+        "internalType": "enum MetaStocksFranchiseType",
+        "name": "_metaStocksFranchiseType",
+        "type": "uint8"
+      }
+    ],
+    "name": "burnMetaStocksFranchise",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
         "internalType": "uint256",
         "name": "_companyId",
         "type": "uint256"
@@ -198,14 +251,14 @@
         "type": "uint256"
       },
       {
+        "internalType": "uint256",
+        "name": "_continentId",
+        "type": "uint256"
+      },
+      {
         "internalType": "enum MetaStocksFranchiseType",
         "name": "_metaStocksFranchiseType",
         "type": "uint8"
-      },
-      {
-        "internalType": "bytes",
-        "name": "data",
-        "type": "bytes"
       }
     ],
     "name": "createMetaStocksFranchise",
@@ -275,6 +328,54 @@
     "type": "function"
   },
   {
+    "inputs": [
+      {
+        "internalType": "uint256",
+        "name": "",
+        "type": "uint256"
+      },
+      {
+        "internalType": "uint256",
+        "name": "",
+        "type": "uint256"
+      }
+    ],
+    "name": "franchisesUsdInvested",
+    "outputs": [
+      {
+        "internalType": "uint256",
+        "name": "",
+        "type": "uint256"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "uint256",
+        "name": "",
+        "type": "uint256"
+      },
+      {
+        "internalType": "uint256",
+        "name": "",
+        "type": "uint256"
+      }
+    ],
+    "name": "franchisesWorkers",
+    "outputs": [
+      {
+        "internalType": "uint256",
+        "name": "",
+        "type": "uint256"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
     "inputs": [],
     "name": "getCreateFranchisePrice",
     "outputs": [
@@ -303,6 +404,62 @@
   {
     "inputs": [],
     "name": "getFranchiseValue",
+    "outputs": [
+      {
+        "internalType": "uint256",
+        "name": "",
+        "type": "uint256"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "uint256",
+        "name": "_continentId",
+        "type": "uint256"
+      }
+    ],
+    "name": "getFranchisesByContinent",
+    "outputs": [
+      {
+        "internalType": "uint256",
+        "name": "",
+        "type": "uint256"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "uint256",
+        "name": "companyId",
+        "type": "uint256"
+      },
+      {
+        "internalType": "uint256",
+        "name": "franchiseType",
+        "type": "uint256"
+      }
+    ],
+    "name": "getFranchisesUsdInvested",
+    "outputs": [
+      {
+        "internalType": "uint256",
+        "name": "",
+        "type": "uint256"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [],
+    "name": "getHireWorkerFranchisePrice",
     "outputs": [
       {
         "internalType": "uint256",
@@ -375,6 +532,24 @@
       }
     ],
     "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "uint256",
+        "name": "companyId",
+        "type": "uint256"
+      },
+      {
+        "internalType": "enum MetaStocksFranchiseType",
+        "name": "_metaStocksFranchiseType",
+        "type": "uint8"
+      }
+    ],
+    "name": "hireWorker",
+    "outputs": [],
+    "stateMutability": "nonpayable",
     "type": "function"
   },
   {
@@ -560,6 +735,34 @@
   {
     "inputs": [
       {
+        "internalType": "address",
+        "name": "to",
+        "type": "address"
+      },
+      {
+        "internalType": "uint256",
+        "name": "companyId",
+        "type": "uint256"
+      },
+      {
+        "internalType": "uint256",
+        "name": "amount",
+        "type": "uint256"
+      },
+      {
+        "internalType": "enum MetaStocksFranchiseType",
+        "name": "_metaStocksFranchiseType",
+        "type": "uint8"
+      }
+    ],
+    "name": "sellMetaStocksFranchise",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
         "internalType": "uint16",
         "name": "_createFranchisePrice",
         "type": "uint16"
@@ -587,6 +790,19 @@
     "inputs": [
       {
         "internalType": "uint16",
+        "name": "_hireWorkerFranchisePrice",
+        "type": "uint16"
+      }
+    ],
+    "name": "setHireWorkerFranchisePrice",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "uint16",
         "name": "_maintainceFranchiseExpenses",
         "type": "uint16"
       }
@@ -605,6 +821,24 @@
       }
     ],
     "name": "setPaymentTokenAddress",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "address",
+        "name": "_routerAddress",
+        "type": "address"
+      },
+      {
+        "internalType": "address",
+        "name": "_chainlinkDataFeedAddress",
+        "type": "address"
+      }
+    ],
+    "name": "setRouterAddress",
     "outputs": [],
     "stateMutability": "nonpayable",
     "type": "function"

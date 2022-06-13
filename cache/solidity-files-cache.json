@@ -2901,7 +2901,7 @@
       ]
     },
     "/home/nkt/Desktop/metaStoksContracts/node_modules/@chainlink/contracts/src/v0.8/interfaces/VRFCoordinatorV2Interface.sol": {
-      "lastModificationDate": 1654235423880,
+      "lastModificationDate": 1654984796208,
       "contentHash": "56ec852a2aeddf81bf5a5720a7fc6a63",
       "sourceName": "@chainlink/contracts/src/v0.8/interfaces/VRFCoordinatorV2Interface.sol",
       "solcConfig": {
