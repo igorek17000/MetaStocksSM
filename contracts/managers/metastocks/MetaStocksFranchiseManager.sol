@@ -150,7 +150,7 @@ contract MetaStocksFranchiseManager is
         uint256 totalFranchises = 0;
 
         // loop all types
-        for (uint256 typeIndex = 0; typeIndex < 10; typeIndex++) {
+        for (uint256 typeIndex = 0; typeIndex < 26; typeIndex++) {
             totalFranchises += companyFranchises[companyId][typeIndex];
         }
 
