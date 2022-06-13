@@ -23,7 +23,6 @@ contract MetaStocksFranchiseManager is
     OwnableUpgradeable
 {
     IMetaStocksFranchise metaStocksFranchise;
-
     uint256 private createFranchisePrice;
     uint256 private hireWorkerFranchisePrice;
     uint256 private maintainceFranchiseExpenses;
@@ -32,6 +31,7 @@ contract MetaStocksFranchiseManager is
     uint256 private franchiseWorkersMultiplicator;
     address private paymentTokenAddress;
     MidasMultinetworkRouterManager private midasMultinetworkRouterManager;
+    mapping(uint256 => uint256) franchiseContinents;
 
     mapping(uint256 => mapping(uint256 => uint256))
         public franchisesUsdInvested;
@@ -157,6 +157,14 @@ contract MetaStocksFranchiseManager is
         return totalFranchises;
     }
 
+    function getFranchisesByContinent(uint256 _continentId)
+        public
+        view
+        returns (uint256)
+    {
+        return franchiseContinents[_continentId];
+    }
+
     function getMetaStocksFranchisesUnclaimedRewards(uint256 companyId)
         public
         view
@@ -183,6 +191,7 @@ contract MetaStocksFranchiseManager is
     function createMetaStocksFranchise(
         address to,
         uint256 companyId,
+        uint256 _continentId,
         MetaStocksFranchiseType _metaStocksFranchiseType
     ) external {
         IERC20(paymentTokenAddress).transferFrom(
@@ -204,6 +213,8 @@ contract MetaStocksFranchiseManager is
         uint256 tokensValueInUSD = midasMultinetworkRouterManager
             .getTokensValueInUSD(paymentTokenAddress, createFranchisePrice);
         franchisesUsdInvested[companyId][franchiseType] = tokensValueInUSD;
+
+        franchiseContinents[_continentId] += 1;
 
         emit CreateFranchise(msg.sender, companyId, franchiseType);
     }

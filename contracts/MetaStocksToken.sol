@@ -8,9 +8,26 @@ import "@openzeppelin/contracts-upgradeable/token/ERC20/ERC20Upgradeable.sol";
 import "@openzeppelin/contracts-upgradeable/access/OwnableUpgradeable.sol";
 import "./managers/transactionFees/TransactionFeesManager.sol";
 import "./interfaces/dexRouter/IAutoLiquidityInjecter.sol";
-//import "./../managers/feesManagers/FeesSplitManager.sol";import "../../interfaces/metaStocks/IMetaStocksCompany.sol";import "../../interfaces/metaStocks/IMetaStocksCompany.sol";
 import "./managers/midas/MidasMultinetworkRouterManager.sol";
 import "./tokens/MetaStocksERC20Upgradable.sol";
+
+/*
+Token
+	Buy 0
+	Sell 2 %
+	Transfer 0
+	
+Swap threshold -> 100$ = 100%    
+treasury 40% ->  40$
+dev team 1       20%
+marketing team 2 20%
+auto lp           5%
+auto buybackburn  5%
+
+Create 10
+reward al dia 0.1
+claim fee 25%
+*/
 
 contract MetaStocksToken is MetaStocksERC20Upgradable {
     // CONSTRUCTOR ------------------------------------------------------------------------------------------
