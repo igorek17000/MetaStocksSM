@@ -7,7 +7,7 @@ interface IMetaStocksFranchiseManager {
     function createMetaStocksFranchise(
         address to,
         uint256 companyId,
-        MetaStocksFranchiseType _metaStocksFranchiseType,
-        bytes memory data
+        uint256 _continentId,
+        MetaStocksFranchiseType _metaStocksFranchiseType
     ) external;
 }

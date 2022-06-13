@@ -353,8 +353,8 @@
       ]
     },
     "/home/nkt/Desktop/metaStoksContracts/contracts/enums/MetaStocksFranchiseType.sol": {
-      "lastModificationDate": 1654944845578,
-      "contentHash": "3b328c5c4b3d5120f58ae1141d3ed4a5",
+      "lastModificationDate": 1654987076187,
+      "contentHash": "3ad6b75206f416fd0cba3d74df909f14",
       "sourceName": "contracts/enums/MetaStocksFranchiseType.sol",
       "solcConfig": {
         "version": "0.8.14",
@@ -1967,8 +1967,8 @@
       ]
     },
     "/home/nkt/Desktop/metaStoksContracts/contracts/MetaStocksToken.sol": {
-      "lastModificationDate": 1654952801334,
-      "contentHash": "16b81f3a7fa8b1a450b0c37e9f6b87d9",
+      "lastModificationDate": 1655003437515,
+      "contentHash": "a6d67ae65d211387bac2a7a15f1663a4",
       "sourceName": "contracts/MetaStocksToken.sol",
       "solcConfig": {
         "version": "0.8.14",
@@ -2205,8 +2205,8 @@
       ]
     },
     "/home/nkt/Desktop/metaStoksContracts/contracts/managers/metastocks/MetaStocksCompanyManager.sol": {
-      "lastModificationDate": 1654969513739,
-      "contentHash": "f03688663b20a654bf3d18825b5bcb6d",
+      "lastModificationDate": 1655147205152,
+      "contentHash": "ba6372c699e96a6bae9cad501842e358",
       "sourceName": "contracts/managers/metastocks/MetaStocksCompanyManager.sol",
       "solcConfig": {
         "version": "0.8.14",
@@ -2479,8 +2479,8 @@
       ]
     },
     "/home/nkt/Desktop/metaStoksContracts/contracts/managers/metastocks/MetaStocksFranchiseManager.sol": {
-      "lastModificationDate": 1654983387379,
-      "contentHash": "dfad08fed0edc520245d322786b01e90",
+      "lastModificationDate": 1655137320300,
+      "contentHash": "71a6eee3a4252ddd21c6f8c8549b5f1f",
       "sourceName": "contracts/managers/metastocks/MetaStocksFranchiseManager.sol",
       "solcConfig": {
         "version": "0.8.14",
@@ -2606,8 +2606,8 @@
       ]
     },
     "/home/nkt/Desktop/metaStoksContracts/contracts/MetaStocksFranchise.sol": {
-      "lastModificationDate": 1654963816617,
-      "contentHash": "e7c447835f0c2323fae65de3a3cf7568",
+      "lastModificationDate": 1654987076187,
+      "contentHash": "c185e18533b7e1527a7893793a4f7ad2",
       "sourceName": "contracts/MetaStocksFranchise.sol",
       "solcConfig": {
         "version": "0.8.14",
@@ -2645,8 +2645,8 @@
       ]
     },
     "/home/nkt/Desktop/metaStoksContracts/contracts/interfaces/metaStocks/IMetaStocksFranchiseManager.sol": {
-      "lastModificationDate": 1654945874879,
-      "contentHash": "117f87023b4d3385286a6a74c63ab731",
+      "lastModificationDate": 1655147486081,
+      "contentHash": "d031cbdd260a9dfe01c562df2075dc10",
       "sourceName": "contracts/interfaces/metaStocks/IMetaStocksFranchiseManager.sol",
       "solcConfig": {
         "version": "0.8.14",
@@ -3124,7 +3124,7 @@
       ]
     },
     "/home/nkt/Desktop/metaStoksContracts/contracts/managers/metastocks/MetaStocksAchievementsManager.sol": {
-      "lastModificationDate": 1654983338296,
+      "lastModificationDate": 1655138942681,
       "contentHash": "295daec8ebe7349a67aa3ef0847bce69",
       "sourceName": "contracts/managers/metastocks/MetaStocksAchievementsManager.sol",
       "solcConfig": {

@@ -21,12 +21,12 @@ import type { TypedEventFilter, TypedEvent, TypedListener } from "./common";
 
 interface IMetaStocksFranchiseManagerInterface extends ethers.utils.Interface {
   functions: {
-    "createMetaStocksFranchise(address,uint256,uint8,bytes)": FunctionFragment;
+    "createMetaStocksFranchise(address,uint256,uint256,uint8)": FunctionFragment;
   };
 
   encodeFunctionData(
     functionFragment: "createMetaStocksFranchise",
-    values: [string, BigNumberish, BigNumberish, BytesLike]
+    values: [string, BigNumberish, BigNumberish, BigNumberish]
   ): string;
 
   decodeFunctionResult(
@@ -84,8 +84,8 @@ export class IMetaStocksFranchiseManager extends BaseContract {
     createMetaStocksFranchise(
       to: string,
       companyId: BigNumberish,
+      _continentId: BigNumberish,
       _metaStocksFranchiseType: BigNumberish,
-      data: BytesLike,
       overrides?: Overrides & { from?: string | Promise<string> }
     ): Promise<ContractTransaction>;
   };
@@ -93,8 +93,8 @@ export class IMetaStocksFranchiseManager extends BaseContract {
   createMetaStocksFranchise(
     to: string,
     companyId: BigNumberish,
+    _continentId: BigNumberish,
     _metaStocksFranchiseType: BigNumberish,
-    data: BytesLike,
     overrides?: Overrides & { from?: string | Promise<string> }
   ): Promise<ContractTransaction>;
 
@@ -102,8 +102,8 @@ export class IMetaStocksFranchiseManager extends BaseContract {
     createMetaStocksFranchise(
       to: string,
       companyId: BigNumberish,
+      _continentId: BigNumberish,
       _metaStocksFranchiseType: BigNumberish,
-      data: BytesLike,
       overrides?: CallOverrides
     ): Promise<void>;
   };
@@ -114,8 +114,8 @@ export class IMetaStocksFranchiseManager extends BaseContract {
     createMetaStocksFranchise(
       to: string,
       companyId: BigNumberish,
+      _continentId: BigNumberish,
       _metaStocksFranchiseType: BigNumberish,
-      data: BytesLike,
       overrides?: Overrides & { from?: string | Promise<string> }
     ): Promise<BigNumber>;
   };
@@ -124,8 +124,8 @@ export class IMetaStocksFranchiseManager extends BaseContract {
     createMetaStocksFranchise(
       to: string,
       companyId: BigNumberish,
+      _continentId: BigNumberish,
       _metaStocksFranchiseType: BigNumberish,
-      data: BytesLike,
       overrides?: Overrides & { from?: string | Promise<string> }
     ): Promise<PopulatedTransaction>;
   };

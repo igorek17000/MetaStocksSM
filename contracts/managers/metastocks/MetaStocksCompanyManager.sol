@@ -20,11 +20,13 @@ contract MetaStocksCompanyManager is
     mapping(address => uint256) public ceosCompanies;
     mapping(uint256 => address) public companiesCeos;
     mapping(address => bool) public ceos;
+    uint256 totalCeos;
 
     event CreateCompany(address indexed account, uint256 companyId);
 
     function initialize(address _metaStocksCompanyAddress) public initializer {
         MetaStocksCompany = IMetaStocksCompany(_metaStocksCompanyAddress);
+        totalCeos = 0;
     }
 
     function getCompanyId(address _account) external view returns (uint256) {
@@ -49,6 +51,7 @@ contract MetaStocksCompanyManager is
         ceosCompanies[msg.sender] = companyId;
         companiesCeos[companyId] = msg.sender;
         ceos[msg.sender] = true;
+        totalCeos++;
         emit CreateCompany(msg.sender, ceosCompanies[msg.sender]);
     }
 }

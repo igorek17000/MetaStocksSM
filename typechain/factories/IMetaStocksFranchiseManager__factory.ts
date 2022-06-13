@@ -23,14 +23,14 @@ const _abi = [
         type: "uint256",
       },
       {
+        internalType: "uint256",
+        name: "_continentId",
+        type: "uint256",
+      },
+      {
         internalType: "enum MetaStocksFranchiseType",
         name: "_metaStocksFranchiseType",
         type: "uint8",
-      },
-      {
-        internalType: "bytes",
-        name: "data",
-        type: "bytes",
       },
     ],
     name: "createMetaStocksFranchise",
