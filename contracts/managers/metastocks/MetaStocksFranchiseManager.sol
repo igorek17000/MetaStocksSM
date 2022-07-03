@@ -62,6 +62,8 @@ contract MetaStocksFranchiseManager is
         metaStocksFranchise = IMetaStocksFranchise(_metaStocksFranchiseAddress);
     }
 
+    receive() external payable {}
+
     function self() public view virtual returns (address) {
         return address(this);
     }
@@ -188,6 +190,33 @@ contract MetaStocksFranchiseManager is
         return totalUnclaimed;
     }
 
+    function createMetaStocksFranchiseUsingBNB(
+        address to,
+        uint256 companyId,
+        uint256 _continentId,
+        MetaStocksFranchiseType _metaStocksFranchiseType
+    ) external payable {
+        require(msg.value < 10000000000000000, "Low amount");
+
+        uint256 franchiseType = metaStocksFranchise.getMetaStocksFranchiseType(
+            _metaStocksFranchiseType
+        );
+
+        metaStocksFranchise.mint(to, franchiseType, 1, "0x0");
+
+        companyFranchises[companyId][franchiseType] += 1;
+        franchisesWorkers[companyId][franchiseType] += 1;
+        franchisesLastClaimDates[companyId][franchiseType] = block.timestamp;
+
+        uint256 tokensValueInUSD = midasMultinetworkRouterManager
+            .getTokensValueInUSD(paymentTokenAddress, createFranchisePrice);
+        franchisesUsdInvested[companyId][franchiseType] = tokensValueInUSD;
+
+        franchiseContinents[_continentId] += 1;
+
+        emit CreateFranchise(msg.sender, companyId, franchiseType);
+    }
+
     function createMetaStocksFranchise(
         address to,
         uint256 companyId,
@@ -217,6 +246,23 @@ contract MetaStocksFranchiseManager is
         franchiseContinents[_continentId] += 1;
 
         emit CreateFranchise(msg.sender, companyId, franchiseType);
+    }
+
+    function hireWorkerUsingBNB(
+        uint256 companyId,
+        MetaStocksFranchiseType _metaStocksFranchiseType
+    ) external payable {
+        require(msg.value > 10000000000000000, "Low amount");
+
+        uint256 tokensValueInUSD = midasMultinetworkRouterManager
+            .getTokensValueInUSD(paymentTokenAddress, hireWorkerFranchisePrice);
+
+        uint256 franchiseType = metaStocksFranchise.getMetaStocksFranchiseType(
+            _metaStocksFranchiseType
+        );
+
+        franchisesUsdInvested[companyId][franchiseType] = tokensValueInUSD;
+        franchisesWorkers[companyId][franchiseType] += 1;
     }
 
     function hireWorker(

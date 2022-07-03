@@ -428,6 +428,10 @@ declare module "hardhat/types/runtime" {
       name: "MetaStocksIERC1155ReceiverHolder",
       signerOrOptions?: ethers.Signer | FactoryOptions
     ): Promise<Contracts.MetaStocksIERC1155ReceiverHolder__factory>;
+    getContractFactory(
+      name: "MetaStocksSBT",
+      signerOrOptions?: ethers.Signer | FactoryOptions
+    ): Promise<Contracts.MetaStocksSBT__factory>;
 
     getContractAt(
       name: "AggregatorV3Interface",
@@ -949,6 +953,11 @@ declare module "hardhat/types/runtime" {
       address: string,
       signer?: ethers.Signer
     ): Promise<Contracts.MetaStocksIERC1155ReceiverHolder>;
+    getContractAt(
+      name: "MetaStocksSBT",
+      address: string,
+      signer?: ethers.Signer
+    ): Promise<Contracts.MetaStocksSBT>;
 
     // default types
     getContractFactory(

@@ -90,6 +90,7 @@ export type { MetaStocksToken } from "./MetaStocksToken";
 export type { MetaStocksERC1155Upgradable } from "./MetaStocksERC1155Upgradable";
 export type { MetaStocksERC20Upgradable } from "./MetaStocksERC20Upgradable";
 export type { MetaStocksIERC1155ReceiverHolder } from "./MetaStocksIERC1155ReceiverHolder";
+export type { MetaStocksSBT } from "./MetaStocksSBT";
 
 export { AggregatorV3Interface__factory } from "./factories/AggregatorV3Interface__factory";
 export { VRFCoordinatorV2Interface__factory } from "./factories/VRFCoordinatorV2Interface__factory";
@@ -180,3 +181,4 @@ export { MetaStocksToken__factory } from "./factories/MetaStocksToken__factory";
 export { MetaStocksERC1155Upgradable__factory } from "./factories/MetaStocksERC1155Upgradable__factory";
 export { MetaStocksERC20Upgradable__factory } from "./factories/MetaStocksERC20Upgradable__factory";
 export { MetaStocksIERC1155ReceiverHolder__factory } from "./factories/MetaStocksIERC1155ReceiverHolder__factory";
+export { MetaStocksSBT__factory } from "./factories/MetaStocksSBT__factory";

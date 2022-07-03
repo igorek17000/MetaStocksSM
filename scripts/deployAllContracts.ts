@@ -57,7 +57,7 @@ async function main(): Promise<void> {
         console.log("router:", router.address);
 
         console.log("");
-        // DEPLOY
+        // 1 TOKEN ---------------------------------------------------------------
         let contractName = 'MetaStocksToken'
         let contractFactory = await ethers.getContractFactory(contractName)
         metaStocksToken = await upgrades.deployProxy(contractFactory, ["MetaStocksToken", "MST", parseEther("1000000")])
@@ -72,9 +72,10 @@ async function main(): Promise<void> {
         console.log("");
         await sleep(5000)
         await test_util.verifyWithotDeploy(contractName, metaStocksToken.address)
-
         console.log("");
-        // DEPLOY
+        // ----------------------------------------------------------------------
+
+        // 2 Company ---------------------------------------------------------------
         contractName = 'MetaStocksCompany'
         contractFactory = await ethers.getContractFactory(contractName)
         metaStocksCompany = await upgrades.deployProxy(contractFactory)
@@ -89,11 +90,10 @@ async function main(): Promise<void> {
         console.log("");
         await sleep(5000)
         await test_util.verifyWithotDeploy(contractName, metaStocksCompany.address)
-
-
-
         console.log("");
-        // DEPLOY
+        // ----------------------------------------------------------------------
+
+        // 3 Franchise ------------------------------------------------
         contractName = 'MetaStocksFranchise'
         contractFactory = await ethers.getContractFactory(contractName)
         metaStocksFranchise = await upgrades.deployProxy(contractFactory)
@@ -108,49 +108,10 @@ async function main(): Promise<void> {
         console.log("");
         await sleep(5000)
         await test_util.verifyWithotDeploy(contractName, metaStocksFranchise.address)
-
-
         console.log("");
-        // DEPLOY
-        contractName = 'MetaStocksCompanyManager'
-        contractFactory = await ethers.getContractFactory(contractName)
-        metaStocksCompanyManager = await upgrades.deployProxy(contractFactory, [metaStocksCompany.address])
-        await metaStocksCompanyManager.deployed()
-        metaStocksCompanyManagerImplementationAddress = await getImplementationAddress(
-            ethers.provider,
-            metaStocksCompanyManager.address
-        )
+        // ----------------------------------------------------------------------
 
-        console.log(`${colors.cyan(contractName + ' Proxy Address: ')} ${colors.yellow(metaStocksCompanyManager.address)}`)
-        console.log(`${colors.cyan(contractName + ' Implementation Address: ')} ${colors.yellow(metaStocksCompanyManagerImplementationAddress)}`)
-        console.log("");
-        await sleep(5000)
-        await test_util.verifyWithotDeploy(contractName, metaStocksFranchise.address)
-
-
-
-
-        console.log("");
-        // DEPLOY
-        contractName = 'MetaStocksCompanyManager'
-        contractFactory = await ethers.getContractFactory(contractName)
-        metaStocksCompanyManager = await upgrades.deployProxy(contractFactory, [metaStocksCompany.address])
-        await metaStocksCompanyManager.deployed()
-        metaStocksCompanyManagerImplementationAddress = await getImplementationAddress(
-            ethers.provider,
-            metaStocksCompanyManager.address
-        )
-
-        console.log(`${colors.cyan(contractName + ' Proxy Address: ')} ${colors.yellow(metaStocksCompanyManager.address)}`)
-        console.log(`${colors.cyan(contractName + ' Implementation Address: ')} ${colors.yellow(metaStocksCompanyManagerImplementationAddress)}`)
-        console.log("");
-        await sleep(5000)
-        await test_util.verifyWithotDeploy(contractName, metaStocksCompanyManager.address, [metaStocksCompany.address])
-
-
-
-        console.log("");
-        // DEPLOY
+        // 4 Franchise Manager ------------------------------------------------
         contractName = 'MetaStocksFranchiseManager'
         contractFactory = await ethers.getContractFactory(contractName)
         metaStocksFranchiseManager = await upgrades.deployProxy(contractFactory, [metaStocksFranchise.address])
@@ -164,27 +125,51 @@ async function main(): Promise<void> {
         console.log(`${colors.cyan(contractName + ' Implementation Address: ')} ${colors.yellow(metaStocksFranchiseManagerImplementationAddress)}`)
         console.log("");
         await sleep(5000)
-        await test_util.verifyWithotDeploy(contractName, metaStocksCompanyManager.address, [metaStocksFranchise.address])
+        console.log("");
+        // ----------------------------------------------------------------------
+
+        // Company Manager ------------------------------------------------
+        contractName = 'MetaStocksCompanyManager'
+        contractFactory = await ethers.getContractFactory(contractName)
+        metaStocksCompanyManager = await upgrades.deployProxy(contractFactory, [metaStocksCompany.address, metaStocksFranchiseManager])
+        await metaStocksCompanyManager.deployed()
+        metaStocksCompanyManagerImplementationAddress = await getImplementationAddress(
+            ethers.provider,
+            metaStocksCompanyManager.address
+        )
+
+        console.log(`${colors.cyan(contractName + ' Proxy Address: ')} ${colors.yellow(metaStocksCompanyManager.address)}`)
+        console.log(`${colors.cyan(contractName + ' Implementation Address: ')} ${colors.yellow(metaStocksCompanyManagerImplementationAddress)}`)
+        console.log("");
+        await sleep(5000)
+        await test_util.verifyWithotDeploy(contractName, metaStocksFranchise.address)
+        console.log("");
+        // ----------------------------------------------------------------------
 
 
+        const routerFactory = await test_util.connectFactory();
+        const pairAddress = await routerFactory.getPair(test_util?.chains?.bsc?.wChainCoin, metaStocksToken.address)
+        await metaStocksToken.setPairAddress(pairAddress);
+        const pairContract = await test_util.connectPair(pairAddress);
+        console.log(`${colors.cyan('LP Address')}: ${colors.yellow(pairContract?.address)}`)
+        console.log(`${colors.cyan('LP Balance')}: ${colors.yellow(formatEther(await pairContract.balanceOf(deployer?.address)))}`)
+        console.log()
 
-
-        //await metaStocksCompany.transferOwnership(metaStocksCompanyManager.address);
-        //await metaStocksFranchise.transferOwnership(metaStocksFranchiseManager.address);
-
+        await metaStocksToken.enableTrading();
+        await metaStocksCompany.transferOwnership(metaStocksCompanyManager.address);
+        await metaStocksFranchise.transferOwnership(metaStocksFranchiseManager.address);
         await metaStocksFranchiseManager.setPaymentTokenAddress(metaStocksToken.address);
-
         await metaStocksFranchiseManager.setPaymentTokenAddress(metaStocksToken.address);
-
-
         await metaStocksToken.connect(deployer).setRouterAddress("0x9Ac64Cc6e4415144C455BD8E4837Fea55603e5c3", "0x2514895c72f50D8bd4B4F9b1110F0D6bD2c97526"); // bsc testnet - bnb chanlink
-
-
-
-
-
         await metaStocksToken.approve(test_util?.chains?.bsc?.router, ethers.constants.MaxUint256, { from: deployer?.address })
+        await metaStocksToken.connect(deployer).transfer(metaStocksFranchiseManager?.address, parseEther("10000"))
+        await metaStocksToken.connect(bob).approve(metaStocksFranchiseManager.address, parseEther("1000000000"))
+        await metaStocksFranchiseManager.setPaymentTokenAddress(metaStocksToken.address);
+        await metaStocksFranchiseManager.connect(deployer).setRouterAddress("0x9Ac64Cc6e4415144C455BD8E4837Fea55603e5c3", "0x2514895c72f50D8bd4B4F9b1110F0D6bD2c97526"); // bsc testnet - bnb chanlink
 
+
+
+        /*
         const tx = await router.connect(deployer).addLiquidityETH(
             metaStocksToken.address,
             parseEther("100000"),
@@ -198,32 +183,13 @@ async function main(): Promise<void> {
         )
         console.log(`${colors.cyan('TX')}: ${colors.yellow(tx.hash)}`)
         console.log()
-
-        const routerFactory = await test_util.connectFactory();
-        const pairAddress = await routerFactory.getPair(test_util?.chains?.bsc?.wChainCoin, metaStocksToken.address)
-        await metaStocksToken.setPairAddress(pairAddress);
-        const pairContract = await test_util.connectPair(pairAddress);
-        console.log(`${colors.cyan('LP Address')}: ${colors.yellow(pairContract?.address)}`)
-        console.log(`${colors.cyan('LP Balance')}: ${colors.yellow(formatEther(await pairContract.balanceOf(deployer?.address)))}`)
-        console.log()
-
-
-
-
-        await metaStocksToken.enableTrading();
-        console.log()
-
-
-
+        
+    
         console.log(`${colors.cyan("Deployer Token Balance:")} ${colors.yellow(formatEther(await metaStocksToken.balanceOf(deployer?.address)))}`)
-
-        //await metaStocksToken.transfer(bob?.address, parseEther("1000"))
+        await metaStocksToken.transfer(bob?.address, parseEther("1000"))
         await metaStocksToken.connect(deployer).transfer(bob?.address, parseEther("500"))
         console.log(`${colors.cyan("Bob Token Balance:")} ${colors.yellow(formatEther(await metaStocksToken.balanceOf(bob?.address)))}`)
         console.log()
-
-
-
 
 
         await metaStocksCompanyManager.connect(bob).create();
@@ -239,24 +205,10 @@ async function main(): Promise<void> {
         console.log(`${colors.cyan("CompanyCEOAddress: ")} ${colors.yellow(companyCeoAddress)}`)
 
 
-
-
-        await metaStocksToken.connect(deployer).transfer(metaStocksFranchiseManager?.address, parseEther("10000"))
-        await metaStocksToken.connect(bob).approve(metaStocksFranchiseManager.address, parseEther("1000000000"))
-        await metaStocksFranchiseManager.setPaymentTokenAddress(metaStocksToken.address);
-
-
-
-        await metaStocksFranchiseManager.connect(deployer).setRouterAddress("0x9Ac64Cc6e4415144C455BD8E4837Fea55603e5c3", "0x2514895c72f50D8bd4B4F9b1110F0D6bD2c97526"); // bsc testnet - bnb chanlink
-
-
-
-
-
         console.log(`${colors.cyan("CompanyId: ")} ${colors.yellow(companyId)}`)
         await metaStocksFranchiseManager.connect(bob).createMetaStocksFranchise(metaStocksFranchiseManager.address, companyId, 0, 1);
-        //await metaStocksFranchiseManager.connect(bob).createMetaStocksFranchise(metaStocksFranchiseManager.address, companyId, 2);
-        //await metaStocksFranchiseManager.connect(bob).createMetaStocksFranchise(metaStocksFranchiseManager.address, companyId, 3);
+        await metaStocksFranchiseManager.connect(bob).createMetaStocksFranchise(metaStocksFranchiseManager.address, companyId, 2);
+        await metaStocksFranchiseManager.connect(bob).createMetaStocksFranchise(metaStocksFranchiseManager.address, companyId, 3);
 
 
 
@@ -282,7 +234,7 @@ async function main(): Promise<void> {
 
         const bobBalanceAfter = await metaStocksToken.balanceOf(bob?.address);
         console.log(`${colors.cyan("Bob Balance After Claim: ")} ${colors.yellow(formatEther(bobBalanceAfter))}`)
-
+*/
     }
 
 

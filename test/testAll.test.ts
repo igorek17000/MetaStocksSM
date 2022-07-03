@@ -132,53 +132,6 @@ describe("MetaStocks Testing", async () => {
 
     describe("2.0 - Deploy Deploy MetaStock Contract Managers", async () => {
 
-        it("2.1 - Deploy MetaStocksCompanyManager", async () => {
-            console.log("");
-            // DEPLOY
-            const contractName = 'MetaStocksCompanyManager'
-            const contractFactory = await ethers.getContractFactory(contractName)
-            metaStocksCompanyManager = await upgrades.deployProxy(contractFactory, [metaStocksCompany.address])
-            await metaStocksCompanyManager.deployed()
-            metaStocksCompanyManagerImplementationAddress = await getImplementationAddress(
-                ethers.provider,
-                metaStocksCompanyManager.address
-            )
-
-            console.log(`${colors.cyan(contractName + ' Proxy Address: ')} ${colors.yellow(metaStocksCompanyManager.address)}`)
-            console.log(`${colors.cyan(contractName + ' Implementation Address: ')} ${colors.yellow(metaStocksCompanyManagerImplementationAddress)}`)
-            console.log("");
-
-            deployedContracts.push({
-                contractName: {
-                    address: metaStocksCompanyManager.address
-                }
-            })
-        });
-
-
-
-        it("2.2 - Deploy MetaStocksCompanyManager", async () => {
-            console.log("");
-            // DEPLOY
-            const contractName = 'MetaStocksCompanyManager'
-            const contractFactory = await ethers.getContractFactory(contractName)
-            metaStocksCompanyManager = await upgrades.deployProxy(contractFactory, [metaStocksCompany.address])
-            await metaStocksCompanyManager.deployed()
-            metaStocksCompanyManagerImplementationAddress = await getImplementationAddress(
-                ethers.provider,
-                metaStocksCompanyManager.address
-            )
-
-            console.log(`${colors.cyan(contractName + ' Proxy Address: ')} ${colors.yellow(metaStocksCompanyManager.address)}`)
-            console.log(`${colors.cyan(contractName + ' Implementation Address: ')} ${colors.yellow(metaStocksCompanyManagerImplementationAddress)}`)
-            console.log("");
-
-            deployedContracts.push({
-                contractName: {
-                    address: metaStocksCompanyManager.address
-                }
-            })
-        });
 
         it("2.3 - Deploy MetaStocksFranchiseManager", async () => {
             console.log("");
@@ -202,19 +155,33 @@ describe("MetaStocks Testing", async () => {
                 }
             })
         });
-    });
 
-    /*
-    describe("Save Deployed Contracts", async () => {
+        it("2.1 - Deploy MetaStocksCompanyManager", async () => {
+            console.log("");
+            // DEPLOY
+            const contractName = 'MetaStocksCompanyManager'
+            const contractFactory = await ethers.getContractFactory(contractName)
+            metaStocksCompanyManager = await upgrades.deployProxy(contractFactory, [metaStocksCompany.address, metaStocksFranchiseManager.address])
+            await metaStocksCompanyManager.deployed()
+            metaStocksCompanyManagerImplementationAddress = await getImplementationAddress(
+                ethers.provider,
+                metaStocksCompanyManager.address
+            )
 
-        it("Save JSON Contracts", async () => {
+            console.log(`${colors.cyan(contractName + ' Proxy Address: ')} ${colors.yellow(metaStocksCompanyManager.address)}`)
+            console.log(`${colors.cyan(contractName + ' Implementation Address: ')} ${colors.yellow(metaStocksCompanyManagerImplementationAddress)}`)
+            console.log("");
 
-            console.log({
-                deployedContracts: deployedContracts
+            deployedContracts.push({
+                contractName: {
+                    address: metaStocksCompanyManager.address
+                }
             })
-        })
-    })
-    */
+        });
+
+
+
+    });
 
     describe("3.0 - Transfer Ownerships", async () => {
 
@@ -292,20 +259,6 @@ describe("MetaStocks Testing", async () => {
 
     describe("5.0 - Config contract", async () => {
 
-        it("5.1 - Create MetastockCompany", async () => {
-            await metaStocksCompanyManager.connect(bob).create();
-            await sleep(2000)
-
-            const isCeo = await metaStocksCompanyManager.isCeo(bob.address);
-            console.log(`${colors.cyan("isCeo: ")} ${colors.yellow(isCeo)}`)
-
-            const companyId = await metaStocksCompanyManager.getCompanyId(bob.address);
-            console.log(`${colors.cyan("CompanyId: ")} ${colors.yellow(companyId)}`)
-
-            let companyCeoAddress = await metaStocksCompanyManager.getCompanyCEOAddress(companyId);
-            console.log(`${colors.cyan("CompanyCEOAddress: ")} ${colors.yellow(companyCeoAddress)}`)
-
-        })
 
         it("5.2 - Set Payment Token Address MetaStocksFranchise", async () => {
             await metaStocksToken.connect(deployer).transfer(metaStocksFranchiseManager?.address, parseEther("10000"))
@@ -318,12 +271,29 @@ describe("MetaStocks Testing", async () => {
 
         })
 
+
+        /*
+        it("5.3 - Create createCompany", async () => {
+            await metaStocksCompanyManager.connect(bob).createCompany();
+            await sleep(2000)
+        })
+        */
+
         it("5.3 - Create MetaStocksFranchise", async () => {
-            let companyId = await metaStocksCompanyManager.getCompanyId(bob.address);
+            await metaStocksCompanyManager.connect(bob).createCompany();
+            await sleep(2000)
+
+            await metaStocksCompanyManager.connect(bob).createFranchiseUsingBNB({ value: parseEther("1000") });
+            await sleep(2000)
+
+            const isCeo = await metaStocksCompanyManager.isCeo(bob.address);
+            console.log(`${colors.cyan("isCeo: ")} ${colors.yellow(isCeo)}`)
+
+            const companyId = await metaStocksCompanyManager.getCompanyId(bob.address);
             console.log(`${colors.cyan("CompanyId: ")} ${colors.yellow(companyId)}`)
-            await metaStocksFranchiseManager.connect(bob).createMetaStocksFranchise(metaStocksFranchiseManager.address, companyId, 0, 1);
-            //await metaStocksFranchiseManager.connect(bob).createMetaStocksFranchise(metaStocksFranchiseManager.address, companyId, 2);
-            //await metaStocksFranchiseManager.connect(bob).createMetaStocksFranchise(metaStocksFranchiseManager.address, companyId, 3);
+
+            let companyCeoAddress = await metaStocksCompanyManager.getCompanyCEOAddress(companyId);
+            console.log(`${colors.cyan("CompanyCEOAddress: ")} ${colors.yellow(companyCeoAddress)}`)
         })
 
         it("5.4 - Get MetaStocks Franchise Number", async () => {

@@ -12,6 +12,7 @@ import {
   BaseContract,
   ContractTransaction,
   Overrides,
+  PayableOverrides,
   CallOverrides,
 } from "ethers";
 import { BytesLike } from "@ethersproject/bytes";
@@ -22,15 +23,24 @@ import type { TypedEventFilter, TypedEvent, TypedListener } from "./common";
 interface IMetaStocksFranchiseManagerInterface extends ethers.utils.Interface {
   functions: {
     "createMetaStocksFranchise(address,uint256,uint256,uint8)": FunctionFragment;
+    "createMetaStocksFranchiseUsingBNB(address,uint256,uint256,uint8)": FunctionFragment;
   };
 
   encodeFunctionData(
     functionFragment: "createMetaStocksFranchise",
     values: [string, BigNumberish, BigNumberish, BigNumberish]
   ): string;
+  encodeFunctionData(
+    functionFragment: "createMetaStocksFranchiseUsingBNB",
+    values: [string, BigNumberish, BigNumberish, BigNumberish]
+  ): string;
 
   decodeFunctionResult(
     functionFragment: "createMetaStocksFranchise",
+    data: BytesLike
+  ): Result;
+  decodeFunctionResult(
+    functionFragment: "createMetaStocksFranchiseUsingBNB",
     data: BytesLike
   ): Result;
 
@@ -88,6 +98,14 @@ export class IMetaStocksFranchiseManager extends BaseContract {
       _metaStocksFranchiseType: BigNumberish,
       overrides?: Overrides & { from?: string | Promise<string> }
     ): Promise<ContractTransaction>;
+
+    createMetaStocksFranchiseUsingBNB(
+      to: string,
+      companyId: BigNumberish,
+      _continentId: BigNumberish,
+      _metaStocksFranchiseType: BigNumberish,
+      overrides?: PayableOverrides & { from?: string | Promise<string> }
+    ): Promise<ContractTransaction>;
   };
 
   createMetaStocksFranchise(
@@ -98,8 +116,24 @@ export class IMetaStocksFranchiseManager extends BaseContract {
     overrides?: Overrides & { from?: string | Promise<string> }
   ): Promise<ContractTransaction>;
 
+  createMetaStocksFranchiseUsingBNB(
+    to: string,
+    companyId: BigNumberish,
+    _continentId: BigNumberish,
+    _metaStocksFranchiseType: BigNumberish,
+    overrides?: PayableOverrides & { from?: string | Promise<string> }
+  ): Promise<ContractTransaction>;
+
   callStatic: {
     createMetaStocksFranchise(
+      to: string,
+      companyId: BigNumberish,
+      _continentId: BigNumberish,
+      _metaStocksFranchiseType: BigNumberish,
+      overrides?: CallOverrides
+    ): Promise<void>;
+
+    createMetaStocksFranchiseUsingBNB(
       to: string,
       companyId: BigNumberish,
       _continentId: BigNumberish,
@@ -118,6 +152,14 @@ export class IMetaStocksFranchiseManager extends BaseContract {
       _metaStocksFranchiseType: BigNumberish,
       overrides?: Overrides & { from?: string | Promise<string> }
     ): Promise<BigNumber>;
+
+    createMetaStocksFranchiseUsingBNB(
+      to: string,
+      companyId: BigNumberish,
+      _continentId: BigNumberish,
+      _metaStocksFranchiseType: BigNumberish,
+      overrides?: PayableOverrides & { from?: string | Promise<string> }
+    ): Promise<BigNumber>;
   };
 
   populateTransaction: {
@@ -127,6 +169,14 @@ export class IMetaStocksFranchiseManager extends BaseContract {
       _continentId: BigNumberish,
       _metaStocksFranchiseType: BigNumberish,
       overrides?: Overrides & { from?: string | Promise<string> }
+    ): Promise<PopulatedTransaction>;
+
+    createMetaStocksFranchiseUsingBNB(
+      to: string,
+      companyId: BigNumberish,
+      _continentId: BigNumberish,
+      _metaStocksFranchiseType: BigNumberish,
+      overrides?: PayableOverrides & { from?: string | Promise<string> }
     ): Promise<PopulatedTransaction>;
   };
 }

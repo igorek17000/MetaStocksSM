@@ -38,6 +38,34 @@ const _abi = [
     stateMutability: "nonpayable",
     type: "function",
   },
+  {
+    inputs: [
+      {
+        internalType: "address",
+        name: "to",
+        type: "address",
+      },
+      {
+        internalType: "uint256",
+        name: "companyId",
+        type: "uint256",
+      },
+      {
+        internalType: "uint256",
+        name: "_continentId",
+        type: "uint256",
+      },
+      {
+        internalType: "enum MetaStocksFranchiseType",
+        name: "_metaStocksFranchiseType",
+        type: "uint8",
+      },
+    ],
+    name: "createMetaStocksFranchiseUsingBNB",
+    outputs: [],
+    stateMutability: "payable",
+    type: "function",
+  },
 ];
 
 export class IMetaStocksFranchiseManager__factory {

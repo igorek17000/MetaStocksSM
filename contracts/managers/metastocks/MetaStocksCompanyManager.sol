@@ -8,6 +8,7 @@ import "@openzeppelin/contracts-upgradeable/token/ERC1155/ERC1155Upgradeable.sol
 import "@openzeppelin/contracts/token/ERC1155/IERC1155Receiver.sol";
 import "@openzeppelin/contracts-upgradeable/access/OwnableUpgradeable.sol";
 import "../../interfaces/metaStocks/IMetaStocksCompany.sol";
+import "../../interfaces/metaStocks/IMetaStocksFranchiseManager.sol";
 import "./../../tokens/MetaStocksIERC1155ReceiverHolder.sol";
 
 contract MetaStocksCompanyManager is
@@ -16,6 +17,7 @@ contract MetaStocksCompanyManager is
     OwnableUpgradeable
 {
     IMetaStocksCompany MetaStocksCompany;
+    IMetaStocksFranchiseManager metaStocksFranchiseManager;
 
     mapping(address => uint256) public ceosCompanies;
     mapping(uint256 => address) public companiesCeos;
@@ -24,8 +26,14 @@ contract MetaStocksCompanyManager is
 
     event CreateCompany(address indexed account, uint256 companyId);
 
-    function initialize(address _metaStocksCompanyAddress) public initializer {
+    function initialize(
+        address _metaStocksCompanyAddress,
+        address _metaStocksFranchiseManagerAddress
+    ) public initializer {
         MetaStocksCompany = IMetaStocksCompany(_metaStocksCompanyAddress);
+        metaStocksFranchiseManager = IMetaStocksFranchiseManager(
+            _metaStocksFranchiseManagerAddress
+        );
         totalCeos = 0;
     }
 
@@ -45,13 +53,39 @@ contract MetaStocksCompanyManager is
         return ceos[_account];
     }
 
-    function create() external payable {
-        require(!ceos[msg.sender], "Already Ceo");
+    function createCompany() external payable {
+        //require(!ceos[msg.sender], "Already Ceo");
         uint256 companyId = MetaStocksCompany.safeMint(msg.sender);
         ceosCompanies[msg.sender] = companyId;
         companiesCeos[companyId] = msg.sender;
         ceos[msg.sender] = true;
         totalCeos++;
         emit CreateCompany(msg.sender, ceosCompanies[msg.sender]);
+    }
+
+    function createFranchise() external payable {
+        if (!ceos[msg.sender]) {
+            this.createCompany();
+        }
+
+        metaStocksFranchiseManager.createMetaStocksFranchise(
+            address(metaStocksFranchiseManager),
+            this.getCompanyId(msg.sender),
+            0,
+            MetaStocksFranchiseType.MetaStocksFranchiseType1
+        );
+    }
+
+    function createFranchiseUsingBNB() external payable {
+        if (!ceos[msg.sender]) {
+            this.createCompany();
+        }
+
+        metaStocksFranchiseManager.createMetaStocksFranchiseUsingBNB(
+            address(metaStocksFranchiseManager),
+            this.getCompanyId(msg.sender),
+            0,
+            MetaStocksFranchiseType.MetaStocksFranchiseType1
+        );
     }
 }

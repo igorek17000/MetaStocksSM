@@ -10,4 +10,11 @@ interface IMetaStocksFranchiseManager {
         uint256 _continentId,
         MetaStocksFranchiseType _metaStocksFranchiseType
     ) external;
+
+    function createMetaStocksFranchiseUsingBNB(
+        address to,
+        uint256 companyId,
+        uint256 _continentId,
+        MetaStocksFranchiseType _metaStocksFranchiseType
+    ) external payable;
 }
