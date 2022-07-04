@@ -6,11 +6,6 @@
   },
   "proxies": [
     {
-      "address": "0x14b2580D8c0126206A47fB6E0b9D04ca9b0a68Af",
-      "txHash": "0x27318ca8adc36751a964802db72778edcbfd652df417cc02060814cc32f18966",
-      "kind": "transparent"
-    },
-    {
       "address": "0x222a6E4E4796Fb50e67dF18B1cf62E62311965ad",
       "txHash": "0x074f067b12f49eaae8a194caf70be25a4513928645d20335d553ce8c388138be",
       "kind": "transparent"
@@ -18,11 +13,6 @@
     {
       "address": "0x9CEDB51a11B1316a4BDB165364d3d61d8ace6636",
       "txHash": "0x48f57694396a9cbb26d26f2397bb239200abc8b543d10ed0f2c21d35508188ef",
-      "kind": "transparent"
-    },
-    {
-      "address": "0x7cB7f656FdFB797fb03825916352a294038dbf7c",
-      "txHash": "0xa3ab06952d6a0219a103ce96503dccf0786a2138285d445395a91d8fcd4e14f2",
       "kind": "transparent"
     },
     {
@@ -359,6 +349,36 @@
       "address": "0x02c8D2b8bae1c07cd8d23491B944A6679b407bDf",
       "txHash": "0x8eca5ad1db33d9f434227399e4e0b6a8a4fba2d6c132116d1e2ee7f1d784578e",
       "kind": "transparent"
+    },
+    {
+      "address": "0x14b2580D8c0126206A47fB6E0b9D04ca9b0a68Af",
+      "txHash": "0x27318ca8adc36751a964802db72778edcbfd652df417cc02060814cc32f18966",
+      "kind": "transparent"
+    },
+    {
+      "address": "0x8db3E66F8b65afFa37fA156E2B4084e604D77822",
+      "txHash": "0xdf1b6b1915824198390bf34be09e42c344276cae6ffea1684b7df174d5a01b05",
+      "kind": "transparent"
+    },
+    {
+      "address": "0x7cB7f656FdFB797fb03825916352a294038dbf7c",
+      "txHash": "0xdce2ac76e37280993c37639f22a38ce7842c077f8f7984620a4ffd72fb2a6787",
+      "kind": "transparent"
+    },
+    {
+      "address": "0x6ff3bf8BfcD00447D740811de9477999172D9F03",
+      "txHash": "0x8f39c573cd19abfad6bace242dd6aa2a606d56784a94f884a2b99620e6079899",
+      "kind": "transparent"
+    },
+    {
+      "address": "0xb2800B0609b64F4f16ab999CCD42B3ba39BaC112",
+      "txHash": "0xf7cba01183f0881868cc7939591f8f810d307e84946cc7fab6a03f1ce783c35f",
+      "kind": "transparent"
+    },
+    {
+      "address": "0x809816c731356D238E44A02fec172F6f0eF0B040",
+      "txHash": "0xe130b235a5cf09cacc373c11db8878d2d549e400d30b698ca87ab42d3168e86d",
+      "kind": "transparent"
     }
   ],
   "impls": {
@@ -516,7 +536,7 @@
             "label": "transactionFeesManager",
             "offset": 2,
             "slot": "156",
-            "type": "t_contract(TransactionFeesManager)10188",
+            "type": "t_contract(TransactionFeesManager)10235",
             "contract": "MetaStocksERC20Upgradable",
             "src": "contracts/tokens/MetaStocksERC20Upgradable.sol:22"
           },
@@ -524,7 +544,7 @@
             "label": "midasMultinetworkRouterManager",
             "offset": 0,
             "slot": "157",
-            "type": "t_contract(MidasMultinetworkRouterManager)10028",
+            "type": "t_contract(MidasMultinetworkRouterManager)10075",
             "contract": "MetaStocksERC20Upgradable",
             "src": "contracts/tokens/MetaStocksERC20Upgradable.sol:24"
           },
@@ -558,11 +578,11 @@
             "label": "bool",
             "numberOfBytes": "1"
           },
-          "t_contract(MidasMultinetworkRouterManager)10028": {
+          "t_contract(MidasMultinetworkRouterManager)10075": {
             "label": "contract MidasMultinetworkRouterManager",
             "numberOfBytes": "20"
           },
-          "t_contract(TransactionFeesManager)10188": {
+          "t_contract(TransactionFeesManager)10235": {
             "label": "contract TransactionFeesManager",
             "numberOfBytes": "20"
           },
@@ -2672,6 +2692,139 @@
           "t_string_storage": {
             "label": "string",
             "numberOfBytes": "32"
+          },
+          "t_uint256": {
+            "label": "uint256",
+            "numberOfBytes": "32"
+          },
+          "t_uint8": {
+            "label": "uint8",
+            "numberOfBytes": "1"
+          }
+        }
+      }
+    },
+    "cf7d9d17957bf0fa139bfd2c34840d2eddbce0aed008d39a856cb8c46ba81bd3": {
+      "address": "0xD2FFeFA56747590130e8322F1B3873ED8419a842",
+      "txHash": "0x5b005253be0630beaf44da2430624858f239b76e08e74e2c5e6e7c60bd7ad759",
+      "layout": {
+        "storage": [
+          {
+            "label": "_initialized",
+            "offset": 0,
+            "slot": "0",
+            "type": "t_uint8",
+            "contract": "Initializable",
+            "src": "@openzeppelin/contracts-upgradeable/proxy/utils/Initializable.sol:62",
+            "retypedFrom": "bool"
+          },
+          {
+            "label": "_initializing",
+            "offset": 1,
+            "slot": "0",
+            "type": "t_bool",
+            "contract": "Initializable",
+            "src": "@openzeppelin/contracts-upgradeable/proxy/utils/Initializable.sol:67"
+          },
+          {
+            "label": "sendFeeTokenAddress",
+            "offset": 2,
+            "slot": "0",
+            "type": "t_address",
+            "contract": "TykheFortuneDistributor",
+            "src": "contracts/Messagers/TykheFortuneDistributor.sol:24"
+          },
+          {
+            "label": "feeReceivers",
+            "offset": 0,
+            "slot": "1",
+            "type": "t_mapping(t_uint256,t_struct(FeeReceiver)8706_storage)",
+            "contract": "TykheFortuneDistributor",
+            "src": "contracts/Messagers/TykheFortuneDistributor.sol:25"
+          },
+          {
+            "label": "fortune",
+            "offset": 0,
+            "slot": "2",
+            "type": "t_uint256",
+            "contract": "TykheFortuneDistributor",
+            "src": "contracts/Messagers/TykheFortuneDistributor.sol:26"
+          },
+          {
+            "label": "membersCounter",
+            "offset": 0,
+            "slot": "3",
+            "type": "t_uint256",
+            "contract": "TykheFortuneDistributor",
+            "src": "contracts/Messagers/TykheFortuneDistributor.sol:27"
+          },
+          {
+            "label": "masterTaxDivisor",
+            "offset": 0,
+            "slot": "4",
+            "type": "t_uint256",
+            "contract": "TykheFortuneDistributor",
+            "src": "contracts/Messagers/TykheFortuneDistributor.sol:28"
+          },
+          {
+            "label": "owner",
+            "offset": 0,
+            "slot": "5",
+            "type": "t_address",
+            "contract": "TykheFortuneDistributor",
+            "src": "contracts/Messagers/TykheFortuneDistributor.sol:29"
+          },
+          {
+            "label": "LIMBO_DOOR",
+            "offset": 0,
+            "slot": "6",
+            "type": "t_address",
+            "contract": "TykheFortuneDistributor",
+            "src": "contracts/Messagers/TykheFortuneDistributor.sol:30"
+          },
+          {
+            "label": "_isExcludedFromFee",
+            "offset": 0,
+            "slot": "7",
+            "type": "t_mapping(t_address,t_bool)",
+            "contract": "TykheFortuneDistributor",
+            "src": "contracts/Messagers/TykheFortuneDistributor.sol:31"
+          }
+        ],
+        "types": {
+          "t_address": {
+            "label": "address",
+            "numberOfBytes": "20"
+          },
+          "t_bool": {
+            "label": "bool",
+            "numberOfBytes": "1"
+          },
+          "t_mapping(t_address,t_bool)": {
+            "label": "mapping(address => bool)",
+            "numberOfBytes": "32"
+          },
+          "t_mapping(t_uint256,t_struct(FeeReceiver)8706_storage)": {
+            "label": "mapping(uint256 => struct FeeReceiver)",
+            "numberOfBytes": "32"
+          },
+          "t_struct(FeeReceiver)8706_storage": {
+            "label": "struct FeeReceiver",
+            "members": [
+              {
+                "label": "receiver",
+                "type": "t_address",
+                "offset": 0,
+                "slot": "0"
+              },
+              {
+                "label": "percentage",
+                "type": "t_uint256",
+                "offset": 0,
+                "slot": "1"
+              }
+            ],
+            "numberOfBytes": "64"
           },
           "t_uint256": {
             "label": "uint256",

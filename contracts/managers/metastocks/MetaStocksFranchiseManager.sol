@@ -168,7 +168,7 @@ contract MetaStocksFranchiseManager is
     }
 
     function getMetaStocksFranchisesUnclaimedRewards(uint256 companyId)
-        public
+        external
         view
         returns (uint256)
     {
@@ -287,7 +287,7 @@ contract MetaStocksFranchiseManager is
     }
 
     function claimFromAllFranchises(uint256 _companyId) external {
-        uint256 totalUnclaimed = getMetaStocksFranchisesUnclaimedRewards(
+        uint256 totalUnclaimed = this.getMetaStocksFranchisesUnclaimedRewards(
             _companyId
         );
 
@@ -295,6 +295,16 @@ contract MetaStocksFranchiseManager is
             address(self()),
             address(msg.sender),
             totalUnclaimed
+        );
+
+        for (uint256 typeIndex = 0; typeIndex < 10; typeIndex++) {
+            franchisesLastClaimDates[_companyId][typeIndex] = block.timestamp;
+        }
+    }
+
+    function claimFromAllFranchisesBNB(uint256 _companyId) external {
+        uint256 totalUnclaimed = this.getMetaStocksFranchisesUnclaimedRewards(
+            _companyId
         );
 
         for (uint256 typeIndex = 0; typeIndex < 10; typeIndex++) {

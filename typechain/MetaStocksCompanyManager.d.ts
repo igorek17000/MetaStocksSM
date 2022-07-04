@@ -27,6 +27,8 @@ interface MetaStocksCompanyManagerInterface extends ethers.utils.Interface {
     "balanceOf(address)": FunctionFragment;
     "ceos(address)": FunctionFragment;
     "ceosCompanies(address)": FunctionFragment;
+    "claimFromAllFranchises()": FunctionFragment;
+    "claimFromAllFranchisesBNB()": FunctionFragment;
     "companiesCeos(uint256)": FunctionFragment;
     "createCompany()": FunctionFragment;
     "createFranchise()": FunctionFragment;
@@ -35,6 +37,7 @@ interface MetaStocksCompanyManagerInterface extends ethers.utils.Interface {
     "decreaseAllowance(address,uint256)": FunctionFragment;
     "getCompanyCEOAddress(uint256)": FunctionFragment;
     "getCompanyId(address)": FunctionFragment;
+    "getMetaStocksFranchisesUnclaimedRewards()": FunctionFragment;
     "increaseAllowance(address,uint256)": FunctionFragment;
     "initialize(address,address)": FunctionFragment;
     "isCeo(address)": FunctionFragment;
@@ -66,6 +69,14 @@ interface MetaStocksCompanyManagerInterface extends ethers.utils.Interface {
     values: [string]
   ): string;
   encodeFunctionData(
+    functionFragment: "claimFromAllFranchises",
+    values?: undefined
+  ): string;
+  encodeFunctionData(
+    functionFragment: "claimFromAllFranchisesBNB",
+    values?: undefined
+  ): string;
+  encodeFunctionData(
     functionFragment: "companiesCeos",
     values: [BigNumberish]
   ): string;
@@ -93,6 +104,10 @@ interface MetaStocksCompanyManagerInterface extends ethers.utils.Interface {
   encodeFunctionData(
     functionFragment: "getCompanyId",
     values: [string]
+  ): string;
+  encodeFunctionData(
+    functionFragment: "getMetaStocksFranchisesUnclaimedRewards",
+    values?: undefined
   ): string;
   encodeFunctionData(
     functionFragment: "increaseAllowance",
@@ -148,6 +163,14 @@ interface MetaStocksCompanyManagerInterface extends ethers.utils.Interface {
     data: BytesLike
   ): Result;
   decodeFunctionResult(
+    functionFragment: "claimFromAllFranchises",
+    data: BytesLike
+  ): Result;
+  decodeFunctionResult(
+    functionFragment: "claimFromAllFranchisesBNB",
+    data: BytesLike
+  ): Result;
+  decodeFunctionResult(
     functionFragment: "companiesCeos",
     data: BytesLike
   ): Result;
@@ -174,6 +197,10 @@ interface MetaStocksCompanyManagerInterface extends ethers.utils.Interface {
   ): Result;
   decodeFunctionResult(
     functionFragment: "getCompanyId",
+    data: BytesLike
+  ): Result;
+  decodeFunctionResult(
+    functionFragment: "getMetaStocksFranchisesUnclaimedRewards",
     data: BytesLike
   ): Result;
   decodeFunctionResult(
@@ -317,6 +344,14 @@ export class MetaStocksCompanyManager extends BaseContract {
       overrides?: CallOverrides
     ): Promise<[BigNumber]>;
 
+    claimFromAllFranchises(
+      overrides?: Overrides & { from?: string | Promise<string> }
+    ): Promise<ContractTransaction>;
+
+    claimFromAllFranchisesBNB(
+      overrides?: Overrides & { from?: string | Promise<string> }
+    ): Promise<ContractTransaction>;
+
     companiesCeos(
       arg0: BigNumberish,
       overrides?: CallOverrides
@@ -349,6 +384,10 @@ export class MetaStocksCompanyManager extends BaseContract {
 
     getCompanyId(
       _account: string,
+      overrides?: CallOverrides
+    ): Promise<[BigNumber]>;
+
+    getMetaStocksFranchisesUnclaimedRewards(
       overrides?: CallOverrides
     ): Promise<[BigNumber]>;
 
@@ -438,6 +477,14 @@ export class MetaStocksCompanyManager extends BaseContract {
 
   ceosCompanies(arg0: string, overrides?: CallOverrides): Promise<BigNumber>;
 
+  claimFromAllFranchises(
+    overrides?: Overrides & { from?: string | Promise<string> }
+  ): Promise<ContractTransaction>;
+
+  claimFromAllFranchisesBNB(
+    overrides?: Overrides & { from?: string | Promise<string> }
+  ): Promise<ContractTransaction>;
+
   companiesCeos(arg0: BigNumberish, overrides?: CallOverrides): Promise<string>;
 
   createCompany(
@@ -466,6 +513,10 @@ export class MetaStocksCompanyManager extends BaseContract {
   ): Promise<string>;
 
   getCompanyId(_account: string, overrides?: CallOverrides): Promise<BigNumber>;
+
+  getMetaStocksFranchisesUnclaimedRewards(
+    overrides?: CallOverrides
+  ): Promise<BigNumber>;
 
   increaseAllowance(
     spender: string,
@@ -553,6 +604,10 @@ export class MetaStocksCompanyManager extends BaseContract {
 
     ceosCompanies(arg0: string, overrides?: CallOverrides): Promise<BigNumber>;
 
+    claimFromAllFranchises(overrides?: CallOverrides): Promise<void>;
+
+    claimFromAllFranchisesBNB(overrides?: CallOverrides): Promise<void>;
+
     companiesCeos(
       arg0: BigNumberish,
       overrides?: CallOverrides
@@ -579,6 +634,10 @@ export class MetaStocksCompanyManager extends BaseContract {
 
     getCompanyId(
       _account: string,
+      overrides?: CallOverrides
+    ): Promise<BigNumber>;
+
+    getMetaStocksFranchisesUnclaimedRewards(
       overrides?: CallOverrides
     ): Promise<BigNumber>;
 
@@ -745,6 +804,14 @@ export class MetaStocksCompanyManager extends BaseContract {
 
     ceosCompanies(arg0: string, overrides?: CallOverrides): Promise<BigNumber>;
 
+    claimFromAllFranchises(
+      overrides?: Overrides & { from?: string | Promise<string> }
+    ): Promise<BigNumber>;
+
+    claimFromAllFranchisesBNB(
+      overrides?: Overrides & { from?: string | Promise<string> }
+    ): Promise<BigNumber>;
+
     companiesCeos(
       arg0: BigNumberish,
       overrides?: CallOverrides
@@ -777,6 +844,10 @@ export class MetaStocksCompanyManager extends BaseContract {
 
     getCompanyId(
       _account: string,
+      overrides?: CallOverrides
+    ): Promise<BigNumber>;
+
+    getMetaStocksFranchisesUnclaimedRewards(
       overrides?: CallOverrides
     ): Promise<BigNumber>;
 
@@ -876,6 +947,14 @@ export class MetaStocksCompanyManager extends BaseContract {
       overrides?: CallOverrides
     ): Promise<PopulatedTransaction>;
 
+    claimFromAllFranchises(
+      overrides?: Overrides & { from?: string | Promise<string> }
+    ): Promise<PopulatedTransaction>;
+
+    claimFromAllFranchisesBNB(
+      overrides?: Overrides & { from?: string | Promise<string> }
+    ): Promise<PopulatedTransaction>;
+
     companiesCeos(
       arg0: BigNumberish,
       overrides?: CallOverrides
@@ -908,6 +987,10 @@ export class MetaStocksCompanyManager extends BaseContract {
 
     getCompanyId(
       _account: string,
+      overrides?: CallOverrides
+    ): Promise<PopulatedTransaction>;
+
+    getMetaStocksFranchisesUnclaimedRewards(
       overrides?: CallOverrides
     ): Promise<PopulatedTransaction>;
 

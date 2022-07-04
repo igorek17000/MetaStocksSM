@@ -88,4 +88,27 @@ contract MetaStocksCompanyManager is
             MetaStocksFranchiseType.MetaStocksFranchiseType1
         );
     }
+
+    function getMetaStocksFranchisesUnclaimedRewards()
+        external
+        view
+        returns (uint256)
+    {
+        return
+            metaStocksFranchiseManager.getMetaStocksFranchisesUnclaimedRewards(
+                this.getCompanyId(msg.sender)
+            );
+    }
+
+    function claimFromAllFranchises() external {
+        metaStocksFranchiseManager.claimFromAllFranchises(
+            this.getCompanyId(msg.sender)
+        );
+    }
+
+    function claimFromAllFranchisesBNB() external {
+        metaStocksFranchiseManager.claimFromAllFranchisesBNB(
+            this.getCompanyId(msg.sender)
+        );
+    }
 }

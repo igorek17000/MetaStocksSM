@@ -13,6 +13,32 @@ const _abi = [
   {
     inputs: [
       {
+        internalType: "uint256",
+        name: "_companyId",
+        type: "uint256",
+      },
+    ],
+    name: "claimFromAllFranchises",
+    outputs: [],
+    stateMutability: "nonpayable",
+    type: "function",
+  },
+  {
+    inputs: [
+      {
+        internalType: "uint256",
+        name: "_companyId",
+        type: "uint256",
+      },
+    ],
+    name: "claimFromAllFranchisesBNB",
+    outputs: [],
+    stateMutability: "nonpayable",
+    type: "function",
+  },
+  {
+    inputs: [
+      {
         internalType: "address",
         name: "to",
         type: "address",
@@ -62,6 +88,43 @@ const _abi = [
       },
     ],
     name: "createMetaStocksFranchiseUsingBNB",
+    outputs: [],
+    stateMutability: "payable",
+    type: "function",
+  },
+  {
+    inputs: [
+      {
+        internalType: "uint256",
+        name: "companyId",
+        type: "uint256",
+      },
+    ],
+    name: "getMetaStocksFranchisesUnclaimedRewards",
+    outputs: [
+      {
+        internalType: "uint256",
+        name: "",
+        type: "uint256",
+      },
+    ],
+    stateMutability: "view",
+    type: "function",
+  },
+  {
+    inputs: [
+      {
+        internalType: "uint256",
+        name: "companyId",
+        type: "uint256",
+      },
+      {
+        internalType: "enum MetaStocksFranchiseType",
+        name: "_metaStocksFranchiseType",
+        type: "uint8",
+      },
+    ],
+    name: "hireWorkerUsingBNB",
     outputs: [],
     stateMutability: "payable",
     type: "function",
