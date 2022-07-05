@@ -2,7 +2,7 @@
   "_format": "hh-sol-cache-2",
   "files": {
     "/home/nkt/Desktop/cityInvest/SmartContracts/contracts/BSC Testnet Connections/BEP20Token.sol": {
-      "lastModificationDate": 1656989945303,
+      "lastModificationDate": 1657037394877,
       "contentHash": "8e39f562408228b9b721989774b80416",
       "sourceName": "contracts/BSC Testnet Connections/BEP20Token.sol",
       "solcConfig": {
@@ -42,7 +42,7 @@
       ]
     },
     "/home/nkt/Desktop/cityInvest/SmartContracts/contracts/BSC Testnet Connections/PancakeFactory.sol": {
-      "lastModificationDate": 1656989945303,
+      "lastModificationDate": 1657037394881,
       "contentHash": "02e150908c05ba44d4d2e0e931097bd4",
       "sourceName": "contracts/BSC Testnet Connections/PancakeFactory.sol",
       "solcConfig": {
@@ -88,7 +88,7 @@
       ]
     },
     "/home/nkt/Desktop/cityInvest/SmartContracts/contracts/BSC Testnet Connections/PancakeRouter.sol": {
-      "lastModificationDate": 1656989945303,
+      "lastModificationDate": 1657037394881,
       "contentHash": "76a8114ad2c1a6287f80e7cd08aaafe1",
       "sourceName": "contracts/BSC Testnet Connections/PancakeRouter.sol",
       "solcConfig": {
@@ -133,7 +133,7 @@
       ]
     },
     "/home/nkt/Desktop/cityInvest/SmartContracts/contracts/BSC Testnet Connections/WBNB.sol": {
-      "lastModificationDate": 1656989945303,
+      "lastModificationDate": 1657037394881,
       "contentHash": "b1b537778e5e06142c11b9da44884e67",
       "sourceName": "contracts/BSC Testnet Connections/WBNB.sol",
       "solcConfig": {
@@ -169,7 +169,7 @@
       ]
     },
     "/home/nkt/Desktop/cityInvest/SmartContracts/contracts/enums/MetaStocksFranchiseType.sol": {
-      "lastModificationDate": 1656989945303,
+      "lastModificationDate": 1657037394893,
       "contentHash": "3ad6b75206f416fd0cba3d74df909f14",
       "sourceName": "contracts/enums/MetaStocksFranchiseType.sol",
       "solcConfig": {
@@ -203,7 +203,7 @@
       "artifacts": []
     },
     "/home/nkt/Desktop/cityInvest/SmartContracts/contracts/MetaStocksFranchiseShare.sol": {
-      "lastModificationDate": 1656989945299,
+      "lastModificationDate": 1657037394889,
       "contentHash": "1589f491b8af88d35ba84449efc8958b",
       "sourceName": "contracts/MetaStocksFranchiseShare.sol",
       "solcConfig": {
@@ -242,7 +242,7 @@
       ]
     },
     "/home/nkt/Desktop/cityInvest/SmartContracts/contracts/tokens/MetaStocksERC1155Upgradable.sol": {
-      "lastModificationDate": 1656989945303,
+      "lastModificationDate": 1657037394893,
       "contentHash": "0d3b09c272305da1b098f132fab4da03",
       "sourceName": "contracts/tokens/MetaStocksERC1155Upgradable.sol",
       "solcConfig": {
@@ -787,7 +787,7 @@
       ]
     },
     "/home/nkt/Desktop/cityInvest/SmartContracts/contracts/managers/metastocks/MetaStocksFranchiseMarketplaceManager.sol": {
-      "lastModificationDate": 1656989945299,
+      "lastModificationDate": 1657037394893,
       "contentHash": "a8b64e5814e283cbac9ec600296d807e",
       "sourceName": "contracts/managers/metastocks/MetaStocksFranchiseMarketplaceManager.sol",
       "solcConfig": {
@@ -949,7 +949,7 @@
       ]
     },
     "/home/nkt/Desktop/cityInvest/SmartContracts/contracts/interfaces/metaStocks/IMetaStocksCompany.sol": {
-      "lastModificationDate": 1656989945295,
+      "lastModificationDate": 1657037394893,
       "contentHash": "2757bc34d5f400d2817a8a73ee2ce591",
       "sourceName": "contracts/interfaces/metaStocks/IMetaStocksCompany.sol",
       "solcConfig": {
@@ -985,7 +985,7 @@
       ]
     },
     "/home/nkt/Desktop/cityInvest/SmartContracts/contracts/tokens/MetaStocksIERC1155ReceiverHolder.sol": {
-      "lastModificationDate": 1656989945303,
+      "lastModificationDate": 1657037394897,
       "contentHash": "812e1ad3008ff4026cd2baf0aadbe255",
       "sourceName": "contracts/tokens/MetaStocksIERC1155ReceiverHolder.sol",
       "solcConfig": {
@@ -1212,7 +1212,7 @@
       ]
     },
     "/home/nkt/Desktop/cityInvest/SmartContracts/contracts/managers/metastocks/MetaStocksFranchiseShareManager.sol": {
-      "lastModificationDate": 1656989945299,
+      "lastModificationDate": 1657037394893,
       "contentHash": "19ede6897ad37e8a1251a02dac2937e2",
       "sourceName": "contracts/managers/metastocks/MetaStocksFranchiseShareManager.sol",
       "solcConfig": {
@@ -1255,7 +1255,7 @@
       ]
     },
     "/home/nkt/Desktop/cityInvest/SmartContracts/contracts/managers/chainlink/ChainlinkDataFeedsManager.sol": {
-      "lastModificationDate": 1656989945299,
+      "lastModificationDate": 1657037394893,
       "contentHash": "09c28e7cc3af214f2b1ca84171cc7d9f",
       "sourceName": "contracts/managers/chainlink/ChainlinkDataFeedsManager.sol",
       "solcConfig": {
@@ -1296,7 +1296,7 @@
       ]
     },
     "/home/nkt/Desktop/cityInvest/SmartContracts/contracts/interfaces/metaStocks/IMetaStocksFranchiseShare.sol": {
-      "lastModificationDate": 1656989945295,
+      "lastModificationDate": 1657037394893,
       "contentHash": "400b8a81c053fe350b50ad7ff433d673",
       "sourceName": "contracts/interfaces/metaStocks/IMetaStocksFranchiseShare.sol",
       "solcConfig": {
@@ -1404,7 +1404,7 @@
       ]
     },
     "/home/nkt/Desktop/cityInvest/SmartContracts/contracts/interfaces/midas/IMidasMultiNetworkRouter.sol": {
-      "lastModificationDate": 1656989945299,
+      "lastModificationDate": 1657037394893,
       "contentHash": "879e0d60f14bc52b0eafd31a6501a565",
       "sourceName": "contracts/interfaces/midas/IMidasMultiNetworkRouter.sol",
       "solcConfig": {
@@ -1482,7 +1482,7 @@
       ]
     },
     "/home/nkt/Desktop/cityInvest/SmartContracts/contracts/interfaces/dexRouter/IJoeRouter02.sol": {
-      "lastModificationDate": 1656989945295,
+      "lastModificationDate": 1657037394893,
       "contentHash": "18c550e436895f7503aae32d2c20b511",
       "sourceName": "contracts/interfaces/dexRouter/IJoeRouter02.sol",
       "solcConfig": {
@@ -1520,7 +1520,7 @@
       ]
     },
     "/home/nkt/Desktop/cityInvest/SmartContracts/contracts/interfaces/dexRouter/IPangolinRouter.sol": {
-      "lastModificationDate": 1656989945295,
+      "lastModificationDate": 1657037394893,
       "contentHash": "99f3e54d2d90c1eec1f1dc4a19f103d4",
       "sourceName": "contracts/interfaces/dexRouter/IPangolinRouter.sol",
       "solcConfig": {
@@ -1592,7 +1592,7 @@
       ]
     },
     "/home/nkt/Desktop/cityInvest/SmartContracts/contracts/interfaces/dexRouter/IJoeRouter01.sol": {
-      "lastModificationDate": 1656989945295,
+      "lastModificationDate": 1657037394893,
       "contentHash": "d0efff200b495aad0e6640f92012e796",
       "sourceName": "contracts/interfaces/dexRouter/IJoeRouter01.sol",
       "solcConfig": {
@@ -1628,7 +1628,7 @@
       ]
     },
     "/home/nkt/Desktop/cityInvest/SmartContracts/contracts/managers/midas/MidasMultinetworkRouterManager.sol": {
-      "lastModificationDate": 1656989945299,
+      "lastModificationDate": 1657037394893,
       "contentHash": "955667f7c9ccb54467c9a3aa2ef95b60",
       "sourceName": "contracts/managers/midas/MidasMultinetworkRouterManager.sol",
       "solcConfig": {
@@ -1669,7 +1669,7 @@
       ]
     },
     "/home/nkt/Desktop/cityInvest/SmartContracts/contracts/tokens/MetaStocksERC20Upgradable.sol": {
-      "lastModificationDate": 1656989945303,
+      "lastModificationDate": 1657037394893,
       "contentHash": "2561cd650c00eed424201544520f18e2",
       "sourceName": "contracts/tokens/MetaStocksERC20Upgradable.sol",
       "solcConfig": {
@@ -1749,7 +1749,7 @@
       ]
     },
     "/home/nkt/Desktop/cityInvest/SmartContracts/contracts/managers/transactionFees/TransactionFeesManager.sol": {
-      "lastModificationDate": 1656989945299,
+      "lastModificationDate": 1657037394893,
       "contentHash": "0dd26eca0b50d09013a760fef5cdf318",
       "sourceName": "contracts/managers/transactionFees/TransactionFeesManager.sol",
       "solcConfig": {
@@ -1789,7 +1789,7 @@
       ]
     },
     "/home/nkt/Desktop/cityInvest/SmartContracts/contracts/models/TransactionFees.sol": {
-      "lastModificationDate": 1656989945295,
+      "lastModificationDate": 1657037394893,
       "contentHash": "038572f2f5c1885f736e19f02f562b76",
       "sourceName": "contracts/models/TransactionFees.sol",
       "solcConfig": {
@@ -1823,7 +1823,7 @@
       "artifacts": []
     },
     "/home/nkt/Desktop/cityInvest/SmartContracts/contracts/MetaStocksToken.sol": {
-      "lastModificationDate": 1656989945295,
+      "lastModificationDate": 1657037394889,
       "contentHash": "a6d67ae65d211387bac2a7a15f1663a4",
       "sourceName": "contracts/MetaStocksToken.sol",
       "solcConfig": {
@@ -1869,7 +1869,7 @@
       ]
     },
     "/home/nkt/Desktop/cityInvest/SmartContracts/contracts/interfaces/dexRouter/IAutoLiquidityInjecter.sol": {
-      "lastModificationDate": 1656989945295,
+      "lastModificationDate": 1657037394893,
       "contentHash": "f4a9324a99f37b89cf5db400c5037f19",
       "sourceName": "contracts/interfaces/dexRouter/IAutoLiquidityInjecter.sol",
       "solcConfig": {
@@ -1905,7 +1905,7 @@
       ]
     },
     "/home/nkt/Desktop/cityInvest/SmartContracts/contracts/MetaStocksCompany.sol": {
-      "lastModificationDate": 1656989945295,
+      "lastModificationDate": 1657037394889,
       "contentHash": "bd1968387de2def7b430e0eea91329ab",
       "sourceName": "contracts/MetaStocksCompany.sol",
       "solcConfig": {
@@ -2331,7 +2331,7 @@
       ]
     },
     "/home/nkt/Desktop/cityInvest/SmartContracts/contracts/Messagers/TykheFortuneDistributor.sol": {
-      "lastModificationDate": 1656989945299,
+      "lastModificationDate": 1657037394889,
       "contentHash": "4002fde587d0710e75bd98a181b39948",
       "sourceName": "contracts/Messagers/TykheFortuneDistributor.sol",
       "solcConfig": {
@@ -2445,7 +2445,7 @@
       ]
     },
     "/home/nkt/Desktop/cityInvest/SmartContracts/contracts/Messagers/HermesMerkleAirdropDistributor.sol": {
-      "lastModificationDate": 1656989945299,
+      "lastModificationDate": 1657037394889,
       "contentHash": "7e946c095913d5d24be5b88bdbd58d90",
       "sourceName": "contracts/Messagers/HermesMerkleAirdropDistributor.sol",
       "solcConfig": {
@@ -2521,7 +2521,7 @@
       ]
     },
     "/home/nkt/Desktop/cityInvest/SmartContracts/contracts/managers/metastocks/MetaStocksFranchiseManager.sol": {
-      "lastModificationDate": 1656998019635,
+      "lastModificationDate": 1657037394893,
       "contentHash": "1c0d2e7d1911e814a055bfa551c8526a",
       "sourceName": "contracts/managers/metastocks/MetaStocksFranchiseManager.sol",
       "solcConfig": {
@@ -2572,7 +2572,7 @@
       ]
     },
     "/home/nkt/Desktop/cityInvest/SmartContracts/contracts/interfaces/metaStocks/IMetaStocksFranchise.sol": {
-      "lastModificationDate": 1656989945295,
+      "lastModificationDate": 1657037394893,
       "contentHash": "dcefaf39913c64e41fddbfdb80dfd491",
       "sourceName": "contracts/interfaces/metaStocks/IMetaStocksFranchise.sol",
       "solcConfig": {
@@ -2610,7 +2610,7 @@
       ]
     },
     "/home/nkt/Desktop/cityInvest/SmartContracts/contracts/tokens/MetaStocksIERC721ReceiverHolder.sol": {
-      "lastModificationDate": 1656997079351,
+      "lastModificationDate": 1657037394897,
       "contentHash": "97bc96fa3847007d8c76232acd7351a3",
       "sourceName": "contracts/tokens/MetaStocksIERC721ReceiverHolder.sol",
       "solcConfig": {
@@ -2650,7 +2650,7 @@
       ]
     },
     "/home/nkt/Desktop/cityInvest/SmartContracts/contracts/managers/metastocks/MetaStocksCompanyManager.sol": {
-      "lastModificationDate": 1656997664293,
+      "lastModificationDate": 1657037394893,
       "contentHash": "60fcc3e980f915b90167efd3f6b21ee4",
       "sourceName": "contracts/managers/metastocks/MetaStocksCompanyManager.sol",
       "solcConfig": {
@@ -2696,7 +2696,7 @@
       ]
     },
     "/home/nkt/Desktop/cityInvest/SmartContracts/contracts/interfaces/metaStocks/IMetaStocksFranchiseManager.sol": {
-      "lastModificationDate": 1656996287124,
+      "lastModificationDate": 1657037394893,
       "contentHash": "3a6dbf6dcd08de0c24607c032af9dfa9",
       "sourceName": "contracts/interfaces/metaStocks/IMetaStocksFranchiseManager.sol",
       "solcConfig": {
@@ -2734,7 +2734,7 @@
       ]
     },
     "/home/nkt/Desktop/cityInvest/SmartContracts/contracts/managers/metastocks/MetaStocksAchievementsManager.sol": {
-      "lastModificationDate": 1656989945299,
+      "lastModificationDate": 1657037394893,
       "contentHash": "295daec8ebe7349a67aa3ef0847bce69",
       "sourceName": "contracts/managers/metastocks/MetaStocksAchievementsManager.sol",
       "solcConfig": {
@@ -2773,7 +2773,7 @@
       ]
     },
     "/home/nkt/Desktop/cityInvest/SmartContracts/contracts/interfaces/midas/IMidasMultiNetworkRouterManager.sol": {
-      "lastModificationDate": 1656989945299,
+      "lastModificationDate": 1657037394893,
       "contentHash": "c539d3c6f1610ce6ace12d7dc8aceaef",
       "sourceName": "contracts/interfaces/midas/IMidasMultiNetworkRouterManager.sol",
       "solcConfig": {
@@ -2811,7 +2811,7 @@
       ]
     },
     "/home/nkt/Desktop/cityInvest/SmartContracts/contracts/Messagers/HermesDividendTracker.sol": {
-      "lastModificationDate": 1656989945299,
+      "lastModificationDate": 1657037394889,
       "contentHash": "f8aa00935d274ff8c16f75db154eaf4c",
       "sourceName": "contracts/Messagers/HermesDividendTracker.sol",
       "solcConfig": {
@@ -2856,7 +2856,7 @@
       ]
     },
     "/home/nkt/Desktop/cityInvest/SmartContracts/contracts/MetaStocksFranchise.sol": {
-      "lastModificationDate": 1656989945295,
+      "lastModificationDate": 1657037394889,
       "contentHash": "c185e18533b7e1527a7893793a4f7ad2",
       "sourceName": "contracts/MetaStocksFranchise.sol",
       "solcConfig": {
@@ -2895,7 +2895,7 @@
       ]
     },
     "/home/nkt/Desktop/cityInvest/SmartContracts/contracts/interfaces/metaStocks/IMetaStocksFranchiseShareManager.sol": {
-      "lastModificationDate": 1656989945295,
+      "lastModificationDate": 1657037394893,
       "contentHash": "a6f01112e365ae02b4ad370f8baa019c",
       "sourceName": "contracts/interfaces/metaStocks/IMetaStocksFranchiseShareManager.sol",
       "solcConfig": {
@@ -2933,7 +2933,7 @@
       ]
     },
     "/home/nkt/Desktop/cityInvest/SmartContracts/contracts/interfaces/metaStocks/IMetaStocksBaseManager.sol": {
-      "lastModificationDate": 1656989945295,
+      "lastModificationDate": 1657037394893,
       "contentHash": "f63e5f8e399064e5658362b7aee24387",
       "sourceName": "contracts/interfaces/metaStocks/IMetaStocksBaseManager.sol",
       "solcConfig": {
@@ -2969,7 +2969,7 @@
       ]
     },
     "/home/nkt/Desktop/cityInvest/SmartContracts/contracts/interfaces/metaStocks/IMetaStocksCompanyInfo.sol": {
-      "lastModificationDate": 1656989945295,
+      "lastModificationDate": 1657037394893,
       "contentHash": "60c4ec63754be3c368bb2d42b3a2fed4",
       "sourceName": "contracts/interfaces/metaStocks/IMetaStocksCompanyInfo.sol",
       "solcConfig": {
@@ -3005,7 +3005,7 @@
       ]
     },
     "/home/nkt/Desktop/cityInvest/SmartContracts/contracts/interfaces/metaStocks/IMetaStocksCompanyManager.sol": {
-      "lastModificationDate": 1656989945295,
+      "lastModificationDate": 1657037394893,
       "contentHash": "deb357c5111b694468a083646f66cf55",
       "sourceName": "contracts/interfaces/metaStocks/IMetaStocksCompanyManager.sol",
       "solcConfig": {
@@ -3041,7 +3041,7 @@
       ]
     },
     "/home/nkt/Desktop/cityInvest/SmartContracts/contracts/interfaces/midas/IMidaDataFeedsConsumer.sol": {
-      "lastModificationDate": 1656989945299,
+      "lastModificationDate": 1657037394893,
       "contentHash": "ddeb6bb261e179805db9f8b98630e392",
       "sourceName": "contracts/interfaces/midas/IMidaDataFeedsConsumer.sol",
       "solcConfig": {
@@ -3077,7 +3077,7 @@
       ]
     },
     "/home/nkt/Desktop/cityInvest/SmartContracts/contracts/interfaces/midas/IMidasManager.sol": {
-      "lastModificationDate": 1656989945299,
+      "lastModificationDate": 1657037394893,
       "contentHash": "b79220f014745d46f953d8e6b4e43e91",
       "sourceName": "contracts/interfaces/midas/IMidasManager.sol",
       "solcConfig": {
@@ -3113,7 +3113,7 @@
       ]
     },
     "/home/nkt/Desktop/cityInvest/SmartContracts/contracts/managers/chainlink/ChainlinkVRFManager.sol": {
-      "lastModificationDate": 1656989945299,
+      "lastModificationDate": 1657037394893,
       "contentHash": "8cacae46c17d65bee655e2af69c18f48",
       "sourceName": "contracts/managers/chainlink/ChainlinkVRFManager.sol",
       "solcConfig": {
@@ -3187,7 +3187,7 @@
       ]
     },
     "/home/nkt/Desktop/cityInvest/SmartContracts/contracts/Messagers/interfaces/IHermesMerkleAirdrop.sol": {
-      "lastModificationDate": 1656989945299,
+      "lastModificationDate": 1657037394889,
       "contentHash": "f4a9324a99f37b89cf5db400c5037f19",
       "sourceName": "contracts/Messagers/interfaces/IHermesMerkleAirdrop.sol",
       "solcConfig": {
@@ -3223,7 +3223,7 @@
       ]
     },
     "/home/nkt/Desktop/cityInvest/SmartContracts/contracts/Messagers/interfaces/ITykheFortuneDistributor.sol": {
-      "lastModificationDate": 1656989945299,
+      "lastModificationDate": 1657037394889,
       "contentHash": "882d7fafac0f77c378570590ed38c6ce",
       "sourceName": "contracts/Messagers/interfaces/ITykheFortuneDistributor.sol",
       "solcConfig": {
@@ -3259,7 +3259,7 @@
       ]
     },
     "/home/nkt/Desktop/cityInvest/SmartContracts/contracts/models/FeeReceiver.sol": {
-      "lastModificationDate": 1656989945295,
+      "lastModificationDate": 1657037394893,
       "contentHash": "1470d037ac74fd40a335de5d712c53f8",
       "sourceName": "contracts/models/FeeReceiver.sol",
       "solcConfig": {
@@ -3293,7 +3293,7 @@
       "artifacts": []
     },
     "/home/nkt/Desktop/cityInvest/SmartContracts/contracts/models/MetaStockCompanyInfo.sol": {
-      "lastModificationDate": 1656989945295,
+      "lastModificationDate": 1657037394893,
       "contentHash": "fc81aa32928797dcbee3911e3833ae13",
       "sourceName": "contracts/models/MetaStockCompanyInfo.sol",
       "solcConfig": {
@@ -3327,7 +3327,7 @@
       "artifacts": []
     },
     "/home/nkt/Desktop/cityInvest/SmartContracts/contracts/tokens/MetaStocksSBT.sol": {
-      "lastModificationDate": 1656989945303,
+      "lastModificationDate": 1657037394897,
       "contentHash": "0de0b6718551c7cebfb704c8cfe559ab",
       "sourceName": "contracts/tokens/MetaStocksSBT.sol",
       "solcConfig": {

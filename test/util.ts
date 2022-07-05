@@ -170,7 +170,7 @@ export const deployProxy = async (contractName: string, args: string[] = []): Pr
     const token = await contract.deployed()
     const implAddress = await getImplementationAddress(ethers.provider, token.address);
     await updateABI(contractName)
-    await verify(implAddress, args)
+    //await verify(implAddress, args)
     console.log(contractName, token.address, implAddress)
     return token
 }
@@ -435,15 +435,18 @@ export const bscTestnet = {
     BUSD: '0x78867BbEeF44f2326bF8DDd1941a4439382EF2A7',
 }
 
-export const verify = async (contractAddress: string, args: any[] = []) => {
+export const verify = async (contractAddress: string, contractName: string, args: any[] = []) => {
     // @ts-ignore
     if (network == 'localhost' || network == 'hardhat') return
     try {
+        await updateABI(contractName)
         await hre.run("verify:verify", {
             address: contractAddress,
             constructorArguments: args,
         });
     } catch (ex) {
+        console.log(ex);
+
     }
 }
 

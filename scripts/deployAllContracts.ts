@@ -67,7 +67,7 @@ async function main(): Promise<void> {
             ethers.provider,
             metaStocksToken.address
         )
-        test_util.verify(metaStocksToken.address, ["MetaStocksToken", "MST", parseEther("1000000")])
+        test_util.verify(metaStocksTokenImplementationAddress, "MetaStocksToken")
 
         console.log(`${colors.cyan(contractName + 'ProxyAddress: ')} ${colors.yellow(metaStocksToken.address)}`)
         console.log(`${colors.cyan(contractName + 'ImplAddress: ')} ${colors.yellow(metaStocksTokenImplementationAddress)}`)
@@ -82,7 +82,7 @@ async function main(): Promise<void> {
             ethers.provider,
             metaStocksCompany.address
         )
-        test_util.verify(metaStocksCompany.address)
+        test_util.verify(metaStocksCompanyImplementationAddress, "MetaStocksCompany")
 
         console.log(`${colors.cyan(contractName + ' Proxy Address: ')} ${colors.yellow(metaStocksCompany.address)}`)
         console.log(`${colors.cyan(contractName + ' Implementation Address: ')} ${colors.yellow(metaStocksCompanyImplementationAddress)}`)
@@ -97,7 +97,7 @@ async function main(): Promise<void> {
             ethers.provider,
             metaStocksFranchise.address
         )
-        test_util.verify(metaStocksFranchise.address)
+        test_util.verify(metaStocksFranchiseImplementationAddress, "MetaStocksFranchise")
 
         console.log(`${colors.cyan(contractName + ' Proxy Address: ')} ${colors.yellow(metaStocksFranchise.address)}`)
         console.log(`${colors.cyan(contractName + ' Implementation Address: ')} ${colors.yellow(metaStocksFranchiseImplementationAddress)}`)
@@ -112,7 +112,7 @@ async function main(): Promise<void> {
             ethers.provider,
             metaStocksFranchise.address
         )
-        test_util.verify(metaStocksFranchiseManager.address)
+        test_util.verify(metaStocksFranchiseManagerImplementationAddress, "MetaStocksFranchiseManager")
 
         console.log(`${colors.cyan(contractName + ' Proxy Address: ')} ${colors.yellow(metaStocksFranchiseManager.address)}`)
         console.log(`${colors.cyan(contractName + ' Implementation Address: ')} ${colors.yellow(metaStocksFranchiseManagerImplementationAddress)}`)
@@ -127,7 +127,7 @@ async function main(): Promise<void> {
             ethers.provider,
             metaStocksCompanyManager.address
         )
-        test_util.verify(metaStocksCompanyManager.address)
+        test_util.verify(metaStocksCompanyManagerImplementationAddress, "MetaStocksCompanyManager")
 
         console.log(`${colors.cyan(contractName + ' Proxy Address: ')} ${colors.yellow(metaStocksCompanyManager.address)}`)
         console.log(`${colors.cyan(contractName + ' Implementation Address: ')} ${colors.yellow(metaStocksCompanyManagerImplementationAddress)}`)

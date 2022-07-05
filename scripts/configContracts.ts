@@ -32,11 +32,11 @@ async function main(): Promise<void> {
         bob = signers[1];
         alice = signers[2];
 
-        const metaStocksToken = await ethers.getContractAt("MetaStocksToken", '0x803F2C9606a35974b3F9E05e17A7adFF38A8FCB9');
-        //const metaStocksCompany = await ethers.getContractAt("MetaStocksCompany", '0x2b1962CFCD231D48bBD290f77Fb433827196384d');
-        //const metaStocksFranchise = await ethers.getContractAt("MetaStocksFranchise", '0xdd1F77340D82f2F5ED5Bf77963D1C994A8AF7885');
-        const metaStocksFranchiseManager = await ethers.getContractAt("MetaStocksFranchiseManager", '0x419f033AFA97DD568738Eae9EaE27aD90a7d3a0A');
-        //const metaStocksCompanyManager = await ethers.getContractAt("MetaStocksCompanyManager", '0x5Fc01c005189DDeed527EfD9e1A929a84B7917c5');
+        const metaStocksToken = await ethers.getContractAt("MetaStocksToken", '0x4BE17326cdC7501C0cf84ccD7788e37c498379BB');
+        //const metaStocksCompany = await ethers.getContractAt("MetaStocksCompany", '0xd12194AF69833Ea624FF7ACd3226661d35255DfF');
+        //const metaStocksFranchise = await ethers.getContractAt("MetaStocksFranchise", '0x1d65B22DcEf09a701494318f03735B7afd5CdA96');
+        const metaStocksFranchiseManager = await ethers.getContractAt("MetaStocksFranchiseManager", '0xE925F6a07B4c8F09d99908477EF7C2EBFAfE857d');
+        //const metaStocksCompanyManager = await ethers.getContractAt("MetaStocksCompanyManager", '0xCa83053A7C08Bdebc9a997F6B3a052be4132E278');
 
 
         //await metaStocksCompany.connect(deployer).transferOwnership(metaStocksCompanyManager.address);
