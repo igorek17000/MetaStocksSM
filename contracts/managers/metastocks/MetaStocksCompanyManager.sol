@@ -82,7 +82,7 @@ contract MetaStocksCompanyManager is
         }
 
         metaStocksFranchiseManager.createMetaStocksFranchiseUsingBNB(
-            address(MetaStocksCompany),
+            address(metaStocksFranchiseManager),
             this.getCompanyId(msg.sender),
             0,
             MetaStocksFranchiseType.MetaStocksFranchiseType1

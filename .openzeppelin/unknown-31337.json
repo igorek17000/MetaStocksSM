@@ -1,90 +1,115 @@
 {
   "manifestVersion": "3.2",
   "admin": {
-    "address": "0x6164eC62C3c1F8e273E59C4C7BC96d835c64CA70",
-    "txHash": "0x3192ddee02a8dc200c0915596891213e1387a882183a00731b7ef40bdc805c69"
+    "address": "0xeF5DC50bBb5251D2653bE5A13a56e73DCA9D1A9b",
+    "txHash": "0x0a2a562c53af153f6b0b075210c03f4bbdf5f3dd640b60e7a70ddc9f82de2b43"
   },
   "proxies": [
     {
-      "address": "0x809816c731356D238E44A02fec172F6f0eF0B040",
-      "txHash": "0xbb2e7ef44765b806591c5027635374c4e0bad77a89b10746236354e69964a165",
+      "address": "0x10fabb48A081043970042651063b96D6FD43765E",
+      "txHash": "0xaade244aa080f7277a087ab6f77fb2d699999e625417896d298a3eff09dcdd89",
       "kind": "transparent"
     },
     {
-      "address": "0x89A019bD00Bd09041C77eebf1aE5e49AbD954543",
-      "txHash": "0xf48902319455da9f45f35a2ee39d0bc30a6839f02748719eba73035f778fd6d3",
+      "address": "0x03C4ED687508c709B497a4E8E699dCBA66Bf01EB",
+      "txHash": "0x7b81a37bff7c3abdccab63feea093b098ffef59f9fa0d588d86593629330a458",
       "kind": "transparent"
     },
     {
-      "address": "0xA14A93bb926995Eca159a257b1E3b8480053B7DA",
-      "txHash": "0x5be2fde7c10db0a02b65e031b5b26430a04b2f2b47e43bb69316dd38a83667bb",
+      "address": "0xff7Ad1218aF98C88a55f45Ed382C964832AaECa2",
+      "txHash": "0x9c2be5cacbdb02f245d9dfed3eff3ec3fc5d9cf700aeffd61d1569070552c52e",
       "kind": "transparent"
     },
     {
-      "address": "0x00c80595A3ACc5cF0130CB9475d4d601251Df8a7",
-      "txHash": "0xc815bd668f6b35f3985bf8fc98723decef49cbf40f652656ca734adcc4d460ab",
+      "address": "0xE78E0cD626C1aC18983aC4B4d70Ec46B73D59979",
+      "txHash": "0xd81c40fd9f33653980a46b2174d1e89112b2f9f5fddc4feffa01169377940dcc",
       "kind": "transparent"
     },
     {
-      "address": "0x0E9de6862204730d9d81DcCaFB0294158e6929ef",
-      "txHash": "0x97542a1c17a18675e56e7d25d8a23858186fc4fa82abfde920cee5658fd188b7",
+      "address": "0x80defF75bd86addbb88C47dc0Ebb267ce3c69166",
+      "txHash": "0x8b927f59bb886cdf293c6ba3b85b60a2e3bf546019509fd452df3594b7f098e2",
       "kind": "transparent"
     },
     {
-      "address": "0x21255Ae6AEEFdF6F5d99BF2c04C0eEb818254348",
-      "txHash": "0x4c5b441de1f9811f242b038090785dc29bc930708d3526ca1b0da7eaf552b87b",
+      "address": "0x8D330249374B2466e6Cf25DEf5f632E24F5c2305",
+      "txHash": "0x12ea03cd8c8f77a18bc6658ef5661a5c829bca1566fec1fc7af785a22993d2c4",
       "kind": "transparent"
     },
     {
-      "address": "0xF13B159BD28512621F9E8af94CDbEF1dfA432F6E",
-      "txHash": "0x731b88e8157ca86a5201734c65f003d15981d3204ba150793204516958a7c601",
+      "address": "0x46965b86D806978103c54d506126E7862e208c3D",
+      "txHash": "0xb193eb61ffdd4820a21f3e84749fa4a899980625d7e18bc5ebd07faf33d5d4f7",
       "kind": "transparent"
     },
     {
-      "address": "0xd388346Ab9A1f4F12F783fB512778F40fFC544b8",
-      "txHash": "0x7a18fa45b4ab3dbb1412f2978dcbebefded27a565ff32b191d953f91daf819ea",
+      "address": "0xa34670444bae16a389587A5EB7507ead771Fc124",
+      "txHash": "0x25c5d70f6262fbcf3e0f045e4ccfbdf3eaf4ff37aefaf2e9e7dbef1363ace1b7",
       "kind": "transparent"
     },
     {
-      "address": "0xA2fBCd409c8A486D8e34150D5352Cd8299DC037d",
-      "txHash": "0xf4708369e04bb3bdb845390a9660af976094cabf6a4fffa375e25ad00ba1cfa7",
+      "address": "0xAaACC11af307933C9F74215fD6C6Ce875515C3C6",
+      "txHash": "0x2fc87f7a37bae96677664188ba7a2cf0ddb65c0b94105b281677cea2e87debf9",
       "kind": "transparent"
     },
     {
-      "address": "0x72AC313E0C2d2a1ddf2C648f3CAb79FF6ceF462C",
-      "txHash": "0x8d81bf5ee3183f08b1bdc9d81a038740da9d0b164297c1d587ea47fed4b8fba5",
+      "address": "0x2Ea6EA01ceDb8B09978bc926e51257819FB800dA",
+      "txHash": "0x1e584d08e9e03cea4ea92467ce9a655d997d4e5b50de124ea731fde2e7678bb4",
       "kind": "transparent"
     },
     {
-      "address": "0x222a6E4E4796Fb50e67dF18B1cf62E62311965ad",
-      "txHash": "0xec5571542b4d807e0776479128d58d3a5be83c53d1de6e08ed6a96112c51f060",
+      "address": "0x2784F624B2f8DaE1F0e9f4eb9899C07b6DD11E2C",
+      "txHash": "0x9eed5fe486c02bfadb5fe61a87e1fa25d189081c4d4193eda741be3476c1d545",
       "kind": "transparent"
     },
     {
-      "address": "0x9CEDB51a11B1316a4BDB165364d3d61d8ace6636",
-      "txHash": "0x7106dcfb5b893b5ac452c54f65a25593f09a462313ce8819e6ec88f63bbf9f0e",
+      "address": "0xF81f1C4297aecC9a34C44eC1746edcFec62649f6",
+      "txHash": "0x5f55bed5fe9c7a002fb848b0c11400769e42d3377cbcc770a4f9f588c7ebc7a5",
       "kind": "transparent"
     },
     {
-      "address": "0x7cB7f656FdFB797fb03825916352a294038dbf7c",
-      "txHash": "0x6f21b5465c7feb73b560f345176537483b149d47aab68cf4933ac47778249c46",
+      "address": "0x7C6811AefD13B3EF31DeCD7FD764f19cA5efB773",
+      "txHash": "0x18c3098d0a1aa1c4c8c46d1313c82947b734e7559b0a1186aab5c39dcaaafe8b",
       "kind": "transparent"
     },
     {
-      "address": "0xb31f7C0e8790480F65F55A03Ffe0Db025E0B94A9",
-      "txHash": "0x8d9c5010a926f33fb0cb7eb9e82c93a151f280721542d24a82ed167d9f6297d0",
+      "address": "0x8eABa84F2f726Fa9C35CdaA846D0abbbEE6379fC",
+      "txHash": "0xea768889a5e5e4b6fab3ce09a32be82d37468e11d722637f4608cca4d375271c",
       "kind": "transparent"
     },
     {
-      "address": "0x5D4c89f9B90A522744021926810D15BDa66a76dE",
-      "txHash": "0x152aac8a728b26fde818b9bd4a937c3b91d7ec2f070521cab89e315f79b3f6a9",
+      "address": "0x90feEefA5c3E5b5D2DC0ce3a55Cd4f9126987332",
+      "txHash": "0x5a0aa1ba2951da394563fa5803027b47be35688ffd6bb774e9fc511b87c1dbe3",
+      "kind": "transparent"
+    },
+    {
+      "address": "0xeEE809FFc8E7d271EAAB46b7aA26D0Ffa6198BD9",
+      "txHash": "0xd1e214caa5d29e9eac8f211dfcc518b6985beec91e7cefc0f38401f233cbb2a6",
+      "kind": "transparent"
+    },
+    {
+      "address": "0xA6FfEf5BD8523903aD5aDbD3552172CD3d8818b5",
+      "txHash": "0xd47ea1529e0cc63f9af371d36f9bdca1a3c9b79f22aaaa02206fabdb4e17dbc9",
+      "kind": "transparent"
+    },
+    {
+      "address": "0xab74Eb34116eA4223eaFc6701E6E8f06eD0711cc",
+      "txHash": "0xb87023dccee02cc7d704cf0133de66ec0dafcf90f0fc7c30b902949dd6743f1c",
+      "kind": "transparent"
+    },
+    {
+      "address": "0x7eB341096Ca95BB4F227A10daEd9c413F2F60Ca2",
+      "txHash": "0xa44ddaba9a42085c98cf8fee96c2b0561418c9239cdb46b284af8d6f11147e10",
+      "kind": "transparent"
+    },
+    {
+      "address": "0xb3e0586F61a2dC5C1055528f0939E2fbDcE38Ad0",
+      "txHash": "0x32d9513165aa62208509f72716dac7b4d196189416727ed7ef478ff9bca10b39",
       "kind": "transparent"
     }
   ],
   "impls": {
     "26df33e1739e66462521656f6b3ff3d730ce6a6e259c9f58dd32389fece3667c": {
-      "address": "0x14b2580D8c0126206A47fB6E0b9D04ca9b0a68Af",
-      "txHash": "0x8a144953435ca5acdbedb2a5382df83b69effa7cf780ed31d794bb92a285f042",
+      "address": "0x3C60E78dF623AeF194c7f99Cb093054174259FDf",
+      "txHash": "0x2248b0cfacc5d4bf6581f0dbfe53adf984882cf268dfbc84114cdc21acae57ea",
       "layout": {
         "storage": [
           {
@@ -236,7 +261,7 @@
             "label": "transactionFeesManager",
             "offset": 2,
             "slot": "156",
-            "type": "t_contract(TransactionFeesManager)13535",
+            "type": "t_contract(TransactionFeesManager)13519",
             "contract": "MetaStocksERC20Upgradable",
             "src": "contracts/tokens/MetaStocksERC20Upgradable.sol:22"
           },
@@ -244,7 +269,7 @@
             "label": "midasMultinetworkRouterManager",
             "offset": 0,
             "slot": "157",
-            "type": "t_contract(MidasMultinetworkRouterManager)13375",
+            "type": "t_contract(MidasMultinetworkRouterManager)13359",
             "contract": "MetaStocksERC20Upgradable",
             "src": "contracts/tokens/MetaStocksERC20Upgradable.sol:24"
           },
@@ -278,11 +303,11 @@
             "label": "bool",
             "numberOfBytes": "1"
           },
-          "t_contract(MidasMultinetworkRouterManager)13375": {
+          "t_contract(MidasMultinetworkRouterManager)13359": {
             "label": "contract MidasMultinetworkRouterManager",
             "numberOfBytes": "20"
           },
-          "t_contract(TransactionFeesManager)13535": {
+          "t_contract(TransactionFeesManager)13519": {
             "label": "contract TransactionFeesManager",
             "numberOfBytes": "20"
           },
@@ -314,8 +339,8 @@
       }
     },
     "5a936c75c8567e57ab236e3c466c1788535a30a178821504f68892b305a998f8": {
-      "address": "0x8db3E66F8b65afFa37fA156E2B4084e604D77822",
-      "txHash": "0x7298061d51bd300438fdfb502a9162ab96f7b1b7f1a18813349afbca468e9976",
+      "address": "0x900b4a9cc62e23e6E512047D137e268A0c62323c",
+      "txHash": "0x9b0f2628c1bdde0c30b0b71cf941b6b230619e219c662cd8259e2ebcede7c338",
       "layout": {
         "storage": [
           {
@@ -513,8 +538,8 @@
       }
     },
     "e110cdca5f20045b2ccefd41ad23bf9f5a17a2ec6de07921fb7c40ac3f6f4203": {
-      "address": "0x90fD274dEE888E7a0F8Dd16A1F845654C3B69E18",
-      "txHash": "0xdce43e097b21fceddbd34129997fea5c5513a1c18aeaca9eb0f0e2cfcccc05d8",
+      "address": "0xBE4Ff76b8daA69258E9293508916252036DE843E",
+      "txHash": "0x812451e0c84455b7af6035ca75fb7beb3c0e8a6d757cde1903946084304c4c4a",
       "layout": {
         "storage": [
           {
@@ -695,9 +720,9 @@
         }
       }
     },
-    "2ceb46222beec602f23decc302b4486631fdb8467c1bac694fe4cb9635c15bc4": {
-      "address": "0xB34C726fBe9F1D5E7827121F9389eA50C3623305",
-      "txHash": "0x76734e10371b3c78ee077b0ff9c14bb7d678029ff91f53f69c52971dee2ab143",
+    "62587210bf268b1d216033d863ca3d453bc024a8130efd2de30bdcf4a21716ce": {
+      "address": "0x6757a146514557b42Aee730246bc4Ce174A0e4fc",
+      "txHash": "0xf512e2ea23409d623e815f8e91dc1d530a39962439ce0449fee28130183ca58b",
       "layout": {
         "storage": [
           {
@@ -857,7 +882,7 @@
             "label": "midasMultinetworkRouterManager",
             "offset": 0,
             "slot": "159",
-            "type": "t_contract(MidasMultinetworkRouterManager)13375",
+            "type": "t_contract(MidasMultinetworkRouterManager)13359",
             "contract": "MetaStocksFranchiseManager",
             "src": "contracts/managers/metastocks/MetaStocksFranchiseManager.sol:33"
           },
@@ -935,7 +960,7 @@
             "label": "contract IMetaStocksFranchise",
             "numberOfBytes": "20"
           },
-          "t_contract(MidasMultinetworkRouterManager)13375": {
+          "t_contract(MidasMultinetworkRouterManager)13359": {
             "label": "contract MidasMultinetworkRouterManager",
             "numberOfBytes": "20"
           },
@@ -970,9 +995,9 @@
         }
       }
     },
-    "c63150f7bde1c3a1d2d3ec8b4f5a1c492befc7a8646d64cdf9a8cf3ef5121978": {
-      "address": "0x6ff3bf8BfcD00447D740811de9477999172D9F03",
-      "txHash": "0xbaed003014ce19683681852b73ea6484d131241b86c3755c18034fb4bfde7b0f",
+    "d7c3e91d31ce255f804140b99ba1b96ff9fd5bd94e9d69d50e5d6b74a38d4b3b": {
+      "address": "0xf1fe36aA6f7Fd6d2B14Bde82503ffD22189CCBBD",
+      "txHash": "0x4e68272507280457a6a066965eda9bfa6b5b23c5140f841d70469fbe8e11e9ac",
       "layout": {
         "storage": [
           {
@@ -1156,6 +1181,281 @@
           },
           "t_mapping(t_uint256,t_address)": {
             "label": "mapping(uint256 => address)",
+            "numberOfBytes": "32"
+          },
+          "t_string_storage": {
+            "label": "string",
+            "numberOfBytes": "32"
+          },
+          "t_uint256": {
+            "label": "uint256",
+            "numberOfBytes": "32"
+          },
+          "t_uint8": {
+            "label": "uint8",
+            "numberOfBytes": "1"
+          }
+        }
+      }
+    },
+    "5d943a94a32b34ea5fbdcad643f35d90cfc113680ca8ec63b6e583da9bb29cab": {
+      "address": "0x79871d84174D810307740af82f802134479fecBd",
+      "txHash": "0x750e95a4dab8339036233445a98792c01e5967e64f676af03db29c5756b1369d",
+      "layout": {
+        "storage": [
+          {
+            "label": "_initialized",
+            "offset": 0,
+            "slot": "0",
+            "type": "t_uint8",
+            "contract": "Initializable",
+            "src": "@openzeppelin/contracts-upgradeable/proxy/utils/Initializable.sol:62",
+            "retypedFrom": "bool"
+          },
+          {
+            "label": "_initializing",
+            "offset": 1,
+            "slot": "0",
+            "type": "t_bool",
+            "contract": "Initializable",
+            "src": "@openzeppelin/contracts-upgradeable/proxy/utils/Initializable.sol:67"
+          },
+          {
+            "label": "__gap",
+            "offset": 0,
+            "slot": "1",
+            "type": "t_array(t_uint256)50_storage",
+            "contract": "ContextUpgradeable",
+            "src": "@openzeppelin/contracts-upgradeable/utils/ContextUpgradeable.sol:36"
+          },
+          {
+            "label": "_balances",
+            "offset": 0,
+            "slot": "51",
+            "type": "t_mapping(t_address,t_uint256)",
+            "contract": "ERC20Upgradeable",
+            "src": "@openzeppelin/contracts-upgradeable/token/ERC20/ERC20Upgradeable.sol:37"
+          },
+          {
+            "label": "_allowances",
+            "offset": 0,
+            "slot": "52",
+            "type": "t_mapping(t_address,t_mapping(t_address,t_uint256))",
+            "contract": "ERC20Upgradeable",
+            "src": "@openzeppelin/contracts-upgradeable/token/ERC20/ERC20Upgradeable.sol:39"
+          },
+          {
+            "label": "_totalSupply",
+            "offset": 0,
+            "slot": "53",
+            "type": "t_uint256",
+            "contract": "ERC20Upgradeable",
+            "src": "@openzeppelin/contracts-upgradeable/token/ERC20/ERC20Upgradeable.sol:41"
+          },
+          {
+            "label": "_name",
+            "offset": 0,
+            "slot": "54",
+            "type": "t_string_storage",
+            "contract": "ERC20Upgradeable",
+            "src": "@openzeppelin/contracts-upgradeable/token/ERC20/ERC20Upgradeable.sol:43"
+          },
+          {
+            "label": "_symbol",
+            "offset": 0,
+            "slot": "55",
+            "type": "t_string_storage",
+            "contract": "ERC20Upgradeable",
+            "src": "@openzeppelin/contracts-upgradeable/token/ERC20/ERC20Upgradeable.sol:44"
+          },
+          {
+            "label": "__gap",
+            "offset": 0,
+            "slot": "56",
+            "type": "t_array(t_uint256)45_storage",
+            "contract": "ERC20Upgradeable",
+            "src": "@openzeppelin/contracts-upgradeable/token/ERC20/ERC20Upgradeable.sol:394"
+          },
+          {
+            "label": "_owner",
+            "offset": 0,
+            "slot": "101",
+            "type": "t_address",
+            "contract": "OwnableUpgradeable",
+            "src": "@openzeppelin/contracts-upgradeable/access/OwnableUpgradeable.sol:22"
+          },
+          {
+            "label": "__gap",
+            "offset": 0,
+            "slot": "102",
+            "type": "t_array(t_uint256)49_storage",
+            "contract": "OwnableUpgradeable",
+            "src": "@openzeppelin/contracts-upgradeable/access/OwnableUpgradeable.sol:87"
+          },
+          {
+            "label": "metaStocksFranchise",
+            "offset": 0,
+            "slot": "151",
+            "type": "t_contract(IMetaStocksFranchise)10483",
+            "contract": "MetaStocksFranchiseManager",
+            "src": "contracts/managers/metastocks/MetaStocksFranchiseManager.sol:25"
+          },
+          {
+            "label": "createFranchisePrice",
+            "offset": 0,
+            "slot": "152",
+            "type": "t_uint256",
+            "contract": "MetaStocksFranchiseManager",
+            "src": "contracts/managers/metastocks/MetaStocksFranchiseManager.sol:26"
+          },
+          {
+            "label": "hireWorkerFranchisePrice",
+            "offset": 0,
+            "slot": "153",
+            "type": "t_uint256",
+            "contract": "MetaStocksFranchiseManager",
+            "src": "contracts/managers/metastocks/MetaStocksFranchiseManager.sol:27"
+          },
+          {
+            "label": "maintainceFranchiseExpenses",
+            "offset": 0,
+            "slot": "154",
+            "type": "t_uint256",
+            "contract": "MetaStocksFranchiseManager",
+            "src": "contracts/managers/metastocks/MetaStocksFranchiseManager.sol:28"
+          },
+          {
+            "label": "franchiseDailyEarnings",
+            "offset": 0,
+            "slot": "155",
+            "type": "t_uint256",
+            "contract": "MetaStocksFranchiseManager",
+            "src": "contracts/managers/metastocks/MetaStocksFranchiseManager.sol:29"
+          },
+          {
+            "label": "franchiseDailyInterval",
+            "offset": 0,
+            "slot": "156",
+            "type": "t_uint256",
+            "contract": "MetaStocksFranchiseManager",
+            "src": "contracts/managers/metastocks/MetaStocksFranchiseManager.sol:30"
+          },
+          {
+            "label": "franchiseWorkersMultiplicator",
+            "offset": 0,
+            "slot": "157",
+            "type": "t_uint256",
+            "contract": "MetaStocksFranchiseManager",
+            "src": "contracts/managers/metastocks/MetaStocksFranchiseManager.sol:31"
+          },
+          {
+            "label": "paymentTokenAddress",
+            "offset": 0,
+            "slot": "158",
+            "type": "t_address",
+            "contract": "MetaStocksFranchiseManager",
+            "src": "contracts/managers/metastocks/MetaStocksFranchiseManager.sol:32"
+          },
+          {
+            "label": "midasMultinetworkRouterManager",
+            "offset": 0,
+            "slot": "159",
+            "type": "t_contract(MidasMultinetworkRouterManager)13369",
+            "contract": "MetaStocksFranchiseManager",
+            "src": "contracts/managers/metastocks/MetaStocksFranchiseManager.sol:33"
+          },
+          {
+            "label": "franchiseContinents",
+            "offset": 0,
+            "slot": "160",
+            "type": "t_mapping(t_uint256,t_uint256)",
+            "contract": "MetaStocksFranchiseManager",
+            "src": "contracts/managers/metastocks/MetaStocksFranchiseManager.sol:34"
+          },
+          {
+            "label": "franchisesUsdInvested",
+            "offset": 0,
+            "slot": "161",
+            "type": "t_mapping(t_uint256,t_mapping(t_uint256,t_uint256))",
+            "contract": "MetaStocksFranchiseManager",
+            "src": "contracts/managers/metastocks/MetaStocksFranchiseManager.sol:36"
+          },
+          {
+            "label": "lastFranchiseClaimDate",
+            "offset": 0,
+            "slot": "162",
+            "type": "t_mapping(t_uint256,t_uint256)",
+            "contract": "MetaStocksFranchiseManager",
+            "src": "contracts/managers/metastocks/MetaStocksFranchiseManager.sol:38"
+          },
+          {
+            "label": "companyFranchises",
+            "offset": 0,
+            "slot": "163",
+            "type": "t_mapping(t_uint256,t_mapping(t_uint256,t_uint256))",
+            "contract": "MetaStocksFranchiseManager",
+            "src": "contracts/managers/metastocks/MetaStocksFranchiseManager.sol:40"
+          },
+          {
+            "label": "franchisesLastClaimDates",
+            "offset": 0,
+            "slot": "164",
+            "type": "t_mapping(t_uint256,t_mapping(t_uint256,t_uint256))",
+            "contract": "MetaStocksFranchiseManager",
+            "src": "contracts/managers/metastocks/MetaStocksFranchiseManager.sol:41"
+          },
+          {
+            "label": "franchisesWorkers",
+            "offset": 0,
+            "slot": "165",
+            "type": "t_mapping(t_uint256,t_mapping(t_uint256,t_uint256))",
+            "contract": "MetaStocksFranchiseManager",
+            "src": "contracts/managers/metastocks/MetaStocksFranchiseManager.sol:44"
+          }
+        ],
+        "types": {
+          "t_address": {
+            "label": "address",
+            "numberOfBytes": "20"
+          },
+          "t_array(t_uint256)45_storage": {
+            "label": "uint256[45]",
+            "numberOfBytes": "1440"
+          },
+          "t_array(t_uint256)49_storage": {
+            "label": "uint256[49]",
+            "numberOfBytes": "1568"
+          },
+          "t_array(t_uint256)50_storage": {
+            "label": "uint256[50]",
+            "numberOfBytes": "1600"
+          },
+          "t_bool": {
+            "label": "bool",
+            "numberOfBytes": "1"
+          },
+          "t_contract(IMetaStocksFranchise)10483": {
+            "label": "contract IMetaStocksFranchise",
+            "numberOfBytes": "20"
+          },
+          "t_contract(MidasMultinetworkRouterManager)13369": {
+            "label": "contract MidasMultinetworkRouterManager",
+            "numberOfBytes": "20"
+          },
+          "t_mapping(t_address,t_mapping(t_address,t_uint256))": {
+            "label": "mapping(address => mapping(address => uint256))",
+            "numberOfBytes": "32"
+          },
+          "t_mapping(t_address,t_uint256)": {
+            "label": "mapping(address => uint256)",
+            "numberOfBytes": "32"
+          },
+          "t_mapping(t_uint256,t_mapping(t_uint256,t_uint256))": {
+            "label": "mapping(uint256 => mapping(uint256 => uint256))",
+            "numberOfBytes": "32"
+          },
+          "t_mapping(t_uint256,t_uint256)": {
+            "label": "mapping(uint256 => uint256)",
             "numberOfBytes": "32"
           },
           "t_string_storage": {

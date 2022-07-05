@@ -230,13 +230,7 @@ contract MetaStocksFranchiseManager is
         companyFranchises[companyId][franchiseType] += 1;
         franchisesWorkers[companyId][franchiseType] += 1;
         franchisesLastClaimDates[companyId][franchiseType] = block.timestamp;
-
-        uint256 tokensValueInUSD = midasMultinetworkRouterManager
-            .getTokensValueInUSD(paymentTokenAddress, createFranchisePrice);
-        franchisesUsdInvested[companyId][franchiseType] = tokensValueInUSD;
-
         franchiseContinents[_continentId] += 1;
-
         emit CreateFranchise(msg.sender, companyId, franchiseType);
     }
 
@@ -325,7 +319,9 @@ contract MetaStocksFranchiseManager is
         }
     }
 
-    function claimFromAllFranchisesBNB(uint256 _companyId) external {
+    function claimFromAllFranchisesBNB(uint256 _companyId, address companyOwner)
+        external
+    {
         uint256 totalUnclaimed = this.getMetaStocksFranchisesUnclaimedRewards(
             _companyId
         );
@@ -333,6 +329,8 @@ contract MetaStocksFranchiseManager is
         for (uint256 typeIndex = 0; typeIndex < 10; typeIndex++) {
             franchisesLastClaimDates[_companyId][typeIndex] = block.timestamp;
         }
+
+        payable(companyOwner).transfer(totalUnclaimed);
     }
 
     function getFranchiseValue() external view returns (uint256) {

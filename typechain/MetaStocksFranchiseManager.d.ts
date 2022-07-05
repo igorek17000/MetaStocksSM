@@ -27,7 +27,7 @@ interface MetaStocksFranchiseManagerInterface extends ethers.utils.Interface {
     "balanceOf(address)": FunctionFragment;
     "burnMetaStocksFranchise(address,uint256,uint256,uint8)": FunctionFragment;
     "claimFromAllFranchises(uint256)": FunctionFragment;
-    "claimFromAllFranchisesBNB(uint256)": FunctionFragment;
+    "claimFromAllFranchisesBNB(uint256,address)": FunctionFragment;
     "companyFranchises(uint256,uint256)": FunctionFragment;
     "createMetaStocksFranchise(address,uint256,uint256,uint8)": FunctionFragment;
     "createMetaStocksFranchiseUsingBNB(address,uint256,uint256,uint8)": FunctionFragment;
@@ -92,7 +92,7 @@ interface MetaStocksFranchiseManagerInterface extends ethers.utils.Interface {
   ): string;
   encodeFunctionData(
     functionFragment: "claimFromAllFranchisesBNB",
-    values: [BigNumberish]
+    values: [BigNumberish, string]
   ): string;
   encodeFunctionData(
     functionFragment: "companyFranchises",
@@ -527,6 +527,7 @@ export class MetaStocksFranchiseManager extends BaseContract {
 
     claimFromAllFranchisesBNB(
       _companyId: BigNumberish,
+      companyOwner: string,
       overrides?: Overrides & { from?: string | Promise<string> }
     ): Promise<ContractTransaction>;
 
@@ -772,6 +773,7 @@ export class MetaStocksFranchiseManager extends BaseContract {
 
   claimFromAllFranchisesBNB(
     _companyId: BigNumberish,
+    companyOwner: string,
     overrides?: Overrides & { from?: string | Promise<string> }
   ): Promise<ContractTransaction>;
 
@@ -1013,6 +1015,7 @@ export class MetaStocksFranchiseManager extends BaseContract {
 
     claimFromAllFranchisesBNB(
       _companyId: BigNumberish,
+      companyOwner: string,
       overrides?: CallOverrides
     ): Promise<void>;
 
@@ -1335,6 +1338,7 @@ export class MetaStocksFranchiseManager extends BaseContract {
 
     claimFromAllFranchisesBNB(
       _companyId: BigNumberish,
+      companyOwner: string,
       overrides?: Overrides & { from?: string | Promise<string> }
     ): Promise<BigNumber>;
 
@@ -1582,6 +1586,7 @@ export class MetaStocksFranchiseManager extends BaseContract {
 
     claimFromAllFranchisesBNB(
       _companyId: BigNumberish,
+      companyOwner: string,
       overrides?: Overrides & { from?: string | Promise<string> }
     ): Promise<PopulatedTransaction>;
 
