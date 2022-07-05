@@ -2,7 +2,7 @@ const { ethers, upgrades } = require('hardhat')
 const os = require('os')
 import { SignerWithAddress } from '@nomiclabs/hardhat-ethers/signers';
 import { Contract } from '@ethersproject/contracts';
-import { parseEther } from 'ethers/lib/utils';
+import { formatEther, parseEther } from 'ethers/lib/utils';
 const { getImplementationAddress } = require('@openzeppelin/upgrades-core')
 const colors = require('colors/safe');
 import test_util from '../test/util'
@@ -53,6 +53,13 @@ async function main(): Promise<void> {
         deployer = signers[0];
         bob = signers[1];
         alice = signers[2];
+
+        let initialBalance = formatEther(await deployer.getBalance());
+        console.log(colors.cyan('Deployer Address: ') + colors.yellow(deployer.address));
+        console.log(colors.cyan('Account balance: ') + colors.yellow(initialBalance));
+        console.log();
+
+
         router = await test_util.connectRouter()
         console.log("router:", router.address);
 
@@ -71,7 +78,7 @@ async function main(): Promise<void> {
         console.log(`${colors.cyan(contractName + ' Implementation Address: ')} ${colors.yellow(metaStocksTokenImplementationAddress)}`)
         console.log("");
         await sleep(5000)
-        await test_util.verifyWithotDeploy(contractName, metaStocksToken.address)
+        test_util.verify(metaStocksToken.address)
         console.log("");
         // ----------------------------------------------------------------------
 
@@ -89,7 +96,7 @@ async function main(): Promise<void> {
         console.log(`${colors.cyan(contractName + ' Implementation Address: ')} ${colors.yellow(metaStocksCompanyImplementationAddress)}`)
         console.log("");
         await sleep(5000)
-        await test_util.verifyWithotDeploy(contractName, metaStocksCompany.address)
+        test_util.verify(metaStocksCompany.address)
         console.log("");
         // ----------------------------------------------------------------------
 
@@ -107,7 +114,7 @@ async function main(): Promise<void> {
         console.log(`${colors.cyan(contractName + ' Implementation Address: ')} ${colors.yellow(metaStocksFranchiseImplementationAddress)}`)
         console.log("");
         await sleep(5000)
-        await test_util.verifyWithotDeploy(contractName, metaStocksFranchise.address)
+        test_util.verify(metaStocksFranchise.address)
         console.log("");
         // ----------------------------------------------------------------------
 
@@ -142,10 +149,16 @@ async function main(): Promise<void> {
         console.log(`${colors.cyan(contractName + ' Implementation Address: ')} ${colors.yellow(metaStocksCompanyManagerImplementationAddress)}`)
         console.log("");
         await sleep(5000)
-        await test_util.verifyWithotDeploy(contractName, metaStocksFranchise.address)
+        await test_util.verify(metaStocksCompanyManager.address)
         console.log("");
         // ----------------------------------------------------------------------
 
+
+
+        let afterBalance = formatEther(await deployer.getBalance());
+        console.log(colors.cyan('Deployer Address: ') + colors.yellow(deployer.address));
+        console.log(colors.cyan('Account balance: ') + colors.yellow(afterBalance));
+        console.log();
 
         /*
         const routerFactory = await test_util.connectFactory();
@@ -156,18 +169,20 @@ async function main(): Promise<void> {
         console.log(`${colors.cyan('LP Balance')}: ${colors.yellow(formatEther(await pairContract.balanceOf(deployer?.address)))}`)
         console.log()
         */
+        /*
+                await metaStocksToken.enableTrading();
+                await metaStocksCompany.transferOwnership(metaStocksCompanyManager.address);
+                await metaStocksFranchise.transferOwnership(metaStocksFranchiseManager.address);
+                await metaStocksFranchiseManager.setPaymentTokenAddress(metaStocksToken.address);
+                await metaStocksFranchiseManager.setPaymentTokenAddress(metaStocksToken.address);
+                await metaStocksToken.connect(deployer).setRouterAddress("0x9Ac64Cc6e4415144C455BD8E4837Fea55603e5c3", "0x2514895c72f50D8bd4B4F9b1110F0D6bD2c97526"); // bsc testnet - bnb chanlink
+                await metaStocksToken.approve(test_util?.chains?.bsc?.router, ethers.constants.MaxUint256, { from: deployer?.address })
+                await metaStocksToken.connect(deployer).transfer(metaStocksFranchiseManager?.address, parseEther("10000"))
+                await metaStocksToken.connect(bob).approve(metaStocksFranchiseManager.address, parseEther("1000000000"))
+                await metaStocksFranchiseManager.setPaymentTokenAddress(metaStocksToken.address);
+                await metaStocksFranchiseManager.connect(deployer).setRouterAddress("0x9Ac64Cc6e4415144C455BD8E4837Fea55603e5c3", "0x2514895c72f50D8bd4B4F9b1110F0D6bD2c97526"); // bsc testnet - bnb chanlink
+            */
 
-        await metaStocksToken.enableTrading();
-        await metaStocksCompany.transferOwnership(metaStocksCompanyManager.address);
-        await metaStocksFranchise.transferOwnership(metaStocksFranchiseManager.address);
-        await metaStocksFranchiseManager.setPaymentTokenAddress(metaStocksToken.address);
-        await metaStocksFranchiseManager.setPaymentTokenAddress(metaStocksToken.address);
-        await metaStocksToken.connect(deployer).setRouterAddress("0x9Ac64Cc6e4415144C455BD8E4837Fea55603e5c3", "0x2514895c72f50D8bd4B4F9b1110F0D6bD2c97526"); // bsc testnet - bnb chanlink
-        await metaStocksToken.approve(test_util?.chains?.bsc?.router, ethers.constants.MaxUint256, { from: deployer?.address })
-        await metaStocksToken.connect(deployer).transfer(metaStocksFranchiseManager?.address, parseEther("10000"))
-        await metaStocksToken.connect(bob).approve(metaStocksFranchiseManager.address, parseEther("1000000000"))
-        await metaStocksFranchiseManager.setPaymentTokenAddress(metaStocksToken.address);
-        await metaStocksFranchiseManager.connect(deployer).setRouterAddress("0x9Ac64Cc6e4415144C455BD8E4837Fea55603e5c3", "0x2514895c72f50D8bd4B4F9b1110F0D6bD2c97526"); // bsc testnet - bnb chanlink
     }
 };
 

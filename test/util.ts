@@ -164,18 +164,6 @@ export const deployProxyInitialize = async (contractName: string, autoVerify: bo
     return token
 }
 
-export const verify = async (contractAddress: string, args: string[] = []) => {
-    // @ts-ignore
-    if (network == 'localhost' || network == 'hardhat') return
-    try {
-        await hre.run("verify:verify", {
-            address: contractAddress,
-            constructorArguments: args,
-        });
-    } catch (ex) {
-    }
-}
-
 export const deployProxy = async (contractName: string, args: string[] = []): Promise<Contract> => {
     const factory = await ethers.getContractFactory(contractName)
     const contract = await upgrades.deployProxy(factory, args)
@@ -447,6 +435,18 @@ export const bscTestnet = {
     BUSD: '0x78867BbEeF44f2326bF8DDd1941a4439382EF2A7',
 }
 
+export const verify = async (contractAddress: string, args: any[] = []) => {
+    // @ts-ignore
+    if (network == 'localhost' || network == 'hardhat') return
+    try {
+        await hre.run("verify:verify", {
+            address: contractAddress,
+            constructorArguments: args,
+        });
+    } catch (ex) {
+    }
+}
+
 /*
 const avalancheFujiTestnet = {
     router: '0x2D99ABD9008Dc933ff5c0CD271B88309593aB921',
@@ -482,5 +482,6 @@ export default module.exports = {
     chains,
     swapExactETHForTokens,
     swapExactTokensForTokensSupportingFeeOnTransferTokens,
-    verifyWithotDeploy
+    verifyWithotDeploy,
+    verify
 }

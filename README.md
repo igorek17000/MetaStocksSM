@@ -20,7 +20,7 @@ npx hardhat node --fork https://speedy-nodes-nyc.moralis.io/84a2745d907034e6d388
 
 ## 2. Run tests
 ```sh
-npx hardhat test  --network localhost 
+npx hardhat test  --network localhost
 
 npx hardhat test test/testAll.test.ts --network localhost
 
