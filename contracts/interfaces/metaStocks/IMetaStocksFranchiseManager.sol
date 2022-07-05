@@ -31,4 +31,9 @@ interface IMetaStocksFranchiseManager {
     ) external payable;
 
     function claimFromAllFranchisesBNB(uint256 _companyId) external;
+
+    function getMetaStocksFranchisesUnclaimedRewardsBNB(uint256 companyId)
+        external
+        view
+        returns (uint256);
 }

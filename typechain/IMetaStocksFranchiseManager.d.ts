@@ -27,6 +27,7 @@ interface IMetaStocksFranchiseManagerInterface extends ethers.utils.Interface {
     "createMetaStocksFranchise(address,uint256,uint256,uint8)": FunctionFragment;
     "createMetaStocksFranchiseUsingBNB(address,uint256,uint256,uint8)": FunctionFragment;
     "getMetaStocksFranchisesUnclaimedRewards(uint256)": FunctionFragment;
+    "getMetaStocksFranchisesUnclaimedRewardsBNB(uint256)": FunctionFragment;
     "hireWorkerUsingBNB(uint256,uint8)": FunctionFragment;
   };
 
@@ -48,6 +49,10 @@ interface IMetaStocksFranchiseManagerInterface extends ethers.utils.Interface {
   ): string;
   encodeFunctionData(
     functionFragment: "getMetaStocksFranchisesUnclaimedRewards",
+    values: [BigNumberish]
+  ): string;
+  encodeFunctionData(
+    functionFragment: "getMetaStocksFranchisesUnclaimedRewardsBNB",
     values: [BigNumberish]
   ): string;
   encodeFunctionData(
@@ -73,6 +78,10 @@ interface IMetaStocksFranchiseManagerInterface extends ethers.utils.Interface {
   ): Result;
   decodeFunctionResult(
     functionFragment: "getMetaStocksFranchisesUnclaimedRewards",
+    data: BytesLike
+  ): Result;
+  decodeFunctionResult(
+    functionFragment: "getMetaStocksFranchisesUnclaimedRewardsBNB",
     data: BytesLike
   ): Result;
   decodeFunctionResult(
@@ -158,6 +167,11 @@ export class IMetaStocksFranchiseManager extends BaseContract {
       overrides?: CallOverrides
     ): Promise<[BigNumber]>;
 
+    getMetaStocksFranchisesUnclaimedRewardsBNB(
+      companyId: BigNumberish,
+      overrides?: CallOverrides
+    ): Promise<[BigNumber]>;
+
     hireWorkerUsingBNB(
       companyId: BigNumberish,
       _metaStocksFranchiseType: BigNumberish,
@@ -196,6 +210,11 @@ export class IMetaStocksFranchiseManager extends BaseContract {
     overrides?: CallOverrides
   ): Promise<BigNumber>;
 
+  getMetaStocksFranchisesUnclaimedRewardsBNB(
+    companyId: BigNumberish,
+    overrides?: CallOverrides
+  ): Promise<BigNumber>;
+
   hireWorkerUsingBNB(
     companyId: BigNumberish,
     _metaStocksFranchiseType: BigNumberish,
@@ -230,6 +249,11 @@ export class IMetaStocksFranchiseManager extends BaseContract {
     ): Promise<void>;
 
     getMetaStocksFranchisesUnclaimedRewards(
+      companyId: BigNumberish,
+      overrides?: CallOverrides
+    ): Promise<BigNumber>;
+
+    getMetaStocksFranchisesUnclaimedRewardsBNB(
       companyId: BigNumberish,
       overrides?: CallOverrides
     ): Promise<BigNumber>;
@@ -275,6 +299,11 @@ export class IMetaStocksFranchiseManager extends BaseContract {
       overrides?: CallOverrides
     ): Promise<BigNumber>;
 
+    getMetaStocksFranchisesUnclaimedRewardsBNB(
+      companyId: BigNumberish,
+      overrides?: CallOverrides
+    ): Promise<BigNumber>;
+
     hireWorkerUsingBNB(
       companyId: BigNumberish,
       _metaStocksFranchiseType: BigNumberish,
@@ -310,6 +339,11 @@ export class IMetaStocksFranchiseManager extends BaseContract {
     ): Promise<PopulatedTransaction>;
 
     getMetaStocksFranchisesUnclaimedRewards(
+      companyId: BigNumberish,
+      overrides?: CallOverrides
+    ): Promise<PopulatedTransaction>;
+
+    getMetaStocksFranchisesUnclaimedRewardsBNB(
       companyId: BigNumberish,
       overrides?: CallOverrides
     ): Promise<PopulatedTransaction>;

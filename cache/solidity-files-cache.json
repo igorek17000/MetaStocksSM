@@ -1,8 +1,8 @@
 {
   "_format": "hh-sol-cache-2",
   "files": {
-    "/home/nkt/Desktop/metaStoksContracts/contracts/BSC Testnet Connections/BEP20Token.sol": {
-      "lastModificationDate": 1654779403930,
+    "/home/nkt/Desktop/cityInvest/SmartContracts/contracts/BSC Testnet Connections/BEP20Token.sol": {
+      "lastModificationDate": 1656989945303,
       "contentHash": "8e39f562408228b9b721989774b80416",
       "sourceName": "contracts/BSC Testnet Connections/BEP20Token.sol",
       "solcConfig": {
@@ -41,8 +41,8 @@
         "SafeMath"
       ]
     },
-    "/home/nkt/Desktop/metaStoksContracts/contracts/BSC Testnet Connections/PancakeFactory.sol": {
-      "lastModificationDate": 1654779403930,
+    "/home/nkt/Desktop/cityInvest/SmartContracts/contracts/BSC Testnet Connections/PancakeFactory.sol": {
+      "lastModificationDate": 1656989945303,
       "contentHash": "02e150908c05ba44d4d2e0e931097bd4",
       "sourceName": "contracts/BSC Testnet Connections/PancakeFactory.sol",
       "solcConfig": {
@@ -87,8 +87,8 @@
         "UQ112x112"
       ]
     },
-    "/home/nkt/Desktop/metaStoksContracts/contracts/BSC Testnet Connections/PancakeRouter.sol": {
-      "lastModificationDate": 1654779403930,
+    "/home/nkt/Desktop/cityInvest/SmartContracts/contracts/BSC Testnet Connections/PancakeRouter.sol": {
+      "lastModificationDate": 1656989945303,
       "contentHash": "76a8114ad2c1a6287f80e7cd08aaafe1",
       "sourceName": "contracts/BSC Testnet Connections/PancakeRouter.sol",
       "solcConfig": {
@@ -132,8 +132,8 @@
         "TransferHelper"
       ]
     },
-    "/home/nkt/Desktop/metaStoksContracts/contracts/BSC Testnet Connections/WBNB.sol": {
-      "lastModificationDate": 1654779403930,
+    "/home/nkt/Desktop/cityInvest/SmartContracts/contracts/BSC Testnet Connections/WBNB.sol": {
+      "lastModificationDate": 1656989945303,
       "contentHash": "b1b537778e5e06142c11b9da44884e67",
       "sourceName": "contracts/BSC Testnet Connections/WBNB.sol",
       "solcConfig": {
@@ -168,8 +168,8 @@
         "WBNB"
       ]
     },
-    "/home/nkt/Desktop/metaStoksContracts/contracts/enums/MetaStocksFranchiseType.sol": {
-      "lastModificationDate": 1654987076187,
+    "/home/nkt/Desktop/cityInvest/SmartContracts/contracts/enums/MetaStocksFranchiseType.sol": {
+      "lastModificationDate": 1656989945303,
       "contentHash": "3ad6b75206f416fd0cba3d74df909f14",
       "sourceName": "contracts/enums/MetaStocksFranchiseType.sol",
       "solcConfig": {
@@ -202,8 +202,8 @@
       ],
       "artifacts": []
     },
-    "/home/nkt/Desktop/metaStoksContracts/contracts/MetaStocksFranchiseShare.sol": {
-      "lastModificationDate": 1654965728076,
+    "/home/nkt/Desktop/cityInvest/SmartContracts/contracts/MetaStocksFranchiseShare.sol": {
+      "lastModificationDate": 1656989945299,
       "contentHash": "1589f491b8af88d35ba84449efc8958b",
       "sourceName": "contracts/MetaStocksFranchiseShare.sol",
       "solcConfig": {
@@ -241,8 +241,8 @@
         "MetaStocksFranchiseShare"
       ]
     },
-    "/home/nkt/Desktop/metaStoksContracts/contracts/tokens/MetaStocksERC1155Upgradable.sol": {
-      "lastModificationDate": 1654964968809,
+    "/home/nkt/Desktop/cityInvest/SmartContracts/contracts/tokens/MetaStocksERC1155Upgradable.sol": {
+      "lastModificationDate": 1656989945303,
       "contentHash": "0d3b09c272305da1b098f132fab4da03",
       "sourceName": "contracts/tokens/MetaStocksERC1155Upgradable.sol",
       "solcConfig": {
@@ -285,8 +285,8 @@
         "MetaStocksERC1155Upgradable"
       ]
     },
-    "/home/nkt/Desktop/metaStoksContracts/node_modules/@openzeppelin/contracts-upgradeable/token/ERC1155/ERC1155Upgradeable.sol": {
-      "lastModificationDate": 1656002538505,
+    "/home/nkt/Desktop/cityInvest/SmartContracts/node_modules/@openzeppelin/contracts-upgradeable/token/ERC1155/ERC1155Upgradeable.sol": {
+      "lastModificationDate": 1656990033072,
       "contentHash": "badec13a06f45436e46586d6795a4ef9",
       "sourceName": "@openzeppelin/contracts-upgradeable/token/ERC1155/ERC1155Upgradeable.sol",
       "solcConfig": {
@@ -329,8 +329,8 @@
         "ERC1155Upgradeable"
       ]
     },
-    "/home/nkt/Desktop/metaStoksContracts/node_modules/@openzeppelin/contracts-upgradeable/access/OwnableUpgradeable.sol": {
-      "lastModificationDate": 1656002537113,
+    "/home/nkt/Desktop/cityInvest/SmartContracts/node_modules/@openzeppelin/contracts-upgradeable/access/OwnableUpgradeable.sol": {
+      "lastModificationDate": 1656990031760,
       "contentHash": "11b77de3cb69dfc6b342ec87bd09cbdd",
       "sourceName": "@openzeppelin/contracts-upgradeable/access/OwnableUpgradeable.sol",
       "solcConfig": {
@@ -368,8 +368,8 @@
         "OwnableUpgradeable"
       ]
     },
-    "/home/nkt/Desktop/metaStoksContracts/node_modules/@openzeppelin/contracts-upgradeable/security/PausableUpgradeable.sol": {
-      "lastModificationDate": 1656002537113,
+    "/home/nkt/Desktop/cityInvest/SmartContracts/node_modules/@openzeppelin/contracts-upgradeable/security/PausableUpgradeable.sol": {
+      "lastModificationDate": 1656990031764,
       "contentHash": "f5233d9eeebd5f0b4633650939e72426",
       "sourceName": "@openzeppelin/contracts-upgradeable/security/PausableUpgradeable.sol",
       "solcConfig": {
@@ -407,8 +407,8 @@
         "PausableUpgradeable"
       ]
     },
-    "/home/nkt/Desktop/metaStoksContracts/node_modules/@openzeppelin/contracts-upgradeable/token/ERC1155/extensions/ERC1155BurnableUpgradeable.sol": {
-      "lastModificationDate": 1656002539253,
+    "/home/nkt/Desktop/cityInvest/SmartContracts/node_modules/@openzeppelin/contracts-upgradeable/token/ERC1155/extensions/ERC1155BurnableUpgradeable.sol": {
+      "lastModificationDate": 1656990033708,
       "contentHash": "3c1db085a2eba5ff80d428b03b261036",
       "sourceName": "@openzeppelin/contracts-upgradeable/token/ERC1155/extensions/ERC1155BurnableUpgradeable.sol",
       "solcConfig": {
@@ -446,8 +446,8 @@
         "ERC1155BurnableUpgradeable"
       ]
     },
-    "/home/nkt/Desktop/metaStoksContracts/node_modules/@openzeppelin/contracts-upgradeable/token/ERC1155/extensions/ERC1155SupplyUpgradeable.sol": {
-      "lastModificationDate": 1656002539253,
+    "/home/nkt/Desktop/cityInvest/SmartContracts/node_modules/@openzeppelin/contracts-upgradeable/token/ERC1155/extensions/ERC1155SupplyUpgradeable.sol": {
+      "lastModificationDate": 1656990033708,
       "contentHash": "fbf5fdb7a74554410a3b4059f3d314df",
       "sourceName": "@openzeppelin/contracts-upgradeable/token/ERC1155/extensions/ERC1155SupplyUpgradeable.sol",
       "solcConfig": {
@@ -485,8 +485,8 @@
         "ERC1155SupplyUpgradeable"
       ]
     },
-    "/home/nkt/Desktop/metaStoksContracts/node_modules/@openzeppelin/contracts-upgradeable/proxy/utils/Initializable.sol": {
-      "lastModificationDate": 1656002538493,
+    "/home/nkt/Desktop/cityInvest/SmartContracts/node_modules/@openzeppelin/contracts-upgradeable/proxy/utils/Initializable.sol": {
+      "lastModificationDate": 1656990033056,
       "contentHash": "be27cb63ce8e469db3306a210450385f",
       "sourceName": "@openzeppelin/contracts-upgradeable/proxy/utils/Initializable.sol",
       "solcConfig": {
@@ -523,8 +523,8 @@
         "Initializable"
       ]
     },
-    "/home/nkt/Desktop/metaStoksContracts/node_modules/@openzeppelin/contracts-upgradeable/token/ERC1155/IERC1155Upgradeable.sol": {
-      "lastModificationDate": 1656002538505,
+    "/home/nkt/Desktop/cityInvest/SmartContracts/node_modules/@openzeppelin/contracts-upgradeable/token/ERC1155/IERC1155Upgradeable.sol": {
+      "lastModificationDate": 1656990033072,
       "contentHash": "a51bc173c3333372b3aa9913bc21f38c",
       "sourceName": "@openzeppelin/contracts-upgradeable/token/ERC1155/IERC1155Upgradeable.sol",
       "solcConfig": {
@@ -561,8 +561,8 @@
         "IERC1155Upgradeable"
       ]
     },
-    "/home/nkt/Desktop/metaStoksContracts/node_modules/@openzeppelin/contracts-upgradeable/token/ERC1155/IERC1155ReceiverUpgradeable.sol": {
-      "lastModificationDate": 1656002538505,
+    "/home/nkt/Desktop/cityInvest/SmartContracts/node_modules/@openzeppelin/contracts-upgradeable/token/ERC1155/IERC1155ReceiverUpgradeable.sol": {
+      "lastModificationDate": 1656990033072,
       "contentHash": "eb51ed084f6f7fd2c7098715c5690285",
       "sourceName": "@openzeppelin/contracts-upgradeable/token/ERC1155/IERC1155ReceiverUpgradeable.sol",
       "solcConfig": {
@@ -599,8 +599,8 @@
         "IERC1155ReceiverUpgradeable"
       ]
     },
-    "/home/nkt/Desktop/metaStoksContracts/node_modules/@openzeppelin/contracts-upgradeable/token/ERC1155/extensions/IERC1155MetadataURIUpgradeable.sol": {
-      "lastModificationDate": 1656002539253,
+    "/home/nkt/Desktop/cityInvest/SmartContracts/node_modules/@openzeppelin/contracts-upgradeable/token/ERC1155/extensions/IERC1155MetadataURIUpgradeable.sol": {
+      "lastModificationDate": 1656990033708,
       "contentHash": "8b7e95c747e2dab3b5444b37410a8315",
       "sourceName": "@openzeppelin/contracts-upgradeable/token/ERC1155/extensions/IERC1155MetadataURIUpgradeable.sol",
       "solcConfig": {
@@ -637,8 +637,8 @@
         "IERC1155MetadataURIUpgradeable"
       ]
     },
-    "/home/nkt/Desktop/metaStoksContracts/node_modules/@openzeppelin/contracts-upgradeable/utils/AddressUpgradeable.sol": {
-      "lastModificationDate": 1656002537113,
+    "/home/nkt/Desktop/cityInvest/SmartContracts/node_modules/@openzeppelin/contracts-upgradeable/utils/AddressUpgradeable.sol": {
+      "lastModificationDate": 1656990031764,
       "contentHash": "b70d2e0552ab1f44f7e44b5f8379c358",
       "sourceName": "@openzeppelin/contracts-upgradeable/utils/AddressUpgradeable.sol",
       "solcConfig": {
@@ -673,8 +673,8 @@
         "AddressUpgradeable"
       ]
     },
-    "/home/nkt/Desktop/metaStoksContracts/node_modules/@openzeppelin/contracts-upgradeable/utils/ContextUpgradeable.sol": {
-      "lastModificationDate": 1656002537117,
+    "/home/nkt/Desktop/cityInvest/SmartContracts/node_modules/@openzeppelin/contracts-upgradeable/utils/ContextUpgradeable.sol": {
+      "lastModificationDate": 1656990031764,
       "contentHash": "6200b84950eb05b4a92a39fd1d6e0f9b",
       "sourceName": "@openzeppelin/contracts-upgradeable/utils/ContextUpgradeable.sol",
       "solcConfig": {
@@ -711,8 +711,8 @@
         "ContextUpgradeable"
       ]
     },
-    "/home/nkt/Desktop/metaStoksContracts/node_modules/@openzeppelin/contracts-upgradeable/utils/introspection/ERC165Upgradeable.sol": {
-      "lastModificationDate": 1656002538509,
+    "/home/nkt/Desktop/cityInvest/SmartContracts/node_modules/@openzeppelin/contracts-upgradeable/utils/introspection/ERC165Upgradeable.sol": {
+      "lastModificationDate": 1656990033068,
       "contentHash": "5f2d8b81c0ff5bd2047b4846c20b998d",
       "sourceName": "@openzeppelin/contracts-upgradeable/utils/introspection/ERC165Upgradeable.sol",
       "solcConfig": {
@@ -750,8 +750,8 @@
         "ERC165Upgradeable"
       ]
     },
-    "/home/nkt/Desktop/metaStoksContracts/node_modules/@openzeppelin/contracts-upgradeable/utils/introspection/IERC165Upgradeable.sol": {
-      "lastModificationDate": 1656002538509,
+    "/home/nkt/Desktop/cityInvest/SmartContracts/node_modules/@openzeppelin/contracts-upgradeable/utils/introspection/IERC165Upgradeable.sol": {
+      "lastModificationDate": 1656990033072,
       "contentHash": "d6ecf203a5e72c845be9bbf2f304a289",
       "sourceName": "@openzeppelin/contracts-upgradeable/utils/introspection/IERC165Upgradeable.sol",
       "solcConfig": {
@@ -786,8 +786,8 @@
         "IERC165Upgradeable"
       ]
     },
-    "/home/nkt/Desktop/metaStoksContracts/contracts/managers/metastocks/MetaStocksFranchiseMarketplaceManager.sol": {
-      "lastModificationDate": 1654984238233,
+    "/home/nkt/Desktop/cityInvest/SmartContracts/contracts/managers/metastocks/MetaStocksFranchiseMarketplaceManager.sol": {
+      "lastModificationDate": 1656989945299,
       "contentHash": "a8b64e5814e283cbac9ec600296d807e",
       "sourceName": "contracts/managers/metastocks/MetaStocksFranchiseMarketplaceManager.sol",
       "solcConfig": {
@@ -831,8 +831,8 @@
         "MetaStocksFranchiseMarketplaceManager"
       ]
     },
-    "/home/nkt/Desktop/metaStoksContracts/node_modules/@openzeppelin/contracts-upgradeable/token/ERC20/ERC20Upgradeable.sol": {
-      "lastModificationDate": 1656002538505,
+    "/home/nkt/Desktop/cityInvest/SmartContracts/node_modules/@openzeppelin/contracts-upgradeable/token/ERC20/ERC20Upgradeable.sol": {
+      "lastModificationDate": 1656990033072,
       "contentHash": "2cd3679885f186b07f8bbbe3a88ef019",
       "sourceName": "@openzeppelin/contracts-upgradeable/token/ERC20/ERC20Upgradeable.sol",
       "solcConfig": {
@@ -872,8 +872,8 @@
         "ERC20Upgradeable"
       ]
     },
-    "/home/nkt/Desktop/metaStoksContracts/node_modules/@openzeppelin/contracts/token/ERC1155/utils/ERC1155Holder.sol": {
-      "lastModificationDate": 1656002539253,
+    "/home/nkt/Desktop/cityInvest/SmartContracts/node_modules/@openzeppelin/contracts/token/ERC1155/utils/ERC1155Holder.sol": {
+      "lastModificationDate": 1656990033704,
       "contentHash": "88079762e28b246888129028f757e047",
       "sourceName": "@openzeppelin/contracts/token/ERC1155/utils/ERC1155Holder.sol",
       "solcConfig": {
@@ -910,8 +910,8 @@
         "ERC1155Holder"
       ]
     },
-    "/home/nkt/Desktop/metaStoksContracts/node_modules/@openzeppelin/contracts/token/ERC1155/IERC1155Receiver.sol": {
-      "lastModificationDate": 1656002538485,
+    "/home/nkt/Desktop/cityInvest/SmartContracts/node_modules/@openzeppelin/contracts/token/ERC1155/IERC1155Receiver.sol": {
+      "lastModificationDate": 1656990033032,
       "contentHash": "9f8822b72fe2702979e40160cb6d9636",
       "sourceName": "@openzeppelin/contracts/token/ERC1155/IERC1155Receiver.sol",
       "solcConfig": {
@@ -948,8 +948,8 @@
         "IERC1155Receiver"
       ]
     },
-    "/home/nkt/Desktop/metaStoksContracts/contracts/interfaces/metaStocks/IMetaStocksCompany.sol": {
-      "lastModificationDate": 1654913470029,
+    "/home/nkt/Desktop/cityInvest/SmartContracts/contracts/interfaces/metaStocks/IMetaStocksCompany.sol": {
+      "lastModificationDate": 1656989945295,
       "contentHash": "2757bc34d5f400d2817a8a73ee2ce591",
       "sourceName": "contracts/interfaces/metaStocks/IMetaStocksCompany.sol",
       "solcConfig": {
@@ -984,8 +984,8 @@
         "IMetaStocksCompany"
       ]
     },
-    "/home/nkt/Desktop/metaStoksContracts/contracts/tokens/MetaStocksIERC1155ReceiverHolder.sol": {
-      "lastModificationDate": 1654952553744,
+    "/home/nkt/Desktop/cityInvest/SmartContracts/contracts/tokens/MetaStocksIERC1155ReceiverHolder.sol": {
+      "lastModificationDate": 1656989945303,
       "contentHash": "812e1ad3008ff4026cd2baf0aadbe255",
       "sourceName": "contracts/tokens/MetaStocksIERC1155ReceiverHolder.sol",
       "solcConfig": {
@@ -1024,8 +1024,8 @@
         "MetaStocksIERC1155ReceiverHolder"
       ]
     },
-    "/home/nkt/Desktop/metaStoksContracts/node_modules/@openzeppelin/contracts-upgradeable/token/ERC20/IERC20Upgradeable.sol": {
-      "lastModificationDate": 1656002538505,
+    "/home/nkt/Desktop/cityInvest/SmartContracts/node_modules/@openzeppelin/contracts-upgradeable/token/ERC20/IERC20Upgradeable.sol": {
+      "lastModificationDate": 1656990033072,
       "contentHash": "a9ed3c7bc7d9ebb5e34f20829274f088",
       "sourceName": "@openzeppelin/contracts-upgradeable/token/ERC20/IERC20Upgradeable.sol",
       "solcConfig": {
@@ -1060,8 +1060,8 @@
         "IERC20Upgradeable"
       ]
     },
-    "/home/nkt/Desktop/metaStoksContracts/node_modules/@openzeppelin/contracts-upgradeable/token/ERC20/extensions/IERC20MetadataUpgradeable.sol": {
-      "lastModificationDate": 1656002539257,
+    "/home/nkt/Desktop/cityInvest/SmartContracts/node_modules/@openzeppelin/contracts-upgradeable/token/ERC20/extensions/IERC20MetadataUpgradeable.sol": {
+      "lastModificationDate": 1656990033704,
       "contentHash": "9efcd5467a7f0bf533910ee8a267adb2",
       "sourceName": "@openzeppelin/contracts-upgradeable/token/ERC20/extensions/IERC20MetadataUpgradeable.sol",
       "solcConfig": {
@@ -1098,8 +1098,8 @@
         "IERC20MetadataUpgradeable"
       ]
     },
-    "/home/nkt/Desktop/metaStoksContracts/node_modules/@openzeppelin/contracts/token/ERC1155/utils/ERC1155Receiver.sol": {
-      "lastModificationDate": 1656002539253,
+    "/home/nkt/Desktop/cityInvest/SmartContracts/node_modules/@openzeppelin/contracts/token/ERC1155/utils/ERC1155Receiver.sol": {
+      "lastModificationDate": 1656990033704,
       "contentHash": "55b180cf664783e9a2baac20e82683fb",
       "sourceName": "@openzeppelin/contracts/token/ERC1155/utils/ERC1155Receiver.sol",
       "solcConfig": {
@@ -1137,8 +1137,8 @@
         "ERC1155Receiver"
       ]
     },
-    "/home/nkt/Desktop/metaStoksContracts/node_modules/@openzeppelin/contracts/utils/introspection/ERC165.sol": {
-      "lastModificationDate": 1656002538489,
+    "/home/nkt/Desktop/cityInvest/SmartContracts/node_modules/@openzeppelin/contracts/utils/introspection/ERC165.sol": {
+      "lastModificationDate": 1656990033036,
       "contentHash": "0e7db055ce108f9da7bb6686a00287c0",
       "sourceName": "@openzeppelin/contracts/utils/introspection/ERC165.sol",
       "solcConfig": {
@@ -1175,8 +1175,8 @@
         "ERC165"
       ]
     },
-    "/home/nkt/Desktop/metaStoksContracts/node_modules/@openzeppelin/contracts/utils/introspection/IERC165.sol": {
-      "lastModificationDate": 1656002538489,
+    "/home/nkt/Desktop/cityInvest/SmartContracts/node_modules/@openzeppelin/contracts/utils/introspection/IERC165.sol": {
+      "lastModificationDate": 1656990033036,
       "contentHash": "03e6768535ac4da0e9756f1d8a4a018a",
       "sourceName": "@openzeppelin/contracts/utils/introspection/IERC165.sol",
       "solcConfig": {
@@ -1211,8 +1211,8 @@
         "IERC165"
       ]
     },
-    "/home/nkt/Desktop/metaStoksContracts/contracts/managers/metastocks/MetaStocksFranchiseShareManager.sol": {
-      "lastModificationDate": 1654974129305,
+    "/home/nkt/Desktop/cityInvest/SmartContracts/contracts/managers/metastocks/MetaStocksFranchiseShareManager.sol": {
+      "lastModificationDate": 1656989945299,
       "contentHash": "19ede6897ad37e8a1251a02dac2937e2",
       "sourceName": "contracts/managers/metastocks/MetaStocksFranchiseShareManager.sol",
       "solcConfig": {
@@ -1254,8 +1254,8 @@
         "MetaStocksFranchiseShareManager"
       ]
     },
-    "/home/nkt/Desktop/metaStoksContracts/contracts/managers/chainlink/ChainlinkDataFeedsManager.sol": {
-      "lastModificationDate": 1654970951611,
+    "/home/nkt/Desktop/cityInvest/SmartContracts/contracts/managers/chainlink/ChainlinkDataFeedsManager.sol": {
+      "lastModificationDate": 1656989945299,
       "contentHash": "09c28e7cc3af214f2b1ca84171cc7d9f",
       "sourceName": "contracts/managers/chainlink/ChainlinkDataFeedsManager.sol",
       "solcConfig": {
@@ -1295,8 +1295,8 @@
         "ChainlinkDataFeedsManager"
       ]
     },
-    "/home/nkt/Desktop/metaStoksContracts/contracts/interfaces/metaStocks/IMetaStocksFranchiseShare.sol": {
-      "lastModificationDate": 1654965551489,
+    "/home/nkt/Desktop/cityInvest/SmartContracts/contracts/interfaces/metaStocks/IMetaStocksFranchiseShare.sol": {
+      "lastModificationDate": 1656989945295,
       "contentHash": "400b8a81c053fe350b50ad7ff433d673",
       "sourceName": "contracts/interfaces/metaStocks/IMetaStocksFranchiseShare.sol",
       "solcConfig": {
@@ -1331,8 +1331,8 @@
         "IMetaStocksFranchiseShare"
       ]
     },
-    "/home/nkt/Desktop/metaStoksContracts/node_modules/@openzeppelin/contracts/token/ERC20/IERC20.sol": {
-      "lastModificationDate": 1656002538485,
+    "/home/nkt/Desktop/cityInvest/SmartContracts/node_modules/@openzeppelin/contracts/token/ERC20/IERC20.sol": {
+      "lastModificationDate": 1656990033032,
       "contentHash": "ad7c2d0af148c8f9f097d65deeb4da6b",
       "sourceName": "@openzeppelin/contracts/token/ERC20/IERC20.sol",
       "solcConfig": {
@@ -1367,8 +1367,8 @@
         "IERC20"
       ]
     },
-    "/home/nkt/Desktop/metaStoksContracts/node_modules/@chainlink/contracts/src/v0.8/interfaces/AggregatorV3Interface.sol": {
-      "lastModificationDate": 1656002539229,
+    "/home/nkt/Desktop/cityInvest/SmartContracts/node_modules/@chainlink/contracts/src/v0.8/interfaces/AggregatorV3Interface.sol": {
+      "lastModificationDate": 1656990033676,
       "contentHash": "611f626b2447ccff9ba5332460fd217f",
       "sourceName": "@chainlink/contracts/src/v0.8/interfaces/AggregatorV3Interface.sol",
       "solcConfig": {
@@ -1403,8 +1403,8 @@
         "AggregatorV3Interface"
       ]
     },
-    "/home/nkt/Desktop/metaStoksContracts/contracts/interfaces/midas/IMidasMultiNetworkRouter.sol": {
-      "lastModificationDate": 1654943063460,
+    "/home/nkt/Desktop/cityInvest/SmartContracts/contracts/interfaces/midas/IMidasMultiNetworkRouter.sol": {
+      "lastModificationDate": 1656989945299,
       "contentHash": "879e0d60f14bc52b0eafd31a6501a565",
       "sourceName": "contracts/interfaces/midas/IMidasMultiNetworkRouter.sol",
       "solcConfig": {
@@ -1443,9 +1443,9 @@
         "IMidasMultiNetworkRouter"
       ]
     },
-    "/home/nkt/Desktop/metaStoksContracts/node_modules/@uniswap/v2-periphery/contracts/interfaces/IUniswapV2Router02.sol": {
-      "lastModificationDate": 1656889704637,
-      "contentHash": "7435a9bca643d52ca70ed8706b93d8a0",
+    "/home/nkt/Desktop/cityInvest/SmartContracts/node_modules/@uniswap/v2-periphery/contracts/interfaces/IUniswapV2Router02.sol": {
+      "lastModificationDate": 1656990033132,
+      "contentHash": "3fd36426274a5b35f7e702f87ba08a8e",
       "sourceName": "@uniswap/v2-periphery/contracts/interfaces/IUniswapV2Router02.sol",
       "solcConfig": {
         "version": "0.8.14",
@@ -1481,8 +1481,8 @@
         "IUniswapV2Router02"
       ]
     },
-    "/home/nkt/Desktop/metaStoksContracts/contracts/interfaces/dexRouter/IJoeRouter02.sol": {
-      "lastModificationDate": 1654762708521,
+    "/home/nkt/Desktop/cityInvest/SmartContracts/contracts/interfaces/dexRouter/IJoeRouter02.sol": {
+      "lastModificationDate": 1656989945295,
       "contentHash": "18c550e436895f7503aae32d2c20b511",
       "sourceName": "contracts/interfaces/dexRouter/IJoeRouter02.sol",
       "solcConfig": {
@@ -1519,8 +1519,8 @@
         "IJoeRouter02"
       ]
     },
-    "/home/nkt/Desktop/metaStoksContracts/contracts/interfaces/dexRouter/IPangolinRouter.sol": {
-      "lastModificationDate": 1654781792357,
+    "/home/nkt/Desktop/cityInvest/SmartContracts/contracts/interfaces/dexRouter/IPangolinRouter.sol": {
+      "lastModificationDate": 1656989945295,
       "contentHash": "99f3e54d2d90c1eec1f1dc4a19f103d4",
       "sourceName": "contracts/interfaces/dexRouter/IPangolinRouter.sol",
       "solcConfig": {
@@ -1555,9 +1555,9 @@
         "IPangolinRouter"
       ]
     },
-    "/home/nkt/Desktop/metaStoksContracts/node_modules/@uniswap/v2-periphery/contracts/interfaces/IUniswapV2Router01.sol": {
-      "lastModificationDate": 1656889702481,
-      "contentHash": "c70fc8a0c0b3737dfcc5e1e509b2a752",
+    "/home/nkt/Desktop/cityInvest/SmartContracts/node_modules/@uniswap/v2-periphery/contracts/interfaces/IUniswapV2Router01.sol": {
+      "lastModificationDate": 1656990033132,
+      "contentHash": "95d8729b2c698dc663322167b3c085fe",
       "sourceName": "@uniswap/v2-periphery/contracts/interfaces/IUniswapV2Router01.sol",
       "solcConfig": {
         "version": "0.8.14",
@@ -1591,8 +1591,8 @@
         "IUniswapV2Router01"
       ]
     },
-    "/home/nkt/Desktop/metaStoksContracts/contracts/interfaces/dexRouter/IJoeRouter01.sol": {
-      "lastModificationDate": 1654762708497,
+    "/home/nkt/Desktop/cityInvest/SmartContracts/contracts/interfaces/dexRouter/IJoeRouter01.sol": {
+      "lastModificationDate": 1656989945295,
       "contentHash": "d0efff200b495aad0e6640f92012e796",
       "sourceName": "contracts/interfaces/dexRouter/IJoeRouter01.sol",
       "solcConfig": {
@@ -1627,8 +1627,8 @@
         "IJoeRouter01"
       ]
     },
-    "/home/nkt/Desktop/metaStoksContracts/contracts/managers/midas/MidasMultinetworkRouterManager.sol": {
-      "lastModificationDate": 1654971674392,
+    "/home/nkt/Desktop/cityInvest/SmartContracts/contracts/managers/midas/MidasMultinetworkRouterManager.sol": {
+      "lastModificationDate": 1656989945299,
       "contentHash": "955667f7c9ccb54467c9a3aa2ef95b60",
       "sourceName": "contracts/managers/midas/MidasMultinetworkRouterManager.sol",
       "solcConfig": {
@@ -1668,8 +1668,8 @@
         "MidasMultinetworkRouterManager"
       ]
     },
-    "/home/nkt/Desktop/metaStoksContracts/contracts/tokens/MetaStocksERC20Upgradable.sol": {
-      "lastModificationDate": 1654971854773,
+    "/home/nkt/Desktop/cityInvest/SmartContracts/contracts/tokens/MetaStocksERC20Upgradable.sol": {
+      "lastModificationDate": 1656989945303,
       "contentHash": "2561cd650c00eed424201544520f18e2",
       "sourceName": "contracts/tokens/MetaStocksERC20Upgradable.sol",
       "solcConfig": {
@@ -1712,9 +1712,9 @@
         "MetaStocksERC20Upgradable"
       ]
     },
-    "/home/nkt/Desktop/metaStoksContracts/node_modules/@uniswap/v2-core/contracts/interfaces/IUniswapV2Factory.sol": {
-      "lastModificationDate": 1656889699385,
-      "contentHash": "3fbfb29d564881bdeaced40b01c7bd37",
+    "/home/nkt/Desktop/cityInvest/SmartContracts/node_modules/@uniswap/v2-core/contracts/interfaces/IUniswapV2Factory.sol": {
+      "lastModificationDate": 1656990033132,
+      "contentHash": "ec39b5372f4f4d52101b4da561e2aee6",
       "sourceName": "@uniswap/v2-core/contracts/interfaces/IUniswapV2Factory.sol",
       "solcConfig": {
         "version": "0.8.14",
@@ -1748,8 +1748,8 @@
         "IUniswapV2Factory"
       ]
     },
-    "/home/nkt/Desktop/metaStoksContracts/contracts/managers/transactionFees/TransactionFeesManager.sol": {
-      "lastModificationDate": 1654942937535,
+    "/home/nkt/Desktop/cityInvest/SmartContracts/contracts/managers/transactionFees/TransactionFeesManager.sol": {
+      "lastModificationDate": 1656989945299,
       "contentHash": "0dd26eca0b50d09013a760fef5cdf318",
       "sourceName": "contracts/managers/transactionFees/TransactionFeesManager.sol",
       "solcConfig": {
@@ -1788,8 +1788,8 @@
         "TransactionFeesManager"
       ]
     },
-    "/home/nkt/Desktop/metaStoksContracts/contracts/models/TransactionFees.sol": {
-      "lastModificationDate": 1654762216725,
+    "/home/nkt/Desktop/cityInvest/SmartContracts/contracts/models/TransactionFees.sol": {
+      "lastModificationDate": 1656989945295,
       "contentHash": "038572f2f5c1885f736e19f02f562b76",
       "sourceName": "contracts/models/TransactionFees.sol",
       "solcConfig": {
@@ -1822,8 +1822,8 @@
       ],
       "artifacts": []
     },
-    "/home/nkt/Desktop/metaStoksContracts/contracts/MetaStocksToken.sol": {
-      "lastModificationDate": 1656890137043,
+    "/home/nkt/Desktop/cityInvest/SmartContracts/contracts/MetaStocksToken.sol": {
+      "lastModificationDate": 1656989945295,
       "contentHash": "a6d67ae65d211387bac2a7a15f1663a4",
       "sourceName": "contracts/MetaStocksToken.sol",
       "solcConfig": {
@@ -1868,8 +1868,8 @@
         "MetaStocksToken"
       ]
     },
-    "/home/nkt/Desktop/metaStoksContracts/contracts/interfaces/dexRouter/IAutoLiquidityInjecter.sol": {
-      "lastModificationDate": 1654763183305,
+    "/home/nkt/Desktop/cityInvest/SmartContracts/contracts/interfaces/dexRouter/IAutoLiquidityInjecter.sol": {
+      "lastModificationDate": 1656989945295,
       "contentHash": "f4a9324a99f37b89cf5db400c5037f19",
       "sourceName": "contracts/interfaces/dexRouter/IAutoLiquidityInjecter.sol",
       "solcConfig": {
@@ -1904,8 +1904,8 @@
         "IAutoLiquidityInjecter"
       ]
     },
-    "/home/nkt/Desktop/metaStoksContracts/contracts/MetaStocksCompany.sol": {
-      "lastModificationDate": 1654952629820,
+    "/home/nkt/Desktop/cityInvest/SmartContracts/contracts/MetaStocksCompany.sol": {
+      "lastModificationDate": 1656989945295,
       "contentHash": "bd1968387de2def7b430e0eea91329ab",
       "sourceName": "contracts/MetaStocksCompany.sol",
       "solcConfig": {
@@ -1948,8 +1948,8 @@
         "MetaStocksCompany"
       ]
     },
-    "/home/nkt/Desktop/metaStoksContracts/node_modules/@openzeppelin/contracts-upgradeable/token/ERC721/ERC721Upgradeable.sol": {
-      "lastModificationDate": 1656002538505,
+    "/home/nkt/Desktop/cityInvest/SmartContracts/node_modules/@openzeppelin/contracts-upgradeable/token/ERC721/ERC721Upgradeable.sol": {
+      "lastModificationDate": 1656990033072,
       "contentHash": "003a2d431418e4e32f06a75d965e0780",
       "sourceName": "@openzeppelin/contracts-upgradeable/token/ERC721/ERC721Upgradeable.sol",
       "solcConfig": {
@@ -1993,8 +1993,8 @@
         "ERC721Upgradeable"
       ]
     },
-    "/home/nkt/Desktop/metaStoksContracts/node_modules/@openzeppelin/contracts-upgradeable/token/ERC721/extensions/ERC721URIStorageUpgradeable.sol": {
-      "lastModificationDate": 1656002539257,
+    "/home/nkt/Desktop/cityInvest/SmartContracts/node_modules/@openzeppelin/contracts-upgradeable/token/ERC721/extensions/ERC721URIStorageUpgradeable.sol": {
+      "lastModificationDate": 1656990033708,
       "contentHash": "2b09eda73a84a74195c040802c951bb6",
       "sourceName": "@openzeppelin/contracts-upgradeable/token/ERC721/extensions/ERC721URIStorageUpgradeable.sol",
       "solcConfig": {
@@ -2032,8 +2032,8 @@
         "ERC721URIStorageUpgradeable"
       ]
     },
-    "/home/nkt/Desktop/metaStoksContracts/node_modules/@openzeppelin/contracts-upgradeable/utils/CountersUpgradeable.sol": {
-      "lastModificationDate": 1656002537117,
+    "/home/nkt/Desktop/cityInvest/SmartContracts/node_modules/@openzeppelin/contracts-upgradeable/utils/CountersUpgradeable.sol": {
+      "lastModificationDate": 1656990031764,
       "contentHash": "2e908c762a799baea365e68a50500e2c",
       "sourceName": "@openzeppelin/contracts-upgradeable/utils/CountersUpgradeable.sol",
       "solcConfig": {
@@ -2068,8 +2068,8 @@
         "CountersUpgradeable"
       ]
     },
-    "/home/nkt/Desktop/metaStoksContracts/node_modules/@openzeppelin/contracts/token/ERC20/ERC20.sol": {
-      "lastModificationDate": 1656002538485,
+    "/home/nkt/Desktop/cityInvest/SmartContracts/node_modules/@openzeppelin/contracts/token/ERC20/ERC20.sol": {
+      "lastModificationDate": 1656990033032,
       "contentHash": "a9d2146925da52142435d3bb8df53c3c",
       "sourceName": "@openzeppelin/contracts/token/ERC20/ERC20.sol",
       "solcConfig": {
@@ -2108,8 +2108,8 @@
         "ERC20"
       ]
     },
-    "/home/nkt/Desktop/metaStoksContracts/node_modules/@openzeppelin/contracts-upgradeable/token/ERC721/IERC721Upgradeable.sol": {
-      "lastModificationDate": 1656002538505,
+    "/home/nkt/Desktop/cityInvest/SmartContracts/node_modules/@openzeppelin/contracts-upgradeable/token/ERC721/IERC721Upgradeable.sol": {
+      "lastModificationDate": 1656990033072,
       "contentHash": "668d517c0c98c142b0dade502dc378af",
       "sourceName": "@openzeppelin/contracts-upgradeable/token/ERC721/IERC721Upgradeable.sol",
       "solcConfig": {
@@ -2146,8 +2146,8 @@
         "IERC721Upgradeable"
       ]
     },
-    "/home/nkt/Desktop/metaStoksContracts/node_modules/@openzeppelin/contracts-upgradeable/token/ERC721/IERC721ReceiverUpgradeable.sol": {
-      "lastModificationDate": 1656002538505,
+    "/home/nkt/Desktop/cityInvest/SmartContracts/node_modules/@openzeppelin/contracts-upgradeable/token/ERC721/IERC721ReceiverUpgradeable.sol": {
+      "lastModificationDate": 1656990033072,
       "contentHash": "ba28cf60b52b00d2b3a190bcdf0952bd",
       "sourceName": "@openzeppelin/contracts-upgradeable/token/ERC721/IERC721ReceiverUpgradeable.sol",
       "solcConfig": {
@@ -2182,8 +2182,8 @@
         "IERC721ReceiverUpgradeable"
       ]
     },
-    "/home/nkt/Desktop/metaStoksContracts/node_modules/@openzeppelin/contracts-upgradeable/token/ERC721/extensions/IERC721MetadataUpgradeable.sol": {
-      "lastModificationDate": 1656002539257,
+    "/home/nkt/Desktop/cityInvest/SmartContracts/node_modules/@openzeppelin/contracts-upgradeable/token/ERC721/extensions/IERC721MetadataUpgradeable.sol": {
+      "lastModificationDate": 1656990033708,
       "contentHash": "76212ca0265501d1eb3dd1175e6afca4",
       "sourceName": "@openzeppelin/contracts-upgradeable/token/ERC721/extensions/IERC721MetadataUpgradeable.sol",
       "solcConfig": {
@@ -2220,8 +2220,8 @@
         "IERC721MetadataUpgradeable"
       ]
     },
-    "/home/nkt/Desktop/metaStoksContracts/node_modules/@openzeppelin/contracts-upgradeable/utils/StringsUpgradeable.sol": {
-      "lastModificationDate": 1656002537117,
+    "/home/nkt/Desktop/cityInvest/SmartContracts/node_modules/@openzeppelin/contracts-upgradeable/utils/StringsUpgradeable.sol": {
+      "lastModificationDate": 1656990031764,
       "contentHash": "f60b5fcbc57911b0fbc7a31a110f90bc",
       "sourceName": "@openzeppelin/contracts-upgradeable/utils/StringsUpgradeable.sol",
       "solcConfig": {
@@ -2256,8 +2256,8 @@
         "StringsUpgradeable"
       ]
     },
-    "/home/nkt/Desktop/metaStoksContracts/node_modules/@openzeppelin/contracts/token/ERC20/extensions/IERC20Metadata.sol": {
-      "lastModificationDate": 1656002539253,
+    "/home/nkt/Desktop/cityInvest/SmartContracts/node_modules/@openzeppelin/contracts/token/ERC20/extensions/IERC20Metadata.sol": {
+      "lastModificationDate": 1656990033704,
       "contentHash": "909ab67fc5c25033fe6cd364f8c056f9",
       "sourceName": "@openzeppelin/contracts/token/ERC20/extensions/IERC20Metadata.sol",
       "solcConfig": {
@@ -2294,8 +2294,8 @@
         "IERC20Metadata"
       ]
     },
-    "/home/nkt/Desktop/metaStoksContracts/node_modules/@openzeppelin/contracts/utils/Context.sol": {
-      "lastModificationDate": 1656002537113,
+    "/home/nkt/Desktop/cityInvest/SmartContracts/node_modules/@openzeppelin/contracts/utils/Context.sol": {
+      "lastModificationDate": 1656990031740,
       "contentHash": "5f2c5c4b6af2dd4551027144797bc8be",
       "sourceName": "@openzeppelin/contracts/utils/Context.sol",
       "solcConfig": {
@@ -2330,9 +2330,199 @@
         "Context"
       ]
     },
-    "/home/nkt/Desktop/metaStoksContracts/contracts/managers/metastocks/MetaStocksFranchiseManager.sol": {
-      "lastModificationDate": 1656898079926,
-      "contentHash": "19d3822f44233499e01fd5d542d7b601",
+    "/home/nkt/Desktop/cityInvest/SmartContracts/contracts/Messagers/TykheFortuneDistributor.sol": {
+      "lastModificationDate": 1656989945299,
+      "contentHash": "4002fde587d0710e75bd98a181b39948",
+      "sourceName": "contracts/Messagers/TykheFortuneDistributor.sol",
+      "solcConfig": {
+        "version": "0.8.14",
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "runs": 100
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata",
+                "storageLayout"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [
+        "@openzeppelin/contracts/token/ERC20/IERC20.sol",
+        "@openzeppelin/contracts-upgradeable/proxy/utils/Initializable.sol"
+      ],
+      "versionPragmas": [
+        "^0.8.14"
+      ],
+      "artifacts": [
+        "TykheFortuneDistributor"
+      ]
+    },
+    "/home/nkt/Desktop/cityInvest/SmartContracts/node_modules/@openzeppelin/contracts/token/ERC20/utils/SafeERC20.sol": {
+      "lastModificationDate": 1656990033704,
+      "contentHash": "76814c83c32552ed2b521c816b4d801a",
+      "sourceName": "@openzeppelin/contracts/token/ERC20/utils/SafeERC20.sol",
+      "solcConfig": {
+        "version": "0.8.14",
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "runs": 100
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata",
+                "storageLayout"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [
+        "../IERC20.sol",
+        "../../../utils/Address.sol"
+      ],
+      "versionPragmas": [
+        "^0.8.0"
+      ],
+      "artifacts": [
+        "SafeERC20"
+      ]
+    },
+    "/home/nkt/Desktop/cityInvest/SmartContracts/node_modules/@openzeppelin/contracts/utils/Address.sol": {
+      "lastModificationDate": 1656990031740,
+      "contentHash": "ad714a6368ee7d43cded6bbe8af0b155",
+      "sourceName": "@openzeppelin/contracts/utils/Address.sol",
+      "solcConfig": {
+        "version": "0.8.14",
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "runs": 100
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata",
+                "storageLayout"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [],
+      "versionPragmas": [
+        "^0.8.1"
+      ],
+      "artifacts": [
+        "Address"
+      ]
+    },
+    "/home/nkt/Desktop/cityInvest/SmartContracts/contracts/Messagers/HermesMerkleAirdropDistributor.sol": {
+      "lastModificationDate": 1656989945299,
+      "contentHash": "7e946c095913d5d24be5b88bdbd58d90",
+      "sourceName": "contracts/Messagers/HermesMerkleAirdropDistributor.sol",
+      "solcConfig": {
+        "version": "0.8.14",
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "runs": 100
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata",
+                "storageLayout"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [
+        "@openzeppelin/contracts/utils/cryptography/MerkleProof.sol",
+        "@openzeppelin/contracts/token/ERC20/IERC20.sol",
+        "@openzeppelin/contracts/token/ERC20/utils/SafeERC20.sol"
+      ],
+      "versionPragmas": [
+        "^0.8.14"
+      ],
+      "artifacts": [
+        "HermesMerkleAirdropDistributor"
+      ]
+    },
+    "/home/nkt/Desktop/cityInvest/SmartContracts/node_modules/@openzeppelin/contracts/utils/cryptography/MerkleProof.sol": {
+      "lastModificationDate": 1656990033032,
+      "contentHash": "8206339fb35134e364332d17ea7b5d60",
+      "sourceName": "@openzeppelin/contracts/utils/cryptography/MerkleProof.sol",
+      "solcConfig": {
+        "version": "0.8.14",
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "runs": 100
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata",
+                "storageLayout"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [],
+      "versionPragmas": [
+        "^0.8.0"
+      ],
+      "artifacts": [
+        "MerkleProof"
+      ]
+    },
+    "/home/nkt/Desktop/cityInvest/SmartContracts/contracts/managers/metastocks/MetaStocksFranchiseManager.sol": {
+      "lastModificationDate": 1656996248568,
+      "contentHash": "21e73c5200354bde9e5e339efc128b65",
       "sourceName": "contracts/managers/metastocks/MetaStocksFranchiseManager.sol",
       "solcConfig": {
         "version": "0.8.14",
@@ -2381,8 +2571,8 @@
         "MetaStocksFranchiseManager"
       ]
     },
-    "/home/nkt/Desktop/metaStoksContracts/contracts/interfaces/metaStocks/IMetaStocksFranchise.sol": {
-      "lastModificationDate": 1654965684003,
+    "/home/nkt/Desktop/cityInvest/SmartContracts/contracts/interfaces/metaStocks/IMetaStocksFranchise.sol": {
+      "lastModificationDate": 1656989945295,
       "contentHash": "dcefaf39913c64e41fddbfdb80dfd491",
       "sourceName": "contracts/interfaces/metaStocks/IMetaStocksFranchise.sol",
       "solcConfig": {
@@ -2419,9 +2609,9 @@
         "IMetaStocksFranchise"
       ]
     },
-    "/home/nkt/Desktop/metaStoksContracts/contracts/managers/metastocks/MetaStocksCompanyManager.sol": {
-      "lastModificationDate": 1656898106770,
-      "contentHash": "2c71249736f7ca2ec532d920eea8ef42",
+    "/home/nkt/Desktop/cityInvest/SmartContracts/contracts/managers/metastocks/MetaStocksCompanyManager.sol": {
+      "lastModificationDate": 1656996868165,
+      "contentHash": "8d1e9413766ce5f9af8a8262f74705bb",
       "sourceName": "contracts/managers/metastocks/MetaStocksCompanyManager.sol",
       "solcConfig": {
         "version": "0.8.14",
@@ -2465,9 +2655,9 @@
         "MetaStocksCompanyManager"
       ]
     },
-    "/home/nkt/Desktop/metaStoksContracts/contracts/interfaces/metaStocks/IMetaStocksFranchiseManager.sol": {
-      "lastModificationDate": 1656898089714,
-      "contentHash": "5c4f1acf3e2ad0faf52890aaccfd05d4",
+    "/home/nkt/Desktop/cityInvest/SmartContracts/contracts/interfaces/metaStocks/IMetaStocksFranchiseManager.sol": {
+      "lastModificationDate": 1656996287124,
+      "contentHash": "3a6dbf6dcd08de0c24607c032af9dfa9",
       "sourceName": "contracts/interfaces/metaStocks/IMetaStocksFranchiseManager.sol",
       "solcConfig": {
         "version": "0.8.14",
@@ -2503,8 +2693,8 @@
         "IMetaStocksFranchiseManager"
       ]
     },
-    "/home/nkt/Desktop/metaStoksContracts/contracts/managers/metastocks/MetaStocksAchievementsManager.sol": {
-      "lastModificationDate": 1655138942681,
+    "/home/nkt/Desktop/cityInvest/SmartContracts/contracts/managers/metastocks/MetaStocksAchievementsManager.sol": {
+      "lastModificationDate": 1656989945299,
       "contentHash": "295daec8ebe7349a67aa3ef0847bce69",
       "sourceName": "contracts/managers/metastocks/MetaStocksAchievementsManager.sol",
       "solcConfig": {
@@ -2542,8 +2732,8 @@
         "MetaStocksAchievementsManager"
       ]
     },
-    "/home/nkt/Desktop/metaStoksContracts/contracts/interfaces/midas/IMidasMultiNetworkRouterManager.sol": {
-      "lastModificationDate": 1654914333784,
+    "/home/nkt/Desktop/cityInvest/SmartContracts/contracts/interfaces/midas/IMidasMultiNetworkRouterManager.sol": {
+      "lastModificationDate": 1656989945299,
       "contentHash": "c539d3c6f1610ce6ace12d7dc8aceaef",
       "sourceName": "contracts/interfaces/midas/IMidasMultiNetworkRouterManager.sol",
       "solcConfig": {
@@ -2580,443 +2770,8 @@
         "MidasMultiNetworkRouterManager"
       ]
     },
-    "/home/nkt/Desktop/metaStoksContracts/contracts/MetaStocksFranchise.sol": {
-      "lastModificationDate": 1654987076187,
-      "contentHash": "c185e18533b7e1527a7893793a4f7ad2",
-      "sourceName": "contracts/MetaStocksFranchise.sol",
-      "solcConfig": {
-        "version": "0.8.14",
-        "settings": {
-          "optimizer": {
-            "enabled": true,
-            "runs": 100
-          },
-          "outputSelection": {
-            "*": {
-              "*": [
-                "abi",
-                "evm.bytecode",
-                "evm.deployedBytecode",
-                "evm.methodIdentifiers",
-                "metadata",
-                "storageLayout"
-              ],
-              "": [
-                "ast"
-              ]
-            }
-          }
-        }
-      },
-      "imports": [
-        "./enums/MetaStocksFranchiseType.sol",
-        "./tokens/MetaStocksERC1155Upgradable.sol"
-      ],
-      "versionPragmas": [
-        "^0.8.14"
-      ],
-      "artifacts": [
-        "MetaStocksFranchise"
-      ]
-    },
-    "/home/nkt/Desktop/metaStoksContracts/contracts/interfaces/metaStocks/IMetaStocksFranchiseShareManager.sol": {
-      "lastModificationDate": 1654963884775,
-      "contentHash": "a6f01112e365ae02b4ad370f8baa019c",
-      "sourceName": "contracts/interfaces/metaStocks/IMetaStocksFranchiseShareManager.sol",
-      "solcConfig": {
-        "version": "0.8.14",
-        "settings": {
-          "optimizer": {
-            "enabled": true,
-            "runs": 100
-          },
-          "outputSelection": {
-            "*": {
-              "*": [
-                "abi",
-                "evm.bytecode",
-                "evm.deployedBytecode",
-                "evm.methodIdentifiers",
-                "metadata",
-                "storageLayout"
-              ],
-              "": [
-                "ast"
-              ]
-            }
-          }
-        }
-      },
-      "imports": [
-        "../../enums/MetaStocksFranchiseType.sol"
-      ],
-      "versionPragmas": [
-        "^0.8.14"
-      ],
-      "artifacts": [
-        "IMetaStocksFranchiseShareManager"
-      ]
-    },
-    "/home/nkt/Desktop/metaStoksContracts/contracts/interfaces/metaStocks/IMetaStocksBaseManager.sol": {
-      "lastModificationDate": 1654916214461,
-      "contentHash": "f63e5f8e399064e5658362b7aee24387",
-      "sourceName": "contracts/interfaces/metaStocks/IMetaStocksBaseManager.sol",
-      "solcConfig": {
-        "version": "0.8.14",
-        "settings": {
-          "optimizer": {
-            "enabled": true,
-            "runs": 100
-          },
-          "outputSelection": {
-            "*": {
-              "*": [
-                "abi",
-                "evm.bytecode",
-                "evm.deployedBytecode",
-                "evm.methodIdentifiers",
-                "metadata",
-                "storageLayout"
-              ],
-              "": [
-                "ast"
-              ]
-            }
-          }
-        }
-      },
-      "imports": [],
-      "versionPragmas": [
-        "^0.8.14"
-      ],
-      "artifacts": [
-        "IMetaStocksBaseManager"
-      ]
-    },
-    "/home/nkt/Desktop/metaStoksContracts/contracts/interfaces/metaStocks/IMetaStocksCompanyInfo.sol": {
-      "lastModificationDate": 1654918432663,
-      "contentHash": "60c4ec63754be3c368bb2d42b3a2fed4",
-      "sourceName": "contracts/interfaces/metaStocks/IMetaStocksCompanyInfo.sol",
-      "solcConfig": {
-        "version": "0.8.14",
-        "settings": {
-          "optimizer": {
-            "enabled": true,
-            "runs": 100
-          },
-          "outputSelection": {
-            "*": {
-              "*": [
-                "abi",
-                "evm.bytecode",
-                "evm.deployedBytecode",
-                "evm.methodIdentifiers",
-                "metadata",
-                "storageLayout"
-              ],
-              "": [
-                "ast"
-              ]
-            }
-          }
-        }
-      },
-      "imports": [],
-      "versionPragmas": [
-        "^0.8.14"
-      ],
-      "artifacts": [
-        "IMetaStocksCompanyInfo"
-      ]
-    },
-    "/home/nkt/Desktop/metaStoksContracts/contracts/interfaces/metaStocks/IMetaStocksCompanyManager.sol": {
-      "lastModificationDate": 1654913470029,
-      "contentHash": "deb357c5111b694468a083646f66cf55",
-      "sourceName": "contracts/interfaces/metaStocks/IMetaStocksCompanyManager.sol",
-      "solcConfig": {
-        "version": "0.8.14",
-        "settings": {
-          "optimizer": {
-            "enabled": true,
-            "runs": 100
-          },
-          "outputSelection": {
-            "*": {
-              "*": [
-                "abi",
-                "evm.bytecode",
-                "evm.deployedBytecode",
-                "evm.methodIdentifiers",
-                "metadata",
-                "storageLayout"
-              ],
-              "": [
-                "ast"
-              ]
-            }
-          }
-        }
-      },
-      "imports": [],
-      "versionPragmas": [
-        "^0.8.14"
-      ],
-      "artifacts": [
-        "IMetaStocksCompanyManager"
-      ]
-    },
-    "/home/nkt/Desktop/metaStoksContracts/contracts/interfaces/midas/IMidaDataFeedsConsumer.sol": {
-      "lastModificationDate": 1654847420700,
-      "contentHash": "ddeb6bb261e179805db9f8b98630e392",
-      "sourceName": "contracts/interfaces/midas/IMidaDataFeedsConsumer.sol",
-      "solcConfig": {
-        "version": "0.8.14",
-        "settings": {
-          "optimizer": {
-            "enabled": true,
-            "runs": 100
-          },
-          "outputSelection": {
-            "*": {
-              "*": [
-                "abi",
-                "evm.bytecode",
-                "evm.deployedBytecode",
-                "evm.methodIdentifiers",
-                "metadata",
-                "storageLayout"
-              ],
-              "": [
-                "ast"
-              ]
-            }
-          }
-        }
-      },
-      "imports": [],
-      "versionPragmas": [
-        "^0.8.14"
-      ],
-      "artifacts": [
-        "IMidasManager"
-      ]
-    },
-    "/home/nkt/Desktop/metaStoksContracts/contracts/interfaces/midas/IMidasManager.sol": {
-      "lastModificationDate": 1654909240100,
-      "contentHash": "b79220f014745d46f953d8e6b4e43e91",
-      "sourceName": "contracts/interfaces/midas/IMidasManager.sol",
-      "solcConfig": {
-        "version": "0.8.14",
-        "settings": {
-          "optimizer": {
-            "enabled": true,
-            "runs": 100
-          },
-          "outputSelection": {
-            "*": {
-              "*": [
-                "abi",
-                "evm.bytecode",
-                "evm.deployedBytecode",
-                "evm.methodIdentifiers",
-                "metadata",
-                "storageLayout"
-              ],
-              "": [
-                "ast"
-              ]
-            }
-          }
-        }
-      },
-      "imports": [],
-      "versionPragmas": [
-        "^0.8.14"
-      ],
-      "artifacts": [
-        "IMidasManager"
-      ]
-    },
-    "/home/nkt/Desktop/metaStoksContracts/contracts/managers/chainlink/ChainlinkVRFManager.sol": {
-      "lastModificationDate": 1654944115507,
-      "contentHash": "8cacae46c17d65bee655e2af69c18f48",
-      "sourceName": "contracts/managers/chainlink/ChainlinkVRFManager.sol",
-      "solcConfig": {
-        "version": "0.8.14",
-        "settings": {
-          "optimizer": {
-            "enabled": true,
-            "runs": 100
-          },
-          "outputSelection": {
-            "*": {
-              "*": [
-                "abi",
-                "evm.bytecode",
-                "evm.deployedBytecode",
-                "evm.methodIdentifiers",
-                "metadata",
-                "storageLayout"
-              ],
-              "": [
-                "ast"
-              ]
-            }
-          }
-        }
-      },
-      "imports": [
-        "@chainlink/contracts/src/v0.8/interfaces/VRFCoordinatorV2Interface.sol"
-      ],
-      "versionPragmas": [
-        "^0.8.14"
-      ],
-      "artifacts": [
-        "ChainlinkVRFManager"
-      ]
-    },
-    "/home/nkt/Desktop/metaStoksContracts/node_modules/@chainlink/contracts/src/v0.8/interfaces/VRFCoordinatorV2Interface.sol": {
-      "lastModificationDate": 1656002539229,
-      "contentHash": "56ec852a2aeddf81bf5a5720a7fc6a63",
-      "sourceName": "@chainlink/contracts/src/v0.8/interfaces/VRFCoordinatorV2Interface.sol",
-      "solcConfig": {
-        "version": "0.8.14",
-        "settings": {
-          "optimizer": {
-            "enabled": true,
-            "runs": 100
-          },
-          "outputSelection": {
-            "*": {
-              "*": [
-                "abi",
-                "evm.bytecode",
-                "evm.deployedBytecode",
-                "evm.methodIdentifiers",
-                "metadata",
-                "storageLayout"
-              ],
-              "": [
-                "ast"
-              ]
-            }
-          }
-        }
-      },
-      "imports": [],
-      "versionPragmas": [
-        "^0.8.0"
-      ],
-      "artifacts": [
-        "VRFCoordinatorV2Interface"
-      ]
-    },
-    "/home/nkt/Desktop/metaStoksContracts/contracts/models/FeeReceiver.sol": {
-      "lastModificationDate": 1654762213765,
-      "contentHash": "1470d037ac74fd40a335de5d712c53f8",
-      "sourceName": "contracts/models/FeeReceiver.sol",
-      "solcConfig": {
-        "version": "0.8.14",
-        "settings": {
-          "optimizer": {
-            "enabled": true,
-            "runs": 100
-          },
-          "outputSelection": {
-            "*": {
-              "*": [
-                "abi",
-                "evm.bytecode",
-                "evm.deployedBytecode",
-                "evm.methodIdentifiers",
-                "metadata",
-                "storageLayout"
-              ],
-              "": [
-                "ast"
-              ]
-            }
-          }
-        }
-      },
-      "imports": [],
-      "versionPragmas": [
-        "^0.8.14"
-      ],
-      "artifacts": []
-    },
-    "/home/nkt/Desktop/metaStoksContracts/contracts/models/MetaStockCompanyInfo.sol": {
-      "lastModificationDate": 1654913446597,
-      "contentHash": "fc81aa32928797dcbee3911e3833ae13",
-      "sourceName": "contracts/models/MetaStockCompanyInfo.sol",
-      "solcConfig": {
-        "version": "0.8.14",
-        "settings": {
-          "optimizer": {
-            "enabled": true,
-            "runs": 100
-          },
-          "outputSelection": {
-            "*": {
-              "*": [
-                "abi",
-                "evm.bytecode",
-                "evm.deployedBytecode",
-                "evm.methodIdentifiers",
-                "metadata",
-                "storageLayout"
-              ],
-              "": [
-                "ast"
-              ]
-            }
-          }
-        }
-      },
-      "imports": [],
-      "versionPragmas": [
-        "^0.8.14"
-      ],
-      "artifacts": []
-    },
-    "/home/nkt/Desktop/metaStoksContracts/contracts/tokens/MetaStocksSBT.sol": {
-      "lastModificationDate": 1655166353712,
-      "contentHash": "0de0b6718551c7cebfb704c8cfe559ab",
-      "sourceName": "contracts/tokens/MetaStocksSBT.sol",
-      "solcConfig": {
-        "version": "0.8.14",
-        "settings": {
-          "optimizer": {
-            "enabled": true,
-            "runs": 100
-          },
-          "outputSelection": {
-            "*": {
-              "*": [
-                "abi",
-                "evm.bytecode",
-                "evm.deployedBytecode",
-                "evm.methodIdentifiers",
-                "metadata",
-                "storageLayout"
-              ],
-              "": [
-                "ast"
-              ]
-            }
-          }
-        }
-      },
-      "imports": [],
-      "versionPragmas": [
-        "^0.8.14"
-      ],
-      "artifacts": [
-        "MetaStocksSBT"
-      ]
-    },
-    "/home/nkt/Desktop/metaStoksContracts/contracts/Messagers/HermesDividendTracker.sol": {
-      "lastModificationDate": 1656889662067,
+    "/home/nkt/Desktop/cityInvest/SmartContracts/contracts/Messagers/HermesDividendTracker.sol": {
+      "lastModificationDate": 1656989945299,
       "contentHash": "f8aa00935d274ff8c16f75db154eaf4c",
       "sourceName": "contracts/Messagers/HermesDividendTracker.sol",
       "solcConfig": {
@@ -3060,8 +2815,375 @@
         "SafeMathUint"
       ]
     },
-    "/home/nkt/Desktop/metaStoksContracts/contracts/Messagers/interfaces/ITykheFortuneDistributor.sol": {
-      "lastModificationDate": 1656889662071,
+    "/home/nkt/Desktop/cityInvest/SmartContracts/contracts/MetaStocksFranchise.sol": {
+      "lastModificationDate": 1656989945295,
+      "contentHash": "c185e18533b7e1527a7893793a4f7ad2",
+      "sourceName": "contracts/MetaStocksFranchise.sol",
+      "solcConfig": {
+        "version": "0.8.14",
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "runs": 100
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata",
+                "storageLayout"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [
+        "./enums/MetaStocksFranchiseType.sol",
+        "./tokens/MetaStocksERC1155Upgradable.sol"
+      ],
+      "versionPragmas": [
+        "^0.8.14"
+      ],
+      "artifacts": [
+        "MetaStocksFranchise"
+      ]
+    },
+    "/home/nkt/Desktop/cityInvest/SmartContracts/contracts/interfaces/metaStocks/IMetaStocksFranchiseShareManager.sol": {
+      "lastModificationDate": 1656989945295,
+      "contentHash": "a6f01112e365ae02b4ad370f8baa019c",
+      "sourceName": "contracts/interfaces/metaStocks/IMetaStocksFranchiseShareManager.sol",
+      "solcConfig": {
+        "version": "0.8.14",
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "runs": 100
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata",
+                "storageLayout"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [
+        "../../enums/MetaStocksFranchiseType.sol"
+      ],
+      "versionPragmas": [
+        "^0.8.14"
+      ],
+      "artifacts": [
+        "IMetaStocksFranchiseShareManager"
+      ]
+    },
+    "/home/nkt/Desktop/cityInvest/SmartContracts/contracts/interfaces/metaStocks/IMetaStocksBaseManager.sol": {
+      "lastModificationDate": 1656989945295,
+      "contentHash": "f63e5f8e399064e5658362b7aee24387",
+      "sourceName": "contracts/interfaces/metaStocks/IMetaStocksBaseManager.sol",
+      "solcConfig": {
+        "version": "0.8.14",
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "runs": 100
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata",
+                "storageLayout"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [],
+      "versionPragmas": [
+        "^0.8.14"
+      ],
+      "artifacts": [
+        "IMetaStocksBaseManager"
+      ]
+    },
+    "/home/nkt/Desktop/cityInvest/SmartContracts/contracts/interfaces/metaStocks/IMetaStocksCompanyInfo.sol": {
+      "lastModificationDate": 1656989945295,
+      "contentHash": "60c4ec63754be3c368bb2d42b3a2fed4",
+      "sourceName": "contracts/interfaces/metaStocks/IMetaStocksCompanyInfo.sol",
+      "solcConfig": {
+        "version": "0.8.14",
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "runs": 100
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata",
+                "storageLayout"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [],
+      "versionPragmas": [
+        "^0.8.14"
+      ],
+      "artifacts": [
+        "IMetaStocksCompanyInfo"
+      ]
+    },
+    "/home/nkt/Desktop/cityInvest/SmartContracts/contracts/interfaces/metaStocks/IMetaStocksCompanyManager.sol": {
+      "lastModificationDate": 1656989945295,
+      "contentHash": "deb357c5111b694468a083646f66cf55",
+      "sourceName": "contracts/interfaces/metaStocks/IMetaStocksCompanyManager.sol",
+      "solcConfig": {
+        "version": "0.8.14",
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "runs": 100
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata",
+                "storageLayout"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [],
+      "versionPragmas": [
+        "^0.8.14"
+      ],
+      "artifacts": [
+        "IMetaStocksCompanyManager"
+      ]
+    },
+    "/home/nkt/Desktop/cityInvest/SmartContracts/contracts/interfaces/midas/IMidaDataFeedsConsumer.sol": {
+      "lastModificationDate": 1656989945299,
+      "contentHash": "ddeb6bb261e179805db9f8b98630e392",
+      "sourceName": "contracts/interfaces/midas/IMidaDataFeedsConsumer.sol",
+      "solcConfig": {
+        "version": "0.8.14",
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "runs": 100
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata",
+                "storageLayout"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [],
+      "versionPragmas": [
+        "^0.8.14"
+      ],
+      "artifacts": [
+        "IMidasManager"
+      ]
+    },
+    "/home/nkt/Desktop/cityInvest/SmartContracts/contracts/interfaces/midas/IMidasManager.sol": {
+      "lastModificationDate": 1656989945299,
+      "contentHash": "b79220f014745d46f953d8e6b4e43e91",
+      "sourceName": "contracts/interfaces/midas/IMidasManager.sol",
+      "solcConfig": {
+        "version": "0.8.14",
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "runs": 100
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata",
+                "storageLayout"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [],
+      "versionPragmas": [
+        "^0.8.14"
+      ],
+      "artifacts": [
+        "IMidasManager"
+      ]
+    },
+    "/home/nkt/Desktop/cityInvest/SmartContracts/contracts/managers/chainlink/ChainlinkVRFManager.sol": {
+      "lastModificationDate": 1656989945299,
+      "contentHash": "8cacae46c17d65bee655e2af69c18f48",
+      "sourceName": "contracts/managers/chainlink/ChainlinkVRFManager.sol",
+      "solcConfig": {
+        "version": "0.8.14",
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "runs": 100
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata",
+                "storageLayout"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [
+        "@chainlink/contracts/src/v0.8/interfaces/VRFCoordinatorV2Interface.sol"
+      ],
+      "versionPragmas": [
+        "^0.8.14"
+      ],
+      "artifacts": [
+        "ChainlinkVRFManager"
+      ]
+    },
+    "/home/nkt/Desktop/cityInvest/SmartContracts/node_modules/@chainlink/contracts/src/v0.8/interfaces/VRFCoordinatorV2Interface.sol": {
+      "lastModificationDate": 1656990033676,
+      "contentHash": "56ec852a2aeddf81bf5a5720a7fc6a63",
+      "sourceName": "@chainlink/contracts/src/v0.8/interfaces/VRFCoordinatorV2Interface.sol",
+      "solcConfig": {
+        "version": "0.8.14",
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "runs": 100
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata",
+                "storageLayout"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [],
+      "versionPragmas": [
+        "^0.8.0"
+      ],
+      "artifacts": [
+        "VRFCoordinatorV2Interface"
+      ]
+    },
+    "/home/nkt/Desktop/cityInvest/SmartContracts/contracts/Messagers/interfaces/IHermesMerkleAirdrop.sol": {
+      "lastModificationDate": 1656989945299,
+      "contentHash": "f4a9324a99f37b89cf5db400c5037f19",
+      "sourceName": "contracts/Messagers/interfaces/IHermesMerkleAirdrop.sol",
+      "solcConfig": {
+        "version": "0.8.14",
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "runs": 100
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata",
+                "storageLayout"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [],
+      "versionPragmas": [
+        "^0.8.14"
+      ],
+      "artifacts": [
+        "IAutoLiquidityInjecter"
+      ]
+    },
+    "/home/nkt/Desktop/cityInvest/SmartContracts/contracts/Messagers/interfaces/ITykheFortuneDistributor.sol": {
+      "lastModificationDate": 1656989945299,
       "contentHash": "882d7fafac0f77c378570590ed38c6ce",
       "sourceName": "contracts/Messagers/interfaces/ITykheFortuneDistributor.sol",
       "solcConfig": {
@@ -3096,88 +3218,10 @@
         "ITykheFortuneDistributor"
       ]
     },
-    "/home/nkt/Desktop/metaStoksContracts/contracts/Messagers/TykheFortuneDistributor.sol": {
-      "lastModificationDate": 1656889662071,
-      "contentHash": "4002fde587d0710e75bd98a181b39948",
-      "sourceName": "contracts/Messagers/TykheFortuneDistributor.sol",
-      "solcConfig": {
-        "version": "0.8.14",
-        "settings": {
-          "optimizer": {
-            "enabled": true,
-            "runs": 100
-          },
-          "outputSelection": {
-            "*": {
-              "*": [
-                "abi",
-                "evm.bytecode",
-                "evm.deployedBytecode",
-                "evm.methodIdentifiers",
-                "metadata",
-                "storageLayout"
-              ],
-              "": [
-                "ast"
-              ]
-            }
-          }
-        }
-      },
-      "imports": [
-        "@openzeppelin/contracts/token/ERC20/IERC20.sol",
-        "@openzeppelin/contracts-upgradeable/proxy/utils/Initializable.sol"
-      ],
-      "versionPragmas": [
-        "^0.8.14"
-      ],
-      "artifacts": [
-        "TykheFortuneDistributor"
-      ]
-    },
-    "/home/nkt/Desktop/metaStoksContracts/node_modules/@openzeppelin/contracts/token/ERC20/utils/SafeERC20.sol": {
-      "lastModificationDate": 1656002539253,
-      "contentHash": "76814c83c32552ed2b521c816b4d801a",
-      "sourceName": "@openzeppelin/contracts/token/ERC20/utils/SafeERC20.sol",
-      "solcConfig": {
-        "version": "0.8.14",
-        "settings": {
-          "optimizer": {
-            "enabled": true,
-            "runs": 100
-          },
-          "outputSelection": {
-            "*": {
-              "*": [
-                "abi",
-                "evm.bytecode",
-                "evm.deployedBytecode",
-                "evm.methodIdentifiers",
-                "metadata",
-                "storageLayout"
-              ],
-              "": [
-                "ast"
-              ]
-            }
-          }
-        }
-      },
-      "imports": [
-        "../IERC20.sol",
-        "../../../utils/Address.sol"
-      ],
-      "versionPragmas": [
-        "^0.8.0"
-      ],
-      "artifacts": [
-        "SafeERC20"
-      ]
-    },
-    "/home/nkt/Desktop/metaStoksContracts/node_modules/@openzeppelin/contracts/utils/Address.sol": {
-      "lastModificationDate": 1656002537113,
-      "contentHash": "ad714a6368ee7d43cded6bbe8af0b155",
-      "sourceName": "@openzeppelin/contracts/utils/Address.sol",
+    "/home/nkt/Desktop/cityInvest/SmartContracts/contracts/models/FeeReceiver.sol": {
+      "lastModificationDate": 1656989945295,
+      "contentHash": "1470d037ac74fd40a335de5d712c53f8",
+      "sourceName": "contracts/models/FeeReceiver.sol",
       "solcConfig": {
         "version": "0.8.14",
         "settings": {
@@ -3204,56 +3248,14 @@
       },
       "imports": [],
       "versionPragmas": [
-        "^0.8.1"
-      ],
-      "artifacts": [
-        "Address"
-      ]
-    },
-    "/home/nkt/Desktop/metaStoksContracts/contracts/Messagers/HermesMerkleAirdropDistributor.sol": {
-      "lastModificationDate": 1656889662071,
-      "contentHash": "7e946c095913d5d24be5b88bdbd58d90",
-      "sourceName": "contracts/Messagers/HermesMerkleAirdropDistributor.sol",
-      "solcConfig": {
-        "version": "0.8.14",
-        "settings": {
-          "optimizer": {
-            "enabled": true,
-            "runs": 100
-          },
-          "outputSelection": {
-            "*": {
-              "*": [
-                "abi",
-                "evm.bytecode",
-                "evm.deployedBytecode",
-                "evm.methodIdentifiers",
-                "metadata",
-                "storageLayout"
-              ],
-              "": [
-                "ast"
-              ]
-            }
-          }
-        }
-      },
-      "imports": [
-        "@openzeppelin/contracts/utils/cryptography/MerkleProof.sol",
-        "@openzeppelin/contracts/token/ERC20/IERC20.sol",
-        "@openzeppelin/contracts/token/ERC20/utils/SafeERC20.sol"
-      ],
-      "versionPragmas": [
         "^0.8.14"
       ],
-      "artifacts": [
-        "HermesMerkleAirdropDistributor"
-      ]
+      "artifacts": []
     },
-    "/home/nkt/Desktop/metaStoksContracts/node_modules/@openzeppelin/contracts/utils/cryptography/MerkleProof.sol": {
-      "lastModificationDate": 1656002538489,
-      "contentHash": "8206339fb35134e364332d17ea7b5d60",
-      "sourceName": "@openzeppelin/contracts/utils/cryptography/MerkleProof.sol",
+    "/home/nkt/Desktop/cityInvest/SmartContracts/contracts/models/MetaStockCompanyInfo.sol": {
+      "lastModificationDate": 1656989945295,
+      "contentHash": "fc81aa32928797dcbee3911e3833ae13",
+      "sourceName": "contracts/models/MetaStockCompanyInfo.sol",
       "solcConfig": {
         "version": "0.8.14",
         "settings": {
@@ -3280,16 +3282,14 @@
       },
       "imports": [],
       "versionPragmas": [
-        "^0.8.0"
+        "^0.8.14"
       ],
-      "artifacts": [
-        "MerkleProof"
-      ]
+      "artifacts": []
     },
-    "/home/nkt/Desktop/metaStoksContracts/contracts/Messagers/interfaces/IHermesMerkleAirdrop.sol": {
-      "lastModificationDate": 1656889662071,
-      "contentHash": "f4a9324a99f37b89cf5db400c5037f19",
-      "sourceName": "contracts/Messagers/interfaces/IHermesMerkleAirdrop.sol",
+    "/home/nkt/Desktop/cityInvest/SmartContracts/contracts/tokens/MetaStocksSBT.sol": {
+      "lastModificationDate": 1656989945303,
+      "contentHash": "0de0b6718551c7cebfb704c8cfe559ab",
+      "sourceName": "contracts/tokens/MetaStocksSBT.sol",
       "solcConfig": {
         "version": "0.8.14",
         "settings": {
@@ -3319,7 +3319,47 @@
         "^0.8.14"
       ],
       "artifacts": [
-        "IAutoLiquidityInjecter"
+        "MetaStocksSBT"
+      ]
+    },
+    "/home/nkt/Desktop/cityInvest/SmartContracts/contracts/tokens/MetaStocksIERC721ReceiverHolder.sol": {
+      "lastModificationDate": 1656997079351,
+      "contentHash": "97bc96fa3847007d8c76232acd7351a3",
+      "sourceName": "contracts/tokens/MetaStocksIERC721ReceiverHolder.sol",
+      "solcConfig": {
+        "version": "0.8.14",
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "runs": 100
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata",
+                "storageLayout"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [
+        "@openzeppelin/contracts/token/ERC1155/utils/ERC1155Holder.sol",
+        "@openzeppelin/contracts/token/ERC1155/utils/ERC1155Holder.sol",
+        "@openzeppelin/contracts/token/ERC1155/IERC1155Receiver.sol"
+      ],
+      "versionPragmas": [
+        "^0.8.14"
+      ],
+      "artifacts": [
+        "MetaStocksIER721ReceiverHolder"
       ]
     }
   }

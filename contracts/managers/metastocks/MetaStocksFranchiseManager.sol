@@ -190,6 +190,29 @@ contract MetaStocksFranchiseManager is
         return totalUnclaimed;
     }
 
+    function getMetaStocksFranchisesUnclaimedRewardsBNB(uint256 companyId)
+        external
+        view
+        returns (uint256)
+    {
+        uint256 totalUnclaimed = 0;
+
+        for (uint256 typeIndex = 0; typeIndex < 10; typeIndex++) {
+            uint256 typeNumber = companyFranchises[companyId][typeIndex];
+
+            for (uint256 index = 0; index < typeNumber; index++) {
+                totalUnclaimed +=
+                    ((uint256(
+                        block.timestamp -
+                            franchisesLastClaimDates[companyId][typeNumber]
+                    ) * franchiseDailyEarnings) / franchiseDailyInterval) *
+                    franchisesWorkers[companyId][typeNumber];
+            }
+        }
+
+        return totalUnclaimed;
+    }
+
     function createMetaStocksFranchiseUsingBNB(
         address to,
         uint256 companyId,

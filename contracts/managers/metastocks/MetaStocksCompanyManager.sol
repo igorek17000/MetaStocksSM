@@ -82,7 +82,7 @@ contract MetaStocksCompanyManager is
         }
 
         metaStocksFranchiseManager.createMetaStocksFranchiseUsingBNB(
-            address(metaStocksFranchiseManager),
+            address(MetaStocksCompany),
             this.getCompanyId(msg.sender),
             0,
             MetaStocksFranchiseType.MetaStocksFranchiseType1
@@ -98,6 +98,18 @@ contract MetaStocksCompanyManager is
             metaStocksFranchiseManager.getMetaStocksFranchisesUnclaimedRewards(
                 this.getCompanyId(msg.sender)
             );
+    }
+
+    function getMetaStocksFranchisesUnclaimedRewardsBNB()
+        external
+        view
+        returns (uint256)
+    {
+        return
+            metaStocksFranchiseManager
+                .getMetaStocksFranchisesUnclaimedRewardsBNB(
+                    this.getCompanyId(msg.sender)
+                );
     }
 
     function claimFromAllFranchises() external {

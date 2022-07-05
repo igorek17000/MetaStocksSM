@@ -118,6 +118,25 @@ const _abi = [
         name: "companyId",
         type: "uint256",
       },
+    ],
+    name: "getMetaStocksFranchisesUnclaimedRewardsBNB",
+    outputs: [
+      {
+        internalType: "uint256",
+        name: "",
+        type: "uint256",
+      },
+    ],
+    stateMutability: "view",
+    type: "function",
+  },
+  {
+    inputs: [
+      {
+        internalType: "uint256",
+        name: "companyId",
+        type: "uint256",
+      },
       {
         internalType: "enum MetaStocksFranchiseType",
         name: "_metaStocksFranchiseType",

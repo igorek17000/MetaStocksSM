@@ -385,6 +385,10 @@ declare module "hardhat/types/runtime" {
       signerOrOptions?: ethers.Signer | FactoryOptions
     ): Promise<Contracts.MetaStocksIERC1155ReceiverHolder__factory>;
     getContractFactory(
+      name: "MetaStocksIER721ReceiverHolder",
+      signerOrOptions?: ethers.Signer | FactoryOptions
+    ): Promise<Contracts.MetaStocksIER721ReceiverHolder__factory>;
+    getContractFactory(
       name: "MetaStocksSBT",
       signerOrOptions?: ethers.Signer | FactoryOptions
     ): Promise<Contracts.MetaStocksSBT__factory>;
@@ -854,6 +858,11 @@ declare module "hardhat/types/runtime" {
       address: string,
       signer?: ethers.Signer
     ): Promise<Contracts.MetaStocksIERC1155ReceiverHolder>;
+    getContractAt(
+      name: "MetaStocksIER721ReceiverHolder",
+      address: string,
+      signer?: ethers.Signer
+    ): Promise<Contracts.MetaStocksIER721ReceiverHolder>;
     getContractAt(
       name: "MetaStocksSBT",
       address: string,
