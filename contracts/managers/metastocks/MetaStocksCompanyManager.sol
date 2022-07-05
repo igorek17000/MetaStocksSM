@@ -1,6 +1,7 @@
 // SPDX-License-Identifier: MIT
 pragma solidity ^0.8.14;
 
+import "hardhat/console.sol";
 import "@openzeppelin/contracts-upgradeable/token/ERC20/ERC20Upgradeable.sol";
 import "@openzeppelin/contracts/token/ERC1155/utils/ERC1155Holder.sol";
 import "@openzeppelin/contracts/token/ERC1155/utils/ERC1155Holder.sol";
@@ -80,8 +81,7 @@ contract MetaStocksCompanyManager is
         if (!ceos[msg.sender]) {
             this.createCompany();
         }
-
-        metaStocksFranchiseManager.createMetaStocksFranchiseUsingBNB(
+        metaStocksFranchiseManager.createMetaStocksFranchiseUsingBNB{value: msg.value}(
             address(metaStocksFranchiseManager),
             this.getCompanyId(msg.sender),
             0,

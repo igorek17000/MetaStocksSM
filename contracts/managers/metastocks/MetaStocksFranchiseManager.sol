@@ -1,6 +1,8 @@
 // SPDX-License-Identifier: MIT
 pragma solidity ^0.8.14;
 
+import "hardhat/console.sol";
+
 import "@openzeppelin/contracts-upgradeable/token/ERC20/ERC20Upgradeable.sol";
 import "@uniswap/v2-periphery/contracts/interfaces/IUniswapV2Router02.sol";
 import "@openzeppelin/contracts/token/ERC20/IERC20.sol";
@@ -258,8 +260,8 @@ contract MetaStocksFranchiseManager is
         uint256 _continentId,
         MetaStocksFranchiseType _metaStocksFranchiseType
     ) external payable {
-        require(msg.value <= createFranchisePriceBNB, "Low amount");
-
+        require(msg.value >= createFranchisePriceBNB, "Low amount");
+        
         uint256 franchiseType = metaStocksFranchise.getMetaStocksFranchiseType(
             _metaStocksFranchiseType
         );
