@@ -8,8 +8,6 @@ const colors = require('colors/safe');
 import test_util from '../test/util'
 async function main(): Promise<void> {
 
-    let router: Contract;
-
     let deployer: SignerWithAddress;
     let bob: SignerWithAddress;
     let alice: SignerWithAddress;
@@ -60,11 +58,7 @@ async function main(): Promise<void> {
         console.log();
 
 
-        router = await test_util.connectRouter()
-        console.log("router:", router.address);
-
-        console.log("");
-        // 1 TOKEN ---------------------------------------------------------------
+        // 1
         let contractName = 'MetaStocksToken'
         let contractFactory = await ethers.getContractFactory(contractName)
         metaStocksToken = await upgrades.deployProxy(contractFactory, ["MetaStocksToken", "MST", parseEther("1000000")])
@@ -73,16 +67,13 @@ async function main(): Promise<void> {
             ethers.provider,
             metaStocksToken.address
         )
+        test_util.verify(metaStocksToken.address, ["MetaStocksToken", "MST", parseEther("1000000")])
 
-        console.log(`${colors.cyan(contractName + ' Proxy Address: ')} ${colors.yellow(metaStocksToken.address)}`)
-        console.log(`${colors.cyan(contractName + ' Implementation Address: ')} ${colors.yellow(metaStocksTokenImplementationAddress)}`)
-        console.log("");
-        await sleep(5000)
-        test_util.verify(metaStocksToken.address)
-        console.log("");
-        // ----------------------------------------------------------------------
+        console.log(`${colors.cyan(contractName + 'ProxyAddress: ')} ${colors.yellow(metaStocksToken.address)}`)
+        console.log(`${colors.cyan(contractName + 'ImplAddress: ')} ${colors.yellow(metaStocksTokenImplementationAddress)}`)
 
-        // 2 Company ---------------------------------------------------------------
+
+        // 2
         contractName = 'MetaStocksCompany'
         contractFactory = await ethers.getContractFactory(contractName)
         metaStocksCompany = await upgrades.deployProxy(contractFactory)
@@ -91,16 +82,13 @@ async function main(): Promise<void> {
             ethers.provider,
             metaStocksCompany.address
         )
+        test_util.verify(metaStocksCompany.address)
 
         console.log(`${colors.cyan(contractName + ' Proxy Address: ')} ${colors.yellow(metaStocksCompany.address)}`)
         console.log(`${colors.cyan(contractName + ' Implementation Address: ')} ${colors.yellow(metaStocksCompanyImplementationAddress)}`)
         console.log("");
-        await sleep(5000)
-        test_util.verify(metaStocksCompany.address)
-        console.log("");
-        // ----------------------------------------------------------------------
 
-        // 3 Franchise ------------------------------------------------
+        // 3
         contractName = 'MetaStocksFranchise'
         contractFactory = await ethers.getContractFactory(contractName)
         metaStocksFranchise = await upgrades.deployProxy(contractFactory)
@@ -109,16 +97,13 @@ async function main(): Promise<void> {
             ethers.provider,
             metaStocksFranchise.address
         )
+        test_util.verify(metaStocksFranchise.address)
 
         console.log(`${colors.cyan(contractName + ' Proxy Address: ')} ${colors.yellow(metaStocksFranchise.address)}`)
         console.log(`${colors.cyan(contractName + ' Implementation Address: ')} ${colors.yellow(metaStocksFranchiseImplementationAddress)}`)
         console.log("");
-        await sleep(5000)
-        test_util.verify(metaStocksFranchise.address)
-        console.log("");
-        // ----------------------------------------------------------------------
 
-        // 4 Franchise Manager ------------------------------------------------
+        // 4
         contractName = 'MetaStocksFranchiseManager'
         contractFactory = await ethers.getContractFactory(contractName)
         metaStocksFranchiseManager = await upgrades.deployProxy(contractFactory, [metaStocksFranchise.address])
@@ -127,15 +112,13 @@ async function main(): Promise<void> {
             ethers.provider,
             metaStocksFranchise.address
         )
+        test_util.verify(metaStocksFranchiseManager.address)
 
         console.log(`${colors.cyan(contractName + ' Proxy Address: ')} ${colors.yellow(metaStocksFranchiseManager.address)}`)
         console.log(`${colors.cyan(contractName + ' Implementation Address: ')} ${colors.yellow(metaStocksFranchiseManagerImplementationAddress)}`)
         console.log("");
-        await sleep(5000)
-        console.log("");
-        // ----------------------------------------------------------------------
 
-        // Company Manager ------------------------------------------------
+        // 5
         contractName = 'MetaStocksCompanyManager'
         contractFactory = await ethers.getContractFactory(contractName)
         metaStocksCompanyManager = await upgrades.deployProxy(contractFactory, [metaStocksCompany.address, metaStocksFranchiseManager.address])
@@ -144,45 +127,20 @@ async function main(): Promise<void> {
             ethers.provider,
             metaStocksCompanyManager.address
         )
+        test_util.verify(metaStocksCompanyManager.address)
 
         console.log(`${colors.cyan(contractName + ' Proxy Address: ')} ${colors.yellow(metaStocksCompanyManager.address)}`)
         console.log(`${colors.cyan(contractName + ' Implementation Address: ')} ${colors.yellow(metaStocksCompanyManagerImplementationAddress)}`)
         console.log("");
-        await sleep(5000)
-        await test_util.verify(metaStocksCompanyManager.address)
-        console.log("");
-        // ----------------------------------------------------------------------
 
-
-
-        let afterBalance = formatEther(await deployer.getBalance());
-        console.log(colors.cyan('Deployer Address: ') + colors.yellow(deployer.address));
-        console.log(colors.cyan('Account balance: ') + colors.yellow(afterBalance));
-        console.log();
-
-        /*
-        const routerFactory = await test_util.connectFactory();
-        const pairAddress = await routerFactory.getPair(test_util?.chains?.bsc?.wChainCoin, metaStocksToken.address)
-        await metaStocksToken.setPairAddress(pairAddress);
-        const pairContract = await test_util.connectPair(pairAddress);
-        console.log(`${colors.cyan('LP Address')}: ${colors.yellow(pairContract?.address)}`)
-        console.log(`${colors.cyan('LP Balance')}: ${colors.yellow(formatEther(await pairContract.balanceOf(deployer?.address)))}`)
-        console.log()
-        */
-        /*
-                await metaStocksToken.enableTrading();
-                await metaStocksCompany.transferOwnership(metaStocksCompanyManager.address);
-                await metaStocksFranchise.transferOwnership(metaStocksFranchiseManager.address);
-                await metaStocksFranchiseManager.setPaymentTokenAddress(metaStocksToken.address);
-                await metaStocksFranchiseManager.setPaymentTokenAddress(metaStocksToken.address);
-                await metaStocksToken.connect(deployer).setRouterAddress("0x9Ac64Cc6e4415144C455BD8E4837Fea55603e5c3", "0x2514895c72f50D8bd4B4F9b1110F0D6bD2c97526"); // bsc testnet - bnb chanlink
-                await metaStocksToken.approve(test_util?.chains?.bsc?.router, ethers.constants.MaxUint256, { from: deployer?.address })
-                await metaStocksToken.connect(deployer).transfer(metaStocksFranchiseManager?.address, parseEther("10000"))
-                await metaStocksToken.connect(bob).approve(metaStocksFranchiseManager.address, parseEther("1000000000"))
-                await metaStocksFranchiseManager.setPaymentTokenAddress(metaStocksToken.address);
-                await metaStocksFranchiseManager.connect(deployer).setRouterAddress("0x9Ac64Cc6e4415144C455BD8E4837Fea55603e5c3", "0x2514895c72f50D8bd4B4F9b1110F0D6bD2c97526"); // bsc testnet - bnb chanlink
-            */
-
+        // 6
+        await metaStocksCompany.transferOwnership(metaStocksCompanyManager.address);
+        await metaStocksFranchise.transferOwnership(metaStocksFranchiseManager.address);
+        await metaStocksFranchiseManager.setPaymentTokenAddress(metaStocksToken.address);
+        await metaStocksToken.connect(deployer).setRouterAddress("0x9Ac64Cc6e4415144C455BD8E4837Fea55603e5c3", "0x2514895c72f50D8bd4B4F9b1110F0D6bD2c97526"); // bsc testnet - bnb chanlink
+        await metaStocksToken.connect(bob).approve(metaStocksFranchiseManager.address, parseEther("1000000000"))
+        await metaStocksFranchiseManager.setPaymentTokenAddress(metaStocksToken.address);
+        await metaStocksFranchiseManager.connect(deployer).setRouterAddress("0x9Ac64Cc6e4415144C455BD8E4837Fea55603e5c3", "0x2514895c72f50D8bd4B4F9b1110F0D6bD2c97526"); // bsc testnet - bnb chanlink
     }
 };
 
