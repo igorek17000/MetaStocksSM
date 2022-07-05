@@ -234,7 +234,10 @@ describe("MetaStocks Testing", async () => {
 
 
         it("5.4 - Create MetaStocksFranchise", async () => {
-            await metaStocksCompanyManager.connect(bob).createFranchiseUsingBNB({ value: parseEther("1000") });
+            const priceBNB = await metaStocksFranchiseManager.getCreateFranchisePriceBNB();
+            console.log(`${colors.cyan("Create price: ")} ${colors.yellow(formatEther(priceBNB))}`)
+
+            await metaStocksCompanyManager.connect(bob).createFranchiseUsingBNB({ value: priceBNB });
             await sleep(2000)
 
             const isCeo = await metaStocksCompanyManager.isCeo(bob.address);

@@ -101,6 +101,10 @@ declare module "hardhat/types/runtime" {
       signerOrOptions?: ethers.Signer | FactoryOptions
     ): Promise<Contracts.IERC165Upgradeable__factory>;
     getContractFactory(
+      name: "Ownable",
+      signerOrOptions?: ethers.Signer | FactoryOptions
+    ): Promise<Contracts.Ownable__factory>;
+    getContractFactory(
       name: "IERC1155Receiver",
       signerOrOptions?: ethers.Signer | FactoryOptions
     ): Promise<Contracts.IERC1155Receiver__factory>;
@@ -373,6 +377,10 @@ declare module "hardhat/types/runtime" {
       signerOrOptions?: ethers.Signer | FactoryOptions
     ): Promise<Contracts.MetaStocksToken__factory>;
     getContractFactory(
+      name: "MyToken",
+      signerOrOptions?: ethers.Signer | FactoryOptions
+    ): Promise<Contracts.MyToken__factory>;
+    getContractFactory(
       name: "MetaStocksERC1155Upgradable",
       signerOrOptions?: ethers.Signer | FactoryOptions
     ): Promise<Contracts.MetaStocksERC1155Upgradable__factory>;
@@ -503,6 +511,11 @@ declare module "hardhat/types/runtime" {
       address: string,
       signer?: ethers.Signer
     ): Promise<Contracts.IERC165Upgradeable>;
+    getContractAt(
+      name: "Ownable",
+      address: string,
+      signer?: ethers.Signer
+    ): Promise<Contracts.Ownable>;
     getContractAt(
       name: "IERC1155Receiver",
       address: string,
@@ -843,6 +856,11 @@ declare module "hardhat/types/runtime" {
       address: string,
       signer?: ethers.Signer
     ): Promise<Contracts.MetaStocksToken>;
+    getContractAt(
+      name: "MyToken",
+      address: string,
+      signer?: ethers.Signer
+    ): Promise<Contracts.MyToken>;
     getContractAt(
       name: "MetaStocksERC1155Upgradable",
       address: string,

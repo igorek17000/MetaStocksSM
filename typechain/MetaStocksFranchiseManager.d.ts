@@ -37,12 +37,15 @@ interface MetaStocksFranchiseManagerInterface extends ethers.utils.Interface {
     "franchisesUsdInvested(uint256,uint256)": FunctionFragment;
     "franchisesWorkers(uint256,uint256)": FunctionFragment;
     "getCreateFranchisePrice()": FunctionFragment;
+    "getCreateFranchisePriceBNB()": FunctionFragment;
     "getFranchiseDailyEarnings()": FunctionFragment;
+    "getFranchiseDailyEarningsBNB()": FunctionFragment;
     "getFranchiseValue()": FunctionFragment;
     "getFranchisesByContinent(uint256)": FunctionFragment;
     "getFranchisesUsdInvested(uint256,uint256)": FunctionFragment;
     "getHireWorkerFranchisePrice()": FunctionFragment;
     "getMaintainceFranchiseExpenses()": FunctionFragment;
+    "getMaintainceFranchiseExpensesBNB()": FunctionFragment;
     "getMetaStocksFranchisesUnclaimedRewards(uint256)": FunctionFragment;
     "getMetaStocksFranchisesUnclaimedRewardsBNB(uint256)": FunctionFragment;
     "getNumberOfMetaStocksFranchises(uint256)": FunctionFragment;
@@ -60,9 +63,12 @@ interface MetaStocksFranchiseManagerInterface extends ethers.utils.Interface {
     "self()": FunctionFragment;
     "sellMetaStocksFranchise(address,uint256,uint256,uint8)": FunctionFragment;
     "setCreateFranchisePrice(uint16)": FunctionFragment;
+    "setCreateFranchisePriceBNB(uint16)": FunctionFragment;
     "setFranchiseDailyEarnings(uint16)": FunctionFragment;
+    "setFranchiseDailyEarningsBNB(uint16)": FunctionFragment;
     "setHireWorkerFranchisePrice(uint16)": FunctionFragment;
     "setMaintainceFranchiseExpenses(uint16)": FunctionFragment;
+    "setMaintainceFranchiseExpensesBNB(uint16)": FunctionFragment;
     "setPaymentTokenAddress(address)": FunctionFragment;
     "setRouterAddress(address,address)": FunctionFragment;
     "supportsInterface(bytes4)": FunctionFragment;
@@ -128,7 +134,15 @@ interface MetaStocksFranchiseManagerInterface extends ethers.utils.Interface {
     values?: undefined
   ): string;
   encodeFunctionData(
+    functionFragment: "getCreateFranchisePriceBNB",
+    values?: undefined
+  ): string;
+  encodeFunctionData(
     functionFragment: "getFranchiseDailyEarnings",
+    values?: undefined
+  ): string;
+  encodeFunctionData(
+    functionFragment: "getFranchiseDailyEarningsBNB",
     values?: undefined
   ): string;
   encodeFunctionData(
@@ -149,6 +163,10 @@ interface MetaStocksFranchiseManagerInterface extends ethers.utils.Interface {
   ): string;
   encodeFunctionData(
     functionFragment: "getMaintainceFranchiseExpenses",
+    values?: undefined
+  ): string;
+  encodeFunctionData(
+    functionFragment: "getMaintainceFranchiseExpensesBNB",
     values?: undefined
   ): string;
   encodeFunctionData(
@@ -208,7 +226,15 @@ interface MetaStocksFranchiseManagerInterface extends ethers.utils.Interface {
     values: [BigNumberish]
   ): string;
   encodeFunctionData(
+    functionFragment: "setCreateFranchisePriceBNB",
+    values: [BigNumberish]
+  ): string;
+  encodeFunctionData(
     functionFragment: "setFranchiseDailyEarnings",
+    values: [BigNumberish]
+  ): string;
+  encodeFunctionData(
+    functionFragment: "setFranchiseDailyEarningsBNB",
     values: [BigNumberish]
   ): string;
   encodeFunctionData(
@@ -217,6 +243,10 @@ interface MetaStocksFranchiseManagerInterface extends ethers.utils.Interface {
   ): string;
   encodeFunctionData(
     functionFragment: "setMaintainceFranchiseExpenses",
+    values: [BigNumberish]
+  ): string;
+  encodeFunctionData(
+    functionFragment: "setMaintainceFranchiseExpensesBNB",
     values: [BigNumberish]
   ): string;
   encodeFunctionData(
@@ -298,7 +328,15 @@ interface MetaStocksFranchiseManagerInterface extends ethers.utils.Interface {
     data: BytesLike
   ): Result;
   decodeFunctionResult(
+    functionFragment: "getCreateFranchisePriceBNB",
+    data: BytesLike
+  ): Result;
+  decodeFunctionResult(
     functionFragment: "getFranchiseDailyEarnings",
+    data: BytesLike
+  ): Result;
+  decodeFunctionResult(
+    functionFragment: "getFranchiseDailyEarningsBNB",
     data: BytesLike
   ): Result;
   decodeFunctionResult(
@@ -319,6 +357,10 @@ interface MetaStocksFranchiseManagerInterface extends ethers.utils.Interface {
   ): Result;
   decodeFunctionResult(
     functionFragment: "getMaintainceFranchiseExpenses",
+    data: BytesLike
+  ): Result;
+  decodeFunctionResult(
+    functionFragment: "getMaintainceFranchiseExpensesBNB",
     data: BytesLike
   ): Result;
   decodeFunctionResult(
@@ -375,7 +417,15 @@ interface MetaStocksFranchiseManagerInterface extends ethers.utils.Interface {
     data: BytesLike
   ): Result;
   decodeFunctionResult(
+    functionFragment: "setCreateFranchisePriceBNB",
+    data: BytesLike
+  ): Result;
+  decodeFunctionResult(
     functionFragment: "setFranchiseDailyEarnings",
+    data: BytesLike
+  ): Result;
+  decodeFunctionResult(
+    functionFragment: "setFranchiseDailyEarningsBNB",
     data: BytesLike
   ): Result;
   decodeFunctionResult(
@@ -384,6 +434,10 @@ interface MetaStocksFranchiseManagerInterface extends ethers.utils.Interface {
   ): Result;
   decodeFunctionResult(
     functionFragment: "setMaintainceFranchiseExpenses",
+    data: BytesLike
+  ): Result;
+  decodeFunctionResult(
+    functionFragment: "setMaintainceFranchiseExpensesBNB",
     data: BytesLike
   ): Result;
   decodeFunctionResult(
@@ -581,7 +635,13 @@ export class MetaStocksFranchiseManager extends BaseContract {
 
     getCreateFranchisePrice(overrides?: CallOverrides): Promise<[BigNumber]>;
 
+    getCreateFranchisePriceBNB(overrides?: CallOverrides): Promise<[BigNumber]>;
+
     getFranchiseDailyEarnings(overrides?: CallOverrides): Promise<[BigNumber]>;
+
+    getFranchiseDailyEarningsBNB(
+      overrides?: CallOverrides
+    ): Promise<[BigNumber]>;
 
     getFranchiseValue(overrides?: CallOverrides): Promise<[BigNumber]>;
 
@@ -601,6 +661,10 @@ export class MetaStocksFranchiseManager extends BaseContract {
     ): Promise<[BigNumber]>;
 
     getMaintainceFranchiseExpenses(
+      overrides?: CallOverrides
+    ): Promise<[BigNumber]>;
+
+    getMaintainceFranchiseExpensesBNB(
       overrides?: CallOverrides
     ): Promise<[BigNumber]>;
 
@@ -690,7 +754,17 @@ export class MetaStocksFranchiseManager extends BaseContract {
       overrides?: Overrides & { from?: string | Promise<string> }
     ): Promise<ContractTransaction>;
 
+    setCreateFranchisePriceBNB(
+      _createFranchisePrice: BigNumberish,
+      overrides?: Overrides & { from?: string | Promise<string> }
+    ): Promise<ContractTransaction>;
+
     setFranchiseDailyEarnings(
+      _franchiseDailyEarnings: BigNumberish,
+      overrides?: Overrides & { from?: string | Promise<string> }
+    ): Promise<ContractTransaction>;
+
+    setFranchiseDailyEarningsBNB(
       _franchiseDailyEarnings: BigNumberish,
       overrides?: Overrides & { from?: string | Promise<string> }
     ): Promise<ContractTransaction>;
@@ -701,6 +775,11 @@ export class MetaStocksFranchiseManager extends BaseContract {
     ): Promise<ContractTransaction>;
 
     setMaintainceFranchiseExpenses(
+      _maintainceFranchiseExpenses: BigNumberish,
+      overrides?: Overrides & { from?: string | Promise<string> }
+    ): Promise<ContractTransaction>;
+
+    setMaintainceFranchiseExpensesBNB(
       _maintainceFranchiseExpenses: BigNumberish,
       overrides?: Overrides & { from?: string | Promise<string> }
     ): Promise<ContractTransaction>;
@@ -827,7 +906,11 @@ export class MetaStocksFranchiseManager extends BaseContract {
 
   getCreateFranchisePrice(overrides?: CallOverrides): Promise<BigNumber>;
 
+  getCreateFranchisePriceBNB(overrides?: CallOverrides): Promise<BigNumber>;
+
   getFranchiseDailyEarnings(overrides?: CallOverrides): Promise<BigNumber>;
+
+  getFranchiseDailyEarningsBNB(overrides?: CallOverrides): Promise<BigNumber>;
 
   getFranchiseValue(overrides?: CallOverrides): Promise<BigNumber>;
 
@@ -845,6 +928,10 @@ export class MetaStocksFranchiseManager extends BaseContract {
   getHireWorkerFranchisePrice(overrides?: CallOverrides): Promise<BigNumber>;
 
   getMaintainceFranchiseExpenses(overrides?: CallOverrides): Promise<BigNumber>;
+
+  getMaintainceFranchiseExpensesBNB(
+    overrides?: CallOverrides
+  ): Promise<BigNumber>;
 
   getMetaStocksFranchisesUnclaimedRewards(
     companyId: BigNumberish,
@@ -932,7 +1019,17 @@ export class MetaStocksFranchiseManager extends BaseContract {
     overrides?: Overrides & { from?: string | Promise<string> }
   ): Promise<ContractTransaction>;
 
+  setCreateFranchisePriceBNB(
+    _createFranchisePrice: BigNumberish,
+    overrides?: Overrides & { from?: string | Promise<string> }
+  ): Promise<ContractTransaction>;
+
   setFranchiseDailyEarnings(
+    _franchiseDailyEarnings: BigNumberish,
+    overrides?: Overrides & { from?: string | Promise<string> }
+  ): Promise<ContractTransaction>;
+
+  setFranchiseDailyEarningsBNB(
     _franchiseDailyEarnings: BigNumberish,
     overrides?: Overrides & { from?: string | Promise<string> }
   ): Promise<ContractTransaction>;
@@ -943,6 +1040,11 @@ export class MetaStocksFranchiseManager extends BaseContract {
   ): Promise<ContractTransaction>;
 
   setMaintainceFranchiseExpenses(
+    _maintainceFranchiseExpenses: BigNumberish,
+    overrides?: Overrides & { from?: string | Promise<string> }
+  ): Promise<ContractTransaction>;
+
+  setMaintainceFranchiseExpensesBNB(
     _maintainceFranchiseExpenses: BigNumberish,
     overrides?: Overrides & { from?: string | Promise<string> }
   ): Promise<ContractTransaction>;
@@ -1069,7 +1171,11 @@ export class MetaStocksFranchiseManager extends BaseContract {
 
     getCreateFranchisePrice(overrides?: CallOverrides): Promise<BigNumber>;
 
+    getCreateFranchisePriceBNB(overrides?: CallOverrides): Promise<BigNumber>;
+
     getFranchiseDailyEarnings(overrides?: CallOverrides): Promise<BigNumber>;
+
+    getFranchiseDailyEarningsBNB(overrides?: CallOverrides): Promise<BigNumber>;
 
     getFranchiseValue(overrides?: CallOverrides): Promise<BigNumber>;
 
@@ -1087,6 +1193,10 @@ export class MetaStocksFranchiseManager extends BaseContract {
     getHireWorkerFranchisePrice(overrides?: CallOverrides): Promise<BigNumber>;
 
     getMaintainceFranchiseExpenses(
+      overrides?: CallOverrides
+    ): Promise<BigNumber>;
+
+    getMaintainceFranchiseExpensesBNB(
       overrides?: CallOverrides
     ): Promise<BigNumber>;
 
@@ -1174,7 +1284,17 @@ export class MetaStocksFranchiseManager extends BaseContract {
       overrides?: CallOverrides
     ): Promise<void>;
 
+    setCreateFranchisePriceBNB(
+      _createFranchisePrice: BigNumberish,
+      overrides?: CallOverrides
+    ): Promise<void>;
+
     setFranchiseDailyEarnings(
+      _franchiseDailyEarnings: BigNumberish,
+      overrides?: CallOverrides
+    ): Promise<void>;
+
+    setFranchiseDailyEarningsBNB(
       _franchiseDailyEarnings: BigNumberish,
       overrides?: CallOverrides
     ): Promise<void>;
@@ -1185,6 +1305,11 @@ export class MetaStocksFranchiseManager extends BaseContract {
     ): Promise<void>;
 
     setMaintainceFranchiseExpenses(
+      _maintainceFranchiseExpenses: BigNumberish,
+      overrides?: CallOverrides
+    ): Promise<void>;
+
+    setMaintainceFranchiseExpensesBNB(
       _maintainceFranchiseExpenses: BigNumberish,
       overrides?: CallOverrides
     ): Promise<void>;
@@ -1392,7 +1517,11 @@ export class MetaStocksFranchiseManager extends BaseContract {
 
     getCreateFranchisePrice(overrides?: CallOverrides): Promise<BigNumber>;
 
+    getCreateFranchisePriceBNB(overrides?: CallOverrides): Promise<BigNumber>;
+
     getFranchiseDailyEarnings(overrides?: CallOverrides): Promise<BigNumber>;
+
+    getFranchiseDailyEarningsBNB(overrides?: CallOverrides): Promise<BigNumber>;
 
     getFranchiseValue(overrides?: CallOverrides): Promise<BigNumber>;
 
@@ -1410,6 +1539,10 @@ export class MetaStocksFranchiseManager extends BaseContract {
     getHireWorkerFranchisePrice(overrides?: CallOverrides): Promise<BigNumber>;
 
     getMaintainceFranchiseExpenses(
+      overrides?: CallOverrides
+    ): Promise<BigNumber>;
+
+    getMaintainceFranchiseExpensesBNB(
       overrides?: CallOverrides
     ): Promise<BigNumber>;
 
@@ -1499,7 +1632,17 @@ export class MetaStocksFranchiseManager extends BaseContract {
       overrides?: Overrides & { from?: string | Promise<string> }
     ): Promise<BigNumber>;
 
+    setCreateFranchisePriceBNB(
+      _createFranchisePrice: BigNumberish,
+      overrides?: Overrides & { from?: string | Promise<string> }
+    ): Promise<BigNumber>;
+
     setFranchiseDailyEarnings(
+      _franchiseDailyEarnings: BigNumberish,
+      overrides?: Overrides & { from?: string | Promise<string> }
+    ): Promise<BigNumber>;
+
+    setFranchiseDailyEarningsBNB(
       _franchiseDailyEarnings: BigNumberish,
       overrides?: Overrides & { from?: string | Promise<string> }
     ): Promise<BigNumber>;
@@ -1510,6 +1653,11 @@ export class MetaStocksFranchiseManager extends BaseContract {
     ): Promise<BigNumber>;
 
     setMaintainceFranchiseExpenses(
+      _maintainceFranchiseExpenses: BigNumberish,
+      overrides?: Overrides & { from?: string | Promise<string> }
+    ): Promise<BigNumber>;
+
+    setMaintainceFranchiseExpensesBNB(
       _maintainceFranchiseExpenses: BigNumberish,
       overrides?: Overrides & { from?: string | Promise<string> }
     ): Promise<BigNumber>;
@@ -1642,7 +1790,15 @@ export class MetaStocksFranchiseManager extends BaseContract {
       overrides?: CallOverrides
     ): Promise<PopulatedTransaction>;
 
+    getCreateFranchisePriceBNB(
+      overrides?: CallOverrides
+    ): Promise<PopulatedTransaction>;
+
     getFranchiseDailyEarnings(
+      overrides?: CallOverrides
+    ): Promise<PopulatedTransaction>;
+
+    getFranchiseDailyEarningsBNB(
       overrides?: CallOverrides
     ): Promise<PopulatedTransaction>;
 
@@ -1664,6 +1820,10 @@ export class MetaStocksFranchiseManager extends BaseContract {
     ): Promise<PopulatedTransaction>;
 
     getMaintainceFranchiseExpenses(
+      overrides?: CallOverrides
+    ): Promise<PopulatedTransaction>;
+
+    getMaintainceFranchiseExpensesBNB(
       overrides?: CallOverrides
     ): Promise<PopulatedTransaction>;
 
@@ -1755,7 +1915,17 @@ export class MetaStocksFranchiseManager extends BaseContract {
       overrides?: Overrides & { from?: string | Promise<string> }
     ): Promise<PopulatedTransaction>;
 
+    setCreateFranchisePriceBNB(
+      _createFranchisePrice: BigNumberish,
+      overrides?: Overrides & { from?: string | Promise<string> }
+    ): Promise<PopulatedTransaction>;
+
     setFranchiseDailyEarnings(
+      _franchiseDailyEarnings: BigNumberish,
+      overrides?: Overrides & { from?: string | Promise<string> }
+    ): Promise<PopulatedTransaction>;
+
+    setFranchiseDailyEarningsBNB(
       _franchiseDailyEarnings: BigNumberish,
       overrides?: Overrides & { from?: string | Promise<string> }
     ): Promise<PopulatedTransaction>;
@@ -1766,6 +1936,11 @@ export class MetaStocksFranchiseManager extends BaseContract {
     ): Promise<PopulatedTransaction>;
 
     setMaintainceFranchiseExpenses(
+      _maintainceFranchiseExpenses: BigNumberish,
+      overrides?: Overrides & { from?: string | Promise<string> }
+    ): Promise<PopulatedTransaction>;
+
+    setMaintainceFranchiseExpensesBNB(
       _maintainceFranchiseExpenses: BigNumberish,
       overrides?: Overrides & { from?: string | Promise<string> }
     ): Promise<PopulatedTransaction>;

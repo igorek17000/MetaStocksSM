@@ -23,9 +23,12 @@ contract MetaStocksFranchiseManager is
     OwnableUpgradeable
 {
     IMetaStocksFranchise metaStocksFranchise;
+    uint256 private createFranchisePriceBNB;
     uint256 private createFranchisePrice;
     uint256 private hireWorkerFranchisePrice;
+    uint256 private maintainceFranchiseExpensesBNB;
     uint256 private maintainceFranchiseExpenses;
+    uint256 private franchiseDailyEarningsBNB;
     uint256 private franchiseDailyEarnings;
     uint256 private franchiseDailyInterval;
     uint256 private franchiseWorkersMultiplicator;
@@ -53,10 +56,13 @@ contract MetaStocksFranchiseManager is
         public
         initializer
     {
-        createFranchisePrice = 100 ether;
-        franchiseDailyEarnings = 10 ether;
+        createFranchisePriceBNB = 250000000000000000; // 0.25BNB
+        franchiseDailyEarningsBNB = 8300000000000000; // 0.0083BNB
+        maintainceFranchiseExpensesBNB = 50000000000000000; // 0.05BNB
+        createFranchisePrice = 10 ether;
+        franchiseDailyEarnings = 170000000000000000;
         maintainceFranchiseExpenses = 1 ether;
-        franchiseDailyInterval = 10;
+        franchiseDailyInterval = 1 days;
 
         paymentTokenAddress = address(0);
         metaStocksFranchise = IMetaStocksFranchise(_metaStocksFranchiseAddress);
@@ -78,6 +84,18 @@ contract MetaStocksFranchiseManager is
 
     function getFranchiseDailyEarnings() external view returns (uint256) {
         return franchiseDailyEarnings;
+    }
+
+    function getCreateFranchisePriceBNB() external view returns (uint256) {
+        return createFranchisePriceBNB;
+    }
+
+    function getMaintainceFranchiseExpensesBNB() external view returns (uint256) {
+        return maintainceFranchiseExpensesBNB;
+    }
+
+    function getFranchiseDailyEarningsBNB() external view returns (uint256) {
+        return franchiseDailyEarningsBNB;
     }
 
     function getHireWorkerFranchisePrice() external view returns (uint256) {
@@ -117,6 +135,20 @@ contract MetaStocksFranchiseManager is
         franchiseDailyEarnings = _franchiseDailyEarnings;
     }
 
+    function setMaintainceFranchiseExpensesBNB(uint16 _maintainceFranchiseExpenses)
+        external
+        virtual
+    {
+        maintainceFranchiseExpensesBNB = _maintainceFranchiseExpenses;
+    }
+
+    function setFranchiseDailyEarningsBNB(uint16 _franchiseDailyEarnings)
+        external
+        virtual
+    {
+        franchiseDailyEarningsBNB = _franchiseDailyEarnings;
+    }
+
     function setPaymentTokenAddress(address _paymentTokenAddress)
         external
         virtual
@@ -142,6 +174,13 @@ contract MetaStocksFranchiseManager is
         virtual
     {
         createFranchisePrice = _createFranchisePrice;
+    }
+
+    function setCreateFranchisePriceBNB(uint16 _createFranchisePrice)
+        external
+        virtual
+    {
+        createFranchisePriceBNB = _createFranchisePrice;
     }
 
     function getNumberOfMetaStocksFranchises(uint256 companyId)
@@ -219,7 +258,7 @@ contract MetaStocksFranchiseManager is
         uint256 _continentId,
         MetaStocksFranchiseType _metaStocksFranchiseType
     ) external payable {
-        require(msg.value < 10000000000000000, "Low amount");
+        require(msg.value <= createFranchisePriceBNB, "Low amount");
 
         uint256 franchiseType = metaStocksFranchise.getMetaStocksFranchiseType(
             _metaStocksFranchiseType
