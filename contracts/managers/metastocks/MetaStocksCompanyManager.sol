@@ -54,36 +54,36 @@ contract MetaStocksCompanyManager is
         return ceos[_account];
     }
 
-    function createCompany() external payable {
-        //require(!ceos[msg.sender], "Already Ceo");
-        uint256 companyId = MetaStocksCompany.safeMint(msg.sender);
-        ceosCompanies[msg.sender] = companyId;
-        companiesCeos[companyId] = msg.sender;
-        ceos[msg.sender] = true;
+    function createCompany(address account) external payable {
+        //require(!ceos[account], "Already Ceo");
+        uint256 companyId = MetaStocksCompany.safeMint(account);
+        ceosCompanies[account] = companyId;
+        companiesCeos[companyId] = account;
+        ceos[account] = true;
         totalCeos++;
-        emit CreateCompany(msg.sender, ceosCompanies[msg.sender]);
+        emit CreateCompany(account, ceosCompanies[account]);
     }
 
-    function createFranchise() external payable {
-        if (!ceos[msg.sender]) {
-            this.createCompany();
+    function createFranchise(address _account) external payable {
+        if (!ceos[_account]) {
+            this.createCompany(_account);
         }
 
         metaStocksFranchiseManager.createMetaStocksFranchise(
             address(metaStocksFranchiseManager),
-            this.getCompanyId(msg.sender),
+            this.getCompanyId(_account),
             0,
             MetaStocksFranchiseType.MetaStocksFranchiseType1
         );
     }
 
-    function createFranchiseUsingBNB() external payable {
-        if (!ceos[msg.sender]) {
-            this.createCompany();
+    function createFranchiseUsingBNB(address _account) external payable {
+        if (!ceos[_account]) {
+            this.createCompany(_account);
         }
         metaStocksFranchiseManager.createMetaStocksFranchiseUsingBNB{value: msg.value}(
             address(metaStocksFranchiseManager),
-            this.getCompanyId(msg.sender),
+            this.getCompanyId(_account),
             0,
             MetaStocksFranchiseType.MetaStocksFranchiseType1
         );

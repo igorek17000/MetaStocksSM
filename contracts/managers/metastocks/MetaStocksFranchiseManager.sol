@@ -92,7 +92,11 @@ contract MetaStocksFranchiseManager is
         return createFranchisePriceBNB;
     }
 
-    function getMaintainceFranchiseExpensesBNB() external view returns (uint256) {
+    function getMaintainceFranchiseExpensesBNB()
+        external
+        view
+        returns (uint256)
+    {
         return maintainceFranchiseExpensesBNB;
     }
 
@@ -137,10 +141,9 @@ contract MetaStocksFranchiseManager is
         franchiseDailyEarnings = _franchiseDailyEarnings;
     }
 
-    function setMaintainceFranchiseExpensesBNB(uint16 _maintainceFranchiseExpenses)
-        external
-        virtual
-    {
+    function setMaintainceFranchiseExpensesBNB(
+        uint16 _maintainceFranchiseExpenses
+    ) external virtual {
         maintainceFranchiseExpensesBNB = _maintainceFranchiseExpenses;
     }
 
@@ -261,7 +264,7 @@ contract MetaStocksFranchiseManager is
         MetaStocksFranchiseType _metaStocksFranchiseType
     ) external payable {
         require(msg.value >= createFranchisePriceBNB, "Low amount");
-        
+
         uint256 franchiseType = metaStocksFranchise.getMetaStocksFranchiseType(
             _metaStocksFranchiseType
         );
