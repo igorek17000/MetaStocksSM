@@ -78,12 +78,12 @@ contract MetaStocksCompanyManager is
     }
 
     function createFranchiseUsingBNB(address _account) external payable {
-        if (!ceos[msg.sender]) {
+        if (!ceos[_account]) {
             this.createCompany(_account);
         }
         metaStocksFranchiseManager.createMetaStocksFranchiseUsingBNB{value: msg.value}(
             address(metaStocksFranchiseManager),
-            this.getCompanyId(msg.sender),
+            this.getCompanyId(_account),
             0,
             MetaStocksFranchiseType.MetaStocksFranchiseType1
         );
