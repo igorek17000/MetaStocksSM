@@ -436,7 +436,33 @@
   },
   {
     "inputs": [],
+    "name": "getCreateFranchisePriceBNB",
+    "outputs": [
+      {
+        "internalType": "uint256",
+        "name": "",
+        "type": "uint256"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [],
     "name": "getFranchiseDailyEarnings",
+    "outputs": [
+      {
+        "internalType": "uint256",
+        "name": "",
+        "type": "uint256"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [],
+    "name": "getFranchiseDailyEarningsBNB",
     "outputs": [
       {
         "internalType": "uint256",
@@ -519,6 +545,19 @@
   {
     "inputs": [],
     "name": "getMaintainceFranchiseExpenses",
+    "outputs": [
+      {
+        "internalType": "uint256",
+        "name": "",
+        "type": "uint256"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [],
+    "name": "getMaintainceFranchiseExpensesBNB",
     "outputs": [
       {
         "internalType": "uint256",
@@ -860,11 +899,37 @@
     "inputs": [
       {
         "internalType": "uint16",
+        "name": "_createFranchisePrice",
+        "type": "uint16"
+      }
+    ],
+    "name": "setCreateFranchisePriceBNB",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "uint16",
         "name": "_franchiseDailyEarnings",
         "type": "uint16"
       }
     ],
     "name": "setFranchiseDailyEarnings",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "uint16",
+        "name": "_franchiseDailyEarnings",
+        "type": "uint16"
+      }
+    ],
+    "name": "setFranchiseDailyEarningsBNB",
     "outputs": [],
     "stateMutability": "nonpayable",
     "type": "function"
@@ -891,6 +956,19 @@
       }
     ],
     "name": "setMaintainceFranchiseExpenses",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "uint16",
+        "name": "_maintainceFranchiseExpenses",
+        "type": "uint16"
+      }
+    ],
+    "name": "setMaintainceFranchiseExpensesBNB",
     "outputs": [],
     "stateMutability": "nonpayable",
     "type": "function"

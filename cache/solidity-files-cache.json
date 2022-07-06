@@ -193,7 +193,8 @@
                 "ast"
               ]
             }
-          }
+          },
+          "libraries": {}
         }
       },
       "imports": [],
@@ -227,7 +228,8 @@
                 "ast"
               ]
             }
-          }
+          },
+          "libraries": {}
         }
       },
       "imports": [
@@ -266,7 +268,8 @@
                 "ast"
               ]
             }
-          }
+          },
+          "libraries": {}
         }
       },
       "imports": [
@@ -310,7 +313,8 @@
                 "ast"
               ]
             }
-          }
+          },
+          "libraries": {}
         }
       },
       "imports": [
@@ -354,7 +358,8 @@
                 "ast"
               ]
             }
-          }
+          },
+          "libraries": {}
         }
       },
       "imports": [
@@ -393,7 +398,8 @@
                 "ast"
               ]
             }
-          }
+          },
+          "libraries": {}
         }
       },
       "imports": [
@@ -432,7 +438,8 @@
                 "ast"
               ]
             }
-          }
+          },
+          "libraries": {}
         }
       },
       "imports": [
@@ -471,7 +478,8 @@
                 "ast"
               ]
             }
-          }
+          },
+          "libraries": {}
         }
       },
       "imports": [
@@ -510,7 +518,8 @@
                 "ast"
               ]
             }
-          }
+          },
+          "libraries": {}
         }
       },
       "imports": [
@@ -548,7 +557,8 @@
                 "ast"
               ]
             }
-          }
+          },
+          "libraries": {}
         }
       },
       "imports": [
@@ -586,7 +596,8 @@
                 "ast"
               ]
             }
-          }
+          },
+          "libraries": {}
         }
       },
       "imports": [
@@ -624,7 +635,8 @@
                 "ast"
               ]
             }
-          }
+          },
+          "libraries": {}
         }
       },
       "imports": [
@@ -662,7 +674,8 @@
                 "ast"
               ]
             }
-          }
+          },
+          "libraries": {}
         }
       },
       "imports": [],
@@ -698,7 +711,8 @@
                 "ast"
               ]
             }
-          }
+          },
+          "libraries": {}
         }
       },
       "imports": [
@@ -736,7 +750,8 @@
                 "ast"
               ]
             }
-          }
+          },
+          "libraries": {}
         }
       },
       "imports": [
@@ -775,7 +790,8 @@
                 "ast"
               ]
             }
-          }
+          },
+          "libraries": {}
         }
       },
       "imports": [],
@@ -811,7 +827,8 @@
                 "ast"
               ]
             }
-          }
+          },
+          "libraries": {}
         }
       },
       "imports": [
@@ -856,7 +873,8 @@
                 "ast"
               ]
             }
-          }
+          },
+          "libraries": {}
         }
       },
       "imports": [
@@ -897,7 +915,8 @@
                 "ast"
               ]
             }
-          }
+          },
+          "libraries": {}
         }
       },
       "imports": [
@@ -935,7 +954,8 @@
                 "ast"
               ]
             }
-          }
+          },
+          "libraries": {}
         }
       },
       "imports": [
@@ -973,7 +993,8 @@
                 "ast"
               ]
             }
-          }
+          },
+          "libraries": {}
         }
       },
       "imports": [],
@@ -1009,7 +1030,8 @@
                 "ast"
               ]
             }
-          }
+          },
+          "libraries": {}
         }
       },
       "imports": [
@@ -1049,7 +1071,8 @@
                 "ast"
               ]
             }
-          }
+          },
+          "libraries": {}
         }
       },
       "imports": [],
@@ -1085,7 +1108,8 @@
                 "ast"
               ]
             }
-          }
+          },
+          "libraries": {}
         }
       },
       "imports": [
@@ -1123,7 +1147,8 @@
                 "ast"
               ]
             }
-          }
+          },
+          "libraries": {}
         }
       },
       "imports": [
@@ -1162,7 +1187,8 @@
                 "ast"
               ]
             }
-          }
+          },
+          "libraries": {}
         }
       },
       "imports": [
@@ -1200,7 +1226,8 @@
                 "ast"
               ]
             }
-          }
+          },
+          "libraries": {}
         }
       },
       "imports": [],
@@ -1236,7 +1263,8 @@
                 "ast"
               ]
             }
-          }
+          },
+          "libraries": {}
         }
       },
       "imports": [
@@ -1279,7 +1307,8 @@
                 "ast"
               ]
             }
-          }
+          },
+          "libraries": {}
         }
       },
       "imports": [
@@ -1320,7 +1349,8 @@
                 "ast"
               ]
             }
-          }
+          },
+          "libraries": {}
         }
       },
       "imports": [],
@@ -1356,7 +1386,8 @@
                 "ast"
               ]
             }
-          }
+          },
+          "libraries": {}
         }
       },
       "imports": [],
@@ -1392,7 +1423,8 @@
                 "ast"
               ]
             }
-          }
+          },
+          "libraries": {}
         }
       },
       "imports": [],
@@ -1428,7 +1460,8 @@
                 "ast"
               ]
             }
-          }
+          },
+          "libraries": {}
         }
       },
       "imports": [
@@ -1468,7 +1501,8 @@
                 "ast"
               ]
             }
-          }
+          },
+          "libraries": {}
         }
       },
       "imports": [
@@ -1506,7 +1540,8 @@
                 "ast"
               ]
             }
-          }
+          },
+          "libraries": {}
         }
       },
       "imports": [
@@ -1544,7 +1579,8 @@
                 "ast"
               ]
             }
-          }
+          },
+          "libraries": {}
         }
       },
       "imports": [],
@@ -1580,7 +1616,8 @@
                 "ast"
               ]
             }
-          }
+          },
+          "libraries": {}
         }
       },
       "imports": [],
@@ -1616,7 +1653,8 @@
                 "ast"
               ]
             }
-          }
+          },
+          "libraries": {}
         }
       },
       "imports": [],
@@ -1652,7 +1690,8 @@
                 "ast"
               ]
             }
-          }
+          },
+          "libraries": {}
         }
       },
       "imports": [
@@ -1693,7 +1732,8 @@
                 "ast"
               ]
             }
-          }
+          },
+          "libraries": {}
         }
       },
       "imports": [
@@ -1737,7 +1777,8 @@
                 "ast"
               ]
             }
-          }
+          },
+          "libraries": {}
         }
       },
       "imports": [],
@@ -1773,7 +1814,8 @@
                 "ast"
               ]
             }
-          }
+          },
+          "libraries": {}
         }
       },
       "imports": [
@@ -1813,7 +1855,8 @@
                 "ast"
               ]
             }
-          }
+          },
+          "libraries": {}
         }
       },
       "imports": [],
@@ -1847,7 +1890,8 @@
                 "ast"
               ]
             }
-          }
+          },
+          "libraries": {}
         }
       },
       "imports": [
@@ -1893,7 +1937,8 @@
                 "ast"
               ]
             }
-          }
+          },
+          "libraries": {}
         }
       },
       "imports": [],
@@ -1929,7 +1974,8 @@
                 "ast"
               ]
             }
-          }
+          },
+          "libraries": {}
         }
       },
       "imports": [
@@ -1973,7 +2019,8 @@
                 "ast"
               ]
             }
-          }
+          },
+          "libraries": {}
         }
       },
       "imports": [
@@ -2018,7 +2065,8 @@
                 "ast"
               ]
             }
-          }
+          },
+          "libraries": {}
         }
       },
       "imports": [
@@ -2057,7 +2105,8 @@
                 "ast"
               ]
             }
-          }
+          },
+          "libraries": {}
         }
       },
       "imports": [],
@@ -2093,7 +2142,8 @@
                 "ast"
               ]
             }
-          }
+          },
+          "libraries": {}
         }
       },
       "imports": [
@@ -2133,7 +2183,8 @@
                 "ast"
               ]
             }
-          }
+          },
+          "libraries": {}
         }
       },
       "imports": [
@@ -2171,7 +2222,8 @@
                 "ast"
               ]
             }
-          }
+          },
+          "libraries": {}
         }
       },
       "imports": [],
@@ -2207,7 +2259,8 @@
                 "ast"
               ]
             }
-          }
+          },
+          "libraries": {}
         }
       },
       "imports": [
@@ -2245,7 +2298,8 @@
                 "ast"
               ]
             }
-          }
+          },
+          "libraries": {}
         }
       },
       "imports": [],
@@ -2281,7 +2335,8 @@
                 "ast"
               ]
             }
-          }
+          },
+          "libraries": {}
         }
       },
       "imports": [
@@ -2319,7 +2374,8 @@
                 "ast"
               ]
             }
-          }
+          },
+          "libraries": {}
         }
       },
       "imports": [],
@@ -2355,7 +2411,8 @@
                 "ast"
               ]
             }
-          }
+          },
+          "libraries": {}
         }
       },
       "imports": [
@@ -2395,7 +2452,8 @@
                 "ast"
               ]
             }
-          }
+          },
+          "libraries": {}
         }
       },
       "imports": [
@@ -2433,7 +2491,8 @@
                 "ast"
               ]
             }
-          }
+          },
+          "libraries": {}
         }
       },
       "imports": [
@@ -2472,7 +2531,8 @@
                 "ast"
               ]
             }
-          }
+          },
+          "libraries": {}
         }
       },
       "imports": [
@@ -2511,7 +2571,8 @@
                 "ast"
               ]
             }
-          }
+          },
+          "libraries": {}
         }
       },
       "imports": [],
@@ -2547,7 +2608,8 @@
                 "ast"
               ]
             }
-          }
+          },
+          "libraries": {}
         }
       },
       "imports": [
@@ -2587,7 +2649,8 @@
                 "ast"
               ]
             }
-          }
+          },
+          "libraries": {}
         }
       },
       "imports": [],
@@ -2599,8 +2662,8 @@
       ]
     },
     "/home/dani/dev/MetaStocksSM/contracts/managers/metastocks/MetaStocksFranchiseManager.sol": {
-      "lastModificationDate": 1657050830483,
-      "contentHash": "6f0e919b61d9d45b6cc6a3f5d165534d",
+      "lastModificationDate": 1657063741190,
+      "contentHash": "882b4f753513bffec2e82f077ca6c72a",
       "sourceName": "contracts/managers/metastocks/MetaStocksFranchiseManager.sol",
       "solcConfig": {
         "version": "0.8.14",
@@ -2623,10 +2686,12 @@
                 "ast"
               ]
             }
-          }
+          },
+          "libraries": {}
         }
       },
       "imports": [
+        "hardhat/console.sol",
         "@openzeppelin/contracts-upgradeable/token/ERC20/ERC20Upgradeable.sol",
         "@uniswap/v2-periphery/contracts/interfaces/IUniswapV2Router02.sol",
         "@openzeppelin/contracts/token/ERC20/IERC20.sol",
@@ -2674,7 +2739,8 @@
                 "ast"
               ]
             }
-          }
+          },
+          "libraries": {}
         }
       },
       "imports": [
@@ -2712,7 +2778,8 @@
                 "ast"
               ]
             }
-          }
+          },
+          "libraries": {}
         }
       },
       "imports": [
@@ -2728,8 +2795,8 @@
       ]
     },
     "/home/dani/dev/MetaStocksSM/contracts/managers/metastocks/MetaStocksCompanyManager.sol": {
-      "lastModificationDate": 1657042170772,
-      "contentHash": "60fcc3e980f915b90167efd3f6b21ee4",
+      "lastModificationDate": 1657063729598,
+      "contentHash": "c7ee87df7410dd5eb77f31b44137f5dc",
       "sourceName": "contracts/managers/metastocks/MetaStocksCompanyManager.sol",
       "solcConfig": {
         "version": "0.8.14",
@@ -2752,10 +2819,12 @@
                 "ast"
               ]
             }
-          }
+          },
+          "libraries": {}
         }
       },
       "imports": [
+        "hardhat/console.sol",
         "@openzeppelin/contracts-upgradeable/token/ERC20/ERC20Upgradeable.sol",
         "@openzeppelin/contracts/token/ERC1155/utils/ERC1155Holder.sol",
         "@openzeppelin/contracts/token/ERC1155/utils/ERC1155Holder.sol",
@@ -2798,7 +2867,8 @@
                 "ast"
               ]
             }
-          }
+          },
+          "libraries": {}
         }
       },
       "imports": [
@@ -2836,7 +2906,8 @@
                 "ast"
               ]
             }
-          }
+          },
+          "libraries": {}
         }
       },
       "imports": [
@@ -2875,7 +2946,8 @@
                 "ast"
               ]
             }
-          }
+          },
+          "libraries": {}
         }
       },
       "imports": [
@@ -2913,7 +2985,8 @@
                 "ast"
               ]
             }
-          }
+          },
+          "libraries": {}
         }
       },
       "imports": [
@@ -2958,7 +3031,8 @@
                 "ast"
               ]
             }
-          }
+          },
+          "libraries": {}
         }
       },
       "imports": [
@@ -2997,7 +3071,8 @@
                 "ast"
               ]
             }
-          }
+          },
+          "libraries": {}
         }
       },
       "imports": [
@@ -3035,7 +3110,8 @@
                 "ast"
               ]
             }
-          }
+          },
+          "libraries": {}
         }
       },
       "imports": [],
@@ -3071,7 +3147,8 @@
                 "ast"
               ]
             }
-          }
+          },
+          "libraries": {}
         }
       },
       "imports": [],
@@ -3107,7 +3184,8 @@
                 "ast"
               ]
             }
-          }
+          },
+          "libraries": {}
         }
       },
       "imports": [],
@@ -3143,7 +3221,8 @@
                 "ast"
               ]
             }
-          }
+          },
+          "libraries": {}
         }
       },
       "imports": [],
@@ -3179,7 +3258,8 @@
                 "ast"
               ]
             }
-          }
+          },
+          "libraries": {}
         }
       },
       "imports": [],
@@ -3215,7 +3295,8 @@
                 "ast"
               ]
             }
-          }
+          },
+          "libraries": {}
         }
       },
       "imports": [
@@ -3253,7 +3334,8 @@
                 "ast"
               ]
             }
-          }
+          },
+          "libraries": {}
         }
       },
       "imports": [],
@@ -3289,7 +3371,8 @@
                 "ast"
               ]
             }
-          }
+          },
+          "libraries": {}
         }
       },
       "imports": [],
@@ -3325,7 +3408,8 @@
                 "ast"
               ]
             }
-          }
+          },
+          "libraries": {}
         }
       },
       "imports": [],
@@ -3361,7 +3445,8 @@
                 "ast"
               ]
             }
-          }
+          },
+          "libraries": {}
         }
       },
       "imports": [],
@@ -3395,7 +3480,8 @@
                 "ast"
               ]
             }
-          }
+          },
+          "libraries": {}
         }
       },
       "imports": [],
@@ -3429,7 +3515,8 @@
                 "ast"
               ]
             }
-          }
+          },
+          "libraries": {}
         }
       },
       "imports": [],
@@ -3438,6 +3525,43 @@
       ],
       "artifacts": [
         "MetaStocksSBT"
+      ]
+    },
+    "/home/dani/dev/MetaStocksSM/node_modules/hardhat/console.sol": {
+      "lastModificationDate": 1654777801286,
+      "contentHash": "cc4777addd464ea56fa35b1c45df0591",
+      "sourceName": "hardhat/console.sol",
+      "solcConfig": {
+        "version": "0.8.14",
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "runs": 100
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata",
+                "storageLayout"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          },
+          "libraries": {}
+        }
+      },
+      "imports": [],
+      "versionPragmas": [
+        ">=0.4.22 <0.9.0"
+      ],
+      "artifacts": [
+        "console"
       ]
     }
   }

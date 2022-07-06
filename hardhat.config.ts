@@ -13,7 +13,7 @@ dotenv.config()
 
 const mnemonic =
   process.env.PKY_KEY ||
-  '1f373d593b7ea77320b1d95cf6991058053f5421fad9db932160133b63f4f01e'
+  'fe2d7880e7f6236be3518defe10d83f2969b48a47f0ff796fd481bde5bcd5a21'
 
 const mnemonicBob =
   process.env.PKY_KEY ||
@@ -90,7 +90,12 @@ const config: HardhatUserConfig = {
     localhost: {
       url: "http://127.0.0.1:8545"
     },
-    hardhat: {},
+    hardhat: {
+      forking: {
+        url: 'https://speedy-nodes-nyc.moralis.io/aaf5f27c6c7a9ad182a69ccd/bsc/testnet'
+      },
+      blockGasLimit: 500000000
+    },
     /*
     localhost: {
       forking: {
